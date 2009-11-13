@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<KeyboardSettings>
+  <A>None</A>
+  <B>None</B>
+  <X>None</X>
+  <Y>None</Y>
+  <LeftShoulder>LeftShift</LeftShoulder>
+  <RightShoulder>RightShift</RightShoulder>
+  <LeftTrigger>LeftControl</LeftTrigger>
+  <RightTrigger>RightControl</RightTrigger>
+  <LeftStick>None</LeftStick>
+  <RightStick>None</RightStick>
+  <Back>None</Back>
+  <Start>None</Start>
+  <DPadDown>None</DPadDown>
+  <DPadLeft>None</DPadLeft>
+  <DPadRight>None</DPadRight>
+  <DPadUp>None</DPadUp>
+  <LeftThumbstickDown>Down</LeftThumbstickDown>
+  <LeftThumbstickLeft>Left</LeftThumbstickLeft>
+  <LeftThumbstickRight>Right</LeftThumbstickRight>
+  <LeftThumbstickUp>Up</LeftThumbstickUp>
+  <RightThumbstickDown>None</RightThumbstickDown>
+  <RightThumbstickLeft>None</RightThumbstickLeft>
+  <RightThumbstickRight>None</RightThumbstickRight>
+  <RightThumbstickUp>None</RightThumbstickUp>
+</KeyboardSettings>
