@@ -1,0 +1,2 @@
+D:\Privgrejjer\HiK\Grundläggande spelprogrammering\PacmanClone\PacmanClone\PacmanClone\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Privgrejjer\HiK\Grundläggande spelprogrammering\Respositorium\sl22jb\PacmanClone\PacmanClone\PacmanClone\Content\obj\x86\Debug\ResolveAssemblyReference.cache
