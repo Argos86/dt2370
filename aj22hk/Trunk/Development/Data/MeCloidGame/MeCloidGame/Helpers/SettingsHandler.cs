@@ -10,6 +10,14 @@ using Microsoft.Xna.Framework.Input;
 namespace MeCloidGame.Helpers
 {
     [Serializable]
+    public struct DisplaySettings
+    {
+        public bool FullScreen;
+        public int WindowWidth;
+        public int WindowHeight;
+    }
+
+    [Serializable]
     public struct KeyboardSettings
     {
         public Keys A;
