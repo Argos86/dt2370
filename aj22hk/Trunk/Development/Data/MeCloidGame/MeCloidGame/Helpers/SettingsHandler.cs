@@ -34,15 +34,15 @@ namespace MeCloidGame.Helpers
         public Keys DPadRight;
         public Keys DPadUp;
 
-        public Keys LeftThumbStickDown;
-        public Keys LeftThumbStickLeft;
-        public Keys LeftThumbStickRight;
-        public Keys LeftThumbStickUp;
+        public Keys LeftThumbstickDown;
+        public Keys LeftThumbstickLeft;
+        public Keys LeftThumbstickRight;
+        public Keys LeftThumbstickUp;
 
-        public Keys RightThumbStickDown;
-        public Keys RightThumbStickLeft;
-        public Keys RightThumbStickRight;
-        public Keys RightThumbStickUp;
+        public Keys RightThumbstickDown;
+        public Keys RightThumbstickLeft;
+        public Keys RightThumbstickRight;
+        public Keys RightThumbstickUp;
     }
 
     public static class SettingsHandler
@@ -84,15 +84,15 @@ namespace MeCloidGame.Helpers
             dictionary.Add(Buttons.DPadRight, a_keyboardSettings.DPadRight);
             dictionary.Add(Buttons.DPadUp, a_keyboardSettings.DPadUp);
 
-            dictionary.Add(Buttons.LeftThumbstickDown, a_keyboardSettings.LeftThumbStickDown);
-            dictionary.Add(Buttons.LeftThumbstickLeft, a_keyboardSettings.LeftThumbStickLeft);
-            dictionary.Add(Buttons.LeftThumbstickRight, a_keyboardSettings.LeftThumbStickRight);
-            dictionary.Add(Buttons.LeftThumbstickUp, a_keyboardSettings.LeftThumbStickUp);
+            dictionary.Add(Buttons.LeftThumbstickDown, a_keyboardSettings.LeftThumbstickDown);
+            dictionary.Add(Buttons.LeftThumbstickLeft, a_keyboardSettings.LeftThumbstickLeft);
+            dictionary.Add(Buttons.LeftThumbstickRight, a_keyboardSettings.LeftThumbstickRight);
+            dictionary.Add(Buttons.LeftThumbstickUp, a_keyboardSettings.LeftThumbstickUp);
 
-            dictionary.Add(Buttons.RightThumbstickDown, a_keyboardSettings.RightThumbStickDown);
-            dictionary.Add(Buttons.RightThumbstickLeft, a_keyboardSettings.RightThumbStickLeft);
-            dictionary.Add(Buttons.RightThumbstickRight, a_keyboardSettings.RightThumbStickRight);
-            dictionary.Add(Buttons.RightThumbstickUp, a_keyboardSettings.RightThumbStickUp);
+            dictionary.Add(Buttons.RightThumbstickDown, a_keyboardSettings.RightThumbstickDown);
+            dictionary.Add(Buttons.RightThumbstickLeft, a_keyboardSettings.RightThumbstickLeft);
+            dictionary.Add(Buttons.RightThumbstickRight, a_keyboardSettings.RightThumbstickRight);
+            dictionary.Add(Buttons.RightThumbstickUp, a_keyboardSettings.RightThumbstickUp);
 
             return dictionary;
         }
