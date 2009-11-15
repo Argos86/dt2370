@@ -13,22 +13,24 @@ namespace MeCloidGame.Controllers
     {
         #region Fields
 
-        protected Views.Core m_core;
+        protected Views.GameView m_gameView;
+        protected Views.Core m_coreView;
 
         #endregion
 
         #region Constructors
 
-        protected ControllerBase(Views.Core a_core)
+        protected ControllerBase(Views.Core a_coreView)
         {
-            m_core = a_core;
+            m_gameView = new Views.GameView(a_coreView);
+            m_coreView = a_coreView;
         }
 
         #endregion
 
         #region Methods
 
-        public abstract bool DoControll();
+        public abstract bool DoControll(Model.Game a_game);
 
         #endregion
     }

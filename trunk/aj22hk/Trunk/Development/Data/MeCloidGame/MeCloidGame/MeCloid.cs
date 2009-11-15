@@ -19,7 +19,7 @@ namespace MeCloidGame
     public class MeCloid : Microsoft.Xna.Framework.Game
     {
         // Model
-        //Model.Game m_game;
+        Model.Game m_game;
         
         // Controllers
         Controllers.PlayGame m_playGameController;
@@ -31,7 +31,8 @@ namespace MeCloidGame
         {
             m_coreView = new Views.Core(new GraphicsDeviceManager(this));
             m_playGameController = new Controllers.PlayGame(m_coreView);
-
+            m_game = new Model.Game(m_playGameController);
+            
             Content.RootDirectory = "Content";
         }
 
@@ -81,8 +82,11 @@ namespace MeCloidGame
                 this.Exit();
 
             // TODO: Add your update logic here
+            float esapsedTime = (float)a_gameTime.ElapsedGameTime.TotalSeconds;
 
             base.Update(a_gameTime);
+
+            m_coreView.Update();
         }
 
         /// <summary>
@@ -96,7 +100,7 @@ namespace MeCloidGame
             
             m_coreView.Begin();
 
-            if (m_playGameController.DoControll() == false)
+            if (m_playGameController.DoControll(m_game) == false)
             {
                 Exit();
             }

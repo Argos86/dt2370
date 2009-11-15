@@ -91,12 +91,18 @@
     <Compile Include="IEventTarget.cs" />
     <Compile Include="Helpers\InputHandler.cs" />
     <Compile Include="Model\Game.cs" />
+    <Compile Include="Model\Level.cs" />
+    <Compile Include="Model\Player.cs" />
+    <Compile Include="Model\Tile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="MeCloid.cs" />
     <Compile Include="Views\Core.cs" />
     <Compile Include="Views\FontAssets.cs" />
     <Compile Include="Views\GameView.cs" />
+    <Compile Include="Views\LevelView.cs" />
+    <Compile Include="Views\PlayerView.cs" />
+    <Compile Include="Views\SoundAssets.cs" />
     <Compile Include="Views\TextureAssets.cs" />
   </ItemGroup>
   <ItemGroup>

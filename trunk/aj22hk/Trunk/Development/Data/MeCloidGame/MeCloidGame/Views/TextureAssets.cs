@@ -12,7 +12,20 @@ namespace MeCloidGame.Views
     {
         #region Fields
 
-        public Texture2D m_sprites;
+        private Texture2D m_sprites;
+
+        public Texture2D Sprites
+        {
+            get { return m_sprites; }
+            set { m_sprites = value; }
+        }
+        private Texture2D m_tiles;
+
+        public Texture2D Tiles
+        {
+            get { return m_tiles; }
+            set { m_tiles = value; }
+        }
 
         #endregion
 
@@ -20,7 +33,8 @@ namespace MeCloidGame.Views
 
         public void LoadContent(ContentManager a_content)
         {
-            m_sprites = a_content.Load<Texture2D>(Helpers.Paths.TEXTURES + "sprites");
+            m_sprites = a_content.Load<Texture2D>(Helpers.Paths.SPRITES + "sprites");
+            m_tiles = a_content.Load<Texture2D>(Helpers.Paths.TILES + "tiles");
         }
 
         #endregion

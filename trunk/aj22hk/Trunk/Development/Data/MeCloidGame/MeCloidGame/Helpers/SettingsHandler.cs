@@ -55,6 +55,17 @@ namespace MeCloidGame.Helpers
 
     public static class SettingsHandler
     {
+        public static DisplaySettings ReadDisplaySettings(string a_filename)
+        {
+            DisplaySettings displaySettings;
+            Stream stream = File.OpenRead(a_filename);
+            XmlSerializer serializer = new XmlSerializer(typeof(DisplaySettings));
+            
+            displaySettings = (DisplaySettings)serializer.Deserialize(stream);
+
+            return displaySettings;
+        }
+
         public static KeyboardSettings ReadKeyboardSettings(string a_filename)
         {
             KeyboardSettings keyboardSettings;

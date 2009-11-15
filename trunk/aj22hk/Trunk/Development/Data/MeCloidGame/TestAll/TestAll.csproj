@@ -106,6 +106,15 @@
     <Compile Include="..\MeCloidGame\Model\Game.cs">
       <Link>Model\Game.cs</Link>
     </Compile>
+    <Compile Include="..\MeCloidGame\Model\Level.cs">
+      <Link>Model\Level.cs</Link>
+    </Compile>
+    <Compile Include="..\MeCloidGame\Model\Player.cs">
+      <Link>Model\Player.cs</Link>
+    </Compile>
+    <Compile Include="..\MeCloidGame\Model\Tile.cs">
+      <Link>Model\Tile.cs</Link>
+    </Compile>
     <Compile Include="..\MeCloidGame\Views\Core.cs">
       <Link>Views\Core.cs</Link>
     </Compile>
@@ -114,6 +123,15 @@
     </Compile>
     <Compile Include="..\MeCloidGame\Views\GameView.cs">
       <Link>Views\GameView.cs</Link>
+    </Compile>
+    <Compile Include="..\MeCloidGame\Views\LevelView.cs">
+      <Link>Views\LevelView.cs</Link>
+    </Compile>
+    <Compile Include="..\MeCloidGame\Views\PlayerView.cs">
+      <Link>Views\PlayerView.cs</Link>
+    </Compile>
+    <Compile Include="..\MeCloidGame\Views\SoundAssets.cs">
+      <Link>Views\SoundAssets.cs</Link>
     </Compile>
     <Compile Include="..\MeCloidGame\Views\TextureAssets.cs">
       <Link>Views\TextureAssets.cs</Link>
