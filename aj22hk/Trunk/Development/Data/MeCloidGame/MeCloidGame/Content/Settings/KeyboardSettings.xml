@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <KeyboardSettings>
-  <A>None</A>
-  <B>None</B>
-  <X>None</X>
-  <Y>None</Y>
+  <A>NumPad1</A>
+  <B>NumPad2</B>
+  <X>NumPad4</X>
+  <Y>NumPad5</Y>
   <LeftShoulder>LeftShift</LeftShoulder>
   <RightShoulder>RightShift</RightShoulder>
   <LeftTrigger>LeftControl</LeftTrigger>
@@ -16,12 +16,12 @@
   <DPadLeft>None</DPadLeft>
   <DPadRight>None</DPadRight>
   <DPadUp>None</DPadUp>
-  <LeftThumbstickDown>Down</LeftThumbstickDown>
-  <LeftThumbstickLeft>Left</LeftThumbstickLeft>
-  <LeftThumbstickRight>Right</LeftThumbstickRight>
-  <LeftThumbstickUp>Up</LeftThumbstickUp>
-  <RightThumbstickDown>None</RightThumbstickDown>
-  <RightThumbstickLeft>None</RightThumbstickLeft>
-  <RightThumbstickRight>None</RightThumbstickRight>
-  <RightThumbstickUp>None</RightThumbstickUp>
+  <LeftThumbstickDown>O</LeftThumbstickDown>
+  <LeftThumbstickLeft>A</LeftThumbstickLeft>
+  <LeftThumbstickRight>E</LeftThumbstickRight>
+  <LeftThumbstickUp>OemComma</LeftThumbstickUp>
+  <RightThumbstickDown>Down</RightThumbstickDown>
+  <RightThumbstickLeft>Left</RightThumbstickLeft>
+  <RightThumbstickRight>Right</RightThumbstickRight>
+  <RightThumbstickUp>Up</RightThumbstickUp>
 </KeyboardSettings>

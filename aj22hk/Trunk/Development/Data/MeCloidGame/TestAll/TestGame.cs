@@ -18,25 +18,29 @@ namespace TestAll
     /// </summary>
     public class TestGame : Microsoft.Xna.Framework.Game
     {
+        // Model
+        MeCloidGame.Model.Game m_game;
+
         // Controllers
         MeCloidGame.Controllers.PlayGame m_playGameController;
 
         // Views
         MeCloidGame.Views.Core m_coreView;
-
-        // Input
-        MeCloidGame.Helpers.InputHandler m_input;
-        MeCloidGame.Helpers.KeyboardSettings keyboardSettings;
+        MeCloidGame.Views.LevelView m_levelView;
+        MeCloidGame.Views.PlayerView m_playerView;
+        
 
         public TestGame()
         {
             m_coreView = new MeCloidGame.Views.Core(new GraphicsDeviceManager(this));
+
+            m_levelView = new MeCloidGame.Views.LevelView();
+            m_playerView = new MeCloidGame.Views.PlayerView();
+
             m_playGameController = new MeCloidGame.Controllers.PlayGame(m_coreView);
+            m_game = new MeCloidGame.Model.Game(m_playGameController);
 
             Content.RootDirectory = "Content";
-
-            keyboardSettings = MeCloidGame.Helpers.SettingsHandler.ReadKeyboardSettings(Content.RootDirectory + "/" + MeCloidGame.Helpers.Paths.SETTINGS + "KeyboardSettings.xml");
-            m_input = new MeCloidGame.Helpers.InputHandler(PlayerIndex.One, MeCloidGame.Helpers.SettingsHandler.GetKeyboardDictionary(keyboardSettings));
         }
 
         /// <summary>
@@ -95,15 +99,20 @@ namespace TestAll
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            //m_input.Update();
-            // Main controller
             GraphicsDevice.Clear(Color.Black);
 
             m_coreView.Begin();
 
+            m_levelView.Test(m_coreView);
+            m_playerView.Test(m_coreView);
+
             m_coreView.Test(GraphicsDevice);
 
-            m_input.Test(m_coreView, PlayerIndex.One);
+            m_coreView.Input.Test(m_coreView, PlayerIndex.One);
+            if (m_coreView.Input.IsKeyJustPressed(Buttons.A))
+            {
+                m_coreView.Sounds.TestSound.Play();
+            }
 
             m_coreView.End();
 

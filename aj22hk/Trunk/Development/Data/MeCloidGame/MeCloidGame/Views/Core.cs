@@ -14,9 +14,31 @@ namespace MeCloidGame.Views
         #region Fields
 
         GraphicsDeviceManager m_graphics;
+        public Helpers.DisplaySettings m_displaySettings;
         SpriteBatch m_spriteBatch;
+        private Helpers.InputHandler m_input;
+
+        public Helpers.InputHandler Input
+        {
+            get { return m_input; }
+            set { m_input = value; }
+        }
+        private Helpers.KeyboardSettings m_keyboardSettings;
         private Views.FontAssets m_fonts;
-        public Views.TextureAssets m_textures;
+        private Views.TextureAssets m_textures;
+        private Views.SoundAssets m_sounds;
+
+        public Views.SoundAssets Sounds
+        {
+            get { return m_sounds; }
+            set { m_sounds = value; }
+        }
+
+        public Views.TextureAssets Textures
+        {
+            get { return m_textures; }
+            set { m_textures = value; }
+        }
         public GraphicsDevice m_device;
 
         #endregion
@@ -36,8 +58,18 @@ namespace MeCloidGame.Views
         public Core(GraphicsDeviceManager a_graphics)
         {
             m_graphics = a_graphics;
+            
+            m_displaySettings = Helpers.SettingsHandler.ReadDisplaySettings(@"Content\" + Helpers.Paths.SETTINGS + "DisplaySettings.xml");
+            m_graphics.IsFullScreen = m_displaySettings.FullScreen;
+            m_graphics.PreferredBackBufferWidth = m_displaySettings.WindowWidth;
+            m_graphics.PreferredBackBufferHeight = m_displaySettings.WindowHeight;
+
+            m_keyboardSettings = Helpers.SettingsHandler.ReadKeyboardSettings(@"Content\" + Helpers.Paths.SETTINGS + "KeyboardSettings.xml");
+            m_input = new Helpers.InputHandler(PlayerIndex.One, Helpers.SettingsHandler.GetKeyboardDictionary(m_keyboardSettings));
+
             m_fonts = new Views.FontAssets();
             m_textures = new Views.TextureAssets();
+            m_sounds = new Views.SoundAssets();
         }
 
         #endregion
@@ -50,7 +82,8 @@ namespace MeCloidGame.Views
 
             m_fonts.LoadContent(a_content);
             m_textures.LoadContent(a_content);
-
+            m_sounds.LoadContent(a_content);
+            
             m_device = a_device;
         }
 
@@ -80,6 +113,11 @@ namespace MeCloidGame.Views
             m_spriteBatch.End();
         }
 
+        public void Update()
+        {
+            m_input.Update();
+        }
+
         #endregion
 
         #region Test
@@ -88,9 +126,10 @@ namespace MeCloidGame.Views
         {
             Vector2 screenCenter = new Vector2(a_device.Viewport.Width / 2, a_device.Viewport.Height / 2);
 
-            Draw(m_textures.m_sprites, new Rectangle(5, 30, 256, 256), new Rectangle(0, 0, 256, 256), Color.BlueViolet);
-            Draw(m_textures.m_sprites, new Rectangle(260, 30, 128, 256), new Rectangle(32, 2, 32, 64), Color.BurlyWood);
-            Draw(m_textures.m_sprites, new Rectangle(520, 30, 128, 256), new Rectangle(2, 2, 32, 64), Color.Chartreuse);
+            Draw(m_textures.Sprites, new Rectangle(0, 30, 288, 96), new Rectangle(0, 0, 288, 96), Color.White);
+            Draw(m_textures.Sprites, new Rectangle(290, 30, 96, 96), new Rectangle(96, 0, 96, 96), Color.White);
+            Draw(m_textures.Sprites, new Rectangle(388, 30, 96, 96), new Rectangle(0, 0, 96, 96), Color.White);
+            Draw(m_textures.Sprites, new Rectangle(486, 30, 96, 96), new Rectangle(192, 0, 96, 96), Color.White);
 
             DrawText("Core::DrawText - Font: Arial, Position: 0.0, Color: White", m_fonts.Arial, Vector2.Zero, Color.White);
             DrawCenteredText("Core::DrawCenteredText\nFont: Georgia\nPosition: Screen center\nColor: Red", m_fonts.Georgia, screenCenter, Color.Red);
