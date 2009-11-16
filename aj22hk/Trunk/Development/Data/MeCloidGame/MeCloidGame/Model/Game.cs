@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+using Microsoft.Xna.Framework;
+
 namespace MeCloidGame.Model
 {
     class Game : IModel
@@ -27,9 +29,23 @@ namespace MeCloidGame.Model
         public bool Update(float a_elapsedTime)
         {
             m_player.m_pos += m_player.m_velocity * a_elapsedTime;
-            Console.WriteLine(a_elapsedTime);
-            Console.WriteLine(m_player.m_pos);
-            Console.WriteLine(m_player.m_velocity);
+            if (m_player.m_pos.X < 0)
+            {
+                m_player.m_pos.X = 0;
+            }
+            if (m_player.m_pos.X >= 1280-95)
+            {
+                m_player.m_pos.X = 1280-95;
+            }
+            if (m_player.m_pos.Y < 0)
+            {
+                m_player.m_pos.Y = 0;
+            }
+            if (m_player.m_pos.Y >= 720 - 95)
+            {
+                m_player.m_pos.Y = 720 - 95;
+            }
+
             return true;
         }
     }
