@@ -29,32 +29,36 @@ namespace MeCloidGame.Controllers
 
         #region Methods
 
-        public override bool DoControll(Model.Game a_game)
+        public override bool DoControll(Model.Game a_game, float a_elapsedTime)
         {
             if (m_coreView.Input.IsKeyJustPressed(Buttons.B))
             {
                 m_coreView.Sounds.TestSound.Play();
             }
 
-            a_game.m_player.m_pos += m_coreView.Input.GetLeftThumbStick();
+            Vector2 velocity = Vector2.Zero;
+            velocity.X += m_coreView.Input.GetLeftThumbStick().X;
+            velocity.Y -= m_coreView.Input.GetLeftThumbStick().Y;
 
             if (m_coreView.Input.IsKeyPressed(Buttons.DPadUp))
             {
-                a_game.m_player.m_pos.Y -= 1;
+                velocity.Y -= 1;
             }
             else if (m_coreView.Input.IsKeyPressed(Buttons.DPadDown))
             {
-                a_game.m_player.m_pos.Y += 1;
+                velocity.Y += 1;
             }
 
             if (m_coreView.Input.IsKeyPressed(Buttons.DPadRight))
             {
-                a_game.m_player.m_pos.X += 1;
+                velocity.X += 1;
             }
             else if (m_coreView.Input.IsKeyPressed(Buttons.DPadLeft))
             {
-                a_game.m_player.m_pos.X -= 1;
+                velocity.X = -1;
             }
+
+            a_game.m_player.MovePlayer(velocity);
 
             m_gameView.Draw(a_game, 1.0f);
 

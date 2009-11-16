@@ -26,6 +26,10 @@ namespace MeCloidGame.Model
 
         public bool Update(float a_elapsedTime)
         {
+            m_player.m_pos += m_player.m_velocity * a_elapsedTime;
+            Console.WriteLine(a_elapsedTime);
+            Console.WriteLine(m_player.m_pos);
+            Console.WriteLine(m_player.m_velocity);
             return true;
         }
     }

@@ -78,15 +78,16 @@ namespace MeCloidGame
         protected override void Update(GameTime a_gameTime)
         {
             // Allows the game to exit
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                 this.Exit();
 
             // TODO: Add your update logic here
-            float esapsedTime = (float)a_gameTime.ElapsedGameTime.TotalSeconds;
+            float elapsedTime = (float)a_gameTime.ElapsedGameTime.TotalSeconds;
+            m_game.Update(elapsedTime);
 
-            base.Update(a_gameTime);
+            //base.Update(a_gameTime);
 
-            m_coreView.Update();
+            //m_coreView.Update();
         }
 
         /// <summary>
@@ -95,12 +96,17 @@ namespace MeCloidGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime a_gameTime)
         {
+            base.Update(a_gameTime);
+
+            float elapsedTime = (float)a_gameTime.ElapsedGameTime.TotalSeconds;
+            m_coreView.Update();
+
             // Main controller
             GraphicsDevice.Clear(Color.Black);
             
             m_coreView.Begin();
 
-            if (m_playGameController.DoControll(m_game) == false)
+            if (m_playGameController.DoControll(m_game, elapsedTime) == false)
             {
                 Exit();
             }

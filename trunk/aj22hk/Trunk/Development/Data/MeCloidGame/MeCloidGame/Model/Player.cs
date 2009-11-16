@@ -14,6 +14,8 @@ namespace MeCloidGame.Model
         // TODO: Add physics for player
         public Vector2 m_pos;
         public Vector2 m_prevPos;
+        public Vector2 m_velocity;
+        public float speed = 20.0f;
 
         public Player()
         {
@@ -21,9 +23,14 @@ namespace MeCloidGame.Model
             m_prevPos = Vector2.Zero;
         }
 
-        public bool Update(float a_elapsedTime)
+        public bool MovePlayer(Vector2 a_velocity)
         {
+            int tiles = 1280 / 64;
+            speed = tiles / 0.1f;
+            m_velocity = a_velocity * speed;
             return true;
         }
+
+
     }
 }
