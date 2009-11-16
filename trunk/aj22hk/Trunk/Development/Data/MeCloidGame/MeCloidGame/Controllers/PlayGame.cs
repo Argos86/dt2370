@@ -58,7 +58,7 @@ namespace MeCloidGame.Controllers
                 velocity.X = -1;
             }
 
-            a_game.m_player.MovePlayer(velocity);
+            a_game.m_player.UpdatePlayerVelocity(velocity);
 
             m_gameView.Draw(a_game, 1.0f);
 
