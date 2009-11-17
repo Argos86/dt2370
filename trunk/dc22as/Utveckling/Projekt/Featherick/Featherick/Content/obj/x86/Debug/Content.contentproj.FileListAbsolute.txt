@@ -1,0 +1,2 @@
+C:\Users\TEMP\Desktop\Projekt\Featherick\Featherick\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Daniel\Desktop\Projekt\Featherick\Featherick\Content\obj\x86\Debug\ResolveAssemblyReference.cache
