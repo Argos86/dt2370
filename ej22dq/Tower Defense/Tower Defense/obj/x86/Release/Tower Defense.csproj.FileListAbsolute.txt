@@ -1,0 +1,10 @@
+P:\Skolarbete\Grundläggande spelprogrammering\Tower Defense\Tower Defense\bin\x86\Release\Content\Images\sprites.xnb
+P:\Skolarbete\Grundläggande spelprogrammering\Tower Defense\Tower Defense\bin\x86\Release\Content\Images\cursor.xnb
+P:\Skolarbete\Grundläggande spelprogrammering\Tower Defense\Tower Defense\bin\x86\Release\Content\Images\bana1.xnb
+P:\Skolarbete\Grundläggande spelprogrammering\Tower Defense\Tower Defense\bin\x86\Release\Content\Kootenay.xnb
+P:\Skolarbete\Grundläggande spelprogrammering\Tower Defense\Tower Defense\bin\x86\Release\Tower Defense.exe
+P:\Skolarbete\Grundläggande spelprogrammering\Tower Defense\Tower Defense\bin\x86\Release\Tower Defense.pdb
+P:\Skolarbete\Grundläggande spelprogrammering\Tower Defense\Tower Defense\obj\x86\Release\ResolveAssemblyReference.cache
+P:\Skolarbete\Grundläggande spelprogrammering\Tower Defense\Tower Defense\obj\x86\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
+P:\Skolarbete\Grundläggande spelprogrammering\Tower Defense\Tower Defense\obj\x86\Release\Tower Defense.exe
+P:\Skolarbete\Grundläggande spelprogrammering\Tower Defense\Tower Defense\obj\x86\Release\Tower Defense.pdb
