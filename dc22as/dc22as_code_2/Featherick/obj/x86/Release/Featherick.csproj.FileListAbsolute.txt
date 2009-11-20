@@ -1,0 +1,11 @@
+C:\Users\TEMP\Desktop\Projekt\Featherick\Featherick\bin\x86\Release\Content\images\PlayerRun.xnb
+C:\Users\TEMP\Desktop\Projekt\Featherick\Featherick\bin\x86\Release\Content\images\sprite.xnb
+C:\Users\TEMP\Desktop\Projekt\Featherick\Featherick\bin\x86\Release\Content\images\playerIdle3.xnb
+C:\Users\TEMP\Desktop\Projekt\Featherick\Featherick\bin\x86\Release\Content\images\rectangle.xnb
+C:\Users\TEMP\Desktop\Projekt\Featherick\Featherick\bin\x86\Release\Content\Mufferaw.xnb
+C:\Users\TEMP\Desktop\Projekt\Featherick\Featherick\bin\x86\Release\Featherick.exe
+C:\Users\TEMP\Desktop\Projekt\Featherick\Featherick\bin\x86\Release\Featherick.pdb
+C:\Users\TEMP\Desktop\Projekt\Featherick\Featherick\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\TEMP\Desktop\Projekt\Featherick\Featherick\obj\x86\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\TEMP\Desktop\Projekt\Featherick\Featherick\obj\x86\Release\Featherick.exe
+C:\Users\TEMP\Desktop\Projekt\Featherick\Featherick\obj\x86\Release\Featherick.pdb
