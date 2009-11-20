@@ -12,8 +12,6 @@ namespace MeCloidGame.Views
     {
         public void DrawLevel(Model.Level a_level, Core a_coreView, float a_scale)
         {
-            //Rectangle src = new Rectangle(0, 0, 30, 20);
-
             for (int y = 0; y < a_level.Height; ++y)
             {
                 for (int x = 0; x < a_level.Width; ++x)

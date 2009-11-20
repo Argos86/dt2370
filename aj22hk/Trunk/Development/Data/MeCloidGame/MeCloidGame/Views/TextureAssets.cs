@@ -27,6 +27,14 @@ namespace MeCloidGame.Views
             set { m_tiles = value; }
         }
 
+        private Texture2D m_player;
+
+        public Texture2D Player
+        {
+            get { return m_player; }
+            set { m_player = value; }
+        }
+
         #endregion
 
         #region Methods
@@ -35,6 +43,7 @@ namespace MeCloidGame.Views
         {
             m_sprites = a_content.Load<Texture2D>(Helpers.Paths.SPRITES + "sprites");
             m_tiles = a_content.Load<Texture2D>(Helpers.Paths.TILES + "tiles");
+            m_player = a_content.Load<Texture2D>(Helpers.Paths.SPRITES + "player2");
         }
 
         #endregion

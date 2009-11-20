@@ -82,12 +82,12 @@ namespace MeCloidGame.Model
 
         public Tile.TileType GetCollision(int x, int y)
         {
-            if (x < 0 || x >= Width)
+            if (x < 0 || x >= Width || y >= Height)
             {
                 return Tile.TileType.Solid;
             }
 
-            if (y < 0 || y >= Height)
+            if (y < 0)
             {
                 return Tile.TileType.Clear;
             }
@@ -97,7 +97,7 @@ namespace MeCloidGame.Model
 
         public Rectangle GetBounds(int x, int y)
         {
-            return new Rectangle(x * Tile.Width, y * Tile.Height, Tile.Width, Tile.Height);
+            return new Rectangle(x * Tile.WIDTH, y * Tile.HEIGHT, Tile.WIDTH, Tile.HEIGHT);
         }
     }
 }
