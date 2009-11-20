@@ -12,12 +12,7 @@ namespace MeCloidGame.Controllers
 {
     class PlayGame : Controllers.ControllerBase
     {
-        #region Fields
-
-
-
-        #endregion
-
+        // TODO: Break out input to a separate function.
         #region Constructors
 
         public PlayGame(Views.Core a_coreView)
@@ -36,29 +31,23 @@ namespace MeCloidGame.Controllers
                 m_coreView.Sounds.TestSound.Play();
             }
 
-            Vector2 velocity = Vector2.Zero;
-            velocity.X += m_coreView.Input.GetLeftThumbStick().X;
-            velocity.Y -= m_coreView.Input.GetLeftThumbStick().Y;
-
-            if (m_coreView.Input.IsKeyPressed(Buttons.DPadUp))
-            {
-                velocity.Y -= 1;
-            }
-            else if (m_coreView.Input.IsKeyPressed(Buttons.DPadDown))
-            {
-                velocity.Y += 1;
-            }
+            float movement = 0;
+            movement = m_coreView.Input.GetLeftThumbStick().X;
 
             if (m_coreView.Input.IsKeyPressed(Buttons.DPadRight))
             {
-                velocity.X += 1;
+                movement = 1.0f;
             }
             else if (m_coreView.Input.IsKeyPressed(Buttons.DPadLeft))
             {
-                velocity.X = -1;
+                movement = -1.0f;
             }
 
-            a_game.m_player.UpdatePlayerVelocity(velocity);
+            a_game.m_player.m_isJumping = m_coreView.Input.IsKeyPressed(Buttons.A);
+
+            a_game.m_player.UpdateVelocity(movement);
+            a_game.m_player.UpdatePosition();
+            a_game.HandleCollisions();
 
             m_gameView.Draw(a_game, 1.0f);
 

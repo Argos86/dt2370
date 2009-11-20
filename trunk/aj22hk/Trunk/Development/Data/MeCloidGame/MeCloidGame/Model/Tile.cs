@@ -23,11 +23,11 @@ namespace MeCloidGame.Model
             set { m_tileType = value; }
         }
 
-        public const int Width = 64;
+        public const int WIDTH = 64;
 
-        public const int Height = 48;
+        public const int HEIGHT = 48;
 
-        private static readonly Vector2 m_size = new Vector2(Width, Height);
+        private static readonly Vector2 m_size = new Vector2(WIDTH, HEIGHT);
         public static Vector2 Size
         {
             get { return Tile.m_size; }

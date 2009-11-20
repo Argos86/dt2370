@@ -18,6 +18,7 @@ namespace MeCloidGame
     /// </summary>
     public class MeCloid : Microsoft.Xna.Framework.Game
     {
+        // TODO: Fix the content manager issues.
         // Model
         Model.Game m_game;
         

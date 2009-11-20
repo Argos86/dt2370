@@ -10,12 +10,15 @@ namespace MeCloidGame.Views
 {
     class PlayerView
     {
+        // TODO: Make applying sprite more general.
         public void DrawPlayer(Core a_coreView, Model.Player a_player, float a_scale)
         {
-            Vector2 size = new Vector2(96, 96) * a_scale;
-            Vector2 pos = a_player.m_pos * a_scale - new Vector2(a_scale / 2);
+            Vector2 size = new Vector2(a_player.WIDTH, a_player.HEIGHT) * a_scale;
+            Vector2 pos = Vector2.Zero;
+            pos.X = (a_player.m_pos.X - size.X / 2) * a_scale - (a_scale / 2);
+            pos.Y = (a_player.m_pos.Y - size.Y) * a_scale - (a_scale / 2);
             Rectangle destRect = new Rectangle((int)pos.X, (int)pos.Y, (int)size.X, (int)size.Y);
-            a_coreView.Draw(a_coreView.Textures.Sprites, destRect, new Rectangle(96, 0, 96, 96), Color.White);
+            a_coreView.Draw(a_coreView.Textures.Player, destRect, new Rectangle(0, 0, (int)size.X, (int)size.Y), Color.White);
         }
 
         public void Test(Core a_coreView)
