@@ -1,0 +1,7 @@
+P:\spelprojekt\ml22rc\JumpMania\JumpMania\bin\x86\Release\Content\images\karaktar_ninjaremake2.xnb
+P:\spelprojekt\ml22rc\JumpMania\JumpMania\bin\x86\Release\JumpMania.exe
+P:\spelprojekt\ml22rc\JumpMania\JumpMania\bin\x86\Release\JumpMania.pdb
+P:\spelprojekt\ml22rc\JumpMania\JumpMania\obj\x86\Release\ResolveAssemblyReference.cache
+P:\spelprojekt\ml22rc\JumpMania\JumpMania\obj\x86\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
+P:\spelprojekt\ml22rc\JumpMania\JumpMania\obj\x86\Release\JumpMania.exe
+P:\spelprojekt\ml22rc\JumpMania\JumpMania\obj\x86\Release\JumpMania.pdb
