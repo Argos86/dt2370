@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Application">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>CAAAQAJAAAIAAQAACAABAAAAAAACBEAAAAADKQgICAY=</HashCode>
+      <FileName>Application.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="m_timer" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CameraManager" Collapsed="true">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAwAAAAAECAAAIgAAEAAIggAAAAQIQAAAAAEQAAgEAA=</HashCode>
+      <FileName>View\Camera.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameView">
+    <Position X="3.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAACRAAAAAAIAAAAIIAAAAIAACAA=</HashCode>
+      <FileName>View\GameView.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="m_listener" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Castle" Collapsed="true">
+    <Position X="9" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAACQAAABAAAAIQACAQAAQgAAAAAgBAAAAI=</HashCode>
+      <FileName>Model\Castle.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DestroyOgreObject" Collapsed="true">
+    <Position X="13.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACEAAAAAAAAABAACAAAAAAAAAAAAEAAIAAAAAAAAAA=</HashCode>
+      <FileName>Model\DestroyOgreObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Enemy" Collapsed="true">
+    <Position X="9" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgQAAgKAACAAAAAAAAAAAAAQAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Enemy.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameController">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAABAAAIAAAAAEAIAEAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Controller\GameController.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="m_camera" />
+      <Field Name="m_gameView" />
+      <Field Name="m_level" />
+      <Field Name="m_player" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="GameTimer">
+    <Position X="0.5" Y="6" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AQQAAAABAAAAAAAAAAAIAAAAAAACAAAAAAAAAAgAAAQ=</HashCode>
+      <FileName>Model\GameTimer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KeyboardListener" Collapsed="true">
+    <Position X="3.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAABAAACABAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>View\KeyboardListener.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Level">
+    <Position X="5.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAwAQgAAAAAAAAABAAABAIAAAAARAAA=</HashCode>
+      <FileName>Model\Level.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="m_castle" />
+      <Field Name="m_enemy" />
+      <Field Name="m_light1" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="LightSource" Collapsed="true">
+    <Position X="9" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>FAAAAAAAAAACAAAAAAAAgAAIAAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\LightSource.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Player" Collapsed="true">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAABIACBAAA4AQIAAIAAQAEAQAEAAgAAAAQgAABA=</HashCode>
+      <FileName>Model\Player.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projectile" Collapsed="true">
+    <Position X="12.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABQAAgAAAAAAAAAAAgAAAAAAAAAAAEQEAAAAAAAAMAA=</HashCode>
+      <FileName>Model\Weapon\Projectile.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeaponBase">
+    <Position X="10.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAEAEAECAAAAEQAAAAQAAIAAQUAEAABAAAAAAAAAA=</HashCode>
+      <FileName>Model\Weapon\WeaponBase.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="m_fire" />
+      <Field Name="m_sight" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="WeaponFactory" Collapsed="true">
+    <Position X="8" Y="0.5" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="WeaponFactory::type" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Model\Weapon\WeaponFactory.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAQAAAEAAAAAAAAAAQAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Model\Weapon\WeaponFactory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeaponSight" Collapsed="true">
+    <Position X="12.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAgAAgAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Weapon\WeaponSight.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>
