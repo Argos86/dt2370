@@ -29,8 +29,22 @@ namespace MeCloidGame.Model
             m_player = new Player();
         }
 
+        #region Interface methods
+
+        public void MovePlayer(float a_movement, bool a_isJumping)
+        {
+            m_player.m_movement = a_movement;
+            m_player.m_isJumping = a_isJumping;
+        }
+
+        #endregion
+
         public bool Update(float a_elapsedTime)
         {
+            m_player.UpdateVelocity();
+            m_player.UpdatePosition();
+            HandleCollisions();
+
             return true;
         }
 

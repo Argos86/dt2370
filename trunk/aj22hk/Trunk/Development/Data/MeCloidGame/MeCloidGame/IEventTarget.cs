@@ -11,5 +11,6 @@ namespace MeCloidGame
 
     interface IModel
     {
+        void MovePlayer(float a_movement, bool a_isJumping);
     }
 }
