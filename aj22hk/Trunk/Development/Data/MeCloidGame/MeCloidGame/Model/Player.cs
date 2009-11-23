@@ -14,6 +14,7 @@ namespace MeCloidGame.Model
         // TODO: Add weapons.
         public Vector2 m_pos;
         public Vector2 m_velocity;
+        public float m_movement;
 
         public bool m_isOnGround;
         public float m_prevBottom;
@@ -45,11 +46,11 @@ namespace MeCloidGame.Model
             m_pos = new Vector2(96.0f, 30.0f);
         }
 
-        public bool UpdateVelocity(float a_movement)
+        public bool UpdateVelocity()
         {
             int tiles = 1280 / 64; // Width of a set screen in tiles      (~72px == 1m)
             float speed = tiles / 3.0f; // Speed determined by how long it would take to traverse all tiles
-            m_velocity.X = a_movement * speed;
+            m_velocity.X = m_movement * speed;
 
             m_velocity.Y = MathHelper.Clamp(m_velocity.Y + Gravity, 0, MaxFallSpeed);
             m_velocity.Y = DoJump(m_velocity.Y);

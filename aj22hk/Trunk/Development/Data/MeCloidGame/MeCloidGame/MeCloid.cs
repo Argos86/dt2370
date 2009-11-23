@@ -107,7 +107,7 @@ namespace MeCloidGame
             
             m_coreView.Begin();
 
-            if (m_playGameController.DoControll(m_game, elapsedTime) == false)
+            if (m_playGameController.DoControll(m_game, elapsedTime, m_game) == false)
             {
                 Exit();
             }

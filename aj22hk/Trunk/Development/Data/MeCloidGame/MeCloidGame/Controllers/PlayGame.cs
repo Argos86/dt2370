@@ -24,7 +24,7 @@ namespace MeCloidGame.Controllers
 
         #region Methods
 
-        public override bool DoControll(Model.Game a_game, float a_elapsedTime)
+        public override bool DoControll(Model.Game a_game, float a_elapsedTime, IModel a_model)
         {
             if (m_coreView.Input.IsKeyJustPressed(Buttons.B))
             {
@@ -43,11 +43,9 @@ namespace MeCloidGame.Controllers
                 movement = -1.0f;
             }
 
-            a_game.m_player.m_isJumping = m_coreView.Input.IsKeyPressed(Buttons.A);
+            bool isJumping = m_coreView.Input.IsKeyPressed(Buttons.A);
 
-            a_game.m_player.UpdateVelocity(movement);
-            a_game.m_player.UpdatePosition();
-            a_game.HandleCollisions();
+            a_model.MovePlayer(movement, isJumping);
 
             m_gameView.Draw(a_game, 1.0f);
 
