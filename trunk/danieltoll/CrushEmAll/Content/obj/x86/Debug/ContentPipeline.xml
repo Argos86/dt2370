@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\temp\CrushEmAll\bin\x86\Debug\Content\images\sprites.xnb</Output>
-      <Time>2009-10-23T10:39:52+02:00</Time>
+      <Output>C:\temp\code\CrushEmAll\bin\x86\Debug\Content\images\sprites.xnb</Output>
+      <Time>2009-11-23T13:33:35.7329299+01:00</Time>
     </Item>
     <Item>
       <Source>Courier New.spritefont</Source>
@@ -16,8 +16,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\temp\CrushEmAll\bin\x86\Debug\Content\Courier New.xnb</Output>
-      <Time>2009-10-26T13:18:22+01:00</Time>
+      <Output>C:\temp\code\CrushEmAll\bin\x86\Debug\Content\Courier New.xnb</Output>
+      <Time>2009-11-23T13:33:36.6064795+01:00</Time>
     </Item>
     <Item>
       <Source>m_fireGun.wav</Source>
@@ -25,8 +25,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\temp\CrushEmAll\bin\x86\Debug\Content\m_fireGun.xnb</Output>
-      <Time>2007-06-19T15:21:30+02:00</Time>
+      <Output>C:\temp\code\CrushEmAll\bin\x86\Debug\Content\m_fireGun.xnb</Output>
+      <Time>2009-11-23T13:33:36.5908804+01:00</Time>
     </Item>
     <Item>
       <Source>m_zombieAttack.wav</Source>
@@ -34,18 +34,18 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\temp\CrushEmAll\bin\x86\Debug\Content\m_zombieAttack.xnb</Output>
-      <Time>2007-06-03T09:59:48+02:00</Time>
+      <Output>C:\temp\code\CrushEmAll\bin\x86\Debug\Content\m_zombieAttack.xnb</Output>
+      <Time>2009-11-23T13:33:36.5908804+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\temp\CrushEmAll\Content\</RootDirectory>
-      <LoggerRootDirectory>C:\temp\CrushEmAll\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\temp\CrushEmAll\Content\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\temp\CrushEmAll\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\temp\code\CrushEmAll\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\temp\code\CrushEmAll\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\temp\code\CrushEmAll\Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\temp\code\CrushEmAll\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

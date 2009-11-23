@@ -20,7 +20,7 @@ namespace ZombieHoards.Views
                 {
                     if (a_map.m_tiles[x, y].m_tileType == Model.Tile.TileType.Blocked)
                     {
-                        a_core.Draw(a_core.m_assets.m_texture, new Rectangle(x * a_scale - a_scale / 2, y * a_scale - a_scale / 2, a_scale, a_scale), src, Color.White);
+                        a_core.Draw(a_core.m_assets.m_texture, new Rectangle(x * a_scale , y * a_scale , a_scale, a_scale), src, Color.White);
                     }
                     else
                     {

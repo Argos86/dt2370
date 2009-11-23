@@ -47,33 +47,7 @@ namespace ZombieHoards.Controllers
             {
 
 
-                switch (m_view.m_state)
-                {
-                    case Views.GameView.PlayState.BUY_CIVILIAN:
-                        {
-                            a_model.AddCivilian(logicalMousePos);
-                            m_view.m_state = Views.GameView.PlayState.NONE;
-
-                            break;
-                        }
-                    case Views.GameView.PlayState.NONE:
-                        {
-                            int i = a_game.GetCivilian(logicalMousePos);
-                            if (i != -1)
-                            {
-                                m_view.m_state = Views.GameView.PlayState.MOVE;
-                                m_selectedCharacter = i;
-                            }
-                            break;
-                        }
-                    case Views.GameView.PlayState.MOVE:
-                        {
-                            a_model.MoveCivilian(m_selectedCharacter, logicalMousePos);
-                            m_view.m_state = Views.GameView.PlayState.NONE;
-                            break;
-                        }
-                    
-                }
+                
             }
 
             if (m_core.m_input.IsDownLMB())
