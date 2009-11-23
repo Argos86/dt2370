@@ -15,10 +15,7 @@ namespace ZombieHoards
 
     interface IModel
     {
-        void BuySoldier(Vector2 a_at);
-        int AddCivilian(Vector2 a_at);
-        void MoveSoldier(int a_index, Vector2 a_at);
-        void MoveCivilian(int a_index, Vector2 a_at);
+        
         void Draw(bool a_index, Vector2 a_at);
     }
 }

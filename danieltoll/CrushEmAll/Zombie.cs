@@ -88,7 +88,7 @@ namespace ZombieHoards
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime a_gameTime)
         {
-            float elapsedTime = m_game.GetTimeSeconds(a_gameTime);
+            float elapsedTime = (float)a_gameTime.ElapsedRealTime.TotalSeconds;
             m_game.Update(elapsedTime);
         }
 
@@ -102,7 +102,7 @@ namespace ZombieHoards
             base.Update(a_gameTime);
             
             //Update input 
-            float elapsedTime = m_game.GetTimeSeconds(a_gameTime);
+            float elapsedTime = (float)a_gameTime.ElapsedRealTime.TotalSeconds;
             m_coreView.Update(elapsedTime, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
 
             

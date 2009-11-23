@@ -1,3 +1,4 @@
 C:\Daniel\programming\xna\CrushEmAll\CrushEmAll\Content\obj\x86\Debug\ResolveAssemblyReference.cache
 D:\programmering\xna\CrushEmAll\CrushEmAll\Content\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\temp\CrushEmAll\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\temp\code\CrushEmAll\Content\obj\x86\Debug\ResolveAssemblyReference.cache

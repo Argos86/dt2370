@@ -24,13 +24,7 @@ namespace ZombieHoards.Model
         public Map()
         {
             m_tiles = new Tile[WIDTH, HEIGHT];
-            for (int x = 0; x < WIDTH; x++)
-            {
-                for (int y = 0; y < HEIGHT; y++)
-                {
-                    m_tiles[x,y] = new Tile();
-                }
-            }
+            Clear();
         }
 
         public bool IsClear(Vector2 a_pos)
@@ -172,57 +166,13 @@ namespace ZombieHoards.Model
 
         public bool Test()
         {
-            AStar searcher;
-
-            searcher = new AStar(this);
-            InitGetPath(new Vector2(5, 0), new Vector2(6, 0), ref searcher);
-            searcher.Update(100);
-            if (searcher.m_path.Count != 1)
-            {
-                return false;
-            }
-            //searcher = new AStar(this);
-            InitGetPath(new Vector2(5, 0), new Vector2(7, 0), ref searcher);
-            searcher.Update(100);
-            if (searcher.m_path.Count != 2)
-            {
-                return false;
-            }
-
-           // searcher = new AStar(this);
-            m_tiles[6, 1].m_tileType = Tile.TileType.Blocked;
-            InitGetPath(new Vector2(5, 1), new Vector2(7, 1), ref searcher);
-            searcher.Update(100);
-            if (searcher.m_path.Count != 4)
-            {
-                return false;
-            }
-            //searcher = new AStar(this);
-            InitGetPath(new Vector2(4, 1), new Vector2(7, 1), ref searcher);
-            searcher.Update(100);
-            if (searcher.m_path.Count != 4)
-            {
-                return false;
-            }
-
-            if (LineOfSight(new Vector2(5, 0), new Vector2(7, 0)) == false)
-            {
-                return false;
-            }
-            if (LineOfSight(new Vector2(5, 1), new Vector2(7, 1)) == true)
-            {
-                return false;
-            }
-            if (LineOfSight(new Vector2(5, 0), new Vector2(7, 2)) == true)
-            {
-                return false;
-            }
+            
 
 
             return true;
         }
 
-        public void CreateTestMap(Random a_r)
+        public void Clear()
         {
             for (int x = 0; x < WIDTH; x++)
             {
@@ -231,38 +181,93 @@ namespace ZombieHoards.Model
                     m_tiles[x, y] = new Tile();
                 }
             }
-           
-             
-            //create a few buildings
-            int minSize = 4;
-            int maxSize = 16;
-            for (int i = 0; i < 10; i++)
-            {
-                Rectangle r = new Rectangle(a_r.Next() % (WIDTH - maxSize), a_r.Next() % (HEIGHT - maxSize), minSize + a_r.Next() % (maxSize - minSize), minSize + a_r.Next() % (maxSize - minSize));
+        }
 
-                for (int x = r.X; x < r.X + r.Width; x++)
+        public void CreateFloor(int a_level)
+        {
+            for (int x = 0; x < WIDTH; x++)
+            {
+                
+               m_tiles[x, a_level].m_tileType = Tile.TileType.Blocked;
+                
+            }
+        }
+
+        public void CreateWall(int a_level)
+        {
+            for (int y = 0; y < HEIGHT; y++)
+            {
+
+                m_tiles[a_level, y].m_tileType = Tile.TileType.Blocked;
+
+            }
+        }
+
+        public void CreatePlatform(int a_x, int a_y)
+        {
+            for (int x = a_x; x < a_x + 5; x++)
+            {
+
+                m_tiles[x, a_y].m_tileType = Tile.TileType.Blocked;
+
+            }
+        }
+
+        
+
+        public bool IsCollidingAt(Vector2 a_pos, Vector2 a_size)
+        {
+
+            Vector2 topLeft = new Vector2(a_pos.X - a_size.X /2.0f, a_pos.Y - a_size.Y);
+            Vector2 bottomRight = new Vector2(a_pos.X + a_size.X /2.0f, a_pos.Y);
+
+
+            for (int x = 0; x < WIDTH; x++)
+            {
+                for (int y = 0; y < HEIGHT; y++)
                 {
-                    for (int y = r.Y; y < r.Y + r.Height; y++)
+                    
+                    if (bottomRight.X < (float)x)
+                        continue;
+                    if (bottomRight.Y < (float)y)
+                        continue;
+                    if (topLeft.X > (float)x + 1.0f)
+                        continue;
+                    if (topLeft.Y > (float)y + 1.0f)
+                        continue;
+
+                    if (m_tiles[x, y].m_tileType == Tile.TileType.Blocked)
                     {
-                        m_tiles[x, y].m_tileType = Tile.TileType.Blocked;
+                        return true;
                     }
-                }
-                m_tiles[r.X, r.Y + r.Height / 2].m_tileType = Tile.TileType.Clear;
-                m_tiles[r.X + r.Width - 1, r.Y + r.Height / 2].m_tileType = Tile.TileType.Clear;
-                m_tiles[r.X + r.Width / 2, r.Y].m_tileType = Tile.TileType.Clear;
-                m_tiles[r.X + r.Width / 2, r.Y + r.Height -1].m_tileType = Tile.TileType.Clear;
-                r.X += 1;
-                r.Y += 1;
-                r.Width -= 2;
-                r.Height -= 2;
-                for (int x = r.X; x < r.X + r.Width; x++)
-                {
-                    for (int y = r.Y; y < r.Y + r.Height; y++)
-                    {
-                        m_tiles[x, y].m_tileType = Tile.TileType.Clear;
-                    }
+                    
+
                 }
             }
+            
+
+            return false;
+        }
+
+
+        public void CreateTestMap(Random a_r)
+        {
+            Clear();
+
+
+            CreateFloor(HEIGHT - 1);
+            CreateWall(0);
+            CreateWall(WIDTH - 1);
+
+            CreatePlatform( 5, HEIGHT - 5 );
+
+
+            CreatePlatform( 15, HEIGHT - 5);
+
+
+            CreatePlatform(10, HEIGHT - 10);
+
+            
         }
     }
 }

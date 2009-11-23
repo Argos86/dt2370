@@ -18,13 +18,7 @@ namespace ZombieHoards.Views
             DrawCharacter(a_core, a_character, a_scale, new Rectangle(74, 204, 36, 36));
         }
 
-        public void DrawSoldier(Core a_core, Vector2 a_pos)
-        {
-            int size = 16;
-            Vector2 pos = a_pos - new Vector2(size / 2, size / 2);
-            Rectangle dest = new Rectangle((int)pos.X, (int)pos.Y, size, size);
-            a_core.Draw(a_core.m_assets.m_texture, dest, new Rectangle(74, 204, 36, 36), Color.Gray);
-        }
+        
 
         public void DrawCivilian(Core a_core, Model.Character a_character, float a_elapsedTime, int a_id, int a_scale)
         {
@@ -35,15 +29,9 @@ namespace ZombieHoards.Views
         {
             if (a_character.IsAlive())
             {
-                float time = 2.0f * (0.5f - a_character.m_timer);
-
-
-                Vector2 pos = time * a_character.m_pos + (1.0f - time) * a_character.m_oldPos;
-
-
+                Vector2 pos = a_character.m_pos;
                 pos = pos * a_scale - new Vector2(a_scale / 2, a_scale / 2);
-
-
+                
                 Rectangle dest = new Rectangle((int)pos.X, (int)pos.Y, a_scale, a_scale);
                 a_core.Draw(a_core.m_assets.m_texture, dest, a_src, Color.White);
             }

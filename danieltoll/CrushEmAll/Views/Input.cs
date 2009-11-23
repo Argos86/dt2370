@@ -18,6 +18,7 @@ namespace ZombieHoards.Views
     class Input
     {
         private MouseState m_mouse;
+        public KeyboardState m_keyState;
         private GamePadState[] m_gamePads;
 
 
@@ -57,7 +58,7 @@ namespace ZombieHoards.Views
         public void Update(float a_elapsedTime, Vector2 a_upperLeft, Vector2 a_lowerRight)
         {
             m_mouse = Mouse.GetState();
-
+            m_keyState = Keyboard.GetState();
             
             
 

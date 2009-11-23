@@ -112,7 +112,7 @@ namespace TestEmAll
         protected override void Draw(GameTime a_gameTime)
         {
             base.Update(a_gameTime);
-            float time = m_game.GetTimeSeconds(a_gameTime);
+            float time = (float)a_gameTime.ElapsedRealTime.TotalSeconds;
 
             GraphicsDevice.Clear(Color.Black);
 
