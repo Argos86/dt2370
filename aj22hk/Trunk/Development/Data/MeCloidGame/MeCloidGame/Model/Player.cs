@@ -22,8 +22,10 @@ namespace MeCloidGame.Model
         public readonly int WIDTH = 64;
         public readonly int HEIGHT = 130;
 
-        private const float Gravity = 24.0f;
-        private const float MaxFallSpeed = 8.0f;
+        private const float Gravity = 9.82f;
+        private const float MaxFallSpeed = 200.0f;
+        private const float MaxMoveSpeed = 200.0f;
+        private const float Acceleration = 400.0f;
 
         public bool m_isJumping;
         private bool m_wasJumping;
@@ -43,27 +45,32 @@ namespace MeCloidGame.Model
 
         public Player()
         {
-            m_pos = new Vector2(96.0f, 30.0f);
+            m_pos = new Vector2(700.0f, 430.0f);
         }
 
-        public bool UpdateVelocity()
+        public bool UpdateVelocity(float a_elapsedTime)
         {
-            int tiles = 1280 / 64; // Width of a set screen in tiles      (~72px == 1m)
-            float speed = tiles / 3.0f; // Speed determined by how long it would take to traverse all tiles
-            m_velocity.X = m_movement * speed;
+            //int tiles = 1280 / 64; // Width of a set screen in tiles      (~72px == 1m)
+            //float Acceleration = tiles / 3.0f; // Speed determined by how long it would take to traverse all tiles
+            m_velocity.X += m_movement * Acceleration * a_elapsedTime;
 
-            m_velocity.Y = MathHelper.Clamp(m_velocity.Y + Gravity, 0, MaxFallSpeed);
+            m_velocity.Y = MathHelper.Clamp(m_velocity.Y + Gravity, -MaxFallSpeed, MaxFallSpeed);
             m_velocity.Y = DoJump(m_velocity.Y);
 
+            m_velocity.X = MathHelper.Clamp(m_velocity.X, -MaxMoveSpeed, MaxMoveSpeed);
+
             return true;
         }
 
-        public bool UpdatePosition()
+        public Vector2 CalculateNewPosition(float a_elapsedTime)
         {
-            m_pos += m_velocity;
-            m_pos = new Vector2((float)Math.Round(m_pos.X), (float)Math.Round(m_pos.Y));
+            //m_pos += m_velocity;
+            //m_pos = new Vector2((float)Math.Round(m_pos.X), (float)Math.Round(m_pos.Y));
 
-            return true;
+            Vector2 newPos = m_pos + m_velocity * a_elapsedTime;
+            newPos = new Vector2((float)Math.Round(newPos.X), (float)Math.Round(newPos.Y));
+
+            return newPos;
         }
 
         private float DoJump(float a_velY)
@@ -77,7 +84,7 @@ namespace MeCloidGame.Model
 
                 if (m_jumpTime > 0.0f && m_jumpTime <= MaxJumpTime)
                 {
-                    a_velY = -25 * (1.0f - (float)Math.Pow(m_jumpTime / MaxJumpTime, 4.0f));
+                    a_velY = -25 * (1.0f - (float)Math.Pow(m_jumpTime / MaxJumpTime, 0.114f));
                 }
                 else
                 {

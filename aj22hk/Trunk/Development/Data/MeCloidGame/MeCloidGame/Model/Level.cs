@@ -99,5 +99,33 @@ namespace MeCloidGame.Model
         {
             return new Rectangle(x * Tile.WIDTH, y * Tile.HEIGHT, Tile.WIDTH, Tile.HEIGHT);
         }
+
+        public bool IsCollidingAt(Vector2 a_pos, Vector2 a_size)
+        {
+            Vector2 topLeft = new Vector2(a_pos.X - a_size.X / 2.0f, a_pos.Y - a_size.Y);
+            Vector2 bottomRight = new Vector2(a_pos.X + a_size.X / 2.0f, a_pos.Y);
+
+            for (int x = 0; x < Tile.WIDTH; ++x)
+            {
+                for (int y = 0; y < Tile.HEIGHT; ++y)
+                {
+                    if (bottomRight.X < (float)x)
+                        continue;
+                    if (bottomRight.Y < (float)y)
+                        continue;
+                    if (topLeft.X > (float)x + 1.0f)
+                        continue;
+                    if (topLeft.Y > (float)y + 1.0f)
+                        continue;
+
+                    if (m_tiles[x, y].Type == Tile.TileType.Solid)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
     }
 }
