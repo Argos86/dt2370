@@ -19,7 +19,7 @@ namespace MeCloidGame.Views
             m_playerView = new PlayerView();
         }
 
-        public void Draw(Model.Game a_game, float a_scale)
+        public void Draw(Model.Game a_game, int a_scale)
         {
             m_levelView.DrawLevel(a_game.m_level, m_coreView, a_scale);
             m_playerView.DrawPlayer(m_coreView, a_game.m_player, a_scale);

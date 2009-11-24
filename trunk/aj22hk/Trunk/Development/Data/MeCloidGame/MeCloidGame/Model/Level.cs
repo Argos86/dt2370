@@ -12,6 +12,9 @@ namespace MeCloidGame.Model
     {
         private Tile[,] m_tiles;
 
+        public const int WIDTH = 20;
+        public const int HEIGHT = 15;
+
         public Tile[,] Tiles
         {
             get { return m_tiles; }
@@ -105,9 +108,9 @@ namespace MeCloidGame.Model
             Vector2 topLeft = new Vector2(a_pos.X - a_size.X / 2.0f, a_pos.Y - a_size.Y);
             Vector2 bottomRight = new Vector2(a_pos.X + a_size.X / 2.0f, a_pos.Y);
 
-            for (int x = 0; x < Tile.WIDTH; ++x)
+            for (int x = 0; x < WIDTH; ++x)
             {
-                for (int y = 0; y < Tile.HEIGHT; ++y)
+                for (int y = 0; y < HEIGHT; ++y)
                 {
                     if (bottomRight.X < (float)x)
                         continue;
