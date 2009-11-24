@@ -94,8 +94,17 @@
     <Compile Include="..\MeCloidGame\Helpers\InputHandler.cs">
       <Link>Helpers\InputHandler.cs</Link>
     </Compile>
+    <Compile Include="..\MeCloidGame\Helpers\LineBatch.cs">
+      <Link>Helpers\LineBatch.cs</Link>
+    </Compile>
     <Compile Include="..\MeCloidGame\Helpers\Paths.cs">
       <Link>Helpers\Paths.cs</Link>
+    </Compile>
+    <Compile Include="..\MeCloidGame\Helpers\PointBatch.cs">
+      <Link>Helpers\PointBatch.cs</Link>
+    </Compile>
+    <Compile Include="..\MeCloidGame\Helpers\Settings.cs">
+      <Link>Helpers\Settings.cs</Link>
     </Compile>
     <Compile Include="..\MeCloidGame\Helpers\SettingsHandler.cs">
       <Link>Helpers\SettingsHandler.cs</Link>
