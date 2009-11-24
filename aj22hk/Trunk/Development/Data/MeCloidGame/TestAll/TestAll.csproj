@@ -103,6 +103,9 @@
     <Compile Include="..\MeCloidGame\Helpers\PointBatch.cs">
       <Link>Helpers\PointBatch.cs</Link>
     </Compile>
+    <Compile Include="..\MeCloidGame\Helpers\RectangleRenderer.cs">
+      <Link>Helpers\RectangleRenderer.cs</Link>
+    </Compile>
     <Compile Include="..\MeCloidGame\Helpers\Settings.cs">
       <Link>Helpers\Settings.cs</Link>
     </Compile>

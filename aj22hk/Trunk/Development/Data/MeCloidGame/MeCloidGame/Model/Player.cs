@@ -45,7 +45,7 @@ namespace MeCloidGame.Model
 
         public Player()
         {
-            m_pos = new Vector2(700.0f, 430.0f);
+            m_pos = new Vector2(2.0f, 8.0f);
         }
 
         public bool UpdateVelocity(float a_elapsedTime)

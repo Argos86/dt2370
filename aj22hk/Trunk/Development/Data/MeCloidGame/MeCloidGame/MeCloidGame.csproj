@@ -91,6 +91,7 @@
     <Compile Include="Helpers\LineBatch.cs" />
     <Compile Include="Helpers\Paths.cs" />
     <Compile Include="Helpers\PointBatch.cs" />
+    <Compile Include="Helpers\RectangleRenderer.cs" />
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Helpers\SettingsHandler.cs" />
     <Compile Include="IEventTarget.cs" />

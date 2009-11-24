@@ -43,7 +43,7 @@ namespace MeCloidGame.Views
         {
             m_sprites = a_content.Load<Texture2D>(Helpers.Paths.SPRITES + "sprites");
             m_tiles = a_content.Load<Texture2D>(Helpers.Paths.TILES + "tiles");
-            m_player = a_content.Load<Texture2D>(Helpers.Paths.SPRITES + "player2");
+            m_player = a_content.Load<Texture2D>(Helpers.Paths.SPRITES + "player3");
         }
 
         #endregion

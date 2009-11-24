@@ -108,6 +108,26 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\MeCloidGame\Content\Sprites\player.png">
+      <Link>Sprites\player.png</Link>
+      <Name>player</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\MeCloidGame\Content\Sprites\player2.png">
+      <Link>Sprites\player2.png</Link>
+      <Name>player2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\MeCloidGame\Content\Sprites\player3.png">
+      <Link>Sprites\player3.png</Link>
+      <Name>player3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="Backgrounds\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
