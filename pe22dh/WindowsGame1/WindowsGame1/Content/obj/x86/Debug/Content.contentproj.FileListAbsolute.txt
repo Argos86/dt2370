@@ -1,0 +1,2 @@
+P:\Grundläggande Spelprogrammering DT2370\Lokalt\WindowsGame1\WindowsGame1\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+P:\Grundläggande Spelprogrammering DT2370\Repositorium\pe22dh\WindowsGame1\WindowsGame1\Content\obj\x86\Debug\ResolveAssemblyReference.cache
