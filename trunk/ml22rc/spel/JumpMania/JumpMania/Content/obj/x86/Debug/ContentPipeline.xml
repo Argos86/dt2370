@@ -19,6 +19,15 @@
       <Output>P:\spelprojekt\ml22rc\spel\JumpMania\JumpMania\bin\x86\Debug\Content\images\tile.xnb</Output>
       <Time>2009-11-18T13:48:39.1458467+01:00</Time>
     </Item>
+    <Item>
+      <Source>images\otile.png</Source>
+      <Name>images\otile</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>P:\spelprojekt\ml22rc\spel\JumpMania\JumpMania\bin\x86\Debug\Content\images\otile.xnb</Output>
+      <Time>2009-11-23T14:32:14.0101918+01:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
@@ -56,7 +65,7 @@
       </Assembly>
       <Assembly>
         <Key>C:\Windows\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\3.1.0.0__6d5c3888ef60e27d\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2009-10-23T10:10:05.100052+02:00</Value>
+        <Value>2009-10-23T10:30:15.6959799+02:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

@@ -22,14 +22,13 @@ namespace JumpMania.View
         public void Update()
         {
             PreviousKeyboardState = CurrentState; 
-            CurrentState = Keyboard.GetState();
-            
+            CurrentState = Keyboard.GetState(); 
         }
-        
 
-        public bool IsJumping(GameTime theGameTime, bool a_onGround)
+
+        public bool IsJumping(GameTime theGameTime, bool m_collideGround)
         {
-             if (CurrentState.IsKeyDown(Keys.Space) && PreviousKeyboardState.IsKeyDown(Keys.Space) == true && a_onGround == true)
+            if (CurrentState.IsKeyDown(Keys.Space) && PreviousKeyboardState.IsKeyDown(Keys.Space) == true && m_collideGround == true)
             {
                 return true;
             }

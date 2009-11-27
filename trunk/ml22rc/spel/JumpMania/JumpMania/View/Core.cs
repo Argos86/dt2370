@@ -18,7 +18,7 @@ namespace JumpMania.View
     {
         SpriteBatch m_spriteBatch;
         public View.TextureAssets m_assets;
-        GraphicsDeviceManager m_graphics;
+        public GraphicsDeviceManager m_graphics;
         GraphicsDevice m_device;
 
 
@@ -31,6 +31,7 @@ namespace JumpMania.View
 
             //Möjliggör fullskärm
             //m_graphics.ToggleFullScreen();
+            //m_graphics.IsFullScreen = true;
         }
 
         public void Initiate(GraphicsDevice a_device, ContentManager a_content)
@@ -40,15 +41,17 @@ namespace JumpMania.View
             m_device = a_device;
         }
 
-        public void Draw(Texture2D a_texture, Vector2 position, Rectangle a_source, Color a_color)
+        public void Draw(Texture2D a_texture, Vector2 position, Rectangle a_source, int a_scale, Color a_color)
         {
-            m_spriteBatch.Draw(a_texture, position, a_source, a_color);
+            Rectangle dest = new Rectangle((int)position.X, (int)position.Y, a_scale, a_scale);
+            m_spriteBatch.Draw(a_texture, dest, a_source, a_color);
         }
         
 
         public void DrawPlaya(GameTime gameTime, GraphicsDevice a_device, Vector2 a_pos)
         {
-            Draw(m_assets.m_texture, a_pos, new Rectangle(0, 0, 121, 180), Color.White);
+            int scale = m_graphics.GraphicsDevice.Viewport.Width / Model.Level.WIDTH;
+            Draw(m_assets.m_texture, a_pos, new Rectangle(0, 0, 121, 180), scale, Color.White);
         }
 
         public void Begin()

@@ -28,8 +28,9 @@ namespace JumpMania.Controller
             
             a_input.Update();
 
-            if (a_input.IsJumping(theGameTime, a_game.m_player.m_onground) == true)
+            if (a_input.IsJumping(theGameTime, a_game.m_player.m_collideGround) == true)
             {
+                a_game.m_player.m_velocity.Y = -300.0f;
                 a_game.m_player.UpdateJump(theGameTime);
             }
 
@@ -44,8 +45,6 @@ namespace JumpMania.Controller
                 a_game.m_player.m_movement = -1.0f;
                 a_game.m_player.UpdateWalkLeft(theGameTime);
             }
-
-            a_game.m_player.Update(theGameTime);
         }
     }
 }
