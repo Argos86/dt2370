@@ -45,13 +45,13 @@ namespace Tower_Defense.View
             return new Vector2((int)(m_core.m_input.m_mousePos / a_scale).X, (int)(m_core.m_input.m_mousePos / a_scale).Y);
         }
 
-        public void DrawPath(List<Vector2> a_path, int a_scale)
+        /*public void DrawPath(List<Vector2> a_path, int a_scale)
         {
             foreach (Vector2 v in a_path)
             {
                 m_characterView.DrawTower(m_core, v * a_scale);
             }
-        }
+        }*/
 
         public void Draw(Tower_Defense.Model.Game a_game, float a_elapsedTime, int a_scale, int a_selectedIndex)
         {
@@ -70,8 +70,9 @@ namespace Tower_Defense.View
             {
                 if (a_game.m_towers[i] != null)
                 {
-                    m_characterView.DrawTower(m_core, a_game.m_towers[i].m_pos * scale);
+                    m_characterView.DrawTower(m_core, a_game.m_towers[i].m_pos * scale/*, a_game.m_towers[i].CurrentType*/);
                 }
+
                 /*if (m_state == PlayState.MOVE && i == a_selectedIndex)
                 {
                     m_characterView.DrawSoldier(m_core, a_game.m_soldiers[i].m_pos * scale);
@@ -85,37 +86,47 @@ namespace Tower_Defense.View
                 //int civiliansAlive = 0;
                 int enemiesAlive = 0;
                 int currentWave = 0;
-                string enemyType = "no enemy in game";
+                string enemyType = "Waiting For Next Wave";
 
+
+
+                int num = 0;
                 foreach (Model.Enemy c in a_game.m_enemies)
                 {
                     if (c.IsAlive())
                     {
                         enemyType = c.CurrentType.ToString();
                         enemiesAlive++;
+
+                        m_core.DrawText("HP : " + c.m_hitPoints.ToString(), m_core.m_fonts.m_baseFont, new Vector2(300, 100 + num * 20), Color.White);
+                        num++;
                     }
                 }
 
                 foreach (Model.Wave c in a_game.m_waves)
                 {
-
+                    if (c.m_isActive == false)
+                    {
                         currentWave++;
-
+                    }
                 }
                 
-                m_core.DrawText("Hitpoints: " + a_game.hitpoints.ToString(), m_core.m_fonts.m_baseFont, new Vector2(64, 16), Color.Red);
-                m_core.DrawText("Enemies alive: " + enemiesAlive.ToString(), m_core.m_fonts.m_baseFont, new Vector2(64, 38), Color.Red);
-                m_core.DrawText("Enemy type: " + enemyType, m_core.m_fonts.m_baseFont, new Vector2(64, 60), Color.Red);
-                m_core.DrawText("Waves to go: " + currentWave, m_core.m_fonts.m_baseFont, new Vector2(256, 16), Color.Red);
+                m_core.DrawText("Hitpoints: " + a_game.hitpoints.ToString(), m_core.m_fonts.m_baseFont, new Vector2(100, 15), Color.Red);
+                m_core.DrawText("Enemies Alive: " + enemiesAlive.ToString(), m_core.m_fonts.m_baseFont, new Vector2(100, 40), Color.Red);
+                m_core.DrawText("Enemy Type: " + enemyType, m_core.m_fonts.m_baseFont, new Vector2(100, 65), Color.Red);
+                m_core.DrawText("Current Wave: " + currentWave, m_core.m_fonts.m_baseFont, new Vector2(300, 15), Color.Red);
             }
 
             if (m_state == PlayState.BUY_TOWER)
             {
-                Vector2 pos = new Vector2();
-                pos.X = (int)(m_core.m_input.m_mousePos.X / 16);
-                pos.Y = (int)(m_core.m_input.m_mousePos.Y / 16);
-                pos *= 16;
-                m_characterView.DrawTower(m_core, pos);
+                foreach (Model.Tower c in a_game.m_towers)
+                {
+                    Vector2 pos = new Vector2();
+                    pos.X = (int)(m_core.m_input.m_mousePos.X / 16);
+                    pos.Y = (int)(m_core.m_input.m_mousePos.Y / 16);
+                    pos *= 16;
+                    m_characterView.DrawTower(m_core, pos/*, c.CurrentType*/);
+                }
             }
 
         }

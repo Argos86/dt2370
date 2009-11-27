@@ -13,6 +13,7 @@ namespace Tower_Defense.Model
         public Tower[] m_towers;
         public Wave[] m_waves;
         public int hitpoints = 0;
+        
         public const int MAX_ENEMIES = 50;
         public const int MAX_TOWERS = 20000;
         public const int MAX_WAVES = 100;
@@ -32,13 +33,13 @@ namespace Tower_Defense.Model
             Init();
         }
 
-        public void BuyTower(Vector2 a_at)
+        public void BuyTower(Vector2 a_at, Model.Tower.Type a_type)
         {
-            if (m_cash >= 25)
+            if (m_cash >= Tower.GetPrice(a_type))
             {
-                if (AddTower(a_at) == true)
+                if (AddTower(a_at, a_type) == true)
                 {
-                    m_cash -= 25;
+                    m_cash -= Tower.GetPrice(a_type);
                 }
             }
         }
@@ -93,13 +94,13 @@ namespace Tower_Defense.Model
             Random rand = new Random();
             if (enemy != -1)
             {
-                int value =  rand.Next()%((int)Enemy.Type.Maxenemy-1);
+                int value =  rand.Next()%((int)Enemy.Type.Max-1);
                 m_enemies[enemy] = new Enemy(a_pos, a_wave, (Enemy.Type)value);
             }
             return enemy;
         }
 
-        private bool AddTower(Vector2 a_pos)
+        private bool AddTower(Vector2 a_pos, Model.Tower.Type a_type)
         {
             if (m_map.CanPlaceTower(a_pos) == false)
             {
@@ -112,7 +113,7 @@ namespace Tower_Defense.Model
                 {
                     if (m_towers[i] == null)
                     {
-                        m_towers[i] = new Tower(a_pos);
+                        m_towers[i] = new Tower(a_pos, a_type);
                         m_map.PlacedTower(a_pos);
                         return true;
                     }
@@ -152,7 +153,7 @@ namespace Tower_Defense.Model
             }
 
             //Check waves
-            if (m_enemies[49].IsAlive() == false)
+            if (IsEnemyAlive() == false)
             {
                 for (int i = 0; i < MAX_WAVES; i++)
                 {
@@ -167,6 +168,37 @@ namespace Tower_Defense.Model
                     }
                 }
             }
+            foreach (Model.Enemy c in m_enemies)
+            {
+                if (c.IsAlive() == false)
+                {
+                    continue;
+                }
+                Vector2 dir = c.m_waypoints[c.m_targetCoord] - c.m_pos;
+
+                float len = dir.Length();
+
+
+
+
+
+                if (len <= c.GetSpeed() * a_gameTime)
+                {
+                    c.m_pos = c.m_waypoints[c.m_targetCoord];
+                    c.m_targetCoord++;
+
+                    if (c.m_targetCoord == c.m_waypoints.Count())
+                    {
+                        c.m_hitPoints = 0;
+                        hitpoints -= 1;
+                    }
+                }
+                else
+                {
+                    dir.Normalize();
+                    c.m_pos += dir * c.GetSpeed() * a_gameTime;
+                }
+            }
 
             //Update enemies
             for (int i = 0; i < MAX_ENEMIES; i++)
@@ -178,13 +210,23 @@ namespace Tower_Defense.Model
             {
                 if (m_towers[i] != null)
                 {
-                    UpdateTower(i, a_gameTime, m_waves[i].m_index);
+                    UpdateTower(i, a_gameTime);
                 }
             }
-
             return true;
         }
 
+        public bool IsEnemyAlive()
+        {     
+            foreach (Model.Enemy c in m_enemies)
+            {
+                if (c.IsAlive())
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
         public bool IsGameOver()
         {
             if (hitpoints > 0)
@@ -264,7 +306,7 @@ namespace Tower_Defense.Model
         private void Attack(Tower a_tower, Enemy a_target)
         {
 
-            a_target.m_hitPoints -= 1;
+            a_target.m_hitPoints -= a_tower.GetDamage(a_target.CurrentType);
             m_view.Attack(a_tower.m_pos, a_target.m_pos);
         }
 
@@ -281,26 +323,34 @@ namespace Tower_Defense.Model
             //m_enemies[a_enemy].FollowPath();
         }
 
-        public void UpdateTower(int a_tower, float a_gameTime, int a_wave)
+        public void UpdateTower(int a_tower, float a_gameTime)
         {
             if (m_towers[a_tower].Update(a_gameTime) == false)
             {
                 return;
             }
 
-            Enemy target = null;
-            float range = (float)20.0f;
-
-            //Close to civilian or soldier
-            if (GetClosestVisibleZombie(m_towers[a_tower], range, out target))
+            //har jag inget mål m_lockedEnemy, eller målet för långt bort eller målet dött
+                //Skaffa ett mål
+            if (m_towers[a_tower].m_lockedEnemy == null || (m_towers[a_tower].m_lockedEnemy.m_pos - m_towers[a_tower].m_pos).Length() > m_towers[a_tower].GetRange() ||
+                m_towers[a_tower].m_lockedEnemy.IsAlive() == false)
             {
-                Attack(m_towers[a_tower], target);
-                m_towers[a_tower].m_timer = 0.3f;
-                if (target.IsAlive() == false)
+                GetClosestVisibleZombie(m_towers[a_tower], m_towers[a_tower].GetRange(), out m_towers[a_tower].m_lockedEnemy);
+            }
+
+            //har jag ett mål
+            if (m_towers[a_tower].m_lockedEnemy != null)
+            {
+                Attack(m_towers[a_tower], m_towers[a_tower].m_lockedEnemy);
+                m_towers[a_tower].m_timer = Model.Tower.GetAttackSpeed(m_towers[a_tower].CurrentType);
+                if (m_towers[a_tower].m_lockedEnemy.IsAlive() == false)
                 {
-                    m_cash += 2 * a_wave;
+                    m_cash += m_towers[a_tower].m_lockedEnemy.GetValue();
                 }
             }
+
+            //Close to civilian or soldier
+           
 
         }
 

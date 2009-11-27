@@ -16,12 +16,22 @@ namespace Tower_Defense.View
         }
         
 
-        public void DrawTower(Core a_core, Vector2 a_pos)
+        public void DrawTower(Core a_core, Vector2 a_pos/*, Model.Tower.Type a_type*/)
         {
             int size = 16;
             Vector2 pos = a_pos - new Vector2(size / 2, size / 2);
             Rectangle dest = new Rectangle((int)pos.X, (int)pos.Y, size, size);
-            a_core.Draw(a_core.m_assets.m_texture, dest, new Rectangle(4, 4, 40, 40), Color.Gray);
+            Color color = Color.White;
+            /*switch (a_type)
+            {
+                case Model.Tower.Type.Normal: color = Color.White; break;
+                case Model.Tower.Type.Earth: color = Color.Brown; break;
+                case Model.Tower.Type.Fire: color = Color.Red; break;
+                case Model.Tower.Type.Water: color = Color.Blue; break;
+                case Model.Tower.Type.Wind: color = Color.Green; break;
+                case Model.Tower.Type.Undead: color = Color.Black; break;
+            }*/
+            a_core.Draw(a_core.m_assets.m_texture, dest, new Rectangle(4, 4, 40, 40), color);
         }
 
         public void DrawCivilian(Core a_core, Model.Enemy a_character, float a_elapsedTime, int a_id, int a_scale)
@@ -43,7 +53,19 @@ namespace Tower_Defense.View
 
 
                 Rectangle dest = new Rectangle((int)pos.X, (int)pos.Y, a_scale, a_scale);
-                a_core.Draw(a_core.m_assets.m_texture, dest, a_src, Color.White);
+                Color color = Color.White;
+
+                switch (a_character.CurrentType)
+                {
+                    case Model.Enemy.Type.Normal: color = Color.White; break;
+                    case Model.Enemy.Type.Earth : color = Color.Brown; break;
+                    case Model.Enemy.Type.Fire : color = Color.Red; break;
+                    case Model.Enemy.Type.Water : color = Color.Blue; break;
+                    case Model.Enemy.Type.Wind : color = Color.Green; break;
+                    case Model.Enemy.Type.Undead : color = Color.Black; break;
+                }
+
+                a_core.Draw(a_core.m_assets.m_texture, dest, a_src, color);
             }
         }
     }
