@@ -1,0 +1,5 @@
+D:\Privgrejjer\HiK\Grundläggande spelprogrammering\PacmanClone\PacmanClone\PacmanClone\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Privgrejjer\HiK\Grundläggande spelprogrammering\Respositorium\sl22jb\PacmanClone\PacmanClone\PacmanClone\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Privgrejjer\HiK\Grundläggande spelprogrammering\Release\PacmanClone\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+P:\Grundläggande spelprogrammering\sl22jb_code_2\PacmanClone\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\sl22jb_code_2\PacmanClone\Content\obj\x86\Debug\ResolveAssemblyReference.cache

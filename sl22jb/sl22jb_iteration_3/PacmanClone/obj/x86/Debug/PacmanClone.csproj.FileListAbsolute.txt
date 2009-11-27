@@ -1,0 +1,38 @@
+D:\Privgrejjer\HiK\Grundläggande spelprogrammering\PacmanClone\PacmanClone\PacmanClone\bin\x86\Debug\Content\images\sprites.xnb
+D:\Privgrejjer\HiK\Grundläggande spelprogrammering\PacmanClone\PacmanClone\PacmanClone\bin\x86\Debug\PacmanClone.exe
+D:\Privgrejjer\HiK\Grundläggande spelprogrammering\PacmanClone\PacmanClone\PacmanClone\bin\x86\Debug\PacmanClone.pdb
+D:\Privgrejjer\HiK\Grundläggande spelprogrammering\PacmanClone\PacmanClone\PacmanClone\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Privgrejjer\HiK\Grundläggande spelprogrammering\PacmanClone\PacmanClone\PacmanClone\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+D:\Privgrejjer\HiK\Grundläggande spelprogrammering\PacmanClone\PacmanClone\PacmanClone\obj\x86\Debug\PacmanClone.exe
+D:\Privgrejjer\HiK\Grundläggande spelprogrammering\PacmanClone\PacmanClone\PacmanClone\obj\x86\Debug\PacmanClone.pdb
+D:\Privgrejjer\HiK\Grundläggande spelprogrammering\Respositorium\sl22jb\PacmanClone\PacmanClone\PacmanClone\bin\x86\Debug\Content\images\sprites.xnb
+D:\Privgrejjer\HiK\Grundläggande spelprogrammering\Respositorium\sl22jb\PacmanClone\PacmanClone\PacmanClone\bin\x86\Debug\PacmanClone.exe
+D:\Privgrejjer\HiK\Grundläggande spelprogrammering\Respositorium\sl22jb\PacmanClone\PacmanClone\PacmanClone\bin\x86\Debug\PacmanClone.pdb
+D:\Privgrejjer\HiK\Grundläggande spelprogrammering\Respositorium\sl22jb\PacmanClone\PacmanClone\PacmanClone\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Privgrejjer\HiK\Grundläggande spelprogrammering\Respositorium\sl22jb\PacmanClone\PacmanClone\PacmanClone\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+D:\Privgrejjer\HiK\Grundläggande spelprogrammering\Respositorium\sl22jb\PacmanClone\PacmanClone\PacmanClone\obj\x86\Debug\PacmanClone.exe
+D:\Privgrejjer\HiK\Grundläggande spelprogrammering\Respositorium\sl22jb\PacmanClone\PacmanClone\PacmanClone\obj\x86\Debug\PacmanClone.pdb
+D:\Privgrejjer\HiK\Grundläggande spelprogrammering\Release\PacmanClone\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Privgrejjer\HiK\Grundläggande spelprogrammering\Release\PacmanClone\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+D:\Privgrejjer\HiK\Grundläggande spelprogrammering\Release\PacmanClone\obj\x86\Debug\PacmanClone.exe
+D:\Privgrejjer\HiK\Grundläggande spelprogrammering\Release\PacmanClone\obj\x86\Debug\PacmanClone.pdb
+D:\Privgrejjer\HiK\Grundläggande spelprogrammering\Release\PacmanClone\bin\x86\Debug\Content\images\sprites.xnb
+D:\Privgrejjer\HiK\Grundläggande spelprogrammering\Release\PacmanClone\bin\x86\Debug\PacmanClone.exe
+D:\Privgrejjer\HiK\Grundläggande spelprogrammering\Release\PacmanClone\bin\x86\Debug\PacmanClone.pdb
+D:\Privgrejjer\HiK\Grundläggande spelprogrammering\Release\PacmanClone\bin\x86\Debug\Content\images\playerSprite.xnb
+P:\Grundläggande spelprogrammering\sl22jb_code_2\PacmanClone\obj\x86\Debug\ResolveAssemblyReference.cache
+P:\Grundläggande spelprogrammering\sl22jb_code_2\PacmanClone\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+P:\Grundläggande spelprogrammering\sl22jb_code_2\PacmanClone\obj\x86\Debug\PacmanClone.exe
+P:\Grundläggande spelprogrammering\sl22jb_code_2\PacmanClone\bin\x86\Debug\Content\images\sprites.xnb
+P:\Grundläggande spelprogrammering\sl22jb_code_2\PacmanClone\bin\x86\Debug\Content\images\playerSprite.xnb
+P:\Grundläggande spelprogrammering\sl22jb_code_2\PacmanClone\bin\x86\Debug\PacmanClone.exe
+P:\Grundläggande spelprogrammering\sl22jb_code_2\PacmanClone\bin\x86\Debug\PacmanClone.pdb
+P:\Grundläggande spelprogrammering\sl22jb_code_2\PacmanClone\obj\x86\Debug\PacmanClone.pdb
+E:\sl22jb_code_2\PacmanClone\bin\x86\Debug\Content\images\sprites.xnb
+E:\sl22jb_code_2\PacmanClone\bin\x86\Debug\Content\images\playerSprite.xnb
+E:\sl22jb_code_2\PacmanClone\bin\x86\Debug\PacmanClone.exe
+E:\sl22jb_code_2\PacmanClone\bin\x86\Debug\PacmanClone.pdb
+E:\sl22jb_code_2\PacmanClone\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\sl22jb_code_2\PacmanClone\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+E:\sl22jb_code_2\PacmanClone\obj\x86\Debug\PacmanClone.exe
+E:\sl22jb_code_2\PacmanClone\obj\x86\Debug\PacmanClone.pdb
