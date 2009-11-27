@@ -16,38 +16,80 @@ namespace JumpMania.View
 {
     class LevelView
     {
-        public void DrawLevel(Model.Level a_map, Core a_core, int a_scale)
+        public void DrawLevel(Model.Level a_level, Core a_core)
         {
-            Rectangle src = new Rectangle(5, 212, 36, 36);
+            int scale = a_core.m_graphics.GraphicsDevice.Viewport.Width / Model.Level.WIDTH;
+            //Rectangle src = new Rectangle(5, 212, 36, 36);
 
             for (int x = 0; x < Model.Level.WIDTH; x++)
             {
                 for (int y = 0; y < Model.Level.HEIGHT; y++)
-                {
-                    if (a_map.m_tiles[x, y].m_tileType == Model.Tile.TileType.Platform)
+                { 
+                    if (a_level.m_tiles[x, y].m_tileType == Model.Tile.TileType.Platform)
                     {
-                        
-                        a_core.Draw(a_core.m_assets.m_leveltexture, new Vector2 (200, 200), new Rectangle(0, 0, 121, 180), Color.White);
+                        a_core.Draw(a_core.m_assets.m_platformtexture, new Vector2(x * scale, y * scale), new Rectangle(0, 0, 1, 1), scale, Color.White);
                     }
                 }
             }
         }
 
-        public void Test(Core a_core)
+        public void Level1(Core a_core, Model.Level testLevel)
         {
-            Model.Level testLevel = new Model.Level();
-            for (int x = 0; x < Model.Level.WIDTH; x++)
+            DrawLevel(testLevel, a_core);
+        }
+
+
+
+
+        /*public void DrawLevel(Model.Level a_level, Core a_coreView, float a_scale)
+        {
+            for (int y = 0; y < a_level.Height; ++y)
             {
-                for (int y = 0; y < Model.Level.HEIGHT; y++)
+                for (int x = 0; x < a_level.Width; ++x)
                 {
-                    if (x == y || x == 0 || y == 0 || x == Model.Level.WIDTH - 1 || y == Model.Level.HEIGHT - 1)
+                    Vector2 size = Model.Tile.Size * a_scale;
+                    Vector2 position = new Vector2(x, y) * size;
+                    Rectangle destRect = new Rectangle((int)position.X, (int)position.Y, (int)size.X, (int)size.Y);
+                    Vector2 srcLocation;
+                    Rectangle srcRect;
+
+                    switch (a_level.Tiles[x, y].Type)
                     {
-                        testLevel.m_tiles[x, y].m_tileType = Model.Tile.TileType.Platform;
+                        case Model.Tile.TileType.Solid:
+                            if (x % 2 == 0)
+                            {
+                                srcLocation = new Vector2((int)Model.Tile.Size.X * 0, (int)Model.Tile.Size.Y * 0);
+                            }
+                            else
+                            {
+                                srcLocation = new Vector2((int)Model.Tile.Size.X * 2, (int)Model.Tile.Size.Y * 0);
+                            }
+
+                            srcRect = new Rectangle((int)srcLocation.X, (int)srcLocation.Y, (int)Model.Tile.Size.X, (int)Model.Tile.Size.Y);
+
+                            a_coreView.Draw(a_coreView.Textures.Tiles, destRect, srcRect, Color.White);
+                            break;
+                        case Model.Tile.TileType.Destroyable:
+                            srcLocation = new Vector2((int)Model.Tile.Size.X * 1, (int)Model.Tile.Size.Y * 0);
+
+                            srcRect = new Rectangle((int)srcLocation.X, (int)srcLocation.Y, (int)Model.Tile.Size.X, (int)Model.Tile.Size.Y);
+
+                            a_coreView.Draw(a_coreView.Textures.Tiles, destRect, srcRect, Color.White);
+                            break;
                     }
                 }
             }
-
-            DrawLevel(testLevel, a_core, 8);
         }
+
+        #region Test
+
+        public void Test(Core a_coreView)
+        {
+            Model.Level testLevel = new Model.Level("test.txt");
+
+            DrawLevel(testLevel, a_coreView, 1.0f);
+        }*/
+
+
     }
 }

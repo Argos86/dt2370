@@ -16,9 +16,9 @@ namespace JumpMania.Model
 {
     class Player 
     {
-        
-        public float m_veli = 0;
-        float m_acceleration = 0.7f;
+
+        /*public Vector2 m_veli = new Vector2(0, 0);
+        float m_acceleration = 0.7f;*/
         public float m_movement = 0.0f;
         float a_speed = 600.0f;
         bool m_isjumping = false;
@@ -26,8 +26,41 @@ namespace JumpMania.Model
         public bool m_onground = true;
 
 
+        public int m_hitPoints = 0;
+        public Vector2 m_position;
+        public Vector2 m_oldPos;
+        public Vector2 m_velocity;
+        public bool m_collideGround;
+        
+        public bool IsAlive() {
+            return m_hitPoints > 0;
+        }
 
-        public Vector2 m_position = new Vector2(400, 200);
+        
+
+        public Player()
+        {
+            m_hitPoints = 0;
+            m_position = new Vector2(4, 2);
+            m_oldPos = new Vector2(0, 0);
+            m_velocity = new Vector2(0, 0);
+                
+        }
+
+        public Player(Vector2 a_pos)
+        {
+            m_hitPoints = 10;
+            m_position = a_pos;
+            m_oldPos = m_position;
+                  
+        }
+
+
+        //int m_hitPoints = 0;
+        //public Vector2 m_oldPos = new Vector2(0, 0);
+        //public Vector2 m_velocity = new Vector2(0, 0);
+
+        //public Vector2 m_position = new Vector2(400, 200);
 
         public void UpdateJump(GameTime theGameTime)
         {
@@ -44,15 +77,13 @@ namespace JumpMania.Model
 
         public void UpdateWalkLeft(GameTime theGameTime)
         {
-
             m_ismoving = true;
- 
         }
 
         public void Update(GameTime theGameTime)
         {
 
-            m_position.Y += m_veli * (float)theGameTime.ElapsedGameTime.TotalSeconds;
+           /* m_position.Y += m_veli * (float)theGameTime.ElapsedGameTime.TotalSeconds;
 
             m_veli = 25; 
 
@@ -66,7 +97,12 @@ namespace JumpMania.Model
                     m_isjumping = false;
                     m_veli = 0;
                 }
-            }
+            }*/
+
+            /*Vector2 gravity = new Vector2(0, 9.82f);
+            m_veli += theGameTime * gravity;
+            Vector2 newPos = m_position + m_veli * theGameTime;*/
+
 
             if (m_ismoving == true)
             {

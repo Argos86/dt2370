@@ -22,7 +22,7 @@ namespace JumpMania
         Model.Game m_game;
 
         //Controller
-        Controller.ControllPlayer a_playguy;
+        Controller.ControllPlayer m_playcon;
 
 
         //View
@@ -33,7 +33,7 @@ namespace JumpMania
         {
             Content.RootDirectory = "Content";
 
-            a_playguy = new JumpMania.Controller.ControllPlayer();
+            m_playcon = new JumpMania.Controller.ControllPlayer();
             m_game = new JumpMania.Model.Game();
             m_chview = new JumpMania.View.Core(new GraphicsDeviceManager(this));
             m_leview = new JumpMania.View.LevelView();
@@ -94,7 +94,8 @@ namespace JumpMania
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                 this.Exit();
 
-            a_playguy.Update(gameTime, m_game);
+           
+            m_game.Update(gameTime);
 
 
             // TODO: Add your update logic here
@@ -108,15 +109,15 @@ namespace JumpMania
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
+            m_playcon.Update(gameTime, m_game);
 
-            
-            GraphicsDevice.Clear(Color.Aquamarine);
+            GraphicsDevice.Clear(Color.DarkRed);
 
             m_chview.Begin();
-            
 
+            m_leview.Level1(m_chview, m_game.m_level);
             m_chview.DrawPlaya(gameTime, GraphicsDevice, m_game.m_player.m_position);
-
+            
 
             m_chview.End();
 
