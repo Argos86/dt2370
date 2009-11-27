@@ -12,11 +12,11 @@ GameSettings::GameSettings(CameraManager *a_perspectiveCamera, CameraManager *a_
 {
 	m_perspectiveCamera = a_perspectiveCamera;
 	m_firstPersonCamera = a_firstPersonCamera;
-	m_activeCamera = m_firstPersonCamera;
+	m_activeCamera = a_perspectiveCamera;
 	m_activeCamera->EnableViewport();
 }
 
-void GameSettings::ChangeGameState(int a_state)
+void GameSettings::SetGameState(int a_state)
 {
 	m_gameState = a_state;
 }
@@ -40,6 +40,16 @@ void GameSettings::ToggleCamera()
 		m_activeCamera = m_perspectiveCamera;
 		m_activeCamera->EnableViewport();
 	}
+}
+
+void GameSettings::SetGameView(int a_state)
+{
+	m_gameView = a_state;
+}
+
+int GameSettings::GetGameView()
+{
+	return m_gameView;
 }
 
 CameraManager* GameSettings::GetActiveCamera()

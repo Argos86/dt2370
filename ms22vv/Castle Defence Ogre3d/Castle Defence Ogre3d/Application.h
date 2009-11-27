@@ -6,7 +6,7 @@
 #include <CEGUI/CEGUI.h>
 #include <OgreCEGUIRenderer.h>
 #include "Model\Player.h"
-#include "Model\Level\Level.h"
+#include "Model\Game.h"
 #include "View\GameView.h"
 #include "View\Camera\Camera.h"
 #include "Model\GameSettings.h"
@@ -22,8 +22,8 @@ private:
     OIS::Keyboard *m_keyboard;
 	OIS::Mouse *m_mouse;
     OIS::InputManager *m_inputManager;
-    CEGUI::OgreCEGUIRenderer *m_renderer;
-    CEGUI::System *m_system;
+    CEGUI::OgreCEGUIRenderer *m_GUIrenderer;
+    CEGUI::System *m_GUIsystem;
 	Ogre::SceneManager *m_scenemgr;
 	RenderWindow *m_window;
 
@@ -31,7 +31,7 @@ private:
 	CameraManager *m_firstPersonCamera;
 	CameraManager *m_perspectiveCamera;
 	GameView *m_gameView;
-	Level *m_level;
+	Game *m_game;
 
 	GameTimer *m_timer;
 		

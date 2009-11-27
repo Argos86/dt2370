@@ -13,16 +13,15 @@
 class WeaponFactory
 {
 private:
-	static const int WEAPON_TYPE_01 = 0;
-	static const int WEAPON_TYPE_02 = 1;
-
+	IEvent *m_eventToView;
+	IModel *m_eventToModel;
+	ISound *m_soundEffects;
 	
-
 public:	
-	enum type {STANDARD, LASER, Weapon03};
+	enum WeaponType {STANDARD, LASER, Weapon03};
 
-	WeaponFactory::WeaponFactory( );
-	WeaponBase* WeaponFactory::CreateWeapon( Ogre::SceneNode *a_node, Ogre::SceneManager *a_scenemgr, Ogre::Vector3 a_relativePosition, int a_weaponType, Ogre::String a_name, IEvent *a_eventToView, IEvent *a_eventToModel);
+	WeaponFactory::WeaponFactory( IEvent *a_eventToView, IModel *a_eventToModel , ISound *a_soundEffects);
+	WeaponBase* WeaponFactory::CreateWeapon( Ogre::SceneManager *a_scenemgr, Ogre::Vector3 a_relativePosition, int a_weaponType, Ogre::String a_name);
 	WeaponFactory::~WeaponFactory();
 };
 #endif

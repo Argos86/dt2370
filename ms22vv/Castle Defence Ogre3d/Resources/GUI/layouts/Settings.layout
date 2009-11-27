@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GUILayout>
+<Window Type="DefaultWindow" Name="Root" >
+<Property Name="InheritsAlpha" Value="False" />
+<Property Name="UnifiedAreaRect" Value="{{0.000000,0.000000},{0.000000,0.000000},{1.000000,0.000000},{1.000000,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+<Window Type="TaharezLook/StaticImage" Name="Background" >
+<Property Name="BackgroundImage" Value="set:TaharezLook image:StaticBackdrop" />
+<Property Name="BottomFrameImage" Value="set:TaharezLook image:StaticBottom" />
+<Property Name="BottomLeftFrameImage" Value="set:TaharezLook image:StaticBottomLeft" />
+<Property Name="BottomRightFrameImage" Value="set:TaharezLook image:StaticBottomRight" />
+<Property Name="FrameEnabled" Value="False" />
+<Property Name="LeftFrameImage" Value="set:TaharezLook image:StaticLeft" />
+<Property Name="RightFrameImage" Value="set:TaharezLook image:StaticRight" />
+<Property Name="TopFrameImage" Value="set:TaharezLook image:StaticTop" />
+<Property Name="TopLeftFrameImage" Value="set:TaharezLook image:StaticTopLeft" />
+<Property Name="TopRightFrameImage" Value="set:TaharezLook image:StaticTopRight" />
+<Property Name="UnifiedAreaRect" Value="{{0.000000,0.000000},{0.000000,0.000000},{1.000000,0.000000},{1.000000,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+<Property Name="ZOrderChangeEnabled" Value="False" />
+</Window>
+<Window Type="DefaultWindow" Name="MainWindow" >
+<Property Name="UnifiedAreaRect" Value="{{-0.003125,0.000000},{0.004167,0.000000},{0.996875,0.000000},{1.004168,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+<Window Type="TaharezLook/StaticText" Name="Label/PlayerName" >
+<Property Name="BackgroundImage" Value="set:TaharezLook image:Trans" />
+<Property Name="BottomFrameImage" Value="set:TaharezLook image:StaticBottom" />
+<Property Name="BottomLeftFrameImage" Value="set:TaharezLook image:StaticBottomLeft" />
+<Property Name="BottomRightFrameImage" Value="set:TaharezLook image:StaticBottomRight" />
+<Property Name="Font" Value="Commonwealth-10" />
+<Property Name="FrameEnabled" Value="False" />
+<Property Name="LeftFrameImage" Value="set:TaharezLook image:StaticLeft" />
+<Property Name="RightFrameImage" Value="set:TaharezLook image:StaticRight" />
+<Property Name="Text" Value="Your  name:" />
+<Property Name="TopFrameImage" Value="set:TaharezLook image:StaticTop" />
+<Property Name="TopLeftFrameImage" Value="set:TaharezLook image:StaticTopLeft" />
+<Property Name="TopRightFrameImage" Value="set:TaharezLook image:StaticTopRight" />
+<Property Name="UnifiedAreaRect" Value="{{0.100382,0.000000},{0.221971,0.000000},{0.195952,0.000000},{0.284337,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+</Window>
+<Window Type="TaharezLook/Editbox" Name="Edit/PlayerName" >
+<Property Name="Font" Value="Commonwealth-10" />
+<Property Name="MaxTextLength" Value="1073741823" />
+<Property Name="MouseCursorImage" Value="set:TaharezLook image:MouseTextBar" />
+<Property Name="Text" Value="Player" />
+<Property Name="UnifiedAreaRect" Value="{{0.215232,0.000000},{0.219888,0.000000},{0.493613,0.000000},{0.282254,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+</Window>
+<Window Type="TaharezLook/Button" Name="Cmd/Back" >
+<Property Name="Font" Value="Commonwealth-10" />
+<Property Name="MouseCursorImage" Value="set:TaharezLook image:MouseArrow" />
+<Property Name="Text" Value="Cancel" />
+<Property Name="UnifiedAreaRect" Value="{{0.026022,0.000000},{0.900644,0.000000},{0.276021,0.000000},{0.975804,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+</Window>
+<Window Type="TaharezLook/Combobox" Name="ComboBox/RenderTextureMode" >
+<Property Name="ActiveEditSelectionColour" Value="FF6060FF" />
+<Property Name="Font" Value="Commonwealth-10" />
+<Property Name="InactiveEditSelectionColour" Value="FF808080" />
+<Property Name="ReadOnly" Value="True" />
+<Property Name="MaxEditTextLength" Value="1073741823" />
+<Property Name="NormalEditTextColour" Value="FFFFFFFF" />
+<Property Name="SelectedEditTextColour" Value="FF000000" />
+<Property Name="UnifiedAreaRect" Value="{{0.214063,0.000000},{0.631250,0.000000},{0.496875,0.000000},{0.693749,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+</Window>
+<Window Type="TaharezLook/StaticText" Name="Label/RenderTextureMode" >
+<Property Name="BackgroundImage" Value="set:TaharezLook image:Trans" />
+<Property Name="BottomFrameImage" Value="set:TaharezLook image:StaticBottom" />
+<Property Name="BottomLeftFrameImage" Value="set:TaharezLook image:StaticBottomLeft" />
+<Property Name="BottomRightFrameImage" Value="set:TaharezLook image:StaticBottomRight" />
+<Property Name="Font" Value="Commonwealth-10" />
+<Property Name="FrameEnabled" Value="False" />
+<Property Name="LeftFrameImage" Value="set:TaharezLook image:StaticLeft" />
+<Property Name="RightFrameImage" Value="set:TaharezLook image:StaticRight" />
+<Property Name="Text" Value="Render Texture Mode:" />
+<Property Name="TopFrameImage" Value="set:TaharezLook image:StaticTop" />
+<Property Name="TopLeftFrameImage" Value="set:TaharezLook image:StaticTopLeft" />
+<Property Name="TopRightFrameImage" Value="set:TaharezLook image:StaticTopRight" />
+<Property Name="UnifiedAreaRect" Value="{{0.020313,0.000000},{0.633333,0.000000},{0.204687,0.000000},{0.683333,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+</Window>
+<Window Type="TaharezLook/StaticText" Name="Label/Rendersystem" >
+<Property Name="BackgroundImage" Value="set:TaharezLook image:Trans" />
+<Property Name="BottomFrameImage" Value="set:TaharezLook image:StaticBottom" />
+<Property Name="BottomLeftFrameImage" Value="set:TaharezLook image:StaticBottomLeft" />
+<Property Name="BottomRightFrameImage" Value="set:TaharezLook image:StaticBottomRight" />
+<Property Name="Font" Value="Commonwealth-10" />
+<Property Name="FrameEnabled" Value="False" />
+<Property Name="LeftFrameImage" Value="set:TaharezLook image:StaticLeft" />
+<Property Name="RightFrameImage" Value="set:TaharezLook image:StaticRight" />
+<Property Name="Text" Value="Rendersystem:" />
+<Property Name="TopFrameImage" Value="set:TaharezLook image:StaticTop" />
+<Property Name="TopLeftFrameImage" Value="set:TaharezLook image:StaticTopLeft" />
+<Property Name="TopRightFrameImage" Value="set:TaharezLook image:StaticTopRight" />
+<Property Name="UnifiedAreaRect" Value="{{0.076366,0.000000},{0.556431,0.000000},{0.209177,0.000000},{0.600145,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+</Window>
+<Window Type="TaharezLook/Combobox" Name="ComboBox/Rendersystem" >
+<Property Name="ActiveEditSelectionColour" Value="FF6060FF" />
+<Property Name="Font" Value="Commonwealth-10" />
+<Property Name="InactiveEditSelectionColour" Value="FF808080" />
+<Property Name="ReadOnly" Value="True" />
+<Property Name="MaxEditTextLength" Value="1073741823" />
+<Property Name="NormalEditTextColour" Value="FFFFFFFF" />
+<Property Name="SelectedEditTextColour" Value="FF000000" />
+<Property Name="UnifiedAreaRect" Value="{{0.215625,0.000000},{0.552083,0.000000},{0.498438,0.000000},{0.612499,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+</Window>
+<Window Type="TaharezLook/Combobox" Name="ComboBox/Resolution" >
+<Property Name="ActiveEditSelectionColour" Value="FF6060FF" />
+<Property Name="Font" Value="Commonwealth-10" />
+<Property Name="InactiveEditSelectionColour" Value="FF808080" />
+<Property Name="ReadOnly" Value="True" />
+<Property Name="MaxEditTextLength" Value="1073741823" />
+<Property Name="NormalEditTextColour" Value="FFFFFFFF" />
+<Property Name="SelectedEditTextColour" Value="FF000000" />
+<Property Name="UnifiedAreaRect" Value="{{0.215625,0.000000},{0.477083,0.000000},{0.499999,0.000000},{0.543750,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+</Window>
+<Window Type="TaharezLook/StaticText" Name="Label/Resolution" >
+<Property Name="BackgroundImage" Value="set:TaharezLook image:Trans" />
+<Property Name="BottomFrameImage" Value="set:TaharezLook image:StaticBottom" />
+<Property Name="BottomLeftFrameImage" Value="set:TaharezLook image:StaticBottomLeft" />
+<Property Name="BottomRightFrameImage" Value="set:TaharezLook image:StaticBottomRight" />
+<Property Name="Font" Value="Commonwealth-10" />
+<Property Name="FrameEnabled" Value="False" />
+<Property Name="LeftFrameImage" Value="set:TaharezLook image:StaticLeft" />
+<Property Name="RightFrameImage" Value="set:TaharezLook image:StaticRight" />
+<Property Name="Text" Value="Resolution:" />
+<Property Name="TopFrameImage" Value="set:TaharezLook image:StaticTop" />
+<Property Name="TopLeftFrameImage" Value="set:TaharezLook image:StaticTopLeft" />
+<Property Name="TopRightFrameImage" Value="set:TaharezLook image:StaticTopRight" />
+<Property Name="UnifiedAreaRect" Value="{{0.106053,0.000000},{0.481432,0.000000},{0.204489,0.000000},{0.525146,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+</Window>
+<Window Type="TaharezLook/StaticText" Name="Label/VSync" >
+<Property Name="BackgroundImage" Value="set:TaharezLook image:Trans" />
+<Property Name="BottomFrameImage" Value="set:TaharezLook image:StaticBottom" />
+<Property Name="BottomLeftFrameImage" Value="set:TaharezLook image:StaticBottomLeft" />
+<Property Name="BottomRightFrameImage" Value="set:TaharezLook image:StaticBottomRight" />
+<Property Name="Font" Value="Commonwealth-10" />
+<Property Name="FrameEnabled" Value="False" />
+<Property Name="LeftFrameImage" Value="set:TaharezLook image:StaticLeft" />
+<Property Name="RightFrameImage" Value="set:TaharezLook image:StaticRight" />
+<Property Name="Text" Value="VSync:" />
+<Property Name="TopFrameImage" Value="set:TaharezLook image:StaticTop" />
+<Property Name="TopLeftFrameImage" Value="set:TaharezLook image:StaticTopLeft" />
+<Property Name="TopRightFrameImage" Value="set:TaharezLook image:StaticTopRight" />
+<Property Name="UnifiedAreaRect" Value="{{0.143750,0.000000},{0.389583,0.000000},{0.207812,0.000000},{0.448063,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+</Window>
+<Window Type="TaharezLook/Checkbox" Name="CheckBox/VSync" >
+<Property Name="Font" Value="Commonwealth-10" />
+<Property Name="Selected" Value="True" />
+<Property Name="UnifiedAreaRect" Value="{{0.218750,0.000000},{0.408332,0.000000},{0.485938,0.000000},{0.433333,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+</Window>
+<Window Type="TaharezLook/Checkbox" Name="CheckBox/Fullscreen" >
+<Property Name="Font" Value="Commonwealth-10" />
+<Property Name="Selected" Value="True" />
+<Property Name="UnifiedAreaRect" Value="{{0.218750,0.000000},{0.320833,0.000000},{0.495313,0.000000},{0.389583,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+</Window>
+<Window Type="TaharezLook/StaticText" Name="Label/Fullscreen" >
+<Property Name="BackgroundImage" Value="set:TaharezLook image:Trans" />
+<Property Name="BottomFrameImage" Value="set:TaharezLook image:StaticBottom" />
+<Property Name="BottomLeftFrameImage" Value="set:TaharezLook image:StaticBottomLeft" />
+<Property Name="BottomRightFrameImage" Value="set:TaharezLook image:StaticBottomRight" />
+<Property Name="Font" Value="Commonwealth-10" />
+<Property Name="FrameEnabled" Value="False" />
+<Property Name="LeftFrameImage" Value="set:TaharezLook image:StaticLeft" />
+<Property Name="RightFrameImage" Value="set:TaharezLook image:StaticRight" />
+<Property Name="Text" Value="Fullscreen:" />
+<Property Name="TopFrameImage" Value="set:TaharezLook image:StaticTop" />
+<Property Name="TopLeftFrameImage" Value="set:TaharezLook image:StaticTopLeft" />
+<Property Name="TopRightFrameImage" Value="set:TaharezLook image:StaticTopRight" />
+<Property Name="UnifiedAreaRect" Value="{{0.107812,0.000000},{0.327083,0.000000},{0.206889,0.000000},{0.380170,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+</Window>
+<Window Type="TaharezLook/StaticText" Name="Label/Sound" >
+<Property Name="BackgroundImage" Value="set:TaharezLook image:Trans" />
+<Property Name="BottomFrameImage" Value="set:TaharezLook image:StaticBottom" />
+<Property Name="BottomLeftFrameImage" Value="set:TaharezLook image:StaticBottomLeft" />
+<Property Name="BottomRightFrameImage" Value="set:TaharezLook image:StaticBottomRight" />
+<Property Name="Font" Value="Commonwealth-10" />
+<Property Name="FrameEnabled" Value="False" />
+<Property Name="LeftFrameImage" Value="set:TaharezLook image:StaticLeft" />
+<Property Name="RightFrameImage" Value="set:TaharezLook image:StaticRight" />
+<Property Name="Text" Value="Sound:" />
+<Property Name="TopFrameImage" Value="set:TaharezLook image:StaticTop" />
+<Property Name="TopLeftFrameImage" Value="set:TaharezLook image:StaticTopLeft" />
+<Property Name="TopRightFrameImage" Value="set:TaharezLook image:StaticTopRight" />
+<Property Name="UnifiedAreaRect" Value="{{0.609176,0.000000},{0.218934,0.000000},{0.670113,0.000000},{0.285564,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+</Window>
+<Window Type="TaharezLook/RadioButton" Name="Radio/SoundOn" >
+<Property Name="Font" Value="Commonwealth-10" />
+<Property Name="Selected" Value="True" />
+<Property Name="Text" Value="On" />
+<Property Name="UnifiedAreaRect" Value="{{0.699654,0.000000},{0.220706,0.000000},{0.825354,0.000000},{0.287336,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+</Window>
+<Window Type="TaharezLook/RadioButton" Name="Radio/SoundOff" >
+<Property Name="Font" Value="Commonwealth-10" />
+<Property Name="Text" Value="Off" />
+<Property Name="UnifiedAreaRect" Value="{{0.840697,0.000000},{0.224805,0.000000},{0.969757,0.000000},{0.278643,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+</Window>
+<Window Type="TaharezLook/StaticText" Name="Label/VolumeMusic" >
+<Property Name="BackgroundImage" Value="set:TaharezLook image:Trans" />
+<Property Name="BottomFrameImage" Value="set:TaharezLook image:StaticBottom" />
+<Property Name="BottomLeftFrameImage" Value="set:TaharezLook image:StaticBottomLeft" />
+<Property Name="BottomRightFrameImage" Value="set:TaharezLook image:StaticBottomRight" />
+<Property Name="Font" Value="Commonwealth-10" />
+<Property Name="FrameEnabled" Value="False" />
+<Property Name="LeftFrameImage" Value="set:TaharezLook image:StaticLeft" />
+<Property Name="RightFrameImage" Value="set:TaharezLook image:StaticRight" />
+<Property Name="Text" Value="Volume Music:" />
+<Property Name="TopFrameImage" Value="set:TaharezLook image:StaticTop" />
+<Property Name="TopLeftFrameImage" Value="set:TaharezLook image:StaticTopLeft" />
+<Property Name="TopRightFrameImage" Value="set:TaharezLook image:StaticTopRight" />
+<Property Name="UnifiedAreaRect" Value="{{0.554489,0.000000},{0.291850,0.000000},{0.673237,0.000000},{0.331396,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+</Window>
+<Window Type="TaharezLook/StaticText" Name="Label/VolumeSFX" >
+<Property Name="BackgroundImage" Value="set:TaharezLook image:Trans" />
+<Property Name="BottomFrameImage" Value="set:TaharezLook image:StaticBottom" />
+<Property Name="BottomLeftFrameImage" Value="set:TaharezLook image:StaticBottomLeft" />
+<Property Name="BottomRightFrameImage" Value="set:TaharezLook image:StaticBottomRight" />
+<Property Name="Font" Value="Commonwealth-10" />
+<Property Name="FrameEnabled" Value="False" />
+<Property Name="LeftFrameImage" Value="set:TaharezLook image:StaticLeft" />
+<Property Name="RightFrameImage" Value="set:TaharezLook image:StaticRight" />
+<Property Name="Text" Value="Volume SFX:" />
+<Property Name="TopFrameImage" Value="set:TaharezLook image:StaticTop" />
+<Property Name="TopLeftFrameImage" Value="set:TaharezLook image:StaticTopLeft" />
+<Property Name="TopRightFrameImage" Value="set:TaharezLook image:StaticTopRight" />
+<Property Name="UnifiedAreaRect" Value="{{0.570113,0.000000},{0.341850,0.000000},{0.668549,0.000000},{0.381398,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+</Window>
+<Window Type="TaharezLook/StaticText" Name="Label/Volume3DSound" >
+<Property Name="BackgroundImage" Value="set:TaharezLook image:Trans" />
+<Property Name="BottomFrameImage" Value="set:TaharezLook image:StaticBottom" />
+<Property Name="BottomLeftFrameImage" Value="set:TaharezLook image:StaticBottomLeft" />
+<Property Name="BottomRightFrameImage" Value="set:TaharezLook image:StaticBottomRight" />
+<Property Name="Font" Value="Commonwealth-10" />
+<Property Name="FrameEnabled" Value="False" />
+<Property Name="LeftFrameImage" Value="set:TaharezLook image:StaticLeft" />
+<Property Name="RightFrameImage" Value="set:TaharezLook image:StaticRight" />
+<Property Name="Text" Value="Volume 3D Sound:" />
+<Property Name="TopFrameImage" Value="set:TaharezLook image:StaticTop" />
+<Property Name="TopLeftFrameImage" Value="set:TaharezLook image:StaticTopLeft" />
+<Property Name="TopRightFrameImage" Value="set:TaharezLook image:StaticTopRight" />
+<Property Name="UnifiedAreaRect" Value="{{0.527928,0.000000},{0.389767,0.000000},{0.668549,0.000000},{0.429315,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+</Window>
+<Window Type="TaharezLook/StaticText" Name="Label/ShadowTechnique" >
+<Property Name="BackgroundImage" Value="set:TaharezLook image:Trans" />
+<Property Name="BottomFrameImage" Value="set:TaharezLook image:StaticBottom" />
+<Property Name="BottomLeftFrameImage" Value="set:TaharezLook image:StaticBottomLeft" />
+<Property Name="BottomRightFrameImage" Value="set:TaharezLook image:StaticBottomRight" />
+<Property Name="Font" Value="Commonwealth-10" />
+<Property Name="FrameEnabled" Value="False" />
+<Property Name="LeftFrameImage" Value="set:TaharezLook image:StaticLeft" />
+<Property Name="RightFrameImage" Value="set:TaharezLook image:StaticRight" />
+<Property Name="Text" Value="Shadow Technique:" />
+<Property Name="TopFrameImage" Value="set:TaharezLook image:StaticTop" />
+<Property Name="TopLeftFrameImage" Value="set:TaharezLook image:StaticTopLeft" />
+<Property Name="TopRightFrameImage" Value="set:TaharezLook image:StaticTopRight" />
+<Property Name="UnifiedAreaRect" Value="{{0.523241,0.000000},{0.477265,0.000000},{0.679489,0.000000},{0.520979,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+</Window>
+<Window Type="TaharezLook/Combobox" Name="ComboBox/ShadowTechnique" >
+<Property Name="ActiveEditSelectionColour" Value="FF6060FF" />
+<Property Name="Font" Value="Commonwealth-10" />
+<Property Name="InactiveEditSelectionColour" Value="FF808080" />
+<Property Name="MaxEditTextLength" Value="1073741823" />
+<Property Name="NormalEditTextColour" Value="FFFFFFFF" />
+<Property Name="ReadOnly" Value="True" />
+<Property Name="SelectedEditTextColour" Value="FF000000" />
+<Property Name="UnifiedAreaRect" Value="{{0.692187,0.000000},{0.475000,0.000000},{0.973435,0.000000},{0.541668,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+</Window>
+<Window Type="TaharezLook/StaticText" Name="Label/RefreshRate" >
+<Property Name="BackgroundImage" Value="set:TaharezLook image:Trans" />
+<Property Name="BottomFrameImage" Value="set:TaharezLook image:StaticBottom" />
+<Property Name="BottomLeftFrameImage" Value="set:TaharezLook image:StaticBottomLeft" />
+<Property Name="BottomRightFrameImage" Value="set:TaharezLook image:StaticBottomRight" />
+<Property Name="Font" Value="Commonwealth-10" />
+<Property Name="FrameEnabled" Value="False" />
+<Property Name="LeftFrameImage" Value="set:TaharezLook image:StaticLeft" />
+<Property Name="RightFrameImage" Value="set:TaharezLook image:StaticRight" />
+<Property Name="Text" Value="Refresh Rate:" />
+<Property Name="TopFrameImage" Value="set:TaharezLook image:StaticTop" />
+<Property Name="TopLeftFrameImage" Value="set:TaharezLook image:StaticTopLeft" />
+<Property Name="TopRightFrameImage" Value="set:TaharezLook image:StaticTopRight" />
+<Property Name="UnifiedAreaRect" Value="{{0.562303,0.000000},{0.562682,0.000000},{0.674802,0.000000},{0.606396,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+</Window>
+<Window Type="TaharezLook/Combobox" Name="ComboBox/RefreshRate" >
+<Property Name="ActiveEditSelectionColour" Value="FF6060FF" />
+<Property Name="Font" Value="Commonwealth-10" />
+<Property Name="InactiveEditSelectionColour" Value="FF808080" />
+<Property Name="MaxEditTextLength" Value="1073741823" />
+<Property Name="NormalEditTextColour" Value="FFFFFFFF" />
+<Property Name="ReadOnly" Value="True" />
+<Property Name="SelectedEditTextColour" Value="FF000000" />
+<Property Name="UnifiedAreaRect" Value="{{0.690624,0.000000},{0.558333,0.000000},{0.973436,0.000000},{0.618749,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+</Window>
+<Window Type="TaharezLook/Button" Name="Cmd/Save" >
+<Property Name="Font" Value="Commonwealth-10" />
+<Property Name="MouseCursorImage" Value="set:TaharezLook image:MouseArrow" />
+<Property Name="Text" Value="Save settings" />
+<Property Name="UnifiedAreaRect" Value="{{0.698278,0.000000},{0.888588,0.000000},{0.983686,0.000000},{0.976542,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+</Window>
+<Window Type="DefaultWindow" Name="VolumeWindow" >
+<Property Name="Font" Value="Commonwealth-10" />
+<Property Name="Text" Value="chchnj" />
+<Property Name="UnifiedAreaRect" Value="{{0.690624,0.000000},{0.289586,0.000000},{0.964062,0.000000},{0.429164,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+<Window Type="TaharezLook/HorizontalScrollbar" Name="Scrollbar/VolumeMusic" >
+<Property Name="Font" Value="Commonwealth-10" />
+<Property Name="UnifiedAreaRect" Value="{{-0.005714,0.000000},{0.059703,0.000000},{0.994286,0.000000},{0.259703,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+</Window>
+<Window Type="TaharezLook/HorizontalScrollbar" Name="Scrollbar/VolumeSFX" >
+<Property Name="Font" Value="Commonwealth-10" />
+<Property Name="UnifiedAreaRect" Value="{{-0.005714,0.000000},{0.429852,0.000000},{0.994286,0.000000},{0.629852,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+</Window>
+<Window Type="TaharezLook/HorizontalScrollbar" Name="Scrollbar/Volume3DSound" >
+<Property Name="Font" Value="Commonwealth-10" />
+<Property Name="UnifiedAreaRect" Value="{{0.000000,0.000000},{0.785074,0.000000},{1.000000,0.000000},{0.985074,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+</Window>
+</Window>
+</Window>
+<Window Type="TaharezLook/FrameWindow" Name="Window/Restart" >
+<Property Name="AlwaysOnTop" Value="True" />
+<Property Name="CaptionColour" Value="00FFFFFF" />
+<Property Name="CloseButtonEnabled" Value="False" />
+<Property Name="EWSizingCursorImage" Value="set:TaharezLook image:MouseEsWeCursor" />
+<Property Name="MouseCursorImage" Value="set:TaharezLook image:MouseTarget" />
+<Property Name="NESWSizingCursorImage" Value="set:TaharezLook image:MouseNeSwCursor" />
+<Property Name="NSSizingCursorImage" Value="set:TaharezLook image:MouseNoSoCursor" />
+<Property Name="NWSESizingCursorImage" Value="set:TaharezLook image:MouseNwSeCursor" />
+<Property Name="SizingEnabled" Value="False" />
+<Property Name="Text" Value="Restart" />
+<Property Name="TitlebarEnabled" Value="True" />
+<Property Name="TitlebarFont" Value="Commonwealth-10" />
+<Property Name="UnifiedAreaRect" Value="{{0.229688,0.000000},{0.291668,0.000000},{0.803123,0.000000},{0.662499,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+<Window Type="TaharezLook/StaticText" Name="text" >
+<Property Name="BackgroundImage" Value="set:TaharezLook image:Trans" />
+<Property Name="BottomFrameImage" Value="set:TaharezLook image:StaticBottom" />
+<Property Name="BottomLeftFrameImage" Value="set:TaharezLook image:StaticBottomLeft" />
+<Property Name="BottomRightFrameImage" Value="set:TaharezLook image:StaticBottomRight" />
+<Property Name="LeftFrameImage" Value="set:TaharezLook image:StaticLeft" />
+<Property Name="RightFrameImage" Value="set:TaharezLook image:StaticRight" />
+<Property Name="Text" Value="You must restart for these settings to take effect." />
+<Property Name="TopFrameImage" Value="set:TaharezLook image:StaticTop" />
+<Property Name="TopLeftFrameImage" Value="set:TaharezLook image:StaticTopLeft" />
+<Property Name="TopRightFrameImage" Value="set:TaharezLook image:StaticTopRight" />
+<Property Name="UnifiedAreaRect" Value="{{0.099865,0.000000},{0.316000,0.000000},{0.913016,0.000000},{0.516068,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+</Window>
+<Window Type="TaharezLook/Button" Name="Button/OK" >
+<Property Name="MouseCursorImage" Value="set:TaharezLook image:MouseArrow" />
+<Property Name="Text" Value="OK" />
+<Property Name="UnifiedAreaRect" Value="{{0.376023,0.000000},{0.651682,0.000000},{0.626022,0.000000},{0.834267,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+</Window>
+</Window>
+</Window>
+</GUILayout>

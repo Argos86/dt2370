@@ -1,0 +1,29 @@
+particle_system Splatter
+{
+    material blood02
+    point_rendering            false
+    particle_width             5
+    particle_height            5
+    cull_each                  false
+    quota                      20
+    emit_emitter_quota         10
+    billboard_type             point
+    
+    emitter Point
+    {
+        name                    mainEmitter
+        angle                   60
+        emission_rate           100
+        time_to_live            0.7
+        direction               0 1 0
+        velocity                300
+    }
+
+
+    // Make em float downwards
+    affector LinearForce
+    {
+        force_vector            0 -600 0
+        force_application       add
+    }
+}

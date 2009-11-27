@@ -1,0 +1,35 @@
+// The name of the overlay comes first
+HUDMessages/HUDMessages
+{
+    zorder 201
+
+	container Panel(HUDMessages/Panel)
+	{/*
+		transparent true
+		
+		//WaveCompleted
+		element Panel(HUDMessages/WaveCompleted)
+		{
+			metrics_mode relative
+			top 0.3
+			left 0.25
+			width 0.5
+			height 0.2
+		
+			material HUDMessageMaterial/waveCompleted	
+        	}
+
+		//New Wave
+		element Panel(HUDMessages/NewWave)
+		{
+			metrics_mode relative
+			top 0.3
+			left 0.25
+			width 0.5
+			height 0.2
+ 
+			material HUDMessageMaterial/newWave
+        	}*/
+	}
+}
+

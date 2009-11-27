@@ -5,17 +5,19 @@
 
 #include "Application.h"
 #include "Model\Player.h"
-#include "Model\Level\Level.h"
+#include "Model\Game.h"
 #include "View\GameView.h"
 #include "View\Camera\Camera.h"
 #include "View\Camera\FirstPerson.h"
 #include "View\Camera\Perspective.h"
-
+#include "View\Sound\SoundEffect.h"
+#include "View\HudManager.h"
 
 #include "Model\GameTimer.h"
 #include "Model\GameSettings.h"
 #include "Controller\GameController.h"
 #include "Controller\DebugController.h"
+#include "Controller\PerspectiveController.h"
 #include "Controller\IEvent.h"
 #include <iostream>
 
@@ -38,8 +40,8 @@ Application::~Application()
 {
     OIS::InputManager::destroyInputSystem(m_inputManager);
 
-    //delete m_renderer;
-    //delete m_system;
+    delete m_GUIrenderer;
+    //delete m_GUIsystem;
 
     delete m_root;
 
@@ -71,6 +73,9 @@ void Application::DefineResources()
             ResourceGroupManager::getSingleton().addResourceLocation(archName, typeName, secName);
         }
     }
+
+	// För loggningen, tillfällig.
+	Ogre::LogManager::getSingleton().setLogDetail(Ogre::LL_BOREME);
 }
 
 void Application::SetupRenderSystem()
@@ -123,11 +128,23 @@ void Application::SetupInputSystem()
 void Application::SetupCEGUI()
 {
 	// CEGUI setup
-	m_renderer = new CEGUI::OgreCEGUIRenderer(m_window, Ogre::RENDER_QUEUE_OVERLAY, false, 3000, m_scenemgr);
-	m_system = new CEGUI::System(m_renderer);
+	m_GUIrenderer = new CEGUI::OgreCEGUIRenderer(m_window, Ogre::RENDER_QUEUE_OVERLAY, false, 3000, m_scenemgr);
+	m_GUIsystem = new CEGUI::System(m_GUIrenderer);
+	CEGUI::Logger::getSingleton().setLoggingLevel(CEGUI::Insane);
+
+    //CEGUI::SchemeManager::getSingleton().loadScheme((CEGUI::utf8*)"TaharezLook.scheme");
+   // CEGUI::System::getSingleton().setDefaultMouseCursor((CEGUI::utf8*)"TaharezLook", (CEGUI::utf8*)"MouseArrow");
+    //CEGUI::MouseCursor::getSingleton().setImage("TaharezLook", "MouseMoveCursor");
+
+	//CEGUI::Font *f = CEGUI::FontManager::getSingleton().createFont("Advent.font");
+	//m_GUIsystem->setDefaultFont(f);
+
+/*
+	m_GUISystem->setDefaultFont((CEGUI::utf8*)"BlueHighway-12");
+
+	if(! CEGUI::FontManager::getSingleton().isFontPresent( "Advent" ) )
+	CEGUI::FontManager::getSingleton().createFont( "Advent.ttf" );*/
 }
-
-
 
 void Application::StartRenderLoop()
 {	
@@ -136,45 +153,74 @@ void Application::StartRenderLoop()
 
 	GameSettings *m_gameSettings = new GameSettings(m_perspectiveCamera, m_firstPersonCamera);
 	m_gameView = new GameView(m_inputManager, m_root, m_scenemgr);
-	m_level = new Level(m_scenemgr);
+	SoundEffect *m_soundEffects = new SoundEffect(m_scenemgr);
+	m_game = new Game(m_scenemgr, m_gameView, m_soundEffects);	
+	m_player = new Player(m_scenemgr );
 
-	IEvent *m_eventToView = m_gameView;
-	IEvent *m_eventToModel = m_level;
 	
-	m_player = new Player(m_scenemgr, m_eventToView, m_eventToModel );
-
-
-	int gamestate = GameSettings::GAMESTATE_RUNNING;
-	bool cameraUpdated = true;
+	m_gameSettings->SetGameState(GameSettings::GAME_STATE_RUNNING);
+	m_gameSettings->SetGameView(GameSettings::GAME_VIEW_PERSPECTIVE);
+	int gameState = m_gameSettings->GetGameState();   //GameSettings::GAME_STATE_RUNNING;
+	int gameView = m_gameSettings->GetGameView();   
 	m_timer = new GameTimer;
+	HudManager *m_hudMgr = new HudManager();
 
-	DebugController *m_debugController = new DebugController(m_player, m_gameSettings, m_gameView, m_level);
-	GameController *m_gameController = new GameController(m_player, m_gameSettings, m_gameView, m_level);
+	DebugController *m_debugController = new DebugController(m_player, m_gameSettings, m_gameView, m_game, m_firstPersonCamera, m_scenemgr, m_hudMgr);
+	GameController *m_gameController = new GameController(m_player, m_gameSettings, m_gameView, m_game, m_firstPersonCamera, m_scenemgr, m_hudMgr);
+	PerspectiveController *m_perspectiveContr = new PerspectiveController(m_player, m_gameSettings, m_gameView, m_game, m_perspectiveCamera, m_scenemgr, m_hudMgr);
 
+	
 	float time = 0;
 	//Main loop..
     while (m_root->renderOneFrame())
     {
-		if (gamestate == GameSettings::GAMESTATE_RUNNING) {
-			if (!m_gameController->DoControll(m_scenemgr, m_timer->GetTimeSinceLastFrame())) {
-				std::cout << "Cangeing gamestate to DEBUG " << std::endl; 
-				// om m_gameController->DoControll returnerar falskt så uppdaterar jag state...
-				gamestate = m_gameSettings->GetGameState();
-				m_debugController->UpdateCamera();
+		if (gameState == GameSettings::GAME_STATE_RUNNING) {
+			if ( gameView == GameSettings::GAME_VIEW_PERSPECTIVE) {
+				if (!m_perspectiveContr->DoControll( m_timer->GetTimeSinceLastFrame())) {
+					std::cout << "Cangeing gamestate to DEBUG " << std::endl; 
+					// om m_gameController->DoControll returnerar falskt så uppdaterar jag state...
+					
+					if (gameView != m_gameSettings->GetGameView())	{
+						gameView = m_gameSettings->GetGameView();
+						m_gameSettings->ToggleCamera();
+					}
+					else {
+						gameState = m_gameSettings->GetGameState();
+						m_debugController->UpdateCamera();
+					}
+				}
+			}
+			if ( gameView == GameSettings::GAME_VIEW_FIRST_PERSON) {
+				if (!m_gameController->DoControll( m_timer->GetTimeSinceLastFrame())) {
+					std::cout << "Cangeing gamestate to DEBUG " << std::endl; 
+					// om m_gameController->DoControll returnerar falskt så uppdaterar jag state...
+					if (gameView != m_gameSettings->GetGameView())	{
+						gameView = m_gameSettings->GetGameView();
+						m_gameSettings->ToggleCamera();
+					}
+					else {
+						gameState = m_gameSettings->GetGameState();
+						m_debugController->UpdateCamera();
+					}
+				}
 			}
 		}
-		else if (gamestate == GameSettings::GAMESTATE_DEBUG){
-			if (!m_debugController->DoControll(m_scenemgr, m_timer->GetTimeSinceLastFrame())) {
+		else if (gameState == GameSettings::GAME_STATE_DEBUG){
+			if (!m_debugController->DoControll( m_timer->GetTimeSinceLastFrame())) {
 				std::cout << "Cangeing gamestate to RUNNING " << std::endl; 
-				gamestate = m_gameSettings->GetGameState();
-				m_gameController->UpdateCamera();
+				gameState = m_gameSettings->GetGameState();
+				m_perspectiveContr->UpdateCamera();
 			}
+		}
+		else if (gameState == GameSettings::GAME_STATE_GAMEOVER) 
+		{
+			break;
 		}
 
 		time += m_timer->GetTimeSinceLastFrame();
-		if (time > 1.0) {
+		if (time > 10.0) {
 			std::cout << "Fps: "  << m_window->getAverageFPS() << std::endl; 
 			time = 0.0;
-		}
+		}		
     }
 }

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GUILayout>
+<Window Type="DefaultWindow" Name="Root" >
+<Property Name="InheritsAlpha" Value="False" />
+<Property Name="UnifiedAreaRect" Value="{{0.000000,0.000000},{0.000000,0.000000},{1.000000,0.000000},{1.000000,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+<Window Type="DefaultWindow" Name="Window/Main" >
+<Property Name="UnifiedAreaRect" Value="{{0.000000,0.000000},{0.000000,0.000000},{1.000000,0.000000},{1.000000,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+<Window Type="TaharezLook/StaticImage" Name="Background" >
+<Property Name="BackgroundImage" Value="set:TaharezLook image:StaticBackdrop" />
+<Property Name="BottomFrameImage" Value="set:TaharezLook image:StaticBottom" />
+<Property Name="BottomLeftFrameImage" Value="set:TaharezLook image:StaticBottomLeft" />
+<Property Name="BottomRightFrameImage" Value="set:TaharezLook image:StaticBottomRight" />
+<Property Name="FrameEnabled" Value="False" />
+<Property Name="LeftFrameImage" Value="set:TaharezLook image:StaticLeft" />
+<Property Name="RightFrameImage" Value="set:TaharezLook image:StaticRight" />
+<Property Name="TopFrameImage" Value="set:TaharezLook image:StaticTop" />
+<Property Name="TopLeftFrameImage" Value="set:TaharezLook image:StaticTopLeft" />
+<Property Name="TopRightFrameImage" Value="set:TaharezLook image:StaticTopRight" />
+<Property Name="UnifiedAreaRect" Value="{{0.000000,0.000000},{0.000000,0.000000},{1.000000,0.000000},{1.000000,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+<Property Name="ZOrderChangeEnabled" Value="False" />
+</Window>
+<Window Type="TaharezLook/MultiColumnList" Name="List/Players" >
+<Property Name="Alpha" Value="0.800000" />
+<Property Name="Font" Value="Commonwealth-10" />
+<Property Name="MouseCursorImage" Value="set:TaharezLook image:MouseTarget" />
+<Property Name="Text" Value="cdgasdg" />
+<Property Name="UnifiedAreaRect" Value="{{0.014063,0.000000},{0.095833,0.000000},{0.979687,0.000000},{0.522916,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+</Window>
+<Window Type="TaharezLook/StaticText" Name="Label/PlayersConnected" >
+<Property Name="BackgroundImage" Value="set:TaharezLook image:Trans" />
+<Property Name="BottomFrameImage" Value="set:TaharezLook image:StaticBottom" />
+<Property Name="BottomLeftFrameImage" Value="set:TaharezLook image:StaticBottomLeft" />
+<Property Name="BottomRightFrameImage" Value="set:TaharezLook image:StaticBottomRight" />
+<Property Name="Font" Value="Commonwealth-10" />
+<Property Name="FrameEnabled" Value="False" />
+<Property Name="LeftFrameImage" Value="set:TaharezLook image:StaticLeft" />
+<Property Name="RightFrameImage" Value="set:TaharezLook image:StaticRight" />
+<Property Name="Text" Value="Players connected:" />
+<Property Name="TopFrameImage" Value="set:TaharezLook image:StaticTop" />
+<Property Name="TopLeftFrameImage" Value="set:TaharezLook image:StaticTopLeft" />
+<Property Name="TopRightFrameImage" Value="set:TaharezLook image:StaticTopRight" />
+<Property Name="UnifiedAreaRect" Value="{{0.015625,0.000000},{0.025000,0.000000},{0.325000,0.000000},{0.081250,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+</Window>
+<Window Type="TaharezLook/Button" Name="Cmd/Cancel" >
+<Property Name="Font" Value="Commonwealth-10" />
+<Property Name="MouseCursorImage" Value="set:TaharezLook image:MouseArrow" />
+<Property Name="Text" Value="Cancel session" />
+<Property Name="UnifiedAreaRect" Value="{{0.019641,0.000000},{0.927435,0.000000},{0.202454,0.000000},{0.989935,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+</Window>
+<Window Type="TaharezLook/Checkbox" Name="Checkbox/Cutoff" >
+<Property Name="Selected" Value="True" />
+<Property Name="Text" Value="Accept incoming connections" />
+<Property Name="UnifiedAreaRect" Value="{{0.715626,0.000000},{0.029166,0.000000},{0.979690,0.000000},{0.083334,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+</Window>
+<Window Type="TaharezLook/Button" Name="Cmd/Force" >
+<Property Name="MouseCursorImage" Value="set:TaharezLook image:MouseArrow" />
+<Property Name="Text" Value="Start session" />
+<Property Name="UnifiedAreaRect" Value="{{0.794854,0.000000},{0.928364,0.000000},{0.976451,0.000000},{0.992019,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+</Window>
+<Window Type="TaharezLook/Listbox" Name="List/Chat" >
+<Property Name="Alpha" Value="0.800000" />
+<Property Name="MouseCursorImage" Value="set:TaharezLook image:MouseTarget" />
+<Property Name="UnifiedAreaRect" Value="{{0.014063,0.000000},{0.529167,0.000000},{0.976561,0.000000},{0.795834,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+</Window>
+<Window Type="TaharezLook/Editbox" Name="Edit/Chat" >
+<Property Name="Alpha" Value="0.800000" />
+<Property Name="MaxTextLength" Value="1073741823" />
+<Property Name="MouseCursorImage" Value="set:TaharezLook image:MouseTextBar" />
+<Property Name="UnifiedAreaRect" Value="{{0.010938,0.000000},{0.804168,0.000000},{0.974999,0.000000},{0.906250,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+</Window>
+</Window>
+</Window>
+</GUILayout>

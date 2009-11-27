@@ -17,19 +17,26 @@ private:
 	CameraManager *m_perspectiveCamera;
 	CameraManager *m_firstPersonCamera;
 	int m_gameState;
+	int m_gameView;
 
 public:
-	static const int GAMESTATE_PAUSED = 0;
-	static const int GAMESTATE_RUNNING = 1;
-	static const int GAMESTATE_DEBUG = 2;
+	static const int GAME_STATE_PAUSED = 0;
+	static const int GAME_STATE_RUNNING = 1;
+	static const int GAME_STATE_DEBUG = 2;
+	static const int GAME_STATE_GAMEOVER = 3;
 
-	static const int CAMERA_FIRST_PERSON = 3;
-	static const int CAMERA_PERSPECTIVE = 4;
+	static const int CAMERA_FIRST_PERSON = 4;
+	static const int CAMERA_PERSPECTIVE = 5;
+
+	static const int GAME_VIEW_FIRST_PERSON = 6;
+	static const int GAME_VIEW_PERSPECTIVE = 7;
 
 	GameSettings::GameSettings(CameraManager *a_perspectiveCamera, CameraManager *a_firstPersonCamera);
-	void GameSettings::ChangeGameState(int a_state);
+	void GameSettings::SetGameState(int a_state);
 	int GameSettings::GetGameState();
 	void GameSettings::ToggleCamera();
+	void GameSettings::SetGameView(int a_state);
+	int GameSettings::GetGameView();
 	CameraManager* GameSettings::GetActiveCamera();
 	GameSettings::~GameSettings();
 };

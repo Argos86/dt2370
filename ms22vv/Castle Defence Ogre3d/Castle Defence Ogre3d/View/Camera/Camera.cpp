@@ -27,7 +27,7 @@ CameraManager::CameraManager(Ogre::SceneManager *a_scenemgr, Ogre::RenderWindow 
 	//m_camera->setAspectRatio(m_camVp->getActualWidth() / m_camVp->getActualHeight());
 }
 
-void CameraManager::Update(Ogre::Vector3 a_playerPosition, Ogre::Vector2 a_mousePosition)
+void CameraManager::Update(Ogre::Vector3 a_weaponPosition, Ogre::Quaternion a_weaponOrientation, Ogre::Vector2 a_mousePosition)
 {
 
 }

@@ -1,0 +1,36 @@
+
+// The name of the overlay comes first
+/*material HUDMessageMaterial/waveCompleted
+{
+	technique
+	{
+		pass
+		{
+			scene_blend alpha_blend
+			depth_write off
+
+			texture_unit
+			{
+				texture finished.png
+			}
+		}
+	}
+}*/
+
+
+/*material HUDMessageMaterial/newWave
+{
+	technique
+	{
+		pass
+		{
+			scene_blend alpha_blend
+			depth_write off
+
+			texture_unit
+			{
+				texture newLap.png
+			}
+		}
+	}
+}*/

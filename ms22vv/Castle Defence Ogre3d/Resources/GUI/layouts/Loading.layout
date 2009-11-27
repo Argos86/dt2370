@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GUILayout>
+<Window Type="DefaultWindow" Name="Root" >
+<Property Name="AlwaysOnTop" Value="True" />
+<Property Name="ClippedByParent" Value="False" />
+<Property Name="InheritsAlpha" Value="False" />
+<Property Name="UnifiedAreaRect" Value="{{0.000000,0.000000},{0.000000,0.000000},{1.000000,0.000000},{1.000000,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+<Window Type="TaharezLook/FrameWindow" Name="Window/Loading" >
+<Property Name="AlwaysOnTop" Value="True" />
+<Property Name="CaptionColour" Value="00FFFFFF" />
+<Property Name="ClippedByParent" Value="False" />
+<Property Name="CloseButtonEnabled" Value="False" />
+<Property Name="DragMovingEnabled" Value="False" />
+<Property Name="EWSizingCursorImage" Value="set:TaharezLook image:MouseEsWeCursor" />
+<Property Name="MouseCursorImage" Value="set:TaharezLook image:MouseTarget" />
+<Property Name="NESWSizingCursorImage" Value="set:TaharezLook image:MouseNeSwCursor" />
+<Property Name="NSSizingCursorImage" Value="set:TaharezLook image:MouseNoSoCursor" />
+<Property Name="NWSESizingCursorImage" Value="set:TaharezLook image:MouseNwSeCursor" />
+<Property Name="SizingEnabled" Value="False" />
+<Property Name="Text" Value="
+" />
+<Property Name="TitlebarEnabled" Value="False" />
+<Property Name="TitlebarFont" Value="Commonwealth-10" />
+<Property Name="UnifiedAreaRect" Value="{{0.261593,0.000000},{0.349594,0.000000},{0.725655,0.000000},{0.607930,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+<Window Type="TaharezLook/StaticText" Name="Label/Loading" >
+<Property Name="BackgroundImage" Value="set:TaharezLook image:Trans" />
+<Property Name="BottomFrameImage" Value="set:TaharezLook image:StaticBottom" />
+<Property Name="BottomLeftFrameImage" Value="set:TaharezLook image:StaticBottomLeft" />
+<Property Name="BottomRightFrameImage" Value="set:TaharezLook image:StaticBottomRight" />
+<Property Name="LeftFrameImage" Value="set:TaharezLook image:StaticLeft" />
+<Property Name="RightFrameImage" Value="set:TaharezLook image:StaticRight" />
+<Property Name="Text" Value="Please wait, loading... " />
+<Property Name="TopFrameImage" Value="set:TaharezLook image:StaticTop" />
+<Property Name="TopLeftFrameImage" Value="set:TaharezLook image:StaticTopLeft" />
+<Property Name="TopRightFrameImage" Value="set:TaharezLook image:StaticTopRight" />
+<Property Name="UnifiedAreaRect" Value="{{0.084286,0.000000},{0.264298,0.000000},{0.896127,0.000000},{0.503859,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+</Window>
+<Window Type="TaharezLook/ProgressBar" Name="Progress" >
+<Property Name="UnifiedAreaRect" Value="{{0.083232,0.000000},{0.578429,0.000000},{0.905589,0.000000},{0.783985,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+</Window>
+</Window>
+</Window>
+</GUILayout>

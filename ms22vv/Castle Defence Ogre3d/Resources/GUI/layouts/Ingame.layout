@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GUILayout>
+<Window Type="DefaultWindow" Name="Root" >
+<Property Name="Font" Value="Finalnew" />
+<Property Name="InheritsAlpha" Value="False" />
+<Property Name="UnifiedAreaRect" Value="{{0.000000,0.000000},{0.000000,0.000000},{1.000000,0.000000},{1.000000,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+<Window Type="DefaultWindow" Name="Window/Main" >
+<Property Name="Font" Value="Finalnew" />
+<Property Name="UnifiedAreaRect" Value="{{0.003125,0.000000},{0.003159,0.000000},{1.003124,0.000000},{1.003159,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+<Window Type="TaharezLook/Button" Name="Cmd/Disconnect" >
+<Property Name="Font" Value="Finalnew" />
+<Property Name="MouseCursorImage" Value="set:TaharezLook image:MouseArrow" />
+<Property Name="Text" Value="Disconnect" />
+<Property Name="UnifiedAreaRect" Value="{{0.393751,0.000000},{0.385417,0.000000},{0.607811,0.000000},{0.460417,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+</Window>
+<Window Type="TaharezLook/Button" Name="Cmd/Exit" >
+<Property Name="Font" Value="Finalnew" />
+<Property Name="MouseCursorImage" Value="set:TaharezLook image:MouseArrow" />
+<Property Name="Text" Value="Quit Game" />
+<Property Name="UnifiedAreaRect" Value="{{0.393751,0.000000},{0.475000,0.000000},{0.610936,0.000000},{0.556251,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+</Window>
+</Window>
+<Window Type="TaharezLook/FrameWindow" Name="Window/ConfirmQuit" >
+<Property Name="AlwaysOnTop" Value="True" />
+<Property Name="CaptionColour" Value="00FFFFFF" />
+<Property Name="CloseButtonEnabled" Value="False" />
+<Property Name="EWSizingCursorImage" Value="set:TaharezLook image:MouseEsWeCursor" />
+<Property Name="Font" Value="Finalnew" />
+<Property Name="MouseCursorImage" Value="set:TaharezLook image:MouseTarget" />
+<Property Name="NESWSizingCursorImage" Value="set:TaharezLook image:MouseNeSwCursor" />
+<Property Name="NSSizingCursorImage" Value="set:TaharezLook image:MouseNoSoCursor" />
+<Property Name="NWSESizingCursorImage" Value="set:TaharezLook image:MouseNwSeCursor" />
+<Property Name="SizingEnabled" Value="False" />
+<Property Name="Text" Value="Quit Game?" />
+<Property Name="TitlebarEnabled" Value="True" />
+<Property Name="TitlebarFont" Value="Finalnew" />
+<Property Name="UnifiedAreaRect" Value="{{0.298438,0.000000},{0.087501,0.000000},{0.695313,0.000000},{0.339583,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+<Window Type="TaharezLook/Button" Name="Quit/Cmd/Yes" >
+<Property Name="Font" Value="Finalnew" />
+<Property Name="MouseCursorImage" Value="set:TaharezLook image:MouseArrow" />
+<Property Name="Text" Value="Yes" />
+<Property Name="UnifiedAreaRect" Value="{{0.088189,0.000000},{0.524797,0.000000},{0.456299,0.000000},{0.783200,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+</Window>
+<Window Type="TaharezLook/Button" Name="Quit/Cmd/No" >
+<Property Name="Font" Value="Finalnew" />
+<Property Name="MouseCursorImage" Value="set:TaharezLook image:MouseArrow" />
+<Property Name="Text" Value="No" />
+<Property Name="UnifiedAreaRect" Value="{{0.537008,0.000000},{0.524797,0.000000},{0.905118,0.000000},{0.783200,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+</Window>
+<Window Type="TaharezLook/StaticText" Name="Quit/Label/Warning" >
+<Property Name="BackgroundImage" Value="set:TaharezLook image:StaticBackdrop" />
+<Property Name="BottomFrameImage" Value="set:TaharezLook image:StaticBottom" />
+<Property Name="BottomLeftFrameImage" Value="set:TaharezLook image:StaticBottomLeft" />
+<Property Name="BottomRightFrameImage" Value="set:TaharezLook image:StaticBottomRight" />
+<Property Name="Font" Value="Finalnew" />
+<Property Name="LeftFrameImage" Value="set:TaharezLook image:StaticLeft" />
+<Property Name="RightFrameImage" Value="set:TaharezLook image:StaticRight" />
+<Property Name="Text" Value="WARNING: WILL TERMINATE SESSION !" />
+<Property Name="TopFrameImage" Value="set:TaharezLook image:StaticTop" />
+<Property Name="TopLeftFrameImage" Value="set:TaharezLook image:StaticTopLeft" />
+<Property Name="TopRightFrameImage" Value="set:TaharezLook image:StaticTopRight" />
+<Property Name="UnifiedAreaRect" Value="{{0.044882,0.000000},{0.255247,0.000000},{0.942519,0.000000},{0.496427,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+</Window>
+</Window>
+<Window Type="TaharezLook/FrameWindow" Name="Window/ConfirmLeave" >
+<Property Name="AlwaysOnTop" Value="True" />
+<Property Name="CaptionColour" Value="00FFFFFF" />
+<Property Name="CloseButtonEnabled" Value="False" />
+<Property Name="EWSizingCursorImage" Value="set:TaharezLook image:MouseEsWeCursor" />
+<Property Name="Font" Value="Commonwealth-10" />
+<Property Name="MouseCursorImage" Value="set:TaharezLook image:MouseTarget" />
+<Property Name="NESWSizingCursorImage" Value="set:TaharezLook image:MouseNeSwCursor" />
+<Property Name="NSSizingCursorImage" Value="set:TaharezLook image:MouseNoSoCursor" />
+<Property Name="NWSESizingCursorImage" Value="set:TaharezLook image:MouseNwSeCursor" />
+<Property Name="SizingEnabled" Value="False" />
+<Property Name="Text" Value="Disconnect and return to Main Menu?" />
+<Property Name="TitlebarEnabled" Value="True" />
+<Property Name="TitlebarFont" Value="Finalnew" />
+<Property Name="UnifiedAreaRect" Value="{{0.296875,0.000000},{0.089140,0.000000},{0.693747,0.000000},{0.341223,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+<Window Type="TaharezLook/Button" Name="Leave/Cmd/Yes" >
+<Property Name="Font" Value="Finalnew" />
+<Property Name="MouseCursorImage" Value="set:TaharezLook image:MouseArrow" />
+<Property Name="Text" Value="Yes" />
+<Property Name="UnifiedAreaRect" Value="{{0.088175,0.000000},{0.526007,0.000000},{0.471573,0.000000},{0.802778,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+</Window>
+<Window Type="TaharezLook/Button" Name="Leave/Cmd/No" >
+<Property Name="Font" Value="Finalnew" />
+<Property Name="MouseCursorImage" Value="set:TaharezLook image:MouseArrow" />
+<Property Name="Text" Value="No" />
+<Property Name="UnifiedAreaRect" Value="{{0.525060,0.000000},{0.537331,0.000000},{0.918747,0.000000},{0.805555,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+</Window>
+<Window Type="TaharezLook/StaticText" Name="Leave/Label/Warning" >
+<Property Name="BackgroundImage" Value="set:TaharezLook image:StaticBackdrop" />
+<Property Name="BottomFrameImage" Value="set:TaharezLook image:StaticBottom" />
+<Property Name="BottomLeftFrameImage" Value="set:TaharezLook image:StaticBottomLeft" />
+<Property Name="BottomRightFrameImage" Value="set:TaharezLook image:StaticBottomRight" />
+<Property Name="Font" Value="Finalnew" />
+<Property Name="LeftFrameImage" Value="set:TaharezLook image:StaticLeft" />
+<Property Name="RightFrameImage" Value="set:TaharezLook image:StaticRight" />
+<Property Name="Text" Value="WARNING: WILL TERMINATE SESSION !" />
+<Property Name="TopFrameImage" Value="set:TaharezLook image:StaticTop" />
+<Property Name="TopLeftFrameImage" Value="set:TaharezLook image:StaticTopLeft" />
+<Property Name="TopRightFrameImage" Value="set:TaharezLook image:StaticTopRight" />
+<Property Name="UnifiedAreaRect" Value="{{0.054480,0.000000},{0.261546,0.000000},{0.955641,0.000000},{0.494452,0.000000}}" />
+<Property Name="UnifiedMaxSize" Value="{{1.000000,0.000000},{1.000000,0.000000}}" />
+</Window>
+</Window>
+</Window>
+</GUILayout>

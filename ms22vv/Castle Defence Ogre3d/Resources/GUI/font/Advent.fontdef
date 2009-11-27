@@ -1,0 +1,7 @@
+Advent
+{
+	type 		truetype
+	source 		Advent.ttf
+	size 		18
+	resolution 	96
+}

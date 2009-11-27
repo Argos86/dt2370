@@ -19,21 +19,29 @@ private:
 	CatmullRomProjectile *m_splines[MAX_SPLINES];
 	int m_splineId;
 
-
-
+	Ogre::ParticleSystem *m_splatterSystem;
+	Ogre::SceneNode *m_splatterNode;
+	Ogre::ParticleEmitter *m_splatterEmitter;
+	static const int MAX_PARTICLE_LIFETIME = 600;
+	float m_splatterTimer;
+	bool m_particlesActive;
 
 
 public:	
 	enum ViewType {FIRSTPERSON, PERSPECTIVE};
 
 	GameView::GameView(OIS::InputManager *a_inputManager, Ogre::Root *a_root, Ogre::SceneManager *a_scenemgr);
-	bool GameView::MouseLeftPressed(); 
-	bool GameView::MouseRightPressed(); 
+	bool GameView::MouseLeftPressed();
+	bool GameView::MouseRightPressed();
 	void GameView::UpdateInput( );
 
 	void GameView::MakeSpline( Ogre::Vector3 a_weaponPosition, Ogre::Quaternion a_weaponOrientation, Ogre::String a_weaponName, int a_distance);
 	void GameView::MakeSplineHit( Ogre::Vector3 a_weaponPosition, Ogre::Quaternion a_weaponOrientation, Ogre::String a_weaponName, int a_distance);
-	void GameView::UpdateSplines(float a_timeSinceLastFrame);
+	void GameView::Update(float a_timeSinceLastFrame);
+
+	void GameView::MakeSplatterEffect( Ogre::Vector3 a_enemyPosition);
+
+	void GameView::UpdateMouseAnimation(Ogre::Vector2 a_movement, float a_timeSinceLastFrame);
 
 	Ogre::Vector2 GameView::GetMouseMovement();
 	OIS::Keyboard *GameView::GetKeyEvent();
