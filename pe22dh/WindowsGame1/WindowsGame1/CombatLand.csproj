@@ -98,6 +98,7 @@
     <Compile Include="View\Core.cs" />
     <Compile Include="View\GameView.cs" />
     <Compile Include="View\Input.cs" />
+    <Compile Include="View\MapView.cs" />
     <Compile Include="View\TextureAssets.cs" />
   </ItemGroup>
   <ItemGroup>

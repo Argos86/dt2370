@@ -93,7 +93,7 @@ namespace CombatLand
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime a_gameTime)
         {
-            GraphicsDevice.Clear(Color.White);
+            GraphicsDevice.Clear(Color.Black);
 
             float elapsedTime = m_game.GetTimeSeconds(a_gameTime);
 

@@ -11,6 +11,9 @@ namespace CombatLand.View
 {
     class Core
     {
+        private const int BACK_BUFFER_WIDTH = 1280;
+        private const int BACK_BUFFER_HEIGHT = 720;
+        
         GraphicsDeviceManager m_graphics;
         SpriteBatch m_spriteBatch;
         public View.Input m_input;
@@ -24,6 +27,8 @@ namespace CombatLand.View
             m_graphics = a_graphics;
             m_input = new Input();
             m_assets = new View.TextureAssets();
+            m_graphics.PreferredBackBufferWidth = BACK_BUFFER_WIDTH;
+            m_graphics.PreferredBackBufferHeight = BACK_BUFFER_HEIGHT;
             //m_fonts = new Views.FontAssets();
             //m_sounds = new Views.SoundAssets();
         }
@@ -33,7 +38,6 @@ namespace CombatLand.View
             m_assets.LoadContent(a_content);
             //m_fonts.LoadContent(a_content);
             //m_sounds.LoadContent(a_content);
-
             m_device = a_device;
         }
         public void Draw(Texture2D a_texture, Rectangle a_dest, Rectangle a_source, Color a_color)
