@@ -9,11 +9,13 @@ namespace CombatLand.View
 {
     class TextureAssets
     {
-        public Texture2D m_texture;
+        public Texture2D m_playerTexture;
+        public Texture2D m_tileTexture;
 
         public void LoadContent(ContentManager a_content)
         {
-            m_texture = a_content.Load<Texture2D>("assets/sprites/untitled");
+            m_playerTexture = a_content.Load<Texture2D>("assets/sprites/player");
+            m_tileTexture = a_content.Load<Texture2D>("assets/sprites/whiteTile");
         }
     }
 }
