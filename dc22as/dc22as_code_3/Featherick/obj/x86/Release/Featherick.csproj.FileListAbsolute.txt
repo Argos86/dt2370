@@ -1,0 +1,14 @@
+C:\Users\dc22as\Desktop\Featherick\Featherick\bin\x86\Release\Content\images\PlayerRun.xnb
+C:\Users\dc22as\Desktop\Featherick\Featherick\bin\x86\Release\Content\images\sprite.xnb
+C:\Users\dc22as\Desktop\Featherick\Featherick\bin\x86\Release\Content\images\playerIdle3.xnb
+C:\Users\dc22as\Desktop\Featherick\Featherick\bin\x86\Release\Content\images\rectangle.xnb
+C:\Users\dc22as\Desktop\Featherick\Featherick\bin\x86\Release\Content\Mufferaw.xnb
+C:\Users\dc22as\Desktop\Featherick\Featherick\bin\x86\Release\Content\sounds\jump1.xnb
+C:\Users\dc22as\Desktop\Featherick\Featherick\bin\x86\Release\Content\sounds\jump2.xnb
+C:\Users\dc22as\Desktop\Featherick\Featherick\bin\x86\Release\Content\sounds\jump3.xnb
+C:\Users\dc22as\Desktop\Featherick\Featherick\bin\x86\Release\Featherick.exe
+C:\Users\dc22as\Desktop\Featherick\Featherick\bin\x86\Release\Featherick.pdb
+C:\Users\dc22as\Desktop\Featherick\Featherick\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\dc22as\Desktop\Featherick\Featherick\obj\x86\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\dc22as\Desktop\Featherick\Featherick\obj\x86\Release\Featherick.exe
+C:\Users\dc22as\Desktop\Featherick\Featherick\obj\x86\Release\Featherick.pdb

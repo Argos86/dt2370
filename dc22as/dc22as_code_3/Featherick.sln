@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Featherick", "Featherick\Featherick.csproj", "{BA54F5EC-70B2-40B0-A85F-F1BC98AB30B1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BA54F5EC-70B2-40B0-A85F-F1BC98AB30B1}.Debug|x86.ActiveCfg = Debug|x86
+		{BA54F5EC-70B2-40B0-A85F-F1BC98AB30B1}.Debug|x86.Build.0 = Debug|x86
+		{BA54F5EC-70B2-40B0-A85F-F1BC98AB30B1}.Release|x86.ActiveCfg = Release|x86
+		{BA54F5EC-70B2-40B0-A85F-F1BC98AB30B1}.Release|x86.Build.0 = Release|x86
+		{57834F87-7197-4CF3-8E24-CAE041C6AACF}.Debug|x86.ActiveCfg = Debug|x86
+		{57834F87-7197-4CF3-8E24-CAE041C6AACF}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
