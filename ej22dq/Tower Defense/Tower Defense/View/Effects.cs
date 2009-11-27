@@ -26,7 +26,7 @@ namespace Tower_Defense.View
         Effect[] m_effects;
 
         private const int MAX_EFFECTS = 50000;
-        private const float GUN_TIME = 0.3f;
+        private const float GUN_TIME = 0.5f;
 
         public Effects()
         {

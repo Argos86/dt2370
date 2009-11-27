@@ -7,7 +7,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>P:\Skolarbete\Grundläggande spelprogrammering\Tower Defense\Tower Defense\bin\x86\Debug\Content\Images\sprites.xnb</Output>
+      <Output>P:\Skolarbete\Grundläggande spelprogrammering\ej22dq\Tower Defense\Tower Defense\bin\x86\Debug\Content\Images\sprites.xnb</Output>
       <Time>2009-11-12T14:27:57.86332+01:00</Time>
     </Item>
     <Item>
@@ -16,7 +16,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>P:\Skolarbete\Grundläggande spelprogrammering\Tower Defense\Tower Defense\bin\x86\Debug\Content\Images\cursor.xnb</Output>
+      <Output>P:\Skolarbete\Grundläggande spelprogrammering\ej22dq\Tower Defense\Tower Defense\bin\x86\Debug\Content\Images\cursor.xnb</Output>
       <Time>2009-11-12T14:13:48.7347441+01:00</Time>
     </Item>
     <Item>
@@ -25,7 +25,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>P:\Skolarbete\Grundläggande spelprogrammering\Tower Defense\Tower Defense\bin\x86\Debug\Content\Images\bana1.xnb</Output>
+      <Output>P:\Skolarbete\Grundläggande spelprogrammering\ej22dq\Tower Defense\Tower Defense\bin\x86\Debug\Content\Images\bana1.xnb</Output>
       <Time>2009-11-12T14:39:51.5097441+01:00</Time>
     </Item>
     <Item>
@@ -34,7 +34,7 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>P:\Skolarbete\Grundläggande spelprogrammering\Tower Defense\Tower Defense\bin\x86\Debug\Content\Kootenay.xnb</Output>
+      <Output>P:\Skolarbete\Grundläggande spelprogrammering\ej22dq\Tower Defense\Tower Defense\bin\x86\Debug\Content\Kootenay.xnb</Output>
       <Time>2009-11-12T14:50:00.877751+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
@@ -42,10 +42,10 @@
       <TargetPlatform>Windows</TargetPlatform>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>P:\Skolarbete\Grundläggande spelprogrammering\Tower Defense\Tower Defense\Content\</RootDirectory>
-      <LoggerRootDirectory>P:\Skolarbete\Grundläggande spelprogrammering\Tower Defense\Tower Defense\</LoggerRootDirectory>
-      <IntermediateDirectory>P:\Skolarbete\Grundläggande spelprogrammering\Tower Defense\Tower Defense\Content\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>P:\Skolarbete\Grundläggande spelprogrammering\Tower Defense\Tower Defense\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>P:\Skolarbete\Grundläggande spelprogrammering\ej22dq\Tower Defense\Tower Defense\Content\</RootDirectory>
+      <LoggerRootDirectory>P:\Skolarbete\Grundläggande spelprogrammering\ej22dq\Tower Defense\Tower Defense\</LoggerRootDirectory>
+      <IntermediateDirectory>P:\Skolarbete\Grundläggande spelprogrammering\ej22dq\Tower Defense\Tower Defense\Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>P:\Skolarbete\Grundläggande spelprogrammering\ej22dq\Tower Defense\Tower Defense\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -74,7 +74,7 @@
       </Assembly>
       <Assembly>
         <Key>C:\Windows\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\3.1.0.0__6d5c3888ef60e27d\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2009-10-23T10:30:15.6959799+02:00</Value>
+        <Value>2009-10-23T10:10:05.100052+02:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>
