@@ -19,7 +19,7 @@ private:
 
 public:	
 	Perspective::Perspective( Ogre::SceneManager *a_scenemgr, Ogre::RenderWindow *a_window, Ogre::String a_name );
-	void Perspective::Update( Ogre::Vector3 a_playerPosition, Ogre::Vector2 a_mousePosition );
+	void Perspective::Update( Ogre::Vector3 a_weaponPosition, Ogre::Quaternion a_weaponOrientation, Ogre::Vector2 a_mousePosition );
 	void Perspective::ResetOrientation();
 	Perspective::~Perspective();
 };

@@ -7,20 +7,19 @@
 #include <OgreString.h>
 
 #include "WeaponBase.h"
+#include "..\IModel.h"
 #include "..\..\Controller\IEvent.h"
 
 
 class Laser : public WeaponBase
 {
 private:
-	IEvent *m_eventToView;
-	IEvent *m_eventToModel;
-
-	static const int MAX_DISTANCE = 1000;
+	static const int MAX_DISTANCE = 1600;
+	static const int ATTACK_DAMAGE = 5;
 
 public:	
-	Laser::Laser( Ogre::SceneNode *a_playerNode, Ogre::SceneManager *a_scenemgr, Ogre::Vector3 a_relativePosition, Ogre::String a_name, IEvent *a_eventToView, IEvent *a_eventToModel);
-	void Laser::Update( Ogre::Real a_timeSinceLastFrame );
+	Laser::Laser( Ogre::SceneManager *a_scenemgr, Ogre::Vector3 a_relativePosition, Ogre::String a_name, IEvent *a_eventToView, IModel *a_eventToModel, ISound *a_soundEffects);
+	void Laser::Update( float a_timeSinceLastFrame );
 	void Laser::Fire();
 	Laser::~Laser();
 };

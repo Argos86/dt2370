@@ -11,55 +11,43 @@
 #include "Weapon\WeaponFactory.h"
 #include "..\Controller\IEvent.h"
 
-Player::Player(Ogre::SceneManager *a_scenemgr, IEvent *a_eventToView, IEvent *a_eventToModel)
+Player::Player(Ogre::SceneManager *a_scenemgr)
 {
-	m_playerEntity = a_scenemgr->createEntity( "PlayerEntity", "Mesh/Cone01.mesh" );
-	m_playerEntity->setMaterialName("test1");
-	m_playerEntity->setCastShadows(true);
-
-	m_donutEntity = a_scenemgr->createEntity( "PlayerDonutEntity", "Mesh/Torus01.mesh" );
-	m_donutEntity->setMaterialName("test2");
-	m_donutEntity->setCastShadows(true);
-
 	m_playerNode = a_scenemgr->getRootSceneNode()->createChildSceneNode( "PlayerNode", Ogre::Vector3(0.0f, 0.0f, 0.0f) );
 	m_playerNode->setScale(1.0,1.0,1.0);
 
-	m_playerEntityNode = m_playerNode->createChildSceneNode( "PlayerEntityNode", Ogre::Vector3(0.0f, 0.0f, 0.0f) );
-	m_playerEntityNode->attachObject( m_playerEntity );
-	m_playerEntityNode->pitch(Ogre::Degree (- 90));
-
-	m_donutNode = a_scenemgr->getRootSceneNode()->createChildSceneNode( "PlayerDonutNode", Ogre::Vector3(0.0f, 0.0f, 0.0f) );
-	m_donutNode->setScale(1.5,1.5,1.5);
-	m_donutNode->attachObject( m_donutEntity );	
+	m_stativNode = a_scenemgr->getRootSceneNode()->createChildSceneNode( "PlayerDonutNode", Ogre::Vector3(0.0f, 0.0f, 0.0f) );
+	m_stativNode->setScale(1.0,1.0,1.0);
 
 	m_playerVelocity = 0;
 	m_playerNode->setPosition(Ogre::Vector3(0,+50,+800));
-	m_donutNode->setPosition( m_playerNode->getPosition() + Ogre::Vector3(0, +20.0f, 0.0f) );
-	
-	//Skapar vapnet, testar Factoryn
-	WeaponFactory *WeaponF = new WeaponFactory();
-	m_leftWeapon = WeaponF->CreateWeapon(m_playerNode, a_scenemgr, Ogre::Vector3(-20,20,0), WeaponF->LASER, "LeftWeapon", a_eventToView, a_eventToModel);
-	m_rightWeapon = WeaponF->CreateWeapon(m_playerNode, a_scenemgr, Ogre::Vector3(20,20,0), WeaponF->STANDARD, "RightWeapon", a_eventToView, a_eventToModel);
+	m_stativNode->setPosition( m_playerNode->getPosition() + Ogre::Vector3(0, +20.0f, 0.0f) );
+
+	m_activeWeapon = NULL;
 }
 
 void Player::UpdateWeapon( float a_timeSinceLastFrame )
 {
-	m_leftWeapon->Update( a_timeSinceLastFrame);
-	m_rightWeapon->Update( a_timeSinceLastFrame);
+	m_activeWeapon->Update( a_timeSinceLastFrame);
 }
 
 void Player::Move(Ogre::Vector3 a_movementVector, float a_timeSinceLastFrame)
 {
-	m_donutNode->roll( Ogre::Degree(- a_movementVector.x * a_timeSinceLastFrame) );
-	m_donutNode->setPosition( m_donutNode->getPosition() + a_movementVector * a_timeSinceLastFrame );
-	m_playerNode->setPosition( m_donutNode->getPosition() + Ogre::Vector3(0, -20.0f, 0.0f));
+	m_stativNode->roll( Ogre::Degree(- a_movementVector.x * a_timeSinceLastFrame) );
+	m_stativNode->setPosition( m_stativNode->getPosition() + a_movementVector * a_timeSinceLastFrame );
+	m_playerNode->setPosition( m_stativNode->getPosition() + Ogre::Vector3(0, -20.0f, 0.0f));
 }
 
 void Player::Rotate(Ogre::Vector2 a_mousePosition)
 {
-	m_playerNode->yaw(Ogre::Degree(- a_mousePosition.x), Ogre::Node::TS_WORLD);
-	m_playerNode->pitch(Ogre::Degree(- a_mousePosition.y), Ogre::Node::TS_WORLD);
+	m_activeWeapon->Rotate(a_mousePosition);
 }
+
+void Player::SetActiveWeapon(WeaponBase *a_activeWeapon)
+{
+	m_activeWeapon = a_activeWeapon;
+}
+
 
 
 
@@ -67,18 +55,13 @@ void Player::ResetOrientation()
 {
 	std::cout << "Tvingar Player, Weapon och Camera-orientationen: Quaternion::IDENTITY " << std::endl << "Player::Quaternion = " << this->GetOrientation()  << std::endl; 
 	m_playerNode->setOrientation(Ogre::Quaternion::IDENTITY);
-	m_leftWeapon->ResetOrientation();
+	m_activeWeapon->ResetOrientation();
 }
 
 
-void Player::FireLeftWeapon()
+void Player::FireWeapon()
 {
-	m_leftWeapon->Fire();
-}
-
-void Player::FireRightWeapon()
-{
-	m_rightWeapon->Fire();
+	m_activeWeapon->Fire();
 }
 
 
@@ -105,8 +88,8 @@ Ogre::Quaternion Player::GetOrientation()
 
 Ogre::Vector3 Player::GetWeaponPosition()
 {
-	if (m_leftWeapon) {
-		return m_leftWeapon->GetPosition();
+	if (m_activeWeapon) {
+		return m_activeWeapon->GetPosition();
 	}
 	else {
 		return Ogre::Vector3();
@@ -114,8 +97,8 @@ Ogre::Vector3 Player::GetWeaponPosition()
 }
 Ogre::Quaternion Player::GetWeaponOrientation()
 {
-	if (m_leftWeapon) {
-		return m_leftWeapon->GetOrientation();
+	if (m_activeWeapon) {
+		return m_activeWeapon->GetOrientation();
 	}
 	else {
 		return Ogre::Quaternion();

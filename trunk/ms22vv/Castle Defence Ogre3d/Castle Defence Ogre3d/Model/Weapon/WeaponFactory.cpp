@@ -8,34 +8,31 @@
 #include "Laser.h"
 #include "..\..\Controller\IEvent.h"
 
-WeaponFactory::WeaponFactory( )
+WeaponFactory::WeaponFactory(IEvent *a_eventToView, IModel *a_eventToModel , ISound *a_soundEffects )
 {
-	
-} 
+	m_eventToView = a_eventToView;
+	m_eventToModel = a_eventToModel; 
+	m_soundEffects = a_soundEffects;
+}
 
-
-WeaponBase* WeaponFactory::CreateWeapon(Ogre::SceneNode *a_node, Ogre::SceneManager *a_scenemgr, Ogre::Vector3 a_relativePosition, int a_weaponType, Ogre::String a_name, IEvent *a_eventToView, IEvent *a_eventToModel)
+WeaponBase* WeaponFactory::CreateWeapon( Ogre::SceneManager *a_scenemgr, Ogre::Vector3 a_relativePosition, int a_weaponType, Ogre::String a_name)
 {
 	switch (a_weaponType)
 	{
 		case STANDARD:
-			return new Weapon(a_node, a_scenemgr, a_relativePosition, a_name);
+			return new Weapon( a_scenemgr, a_relativePosition, a_name, m_eventToView, m_eventToModel, m_soundEffects);
 			break;
 		case LASER:
-			return new Laser(a_node, a_scenemgr, a_relativePosition, a_name, a_eventToView, a_eventToModel);
+			return new Laser( a_scenemgr, a_relativePosition, a_name, m_eventToView, m_eventToModel, m_soundEffects);
 			break;
 		//case Weapon03:
 		//	break;
 		default:
 			std::cout << "Ingen vapentyp, returnerar Weapon01 " << std::endl; 
-			return new Weapon(a_node, a_scenemgr, a_relativePosition, a_name);
+			return new Weapon( a_scenemgr, a_relativePosition, a_name, m_eventToView, m_eventToModel, m_soundEffects);
 			break;
 	}
 }
-
-
-
-
 
 WeaponFactory::~WeaponFactory()
 {

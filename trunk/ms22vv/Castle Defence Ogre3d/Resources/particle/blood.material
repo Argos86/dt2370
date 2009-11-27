@@ -1,0 +1,33 @@
+material blood01
+{
+	technique
+	{
+		pass
+		{
+			scene_blend alpha_blend
+			depth_write off
+
+			texture_unit
+			{
+				texture blood01.png
+			}
+		}
+	}
+}
+
+material blood02
+{
+	technique
+	{
+		pass
+		{
+			scene_blend alpha_blend
+			depth_write off
+
+			texture_unit
+			{
+				texture blood02.png
+			}
+		}
+	}
+}

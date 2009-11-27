@@ -19,13 +19,12 @@ private:
 	Ogre::String m_uniqueName;
 	Ogre::BillboardSet *m_projectileBbs;
 	Ogre::SceneManager *m_scenemgr;
-	Ogre::Real m_velocity;
 	Ogre::SimpleSpline *m_spline;
 	Ogre::RibbonTrail *m_trail;
 	void CatmullRomProjectile::InitTrail();
 
-	Ogre::Real m_time;
-	Ogre::Real m_lifetime;
+	float m_time;
+	float m_lifetime;
 
 
 public:	

@@ -7,17 +7,21 @@
 #include <OgreQuaternion.h>
 
 
-
 class IEvent
 {
 private:
 
 public:	
 	IEvent::IEvent();
-
 	virtual void IEvent::MakeSpline(Ogre::Vector3 a_weaponPosition, Ogre::Quaternion a_weaponOrientation, Ogre::String a_weaponName, int a_distance);
 	virtual void IEvent::MakeSplineHit(Ogre::Vector3 a_weaponPosition, Ogre::Quaternion a_weaponOrientation, Ogre::String a_weaponName, int a_distance);
-	virtual bool IEvent::CollisiontestEnemies(Ogre::Vector3 a_initialPoint, Ogre::Quaternion a_orientation);
-	virtual int IEvent::GetLastCollisionDistance();
+	virtual void IEvent::MakeSplatterEffect( Ogre::Vector3 a_enemyPosition);
+
+	virtual void IEvent::MakeLaserHit();
+	virtual void IEvent::MakeLaserMiss();
+	virtual void IEvent::MakeStandard();
+	virtual void IEvent::MakeEnemyDeath();
+
+	virtual void IEvent::UpdateMoney(int a_amount);
 };
 #endif

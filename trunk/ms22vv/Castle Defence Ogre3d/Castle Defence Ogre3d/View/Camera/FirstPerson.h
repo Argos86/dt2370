@@ -19,7 +19,7 @@ private:
 
 public:	
 	FirstPerson::FirstPerson( Ogre::SceneManager *a_scenemgr, Ogre::RenderWindow *a_window, Ogre::String a_name);
-	void FirstPerson::Update( Ogre::Vector3 a_playerPosition, Ogre::Vector2 a_mousePosition );
+	void FirstPerson::Update( Ogre::Vector3 a_weaponPosition, Ogre::Quaternion a_weaponOrientation, Ogre::Vector2 a_mousePosition );
 	void FirstPerson::ResetOrientation();
 	FirstPerson::~FirstPerson();
 };

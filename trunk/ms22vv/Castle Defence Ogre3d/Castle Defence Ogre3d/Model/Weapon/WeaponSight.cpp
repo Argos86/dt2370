@@ -16,12 +16,12 @@ WeaponSight::WeaponSight(Ogre::SceneNode *a_weaponNode, Ogre::SceneManager *a_sc
 
 	m_sightBbs = m_scenemgr->createBillboardSet( m_sightName );
 	m_sightBbs->setDefaultDimensions(5, 5);
-	m_sightBbs->setMaterialName("Examples/Flare");
+	m_sightBbs->setMaterialName("flare");
 	m_sightBbs->createBillboard(0,0,0, Ogre::ColourValue::Red);
 	
 	m_sightNode = a_weaponNode->createChildSceneNode( m_sightName, Ogre::Vector3::ZERO);
 	m_sightNode->attachObject( m_sightBbs );
-	m_sightNode->setPosition( m_sightNode->getPosition() + m_sightNode->getOrientation() * Ogre::Vector3(0,0,-200));
+	m_sightNode->setPosition( m_sightNode->getPosition() + m_sightNode->getOrientation() * Ogre::Vector3(0,0,-300));
 } 
 
 

@@ -1,0 +1,148 @@
+material test1
+{
+	technique
+	{
+		pass
+		{
+			ambient 0.658824 0.658824 0.658824 1
+			diffuse 0.658824 0.658824 0.658824 1
+			specular 0 0 0 10 0
+		}
+	}
+}
+
+material test2
+{
+	technique
+	{
+		pass
+		{
+			ambient 0.20 0.20 0.20 1
+			diffuse 0.20 0.20 0.20 1
+			specular 0 0 0 10 0
+		}
+	}
+}
+
+material test3
+{
+	technique
+	{
+		pass
+		{
+			ambient 0.48 0.12 0.12 0.1
+			diffuse 0.48 0.12 0.12 0.1
+			specular 0.4 0 0 2 0
+		}
+	}
+}
+
+material enemyMaterial
+{
+	technique
+	{
+		pass
+		{
+			ambient 0.80 0.12 0.12 0.1
+			diffuse 0.80 0.12 0.12 0.1
+			specular 0.6 0.1 0.1 1 10
+			
+			//ambient 1.0 0.6 0.6 0.1			diffuse 1.0 0.6 0.6 0.1					specular 0.4 0.1 0.1 1 20
+			
+			//texture_unit			{				texture enemyTest.png			}
+		}
+	}
+}
+
+material grassMaterial
+{
+	technique
+	{
+		pass
+		{
+			scene_blend alpha_blend
+			depth_write off
+			
+			ambient 0.6 0.6 0.6 1
+			diffuse 0.6 0.6 0.6 1
+			specular 0.1 0.1 0.1 1 20
+
+			texture_unit
+			{
+				texture materialGrass2.jpg
+				//scroll_anim 0.25 0.25
+			}
+		}
+	}
+}
+
+material test5
+{
+	technique
+	{
+		pass
+		{
+			ambient 0.12 0.36 0.12 0.1
+			diffuse 0.12 0.36 0.12 0.1			
+			specular 0 0.4 0 2 0
+		}
+	}
+}
+
+material stoneWall
+{
+	technique
+	{
+		pass
+		{
+			ambient 0.7 0.7 0.7 1
+			diffuse 0.7 0.7 0.7 1
+			specular 0.2 0.2 0.2 1 20
+			
+			texture_unit
+			{
+				texture_alias 0
+				texture stonewall03.jpg
+				scale 0.4 1.0
+			}
+		}
+	}
+}
+
+material flare
+{
+	technique
+	{
+		pass
+		{
+			lighting off
+			scene_blend add
+			depth_write off
+
+			texture_unit
+			{
+				texture flare.png
+			}
+		}
+	}
+}
+
+material lightRibbonTrail
+{
+	technique
+	{
+		pass
+		{
+			lighting off
+			scene_blend add
+			depth_write off
+
+			texture_unit
+			{
+				texture ribbonband.png 1d
+				tex_address_mode clamp
+				filtering none
+			}
+		}
+	}
+}

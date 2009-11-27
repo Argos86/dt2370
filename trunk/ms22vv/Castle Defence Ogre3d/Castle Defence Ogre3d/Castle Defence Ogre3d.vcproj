@@ -64,7 +64,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="OgreMain_d.lib OIS_d.lib CEGUIBase_d.lib OgreGUIRenderer_d.lib"
+				AdditionalDependencies="OgreMain_d.lib OIS_d.lib CEGUIBase_d.lib OgreGUIRenderer_d.lib fmodex_vc.lib"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="$(SolutionDir)\Resources\lib"
 				GenerateDebugInformation="true"
@@ -142,7 +142,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="OgreMain.lib OIS.lib CEGUIBase.lib OgreGUIRenderer.lib"
+				AdditionalDependencies="OgreMain.lib OIS.lib CEGUIBase.lib OgreGUIRenderer.lib fmodex_vc.lib"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="$(SolutionDir)\Resources\lib"
 				GenerateDebugInformation="true"
@@ -199,7 +199,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\Model\Level\Castle.cpp"
+				RelativePath=".\Model\Castle.cpp"
 				>
 			</File>
 			<File
@@ -211,6 +211,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\Controller\Core.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\Controller\DebugController.cpp"
 				>
 			</File>
@@ -219,11 +223,15 @@
 				>
 			</File>
 			<File
-				RelativePath=".\Model\Level\Enemy.cpp"
+				RelativePath=".\Model\Wave\Enemy.cpp"
 				>
 			</File>
 			<File
 				RelativePath=".\View\Camera\FirstPerson.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Model\Game.cpp"
 				>
 			</File>
 			<File
@@ -247,7 +255,19 @@
 				>
 			</File>
 			<File
+				RelativePath=".\View\HudManager.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\Controller\IEvent.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Model\IModel.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\View\Sound\ISound.cpp"
 				>
 			</File>
 			<File
@@ -259,11 +279,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\Model\Level\Level.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\Model\Level\LightSource.cpp"
+				RelativePath=".\Model\LightSource.cpp"
 				>
 			</File>
 			<File
@@ -271,7 +287,15 @@
 				>
 			</File>
 			<File
+				RelativePath=".\View\Effects\MouseAnimation.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\View\Camera\Perspective.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Controller\PerspectiveController.cpp"
 				>
 			</File>
 			<File
@@ -280,6 +304,18 @@
 			</File>
 			<File
 				RelativePath=".\Model\Weapon\Projectile.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\View\Sound\SoundEffect.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\View\Sound\SoundManager.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Model\Wave\Wave.cpp"
 				>
 			</File>
 			<File
@@ -309,7 +345,7 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath=".\Model\Level\Castle.h"
+				RelativePath=".\Model\Castle.h"
 				>
 			</File>
 			<File
@@ -321,6 +357,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\Controller\Core.h"
+				>
+			</File>
+			<File
 				RelativePath=".\Controller\DebugController.h"
 				>
 			</File>
@@ -329,15 +369,15 @@
 				>
 			</File>
 			<File
-				RelativePath=".\View\Effects.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Model\Level\Enemy.h"
+				RelativePath=".\Model\Wave\Enemy.h"
 				>
 			</File>
 			<File
 				RelativePath=".\View\Camera\FirstPerson.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Model\Game.h"
 				>
 			</File>
 			<File
@@ -353,7 +393,19 @@
 				>
 			</File>
 			<File
+				RelativePath=".\View\HudManager.h"
+				>
+			</File>
+			<File
 				RelativePath=".\Controller\IEvent.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Model\IModel.h"
+				>
+			</File>
+			<File
+				RelativePath=".\View\Sound\ISound.h"
 				>
 			</File>
 			<File
@@ -365,15 +417,19 @@
 				>
 			</File>
 			<File
-				RelativePath=".\Model\Level\Level.h"
+				RelativePath=".\Model\LightSource.h"
 				>
 			</File>
 			<File
-				RelativePath=".\Model\Level\LightSource.h"
+				RelativePath=".\View\Effects\MouseAnimation.h"
 				>
 			</File>
 			<File
 				RelativePath=".\View\Camera\Perspective.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Controller\PerspectiveController.h"
 				>
 			</File>
 			<File
@@ -382,6 +438,18 @@
 			</File>
 			<File
 				RelativePath=".\Model\Weapon\Projectile.h"
+				>
+			</File>
+			<File
+				RelativePath=".\View\Sound\SoundEffect.h"
+				>
+			</File>
+			<File
+				RelativePath=".\View\Sound\SoundManager.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Model\Wave\Wave.h"
 				>
 			</File>
 			<File

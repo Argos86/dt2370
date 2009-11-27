@@ -3,24 +3,21 @@
 #include <OgreVector3.h>
 
 #include <OIS/OIS.h>
+#include "Core.h"
 #include "DebugController.h"
 #include "..\Model\GameSettings.h"
 #include "..\Model\Player.h"
-#include "..\Model\Level\Level.h"
+#include "..\Model\Game.h"
 #include "..\View\GameView.h"
 #include "..\View\Camera\Camera.h"
 
-DebugController::DebugController(Player *a_player,  GameSettings *a_gameSettings, GameView *a_gameView, Level *a_level )
+DebugController::DebugController(Player *a_player, GameSettings *a_gameSettings,  GameView *a_gameView, Game *a_game, CameraManager *a_camera, Ogre::SceneManager *a_scenemgr, HudManager *a_hudMgr)
+	: Core(a_player, a_gameSettings, a_gameView, a_game, a_camera, a_scenemgr, a_hudMgr)
 {
-	m_player = a_player;
-	m_gameSettings = a_gameSettings;
 	m_activeCamera = m_gameSettings->GetActiveCamera();
-	m_gameView = a_gameView;
-	m_level = a_level;
-	m_time = 0.0;
 }
 
-bool DebugController::DoControll(Ogre::SceneManager *a_scenemgr, float a_timeSinceLastFrame)
+bool DebugController::DoControll( float a_timeSinceLastFrame)
 {	
 	Ogre::Vector3 transVector = Ogre::Vector3::ZERO;
 
@@ -34,13 +31,14 @@ bool DebugController::DoControll(Ogre::SceneManager *a_scenemgr, float a_timeSin
 			m_activeCamera->ResetOrientation();
 			m_player->ResetOrientation();
 			m_time = 0;
-			m_gameSettings->ChangeGameState(GameSettings::GAMESTATE_RUNNING);
+			m_gameSettings->SetGameState(GameSettings::GAME_STATE_RUNNING);
 			return false;
 		}
-		if ( keyEvent->isKeyDown( OIS::KC_C )) {
-			m_gameSettings->ToggleCamera();
-			m_activeCamera = m_gameSettings->GetActiveCamera();
+		if ( keyEvent->isKeyDown( OIS::KC_F )) {
+			m_gameView->Update( 0.2f);
+			m_game->Update(0.2f);
 		}
+
 		if ( keyEvent->isKeyDown( OIS::KC_R )) {
 			m_player->ResetOrientation();
 			m_activeCamera->ResetOrientation();

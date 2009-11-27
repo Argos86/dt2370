@@ -1,8 +1,10 @@
 #include <Ogre.h>
 #include <OIS/OIS.h>
+
 #include "GameView.h"
 #include "KeyboardListener.h"
 #include "Effects\CatmullRomProjectile.h"
+#include "Sound\SoundManager.h"
 #include "..\Controller\IEvent.h"
 
 
@@ -30,6 +32,18 @@ GameView::GameView(OIS::InputManager *a_inputManager, Ogre::Root *a_root, Ogre::
 	{
 		m_splines[x] = NULL;
 	}
+
+
+	m_splatterSystem = m_scenemgr->createParticleSystem("SplatterSystem", "Splatter");
+	m_splatterNode = m_scenemgr->getRootSceneNode()->createChildSceneNode("SplatterNode");
+	m_splatterNode->attachObject(m_splatterSystem);
+
+	// Flyttar partiklarna sist i renderkön eftersom dom renderades efter marken :P, tillfälligt...
+	m_splatterSystem->setRenderQueueGroup(Ogre::RENDER_QUEUE_OVERLAY);
+	m_splatterEmitter = m_splatterSystem->getEmitter(0);
+	m_splatterEmitter->setEnabled(false);
+
+	//renderSystem->clearFrameBuffer(FBT_DEPTH);
 }
 
 void GameView::UpdateInput()
@@ -53,13 +67,18 @@ void GameView::MakeSplineHit(Ogre::Vector3 a_weaponPosition, Ogre::Quaternion a_
 		Ogre::Quaternion tempQ(Ogre::Degree(90 * (x+1)), Ogre::Vector3::UNIT_Z);
 		m_splines[m_splineId] = new CatmullRomProjectile( a_weaponPosition, a_weaponOrientation * tempQ, m_scenemgr, m_splineId, a_weaponName, 6 , a_distance);
 		m_splineId += 1;
-		if (m_splineId == MAX_SPLINES-1)	{
+		if (m_splineId == MAX_SPLINES-1) {
 			m_splineId = 0;
 		}
 	}
 }
 
-void GameView::UpdateSplines(float a_timeSinceLastFrame)
+void GameView::UpdateMouseAnimation(Ogre::Vector2 a_movement, float a_timeSinceLastFrame)
+{/////////////////////////// ---------------------------------------------------------------ska bort
+	//m_mouseAnim->MoveRelative(a_movement, a_timeSinceLastFrame);
+}
+
+void GameView::Update(float a_timeSinceLastFrame)
 {
 	for (int x = 0; x < MAX_SPLINES-1 ; x++) {
 		if(m_splines[x] != NULL) {
@@ -72,10 +91,26 @@ void GameView::UpdateSplines(float a_timeSinceLastFrame)
 	if ( m_splineId == (MAX_SPLINES -1) ) {
 		m_splineId = 0;
 	}
+
+	if (m_particlesActive ){
+		m_splatterTimer-= a_timeSinceLastFrame;
+		if (m_splatterTimer <= 0) {
+			m_splatterEmitter->setEnabled(false);
+		}
+	}
+}
+
+void GameView::MakeSplatterEffect( Ogre::Vector3 a_enemyPosition)
+{
+	m_splatterNode->setPosition(a_enemyPosition);
+	m_splatterEmitter->setEnabled(true);
+	m_splatterTimer = (float)MAX_PARTICLE_LIFETIME;
+	m_particlesActive = true;
 }
 
 Ogre::Vector2 GameView::GetMouseMovement()
 {
+	// 0.1 ska ersättas med någon "sense"
 	return Ogre::Vector2(m_mouse->getMouseState().X.rel * 0.1, m_mouse->getMouseState().Y.rel * 0.1);
 }
 
