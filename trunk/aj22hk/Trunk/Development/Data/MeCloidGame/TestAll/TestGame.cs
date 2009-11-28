@@ -18,6 +18,8 @@ namespace TestAll
     /// </summary>
     public class TestGame : Microsoft.Xna.Framework.Game
     {
+        // TODO: Make tests up to date.
+
         // Model
         MeCloidGame.Model.Game m_game;
 

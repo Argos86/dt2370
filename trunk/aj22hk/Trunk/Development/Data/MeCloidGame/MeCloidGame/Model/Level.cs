@@ -10,9 +10,11 @@ namespace MeCloidGame.Model
 {
     class Level
     {
+        // TODO: Decide whether or not to use uniform tiles.
+        // TODO: Come up with a level creating process that better supports editing and expansion of width and height of level.
         private Tile[,] m_tiles;
 
-        public const int WIDTH = 20;
+        public const int WIDTH = 26;
         public const int HEIGHT = 15;
 
         public Tile[,] Tiles
@@ -85,32 +87,27 @@ namespace MeCloidGame.Model
 
         public Tile.TileType GetCollision(int x, int y)
         {
-            if (x < 0 || x >= Width || y >= Height)
+            if (x < 0 || x >= WIDTH || y >= HEIGHT)
             {
                 return Tile.TileType.Solid;
             }
 
             if (y < 0)
             {
-                return Tile.TileType.Clear;
+                return Tile.TileType.Solid;
             }
 
             return m_tiles[x, y].Type;
         }
 
-        public Rectangle GetBounds(int x, int y)
+        public bool IsCollidingAt(Vector2 a_pos)
         {
-            return new Rectangle(x * Tile.WIDTH, y * Tile.HEIGHT, Tile.WIDTH, Tile.HEIGHT);
-        }
+            Vector2 topLeft = new Vector2(a_pos.X - Model.Player.WIDTH / 2.0f, a_pos.Y - Model.Player.HEIGHT);
+            Vector2 bottomRight = new Vector2(a_pos.X + Model.Player.WIDTH / 2.0f, a_pos.Y);
 
-        public bool IsCollidingAt(Vector2 a_pos, Vector2 a_size)
-        {
-            Vector2 topLeft = new Vector2(a_pos.X - a_size.X / 2.0f, a_pos.Y - a_size.Y);
-            Vector2 bottomRight = new Vector2(a_pos.X + a_size.X / 2.0f, a_pos.Y);
-
-            for (int x = 0; x < WIDTH; ++x)
+            for (int x = -1; x <= WIDTH; ++x)
             {
-                for (int y = 0; y < HEIGHT; ++y)
+                for (int y = -1; y <= HEIGHT; ++y)
                 {
                     if (bottomRight.X < (float)x)
                         continue;
@@ -121,7 +118,7 @@ namespace MeCloidGame.Model
                     if (topLeft.Y > (float)y + 1.0f)
                         continue;
 
-                    if (m_tiles[x, y].Type == Tile.TileType.Solid)
+                    if (GetCollision(x, y) == Tile.TileType.Solid)
                     {
                         return true;
                     }

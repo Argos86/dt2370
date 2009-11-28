@@ -9,66 +9,68 @@ namespace MeCloidGame.Model
 {
     class Player
     {
-        // TODO: Add elapsed time everywhere.
-        // TODO: Rethink physics for player. Move away from Platformer Starter Kit...
+        // TODO: Redo jumping to more mimic platform starter kit with jumphight depending on time button is pressed.
         // TODO: Add weapons.
+        // TODO: Make it possible to die.
         public Vector2 m_pos;
         public Vector2 m_velocity;
         public float m_movement;
 
         public bool m_isOnGround;
-        public float m_prevBottom;
 
-        public readonly int WIDTH = 64;
-        public readonly int HEIGHT = 130;
+        public const float WIDTH = 70.0f / 48.0f;
+        public const float HEIGHT = 130.0f / 48.0f;
 
         private const float Gravity = 9.82f;
-        private const float MaxFallSpeed = 200.0f;
-        private const float MaxMoveSpeed = 200.0f;
-        private const float Acceleration = 400.0f;
+        private const float MaxFallSpeed = 15.0f;
+        private const float MaxMoveSpeed = 5.0f;
+        private const float Acceleration = 10.0f;
 
         public bool m_isJumping;
         private bool m_wasJumping;
         private float m_jumpTime;
         private const float MaxJumpTime = 1.0f;
 
-        public Rectangle BoundingRectangle
-        {
-            get
-            {
-                int left = (int)Math.Round(m_pos.X - WIDTH / 2);
-                int top = (int)Math.Round(m_pos.Y - HEIGHT);
-
-                return new Rectangle(left, top, WIDTH, HEIGHT);
-            }
-        }
-
         public Player()
         {
-            m_pos = new Vector2(2.0f, 8.0f);
+            m_pos = new Vector2(2.0f, 13.9f);
         }
 
         public bool UpdateVelocity(float a_elapsedTime)
         {
-            //int tiles = 1280 / 64; // Width of a set screen in tiles      (~72px == 1m)
-            //float Acceleration = tiles / 3.0f; // Speed determined by how long it would take to traverse all tiles
             m_velocity.X += m_movement * Acceleration * a_elapsedTime;
 
-            m_velocity.Y = MathHelper.Clamp(m_velocity.Y + Gravity, -MaxFallSpeed, MaxFallSpeed);
-            m_velocity.Y = DoJump(m_velocity.Y);
+            if (m_movement == 0 && m_isOnGround)
+            {
+                m_velocity.X -= m_velocity.X * (float)Math.Pow(2.0f, 2.0f) * a_elapsedTime;
+                if ( Math.Abs(m_velocity.X) < 1.0f)
+                {
+                    m_velocity.X = 0;
+                }
+            }
+
+            if (m_movement == 0 && !m_isOnGround)
+            {
+                m_velocity.X -= m_velocity.X * 1.0f * a_elapsedTime;
+            }
 
             m_velocity.X = MathHelper.Clamp(m_velocity.X, -MaxMoveSpeed, MaxMoveSpeed);
+            
+            m_velocity.Y += Gravity * a_elapsedTime;
+            m_velocity.Y = MathHelper.Clamp(m_velocity.Y, -MaxFallSpeed, MaxFallSpeed);
+
+            if (m_isJumping && m_isOnGround)
+            {
+                m_velocity.Y = -9.0f;
+            }
+            //m_velocity.Y = DoJump(m_velocity.Y);
 
             return true;
         }
 
         public Vector2 CalculateNewPosition(float a_elapsedTime)
         {
-            //m_pos += m_velocity;
-            //m_pos = new Vector2((float)Math.Round(m_pos.X), (float)Math.Round(m_pos.Y));
-
             Vector2 newPos = m_pos + m_velocity * a_elapsedTime;
-            newPos = new Vector2((float)Math.Round(newPos.X), (float)Math.Round(newPos.Y));
 
             return newPos;
         }

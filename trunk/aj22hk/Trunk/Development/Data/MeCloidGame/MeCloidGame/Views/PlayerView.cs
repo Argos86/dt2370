@@ -10,61 +10,64 @@ namespace MeCloidGame.Views
 {
     class PlayerView
     {
-        // TODO: Make applying sprite more general.
         public void DrawPlayer(Core a_coreView, Model.Player a_player, int a_scale)
         {
-
             Vector2 pos = a_player.m_pos;
-            pos = pos * a_scale - new Vector2(a_scale / 2, a_scale / 2);
-
-            Rectangle dest = new Rectangle((int)pos.X, (int)pos.Y, a_scale, a_scale);
-            a_coreView.Draw(a_coreView.Textures.Player, dest, new Rectangle(0, 0, 70, 130), Color.White);
+            pos.X = pos.X * a_scale * Model.Tile.WIDTH - (Model.Player.WIDTH * a_scale * Model.Tile.WIDTH) / 2;
+            pos.Y = pos.Y * a_scale - a_scale * Model.Player.HEIGHT;
 
             if (Helpers.Settings.Debug)
             {
-                DrawBounds(a_coreView, a_player);
+                a_coreView.DrawText(a_player.m_pos.ToString(), a_coreView.Fonts.Georgia, new Vector2(70.0f, 50.0f), Color.Red);
+                a_coreView.DrawText(a_player.m_velocity.ToString(), a_coreView.Fonts.Georgia, new Vector2(70.0f, 70.0f), Color.Red);
+                DrawBounds(a_coreView, pos, a_scale);
+            }
+            else
+            {
+                float width = Model.Player.WIDTH * a_scale;
+                float height = Model.Player.HEIGHT * a_scale;
+
+                Rectangle dest = new Rectangle((int)pos.X, (int)pos.Y, (int)width, (int)height);
+                a_coreView.Draw(a_coreView.Textures.Player, dest, new Rectangle(0, 0, 70, 130), Color.White);
             }
         }
 
-        private void DrawBounds(Core a_coreView, Model.Player a_player)
+        private void DrawBounds(Core a_coreView, Vector2 a_pos, int a_scale)
         {
-            Rectangle bounds = a_player.BoundingRectangle;
-            Helpers.PointBatch point = new Helpers.PointBatch(a_coreView.m_device, 1.0f, 5);
-            point.Begin();
-
-            point.Batch(a_player.m_pos, Color.Yellow);
-            point.Batch(new Vector2(a_player.m_pos.X, a_player.m_pos.Y - a_player.HEIGHT), Color.Yellow);
-            point.Batch(new Vector2(a_player.m_pos.X + a_player.WIDTH / 2, a_player.m_pos.Y - a_player.HEIGHT / 2), Color.Yellow);
-            point.Batch(new Vector2(a_player.m_pos.X - a_player.WIDTH / 2, a_player.m_pos.Y - a_player.HEIGHT / 2), Color.Yellow);
-
-            point.Batch(new Vector2(bounds.X, bounds.Y), Color.Violet);
-            point.Batch(new Vector2(bounds.X + bounds.Width, bounds.Y), Color.Violet);
-            point.Batch(new Vector2(bounds.X, bounds.Y + bounds.Height), Color.Violet);
-            point.Batch(new Vector2(bounds.X + bounds.Width, bounds.Y + bounds.Height), Color.Violet);
-
-            point.Batch(new Vector2(bounds.Center.X, bounds.Center.Y), Color.RoyalBlue);
-
-            point.End();
+            Vector2 topLeft = new Vector2(a_pos.X, a_pos.Y);
+            Vector2 topRight = new Vector2(a_pos.X + Model.Player.WIDTH * a_scale, a_pos.Y);
+            Vector2 bottomRight = new Vector2(a_pos.X + Model.Player.WIDTH * a_scale, a_pos.Y + Model.Player.HEIGHT * a_scale);
+            Vector2 bottomLeft = new Vector2(a_pos.X, a_pos.Y + Model.Player.HEIGHT * a_scale);
 
             Helpers.RectangleRenderer rec = new Helpers.RectangleRenderer(a_coreView.m_device, 1.0f);
             rec.Begin();
 
             rec.Batch(
-                new Vector2(bounds.X, bounds.Y),
-                new Vector2(bounds.X + bounds.Width, bounds.Y),
-                new Vector2(bounds.X + bounds.Width, bounds.Y + bounds.Height),
-                new Vector2(bounds.X, bounds.Y + bounds.Height),
+                topLeft,
+                topRight,
+                bottomRight,
+                bottomLeft,
                 Color.RoyalBlue,
                 1.0f);
 
             rec.End();
 
-            Helpers.LineBatch dirVec = new Helpers.LineBatch(a_coreView.m_device, 1.0f);
-            dirVec.Begin();
-            Vector2 newPos = a_player.m_pos + a_player.m_velocity;// *a_elapsedTime;
-            newPos = new Vector2(newPos.X, newPos.Y - a_player.HEIGHT / 2);
-            dirVec.Batch(new Vector2(a_player.m_pos.X, a_player.m_pos.Y - a_player.HEIGHT / 2), Color.Red, newPos, Color.Blue, 1.0f);
-            dirVec.End();
+            Helpers.PointBatch point = new Helpers.PointBatch(a_coreView.m_device, 1.0f, 5);
+            point.Begin();
+
+            point.Batch(topLeft, Color.Yellow);
+            point.Batch(topRight, Color.Yellow);
+            point.Batch(bottomRight, Color.Yellow);
+            point.Batch(bottomLeft, Color.Yellow);
+
+            point.Batch(new Vector2(topRight.X, topRight.Y + Model.Player.HEIGHT * a_scale / 2), Color.Violet);
+            point.Batch(new Vector2(topLeft.X, topLeft.Y + Model.Player.HEIGHT * a_scale / 2), Color.Violet);
+            point.Batch(new Vector2(topLeft.X + Model.Player.WIDTH * a_scale / 2, topLeft.Y), Color.Violet);
+            point.Batch(new Vector2(topLeft.X + Model.Player.WIDTH * a_scale / 2, topLeft.Y + Model.Player.HEIGHT * a_scale), Color.Violet);
+
+            point.Batch(new Vector2(topLeft.X + Model.Player.WIDTH * a_scale / 2, topLeft.Y + Model.Player.HEIGHT * a_scale / 2), Color.RoyalBlue);
+
+            point.End();
         }
 
         public void Test(Core a_coreView)
