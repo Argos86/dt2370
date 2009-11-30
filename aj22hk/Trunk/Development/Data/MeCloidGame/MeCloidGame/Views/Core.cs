@@ -58,7 +58,7 @@ namespace MeCloidGame.Views
         public Core(GraphicsDeviceManager a_graphics)
         {
             m_graphics = a_graphics;
-            
+
             m_displaySettings = Helpers.SettingsHandler.ReadDisplaySettings(@"Content\" + Helpers.Paths.SETTINGS + "DisplaySettings.xml");
             m_graphics.IsFullScreen = m_displaySettings.FullScreen;
             m_graphics.PreferredBackBufferWidth = m_displaySettings.WindowWidth;
@@ -86,6 +86,7 @@ namespace MeCloidGame.Views
             m_sounds.LoadContent(a_content);
             
             m_device = a_device;
+
         }
 
         public void Draw(Texture2D a_texture, Rectangle a_dest, Rectangle a_src, Color a_color)

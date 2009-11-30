@@ -14,8 +14,6 @@ namespace MeCloidGame.Model
         public Level m_level;
         public Player m_player;
 
-        public Camera m_camera;
-
         public IEventTarget m_view;
 
         public Game(IEventTarget a_view)
@@ -28,8 +26,6 @@ namespace MeCloidGame.Model
         {
             m_level = new Level("0.txt");
             m_player = new Player();
-
-            m_camera = new Camera();
         }
 
         #region Interface methods
@@ -40,18 +36,11 @@ namespace MeCloidGame.Model
             m_player.m_isJumping = a_isJumping;
         }
 
-        public void MoveCamera(Vector2 a_movement)
-        {
-            m_camera.m_movement = a_movement;
-        }
-
         #endregion
 
         public bool Update(float a_elapsedTime)
         {
             UpdatePlayer(a_elapsedTime);
-
-            m_camera.UpdateCamera(a_elapsedTime);
 
             return true;
         }

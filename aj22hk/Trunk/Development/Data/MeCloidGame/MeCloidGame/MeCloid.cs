@@ -31,7 +31,7 @@ namespace MeCloidGame
         public MeCloid()
         {
             m_coreView = new Views.Core(new GraphicsDeviceManager(this));
-            m_playGameController = new Controllers.PlayGame(m_coreView);
+            m_playGameController = new Controllers.PlayGame(m_coreView, GraphicsDevice);
             m_game = new Model.Game(m_playGameController);
             
             Content.RootDirectory = "Content";
@@ -107,7 +107,7 @@ namespace MeCloidGame
             
             m_coreView.Begin();
 
-            if (m_playGameController.DoControll(m_game, elapsedTime, m_game) == false)
+            if (m_playGameController.DoControll(m_game, elapsedTime, m_game, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height) == false)
             {
                 Exit();
             }

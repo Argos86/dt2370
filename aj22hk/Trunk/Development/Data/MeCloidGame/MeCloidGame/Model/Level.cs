@@ -14,8 +14,8 @@ namespace MeCloidGame.Model
         // TODO: Come up with a level creating process that better supports editing and expansion of width and height of level.
         private Tile[,] m_tiles;
 
-        public const int WIDTH = 26;
-        public const int HEIGHT = 15;
+        public const int WIDTH = 48;
+        public const int HEIGHT = 48;
 
         public Tile[,] Tiles
         {

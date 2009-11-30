@@ -30,7 +30,7 @@ namespace MeCloidGame.Controllers
 
         #region Methods
 
-        public abstract bool DoControll(Model.Game a_game, float a_elapsedTime, IModel a_model);
+        public abstract bool DoControll(Model.Game a_game, float a_elapsedTime, IModel a_model, int a_width, int a_height);
 
         #endregion
     }
