@@ -10,12 +10,12 @@ namespace MeCloidGame.Views
 {
     class PlayerView
     {
-        public void DrawPlayer(Core a_coreView, Model.Player a_player, Model.Camera a_camera)
+        public void DrawPlayer(Core a_coreView, Model.Player a_player, Camera a_camera)
         {
             Vector2 pos = a_player.m_pos;
             pos.X = pos.X - (Model.Player.WIDTH) / 2;
             pos.Y = pos.Y - Model.Player.HEIGHT;
-            pos = a_camera.Translate(pos) * a_camera.m_zoom;
+            pos = a_camera.Translate(pos);
 
             if (Helpers.Settings.Debug)
             {

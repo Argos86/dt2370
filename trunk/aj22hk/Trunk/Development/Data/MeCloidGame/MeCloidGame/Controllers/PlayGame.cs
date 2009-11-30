@@ -12,18 +12,21 @@ namespace MeCloidGame.Controllers
 {
     class PlayGame : Controllers.ControllerBase
     {
+        Views.Camera m_camera;
+
         #region Constructors
 
-        public PlayGame(Views.Core a_coreView)
+        public PlayGame(Views.Core a_coreView, GraphicsDevice a_device)
             : base(a_coreView)
         {
+            m_camera = new Views.Camera();
         }
 
         #endregion
 
         #region Methods
 
-        public override bool DoControll(Model.Game a_game, float a_elapsedTime, IModel a_model)
+        public override bool DoControll(Model.Game a_game, float a_elapsedTime, IModel a_model, int a_width, int a_height)
         {
             if (m_coreView.Input.IsKeyJustPressed(Buttons.Start))
             {
@@ -45,26 +48,26 @@ namespace MeCloidGame.Controllers
             Vector2 cameraMovement = Vector2.Zero;
             cameraMovement.X = m_coreView.Input.GetRightThumbStick().X;
             cameraMovement.Y = -m_coreView.Input.GetRightThumbStick().Y;
-            a_model.MoveCamera(cameraMovement);
+            m_camera.m_movement = cameraMovement;
 
             if (m_coreView.Input.IsKeyPressed(Buttons.RightShoulder))
             {
-                a_game.m_camera.m_zoom += 1;
+                m_camera.m_zoom += 1;
             }
 
             if (m_coreView.Input.IsKeyPressed(Buttons.LeftShoulder))
             {
-                a_game.m_camera.m_zoom -= 1;
-                if (a_game.m_camera.m_zoom < 1)
+                m_camera.m_zoom -= 1;
+                if (m_camera.m_zoom < 1)
                 {
-                    a_game.m_camera.m_zoom = 1;
+                    m_camera.m_zoom = 1;
                 }
             }
 
             if (m_coreView.Input.IsKeyPressed(Buttons.RightStick))
             {
-                a_game.m_camera.m_pos = Vector2.Zero;
-                a_game.m_camera.m_zoom = 48;
+                m_camera.m_pos = Vector2.Zero;
+                m_camera.m_zoom = 48;
             }
 
             if (m_coreView.Input.IsKeyJustPressed(Buttons.B))
@@ -79,7 +82,10 @@ namespace MeCloidGame.Controllers
 
             a_model.MovePlayer(movement, isJumping);
 
-            m_gameView.Draw(a_game, a_elapsedTime);
+            m_camera.UpdateCamera(a_elapsedTime, a_width, a_height);
+            m_camera.m_pos = a_game.m_player.m_pos;
+
+            m_gameView.Draw(a_game, a_elapsedTime, m_camera);
 
             return true;
         }

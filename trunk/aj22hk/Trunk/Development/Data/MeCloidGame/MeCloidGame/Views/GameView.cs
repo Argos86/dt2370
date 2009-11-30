@@ -19,10 +19,10 @@ namespace MeCloidGame.Views
             m_playerView = new PlayerView();
         }
 
-        public void Draw(Model.Game a_game, float a_elapsedTime)
+        public void Draw(Model.Game a_game, float a_elapsedTime, Camera a_camera)
         {
-            m_playerView.DrawPlayer(m_coreView, a_game.m_player, a_game.m_camera);
-            m_levelView.DrawLevel(a_game.m_level, m_coreView, a_game.m_camera);
+            m_playerView.DrawPlayer(m_coreView, a_game.m_player, a_camera);
+            m_levelView.DrawLevel(a_game.m_level, m_coreView, a_camera);
         }
     }
 }

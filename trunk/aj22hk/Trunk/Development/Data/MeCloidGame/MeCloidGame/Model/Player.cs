@@ -23,8 +23,8 @@ namespace MeCloidGame.Model
 
         private const float Gravity = 9.82f;
         private const float MaxFallSpeed = 15.0f;
-        private const float MaxMoveSpeed = 5.0f;
-        private const float Acceleration = 10.0f;
+        private const float MaxMoveSpeed = 8.0f;
+        private const float Acceleration = 20.0f;
 
         public bool m_isJumping;
         private bool m_wasJumping;
@@ -33,7 +33,7 @@ namespace MeCloidGame.Model
 
         public Player()
         {
-            m_pos = new Vector2(2.0f, 13.9f);
+            m_pos = new Vector2(2.0f, 46.9f);
         }
 
         public bool UpdateVelocity(float a_elapsedTime)
@@ -64,6 +64,16 @@ namespace MeCloidGame.Model
                 m_velocity.Y = -9.0f;
             }
             //m_velocity.Y = DoJump(m_velocity.Y);
+
+            if (!m_isOnGround)
+            {
+                m_velocity.X -= m_velocity.X * 0.5f * a_elapsedTime;
+            }
+
+            if (m_isOnGround)
+            {
+                m_velocity.X -= m_velocity.X * 0.5f * a_elapsedTime;
+            }
 
             return true;
         }
