@@ -23,10 +23,6 @@ namespace MeCloidGame.Model
             set { m_tileType = value; }
         }
 
-        public const float WIDTH = 1;//4.0f/3.0f;// 64.0f / 48.0f;
-
-        public const float HEIGHT = 1;
-
         public Tile(TileType a_tileType)
         {
             m_tileType = a_tileType;

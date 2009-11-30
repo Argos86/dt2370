@@ -13,7 +13,7 @@ namespace MeCloidGame.Views
     {
         #region Fields
 
-        GraphicsDeviceManager m_graphics;
+        public GraphicsDeviceManager m_graphics;
         public Helpers.DisplaySettings m_displaySettings;
         SpriteBatch m_spriteBatch;
         private Helpers.InputHandler m_input;
@@ -63,6 +63,7 @@ namespace MeCloidGame.Views
             m_graphics.IsFullScreen = m_displaySettings.FullScreen;
             m_graphics.PreferredBackBufferWidth = m_displaySettings.WindowWidth;
             m_graphics.PreferredBackBufferHeight = m_displaySettings.WindowHeight;
+            m_graphics.PreferMultiSampling = true;
 
             m_keyboardSettings = Helpers.SettingsHandler.ReadKeyboardSettings(@"Content\" + Helpers.Paths.SETTINGS + "KeyboardSettings.xml");
             m_input = new Helpers.InputHandler(PlayerIndex.One, Helpers.SettingsHandler.GetKeyboardDictionary(m_keyboardSettings));
