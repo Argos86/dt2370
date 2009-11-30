@@ -115,6 +115,9 @@
     <Compile Include="..\MeCloidGame\IEventTarget.cs">
       <Link>IEventTarget.cs</Link>
     </Compile>
+    <Compile Include="..\MeCloidGame\Model\Camera.cs">
+      <Link>Model\Camera.cs</Link>
+    </Compile>
     <Compile Include="..\MeCloidGame\Model\Game.cs">
       <Link>Model\Game.cs</Link>
     </Compile>

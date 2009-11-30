@@ -96,6 +96,7 @@
     <Compile Include="Helpers\SettingsHandler.cs" />
     <Compile Include="IEventTarget.cs" />
     <Compile Include="Helpers\InputHandler.cs" />
+    <Compile Include="Model\Camera.cs" />
     <Compile Include="Model\Game.cs" />
     <Compile Include="Model\Level.cs" />
     <Compile Include="Model\Player.cs" />

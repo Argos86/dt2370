@@ -25,37 +25,63 @@ namespace MeCloidGame.Controllers
 
         public override bool DoControll(Model.Game a_game, float a_elapsedTime, IModel a_model)
         {
-            int scale = 48;
+            if (m_coreView.Input.IsKeyJustPressed(Buttons.Start))
+            {
+                m_coreView.m_graphics.ToggleFullScreen();
+            }
+
+            if (m_coreView.Input.IsKeyJustPressed(Buttons.Back))
+            {
+                if (Helpers.Settings.Debug)
+                {
+                    Helpers.Settings.Debug = false;
+                }
+                else
+                {
+                    Helpers.Settings.Debug = true;
+                }
+            }
+
+            Vector2 cameraMovement = Vector2.Zero;
+            cameraMovement.X = m_coreView.Input.GetRightThumbStick().X;
+            cameraMovement.Y = -m_coreView.Input.GetRightThumbStick().Y;
+            a_model.MoveCamera(cameraMovement);
+
+            if (m_coreView.Input.IsKeyPressed(Buttons.RightShoulder))
+            {
+                a_game.m_camera.m_zoom += 1;
+            }
+
+            if (m_coreView.Input.IsKeyPressed(Buttons.LeftShoulder))
+            {
+                a_game.m_camera.m_zoom -= 1;
+                if (a_game.m_camera.m_zoom < 1)
+                {
+                    a_game.m_camera.m_zoom = 1;
+                }
+            }
+
+            if (m_coreView.Input.IsKeyPressed(Buttons.RightStick))
+            {
+                a_game.m_camera.m_pos = Vector2.Zero;
+                a_game.m_camera.m_zoom = 48;
+            }
 
             if (m_coreView.Input.IsKeyJustPressed(Buttons.B))
             {
                 m_coreView.Sounds.TestSound.Play();
             }
 
-            bool isJumping = m_coreView.Input.IsKeyPressed(Buttons.A);
-
-            a_model.MovePlayer(HandleMovement(), isJumping);
-
-            m_gameView.Draw(a_game, scale, a_elapsedTime);
-
-            return true;
-        }
-
-        private float HandleMovement()
-        {
             float movement = 0;
             movement = m_coreView.Input.GetLeftThumbStick().X;
 
-            if (m_coreView.Input.IsKeyPressed(Buttons.DPadRight))
-            {
-                movement = 1.0f;
-            }
-            else if (m_coreView.Input.IsKeyPressed(Buttons.DPadLeft))
-            {
-                movement = -1.0f;
-            }
+            bool isJumping = m_coreView.Input.IsKeyPressed(Buttons.A);
 
-            return movement;
+            a_model.MovePlayer(movement, isJumping);
+
+            m_gameView.Draw(a_game, a_elapsedTime);
+
+            return true;
         }
 
         #endregion

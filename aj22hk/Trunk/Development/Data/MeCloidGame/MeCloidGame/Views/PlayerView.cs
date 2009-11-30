@@ -10,22 +10,23 @@ namespace MeCloidGame.Views
 {
     class PlayerView
     {
-        public void DrawPlayer(Core a_coreView, Model.Player a_player, int a_scale)
+        public void DrawPlayer(Core a_coreView, Model.Player a_player, Model.Camera a_camera)
         {
             Vector2 pos = a_player.m_pos;
-            pos.X = pos.X * a_scale * Model.Tile.WIDTH - (Model.Player.WIDTH * a_scale * Model.Tile.WIDTH) / 2;
-            pos.Y = pos.Y * a_scale - a_scale * Model.Player.HEIGHT;
+            pos.X = pos.X - (Model.Player.WIDTH) / 2;
+            pos.Y = pos.Y - Model.Player.HEIGHT;
+            pos = a_camera.Translate(pos) * a_camera.m_zoom;
 
             if (Helpers.Settings.Debug)
             {
                 a_coreView.DrawText(a_player.m_pos.ToString(), a_coreView.Fonts.Georgia, new Vector2(70.0f, 50.0f), Color.Red);
                 a_coreView.DrawText(a_player.m_velocity.ToString(), a_coreView.Fonts.Georgia, new Vector2(70.0f, 70.0f), Color.Red);
-                DrawBounds(a_coreView, pos, a_scale);
+                DrawBounds(a_coreView, pos, a_camera.m_zoom);
             }
             else
             {
-                float width = Model.Player.WIDTH * a_scale;
-                float height = Model.Player.HEIGHT * a_scale;
+                float width = Model.Player.WIDTH * a_camera.m_zoom;
+                float height = Model.Player.HEIGHT * a_camera.m_zoom;
 
                 Rectangle dest = new Rectangle((int)pos.X, (int)pos.Y, (int)width, (int)height);
                 a_coreView.Draw(a_coreView.Textures.Player, dest, new Rectangle(0, 0, 70, 130), Color.White);
@@ -76,7 +77,7 @@ namespace MeCloidGame.Views
             p.m_pos.X = 200;
             p.m_pos.Y = 550;
 
-            DrawPlayer(a_coreView, p, 1);
+            DrawPlayer(a_coreView, p, null);
         }
     }
 }

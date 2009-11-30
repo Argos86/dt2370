@@ -10,14 +10,15 @@ namespace MeCloidGame.Views
 {
     class LevelView
     {
-        public void DrawLevel(Model.Level a_level, Core a_coreView, int a_scale)
+        public void DrawLevel(Model.Level a_level, Core a_coreView, Model.Camera a_camera)
         {
             for (int x = 0; x < Model.Level.WIDTH; ++x)
             {
                 for (int y = 0; y < Model.Level.HEIGHT; ++y)
                 {
+                    Vector2 pos = a_camera.Translate(new Vector2(x, y)) * a_camera.m_zoom;
+                    Rectangle dest = new Rectangle((int)pos.X, (int)pos.Y, a_camera.m_zoom, a_camera.m_zoom);
                     Rectangle src;
-                    float width = a_scale * (float)Model.Tile.WIDTH;
                     switch (a_level.Tiles[x, y].Type)
                     {
                         case Model.Tile.TileType.Solid:
@@ -29,11 +30,11 @@ namespace MeCloidGame.Views
                             {
                                 src = new Rectangle(64 * 2, 48 * 0, 64, 48);
                             }
-                            a_coreView.Draw(a_coreView.Textures.Tiles, new Rectangle(x * (int)width, y * a_scale, (int)width, a_scale), src, Color.White);
+                            a_coreView.Draw(a_coreView.Textures.Tiles, dest, src, Color.White);
                             break;
                         case Model.Tile.TileType.Destroyable:
                             src = new Rectangle(64 * 1, 48 * 0, 64, 48);
-                            a_coreView.Draw(a_coreView.Textures.Tiles, new Rectangle(x * (int)width, y * a_scale, (int)width, a_scale), src, Color.White);
+                            a_coreView.Draw(a_coreView.Textures.Tiles, dest, src, Color.White);
                             break;
                     }
                 }
@@ -41,11 +42,11 @@ namespace MeCloidGame.Views
 
             if (Helpers.Settings.Debug)
             {
-                DrawGrid(a_level, a_coreView, a_scale);
+                DrawGrid(a_level, a_coreView, a_camera);
             }
         }
 
-        private void DrawGrid(Model.Level a_level, Core a_coreView, int a_scale)
+        private void DrawGrid(Model.Level a_level, Core a_coreView, Model.Camera a_camera)
         {
             // Grid lines
             Helpers.LineBatch gridLines = new Helpers.LineBatch(a_coreView.m_device, 0.4f);
@@ -54,13 +55,13 @@ namespace MeCloidGame.Views
             // Vertical lines
             for (int x = 0; x <= a_level.Width; ++x)
             {
-                gridLines.Batch(new Vector2(x * a_scale * Model.Tile.WIDTH, 0), new Vector2(x * a_scale * Model.Tile.WIDTH, a_level.Height * a_scale), Color.Red, 1.0f);
+                gridLines.Batch(new Vector2(x * a_camera.m_zoom - a_camera.m_pos.X * a_camera.m_zoom, 0 - a_camera.m_pos.Y * a_camera.m_zoom), new Vector2(x * a_camera.m_zoom - a_camera.m_pos.X * a_camera.m_zoom, a_level.Height * a_camera.m_zoom - a_camera.m_pos.Y * a_camera.m_zoom), Color.Red, 1.0f);
             }
 
             // Horizontal lines
             for (int y = 0; y <= a_level.Height; ++y)
             {
-                gridLines.Batch(new Vector2(0, y * a_scale), new Vector2(a_level.Width * a_scale * Model.Tile.WIDTH, y * a_scale), Color.Red, 1.0f);
+                gridLines.Batch(new Vector2(0 - a_camera.m_pos.X * a_camera.m_zoom, y * a_camera.m_zoom - a_camera.m_pos.Y * a_camera.m_zoom), new Vector2(a_level.Width * a_camera.m_zoom - a_camera.m_pos.X * a_camera.m_zoom, y * a_camera.m_zoom - a_camera.m_pos.Y * a_camera.m_zoom), Color.Red, 1.0f);
             }
 
             gridLines.End();
@@ -86,7 +87,7 @@ namespace MeCloidGame.Views
         {
             Model.Level testLevel = new Model.Level("test.txt");
 
-            DrawLevel(testLevel, a_coreView, 1);
+            DrawLevel(testLevel, a_coreView, null);
         }
 
         #endregion
