@@ -48,10 +48,12 @@ namespace JumpMania.View
         }
         
 
-        public void DrawPlaya(GameTime gameTime, GraphicsDevice a_device, Vector2 a_pos)
+        public void DrawPlaya(GameTime gameTime, GraphicsDevice a_device, Vector2 a_pos, Camera a_camera)
         {
-            int scale = m_graphics.GraphicsDevice.Viewport.Width / Model.Level.WIDTH;
-            Draw(m_assets.m_texture, a_pos, new Rectangle(0, 0, 121, 180), scale, Color.White);
+            //int scale = m_graphics.GraphicsDevice.Viewport.Width / Model.Level.WIDTH;
+            a_pos *= a_camera.m_scale;
+            a_pos.Y -= a_camera.camY;
+            Draw(m_assets.m_texture, a_pos, new Rectangle(0, 0, 121, 180), a_camera.m_scale, Color.White);
         }
 
         public void Begin()
@@ -60,6 +62,7 @@ namespace JumpMania.View
         }
 
         public void End()
+
         {
             m_spriteBatch.End();
         }

@@ -28,6 +28,8 @@ namespace JumpMania
         //View
         JumpMania.View.Core m_chview;
         JumpMania.View.LevelView m_leview;
+        //JumpMania.View.FloorView m_floview;
+        JumpMania.View.Camera m_cam;
 
         public JM()
         {
@@ -37,6 +39,8 @@ namespace JumpMania
             m_game = new JumpMania.Model.Game();
             m_chview = new JumpMania.View.Core(new GraphicsDeviceManager(this));
             m_leview = new JumpMania.View.LevelView();
+            //m_floview = new JumpMania.View.FloorView();
+            m_cam = new JumpMania.View.Camera();
 
             
         }
@@ -112,15 +116,20 @@ namespace JumpMania
             m_playcon.Update(gameTime, m_game);
 
             GraphicsDevice.Clear(Color.DarkRed);
+            //_________________________Slutar rita om man nuddar golvet____________________________
+            if (m_game.m_over == false)
+            {
+                m_chview.Begin();
 
-            m_chview.Begin();
 
-            m_leview.Level1(m_chview, m_game.m_level);
-            m_chview.DrawPlaya(gameTime, GraphicsDevice, m_game.m_player.m_position);
-            
+                m_cam.centreCamera(m_game.m_player.m_position.Y, m_chview.m_graphics.GraphicsDevice.Viewport.Height);
+                m_leview.Level1(m_chview, m_game.m_level, m_cam);
+                m_chview.DrawPlaya(gameTime, GraphicsDevice, m_game.m_player.m_position, m_cam);
+                //m_floview.Floor1(m_chview, m_game.m_level, m_cam); 
 
-            m_chview.End();
 
+                m_chview.End();
+            }
             base.Draw(gameTime);
         }
     }

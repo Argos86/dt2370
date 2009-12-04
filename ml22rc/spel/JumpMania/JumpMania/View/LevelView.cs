@@ -16,10 +16,11 @@ namespace JumpMania.View
 {
     class LevelView
     {
-        public void DrawLevel(Model.Level a_level, Core a_core)
+        public void DrawLevel(Model.Level a_level, Core a_core, Camera a_camera)
         {
-            int scale = a_core.m_graphics.GraphicsDevice.Viewport.Width / Model.Level.WIDTH;
-            //Rectangle src = new Rectangle(5, 212, 36, 36);
+          /*  int scale = a_core.m_graphics.GraphicsDevice.Viewport.Width / Model.Level.WIDTH;
+            int camY = 256;*/
+
 
             for (int x = 0; x < Model.Level.WIDTH; x++)
             {
@@ -27,15 +28,19 @@ namespace JumpMania.View
                 { 
                     if (a_level.m_tiles[x, y].m_tileType == Model.Tile.TileType.Platform)
                     {
-                        a_core.Draw(a_core.m_assets.m_platformtexture, new Vector2(x * scale, y * scale), new Rectangle(0, 0, 1, 1), scale, Color.White);
+                        a_core.Draw(a_core.m_assets.m_platformtexture, new Vector2(x * a_camera.m_scale, y * a_camera.m_scale - a_camera.camY), new Rectangle(0, 0, 1, 1), a_camera.m_scale, Color.White);
                     }
+                    if (a_level.m_tiles[x, y].m_tileType == Model.Tile.TileType.FloorOfDeath)
+                    {
+                        a_core.Draw(a_core.m_assets.m_floortexture, new Vector2(x * a_camera.m_scale, y * a_camera.m_scale - a_camera.camY), new Rectangle(0, 0, 1, 1), a_camera.m_scale, Color.White);
+                    } 
                 }
             }
         }
 
-        public void Level1(Core a_core, Model.Level testLevel)
+        public void Level1(Core a_core, Model.Level a_level, Camera a_camera)
         {
-            DrawLevel(testLevel, a_core);
+            DrawLevel(a_level, a_core, a_camera);
         }
 
 

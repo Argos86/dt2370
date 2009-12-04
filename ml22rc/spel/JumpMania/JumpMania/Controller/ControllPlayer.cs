@@ -25,25 +25,32 @@ namespace JumpMania.Controller
 
         public void Update(GameTime theGameTime, JumpMania.Model.Game a_game)
         {
-            
             a_input.Update();
 
             if (a_input.IsJumping(theGameTime, a_game.m_player.m_collideGround) == true)
             {
-                a_game.m_player.m_velocity.Y = -300.0f;
-                a_game.m_player.UpdateJump(theGameTime);
+                a_game.m_player.m_velocity.Y = -9.0f;
+                //a_game.m_player.UpdateJump(theGameTime);
             }
 
             if (a_input.IsWalkingRight(theGameTime) == true)
             {
                 a_game.m_player.m_movement = 1.0f;
-                a_game.m_player.UpdateWalkRight(theGameTime);                
+                a_game.m_player.UpdateWalkRight(theGameTime);
+            }
+            else
+            {
+                a_game.m_player.m_velocity.X *= 0.95f;
             }
 
             if (a_input.IsWalkingLeft(theGameTime) == true)
             {
                 a_game.m_player.m_movement = -1.0f;
                 a_game.m_player.UpdateWalkLeft(theGameTime);
+            }
+            else
+            {
+                a_game.m_player.m_velocity.X *= 0.95f;
             }
         }
     }

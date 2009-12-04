@@ -87,6 +87,7 @@
     <Compile Include="Controller\ControllPlayer.cs" />
     <Compile Include="Controller\PlayGame.cs" />
     <Compile Include="JM.cs" />
+    <Compile Include="Model\Floor.cs" />
     <Compile Include="Model\Player.cs" />
     <Compile Include="Model\Game.cs" />
     <Compile Include="Model\Level.cs" />
@@ -94,7 +95,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="View\Core.cs" />
-    <Compile Include="View\aftercore.cs" />
+    <Compile Include="View\Camera.cs" />
+    <Compile Include="View\FloorView.cs" />
     <Compile Include="View\LevelView.cs" />
     <Compile Include="View\FontAssets.cs" />
     <Compile Include="View\Input.cs" />
