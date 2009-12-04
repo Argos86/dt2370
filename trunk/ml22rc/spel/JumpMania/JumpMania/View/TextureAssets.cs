@@ -12,12 +12,14 @@ namespace JumpMania.View
         public Texture2D m_texture;
         public Texture2D m_platformtexture;
         public Texture2D m_airtexture;
+        public Texture2D m_floortexture;
 
         public void LoadContent(ContentManager a_content)
         {
             m_texture = a_content.Load<Texture2D>("images/karaktar_ninjaremake2");
             m_platformtexture = a_content.Load<Texture2D>("images/tile");
             m_airtexture = a_content.Load<Texture2D>("images/otile");
+            m_floortexture = a_content.Load<Texture2D>("images/floor");
         }
     }
 }

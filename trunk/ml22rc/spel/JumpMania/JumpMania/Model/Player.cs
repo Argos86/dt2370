@@ -20,8 +20,8 @@ namespace JumpMania.Model
         /*public Vector2 m_veli = new Vector2(0, 0);
         float m_acceleration = 0.7f;*/
         public float m_movement = 0.0f;
-        float a_speed = 600.0f;
-        bool m_isjumping = false;
+        float m_speed = 30.0f;
+        //bool m_isjumping = false;
         bool m_ismoving = false;
         public bool m_onground = true;
 
@@ -32,7 +32,8 @@ namespace JumpMania.Model
         public Vector2 m_velocity;
         public bool m_collideGround;
         
-        public bool IsAlive() {
+        public bool IsAlive() 
+        {
             return m_hitPoints > 0;
         }
 
@@ -41,10 +42,9 @@ namespace JumpMania.Model
         public Player()
         {
             m_hitPoints = 0;
-            m_position = new Vector2(4, 2);
+            m_position = new Vector2(9, 85);
             m_oldPos = new Vector2(0, 0);
             m_velocity = new Vector2(0, 0);
-                
         }
 
         public Player(Vector2 a_pos)
@@ -52,21 +52,13 @@ namespace JumpMania.Model
             m_hitPoints = 10;
             m_position = a_pos;
             m_oldPos = m_position;
-                  
         }
 
 
-        //int m_hitPoints = 0;
-        //public Vector2 m_oldPos = new Vector2(0, 0);
-        //public Vector2 m_velocity = new Vector2(0, 0);
-
-        //public Vector2 m_position = new Vector2(400, 200);
-
-        public void UpdateJump(GameTime theGameTime)
+        /*public void UpdateJump(GameTime theGameTime)
         {
-            m_isjumping = true;
-        }
-
+           m_isjumping = true;
+        }*/
 
 
         public void UpdateWalkRight(GameTime theGameTime)
@@ -107,11 +99,9 @@ namespace JumpMania.Model
             if (m_ismoving == true)
             {
                 float elapsed = (float)theGameTime.ElapsedGameTime.TotalSeconds;
-                m_position.X += a_speed * elapsed * m_movement;
+                m_velocity.X += m_speed * elapsed * m_movement;
                 m_movement = 0.0f;
             }
         }
-
     }
-
 }

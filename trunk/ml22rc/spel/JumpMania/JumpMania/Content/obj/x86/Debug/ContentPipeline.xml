@@ -28,6 +28,15 @@
       <Output>P:\spelprojekt\ml22rc\spel\JumpMania\JumpMania\bin\x86\Debug\Content\images\otile.xnb</Output>
       <Time>2009-11-23T14:32:14.0101918+01:00</Time>
     </Item>
+    <Item>
+      <Source>images\floor.png</Source>
+      <Name>images\floor</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>P:\spelprojekt\ml22rc\spel\JumpMania\JumpMania\bin\x86\Debug\Content\images\floor.xnb</Output>
+      <Time>2009-11-30T15:33:52.5575396+01:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

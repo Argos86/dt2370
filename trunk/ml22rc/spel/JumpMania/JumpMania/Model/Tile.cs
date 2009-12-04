@@ -10,7 +10,8 @@ namespace JumpMania.Model
         public enum TileType
         {
             Air,
-            Platform
+            Platform,
+            FloorOfDeath
         };
 
         public TileType m_tileType;

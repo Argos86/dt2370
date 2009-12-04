@@ -1,3 +1,4 @@
 Content\images\karaktar_ninjaremake2.xnb
 Content\images\tile.xnb
 Content\images\otile.xnb
+Content\images\floor.xnb

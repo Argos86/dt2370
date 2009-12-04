@@ -14,3 +14,4 @@ P:\spelprojekt\ml22rc\spel\JumpMania\JumpMania\bin\x86\Debug\JumpMania.exe
 P:\spelprojekt\ml22rc\spel\JumpMania\JumpMania\bin\x86\Debug\JumpMania.pdb
 P:\spelprojekt\ml22rc\spel\JumpMania\JumpMania\bin\x86\Debug\Content\images\tile.xnb
 P:\spelprojekt\ml22rc\spel\JumpMania\JumpMania\bin\x86\Debug\Content\images\otile.xnb
+P:\spelprojekt\ml22rc\spel\JumpMania\JumpMania\bin\x86\Debug\Content\images\floor.xnb
