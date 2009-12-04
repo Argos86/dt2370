@@ -18,3 +18,7 @@ P:\Skolarbete\Grundläggande spelprogrammering\Tower Defense\Tower Defense\obj\x
 P:\Skolarbete\Grundläggande spelprogrammering\Tower Defense\Tower Defense\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 P:\Skolarbete\Grundläggande spelprogrammering\Tower Defense\Tower Defense\obj\x86\Debug\Tower Defense.exe
 P:\Skolarbete\Grundläggande spelprogrammering\Tower Defense\Tower Defense\obj\x86\Debug\Tower Defense.pdb
+P:\Skolarbete\Grundläggande spelprogrammering\ej22dq\Tower Defense\Tower Defense\bin\x86\Debug\Content\Images\Menu.xnb
+P:\Skolarbete\Grundläggande spelprogrammering\ej22dq\Tower Defense\Tower Defense\bin\x86\Debug\Content\Images\healthbar.xnb
+P:\Skolarbete\Grundläggande spelprogrammering\ej22dq\Tower Defense\Tower Defense\bin\x86\Debug\Content\Images\blank.xnb
+P:\Skolarbete\Grundläggande spelprogrammering\ej22dq\Tower Defense\Tower Defense\bin\x86\Debug\Content\Images\Map1.xnb

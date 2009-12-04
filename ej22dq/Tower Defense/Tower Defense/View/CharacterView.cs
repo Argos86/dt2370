@@ -13,24 +13,39 @@ namespace Tower_Defense.View
         public void DrawEnemy(Core a_core, Model.Enemy a_character, float a_elapsedTime, int a_id, int a_scale)
         {
             DrawCharacter(a_core, a_character, a_scale, new Rectangle(51, 68, 20, 20));
-        }
-        
 
-        public void DrawTower(Core a_core, Vector2 a_pos/*, Model.Tower.Type a_type*/)
+        }
+
+        public void DrawHP(Core a_core, Vector2 a_pos, int a_scale, float a_currentHP, int a_maxHP)
         {
-            int size = 16;
-            Vector2 pos = a_pos - new Vector2(size / 2, size / 2);
+            if (a_currentHP < a_maxHP)
+            {
+                if (a_currentHP > 0)
+                {
+                int width = (int)(a_scale * a_currentHP / (float)a_maxHP);
+                Rectangle dest = new Rectangle((int)(a_pos.X * a_scale) - a_scale / 2, (int)(a_pos.Y * a_scale) - a_scale, a_scale, 6);
+                a_core.Draw(a_core.m_assets.m_blank, dest, new Rectangle(0, 0, 22, 8), Color.White);
+                dest = new Rectangle((int)(a_pos.X * a_scale) - a_scale / 2, (int)(a_pos.Y * a_scale) - a_scale, width, 6);
+                a_core.Draw(a_core.m_assets.m_blank, dest, new Rectangle(1, 1, 20, 6), Color.Red);
+                }
+            }
+        }
+
+        public void DrawTower(Core a_core, Vector2 a_pos, Model.Tower.Type a_type, int a_scale)
+        {
+            int size = a_scale;
+            Vector2 pos = a_pos * a_scale - new Vector2(a_scale / 2, a_scale / 2);
             Rectangle dest = new Rectangle((int)pos.X, (int)pos.Y, size, size);
             Color color = Color.White;
-            /*switch (a_type)
+            switch (a_type)
             {
                 case Model.Tower.Type.Normal: color = Color.White; break;
                 case Model.Tower.Type.Earth: color = Color.Brown; break;
                 case Model.Tower.Type.Fire: color = Color.Red; break;
                 case Model.Tower.Type.Water: color = Color.Blue; break;
                 case Model.Tower.Type.Wind: color = Color.Green; break;
-                case Model.Tower.Type.Undead: color = Color.Black; break;
-            }*/
+                case Model.Tower.Type.Undead: color = Color.Gray; break;
+            }
             a_core.Draw(a_core.m_assets.m_texture, dest, new Rectangle(4, 4, 40, 40), color);
         }
 
@@ -62,7 +77,7 @@ namespace Tower_Defense.View
                     case Model.Enemy.Type.Fire : color = Color.Red; break;
                     case Model.Enemy.Type.Water : color = Color.Blue; break;
                     case Model.Enemy.Type.Wind : color = Color.Green; break;
-                    case Model.Enemy.Type.Undead : color = Color.Black; break;
+                    case Model.Enemy.Type.Undead: color = Color.Gray; break;
                 }
 
                 a_core.Draw(a_core.m_assets.m_texture, dest, a_src, color);

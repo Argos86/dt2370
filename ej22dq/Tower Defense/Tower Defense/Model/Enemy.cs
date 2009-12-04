@@ -9,28 +9,33 @@ namespace Tower_Defense.Model
     class Enemy
     {
         public float m_hitPoints = 0;
+        public float m_slowTimer = 0;
         public Vector2 m_pos;
         public Vector2 m_oldPos;
         public int m_value = 0;
         public float m_timer = 0.0f;
         public List<Vector2> m_path;
         public int m_targetCoord = 0;
+        public int MaxHP = 0;
 
         public Vector2[] m_waypoints =
         {
-            new Vector2(0,35),
-            new Vector2(10,35),
-            new Vector2(10,50),
-            new Vector2(5,50),
-            new Vector2(5,20),
-            new Vector2(25,20),
-            new Vector2(40,10),
-            new Vector2(60,0),
-            new Vector2(60,50),
-            new Vector2(12,75),
-            new Vector2(50,65),
-            new Vector2(100,30),
-            new Vector2(120,35)
+            new Vector2(0,9),
+            new Vector2(3,9),
+            new Vector2(3,1),
+            new Vector2(1,1),
+            new Vector2(1,3),
+            new Vector2(21,3),
+            new Vector2(21,1),
+            new Vector2(19,1),
+            new Vector2(19,18),
+            new Vector2(21,18),
+            new Vector2(21,16),
+            new Vector2(1,16),
+            new Vector2(1,18),
+            new Vector2(3,18),
+            new Vector2(3,11),
+            new Vector2(Model.Map.WIDTH,11)
         };
 
         public enum Type
@@ -52,6 +57,11 @@ namespace Tower_Defense.Model
         }
         //private AStar m_searcher;
 
+        public int GetMaxHP()
+        {
+            MaxHP = GetValue() * (int)(100.0f * GetHitpointMod());
+            return MaxHP;
+        }
         public bool IsAlive()
         {
             return m_hitPoints > 0;
@@ -73,9 +83,8 @@ namespace Tower_Defense.Model
             m_timer = 0.0f;
             m_path = new List<Vector2>();
             m_type = a_type;
-            m_hitPoints = 100 * (a_value + 1) * GetHitpointMod();
- 
             m_value = a_value;
+            m_hitPoints = GetMaxHP();
        //     m_searcher = null;
         }
 
@@ -83,7 +92,7 @@ namespace Tower_Defense.Model
         {
             
             //m_pos.X += GetSpeed() * a_elapsedTime;
-
+            m_slowTimer -= a_elapsedTime;
             m_timer -= a_elapsedTime;
             if (IsAlive() == false)
             {
@@ -99,16 +108,24 @@ namespace Tower_Defense.Model
 
         public float GetSpeed()
         {
+
+            float speed = 1.0f;
             switch (m_type)
             {
-                case Type.Earth: return 1.3f;
-                case Type.Undead: return 1.8f;
-                case Type.Fire: return 2.5f;
-                case Type.Water: return 3.5f;
-                case Type.Wind: return 5.0f;
-                case Type.Normal: return 2.3f;
+                case Type.Earth: speed = 1.3f; break;
+                case Type.Undead: speed = 1.8f; break;
+                case Type.Fire: speed = 2.5f; break;
+                case Type.Water: speed = 3.5f; break;
+                case Type.Wind: speed = 5.0f; break;
+                case Type.Normal: speed = 2.3f; break;
             }
-            return 1.0f;
+
+            if (m_slowTimer > 0)
+            {
+                speed *= 0.5f;
+            }
+
+            return speed;
         }
 
         float GetHitpointMod()

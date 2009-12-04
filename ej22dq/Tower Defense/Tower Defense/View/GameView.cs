@@ -12,7 +12,8 @@ namespace Tower_Defense.View
         public enum PlayState
         {
             NONE,
-            BUY_TOWER
+            BUY_TOWER,
+            UPGRADE_TOWER
         };
 
         public PlayState m_state = PlayState.NONE;
@@ -45,6 +46,10 @@ namespace Tower_Defense.View
             return new Vector2((int)(m_core.m_input.m_mousePos / a_scale).X, (int)(m_core.m_input.m_mousePos / a_scale).Y);
         }
 
+        public void DrawUpgrade(Model.Tower a_tower)
+        {
+
+        }
         /*public void DrawPath(List<Vector2> a_path, int a_scale)
         {
             foreach (Vector2 v in a_path)
@@ -53,11 +58,11 @@ namespace Tower_Defense.View
             }
         }*/
 
-        public void Draw(Tower_Defense.Model.Game a_game, float a_elapsedTime, int a_scale, int a_selectedIndex)
+        public void Draw(Tower_Defense.Model.Game a_game, float a_elapsedTime, int a_scale, Model.Tower a_selectedTower, Model.Tower.Type a_type)
         {
 
             int scale = a_scale;
-            m_level.DrawLevel(m_core);
+            m_level.DrawLevel(a_game.m_map, m_core, scale);
             m_effects.Update(a_elapsedTime, m_core, scale);
 
            
@@ -66,11 +71,17 @@ namespace Tower_Defense.View
             {
                 m_characterView.DrawEnemy(m_core, a_game.m_enemies[i], a_elapsedTime, i, scale);
             }
+
+            for (int i = 0; i < Model.Game.MAX_ENEMIES; i++)
+            {
+                m_characterView.DrawHP(m_core, a_game.m_enemies[i].m_pos, a_scale, a_game.m_enemies[i].m_hitPoints, a_game.m_enemies[i].GetMaxHP()); 
+            }
+
             for (int i = 0; i < Model.Game.MAX_TOWERS; i++)
             {
                 if (a_game.m_towers[i] != null)
                 {
-                    m_characterView.DrawTower(m_core, a_game.m_towers[i].m_pos * scale/*, a_game.m_towers[i].CurrentType*/);
+                    m_characterView.DrawTower(m_core, a_game.m_towers[i].m_pos, a_game.m_towers[i].CurrentType, scale);
                 }
 
                 /*if (m_state == PlayState.MOVE && i == a_selectedIndex)
@@ -80,7 +91,7 @@ namespace Tower_Defense.View
             }
 
             m_core.DrawText(a_game.m_cash.ToString(), m_core.m_fonts.m_baseFont, new Vector2(16, 16), Color.Red);
-
+            m_level.DrawMenu(m_core);
             if (Settings.Debugging == true)
             {
                 //int civiliansAlive = 0;
@@ -98,7 +109,7 @@ namespace Tower_Defense.View
                         enemyType = c.CurrentType.ToString();
                         enemiesAlive++;
 
-                        m_core.DrawText("HP : " + c.m_hitPoints.ToString(), m_core.m_fonts.m_baseFont, new Vector2(300, 100 + num * 20), Color.White);
+                        //m_core.DrawText("HP : " + c.m_hitPoints.ToString(), m_core.m_fonts.m_baseFont, new Vector2(300, 100 + num * 20), Color.White);
                         num++;
                     }
                 }
@@ -122,10 +133,9 @@ namespace Tower_Defense.View
                 foreach (Model.Tower c in a_game.m_towers)
                 {
                     Vector2 pos = new Vector2();
-                    pos.X = (int)(m_core.m_input.m_mousePos.X / 16);
-                    pos.Y = (int)(m_core.m_input.m_mousePos.Y / 16);
-                    pos *= 16;
-                    m_characterView.DrawTower(m_core, pos/*, c.CurrentType*/);
+                    pos.X = (int)(m_core.m_input.m_mousePos.X / scale);
+                    pos.Y = (int)(m_core.m_input.m_mousePos.Y / scale);
+                    m_characterView.DrawTower(m_core, pos, a_type, scale);
                 }
             }
 

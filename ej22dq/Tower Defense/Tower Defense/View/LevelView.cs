@@ -9,10 +9,30 @@ namespace Tower_Defense.View
 {
     class LevelView
     {
-        public void DrawLevel(Core a_core)
+        public void DrawLevel(Model.Map a_map, Core a_core, int a_scale)
         {
-            Rectangle dest = new Rectangle((int)0, (int)0, 1280, 800);
-            a_core.Draw(a_core.m_assets.m_bana1, dest, new Rectangle(0, 0, 1280, 550), Color.White);
+            Rectangle src = new Rectangle(5, 212, 36, 36);
+
+            for (int x = 0; x < Model.Map.WIDTH; x++)
+            {
+                for (int y = 0; y < Model.Map.HEIGHT; y++)
+                {
+                    if (a_map.m_tiles[y, x].m_tileType == Model.Tile.TileType.Blocked)
+                    {
+                        a_core.Draw(a_core.m_assets.m_blank, new Rectangle(x * a_scale - a_scale / 2, y * a_scale - a_scale / 2, a_scale, a_scale), src, Color.Brown);
+                    }
+                    else
+                    {
+                        // a_core.Draw(a_core.m_assets.m_texture, new Rectangle(x * a_scale, y * a_scale, a_scale, a_scale), src, Color.DarkGray);
+                    }
+                }
+            }
+        }
+
+        public void DrawMenu(Core a_core)
+        {
+            Rectangle dest = new Rectangle((int)920, (int)0, 280, 810);
+            a_core.Draw(a_core.m_assets.m_menu, dest, new Rectangle(0, 0, 165, 525), Color.White);
         }
     }
 }

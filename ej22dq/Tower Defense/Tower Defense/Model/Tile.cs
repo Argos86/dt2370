@@ -16,9 +16,17 @@ namespace Tower_Defense.Model
         public TileType m_tileType;
         public bool m_destroyed; //opended doors, crushed windows
 
-        public Tile()
+        public Tile(int a_isBlocked)
         {
-            m_tileType = TileType.Clear;
+            if (a_isBlocked == 1)
+            {
+                m_tileType = TileType.Blocked;
+            }
+            else
+            {
+                m_tileType = TileType.Clear;
+            }
+
             m_destroyed = false;
         }
     }
