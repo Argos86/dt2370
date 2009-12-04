@@ -22,14 +22,14 @@ namespace Tower_Defense.Controller
         public override bool DoControl(Tower_Defense.Model.Game a_game, float a_elapsedTime, IModel a_model)
         {
 
-            int scale = 10;
+            int scale = 800/Model.Map.HEIGHT;
             
             //Use views to draw game... 
-            m_view.Draw(a_game, a_elapsedTime, scale, m_selectedCharacter);
+            m_view.Draw(a_game, a_elapsedTime, scale, m_selectedTower, m_type);
             
             Vector2 logicalMousePos = m_view.GetLogicalMousePos(scale);
             //Handle input from tower button
-            View.IMGui.ButtonState state = m_gui.DoButton(m_core, "Basic Tower", new Vector2(32, 700), a_game.m_cash >= Model.Tower.GetPrice(Model.Tower.Type.Normal), m_view.m_state == View.GameView.PlayState.BUY_TOWER && m_type == Model.Tower.Type.Normal);
+            View.IMGui.ButtonState state = m_gui.DoButton(m_core, "Basic Tower", new Vector2(970, 110), a_game.m_cash >= Model.Tower.GetPrice(Model.Tower.Type.Normal), m_view.m_state == View.GameView.PlayState.BUY_TOWER && m_type == Model.Tower.Type.Normal);
             if (state == View.IMGui.ButtonState.MouseOverLBClicked)
             {
                 m_view.m_state = View.GameView.PlayState.BUY_TOWER;
@@ -37,14 +37,14 @@ namespace Tower_Defense.Controller
                 m_type = Model.Tower.Type.Normal;
             }
 
-            state = m_gui.DoButton(m_core, "Wind Tower", new Vector2(32+156, 700), a_game.m_cash >= Model.Tower.GetPrice(Model.Tower.Type.Wind), m_view.m_state == View.GameView.PlayState.BUY_TOWER && m_type == Model.Tower.Type.Wind);
+            state = m_gui.DoButton(m_core, "Wind Tower", new Vector2(970, 140), a_game.m_cash >= Model.Tower.GetPrice(Model.Tower.Type.Wind), m_view.m_state == View.GameView.PlayState.BUY_TOWER && m_type == Model.Tower.Type.Wind);
             if (state == View.IMGui.ButtonState.MouseOverLBClicked)
             {
                 m_view.m_state = View.GameView.PlayState.BUY_TOWER;
 
                 m_type = Model.Tower.Type.Wind;
             }
-            state = m_gui.DoButton(m_core, "Fire Tower", new Vector2(32, 700+26), a_game.m_cash >= Model.Tower.GetPrice(Model.Tower.Type.Fire), m_view.m_state == View.GameView.PlayState.BUY_TOWER && m_type == Model.Tower.Type.Fire);
+            state = m_gui.DoButton(m_core, "Fire Tower", new Vector2(970, 170), a_game.m_cash >= Model.Tower.GetPrice(Model.Tower.Type.Fire), m_view.m_state == View.GameView.PlayState.BUY_TOWER && m_type == Model.Tower.Type.Fire);
             if (state == View.IMGui.ButtonState.MouseOverLBClicked)
             {
                 m_view.m_state = View.GameView.PlayState.BUY_TOWER;
@@ -52,7 +52,7 @@ namespace Tower_Defense.Controller
                 m_type = Model.Tower.Type.Fire;
             }
 
-            state = m_gui.DoButton(m_core, "Water Tower", new Vector2(32 + 156, 700+26), a_game.m_cash >= Model.Tower.GetPrice(Model.Tower.Type.Water), m_view.m_state == View.GameView.PlayState.BUY_TOWER && m_type == Model.Tower.Type.Water);
+            state = m_gui.DoButton(m_core, "Water Tower", new Vector2(970, 200), a_game.m_cash >= Model.Tower.GetPrice(Model.Tower.Type.Water), m_view.m_state == View.GameView.PlayState.BUY_TOWER && m_type == Model.Tower.Type.Water);
             if (state == View.IMGui.ButtonState.MouseOverLBClicked)
             {
                 m_view.m_state = View.GameView.PlayState.BUY_TOWER;
@@ -60,7 +60,7 @@ namespace Tower_Defense.Controller
                 m_type = Model.Tower.Type.Water;
             }
 
-            state = m_gui.DoButton(m_core, "Earth Tower", new Vector2(32 + 326, 700), a_game.m_cash >= Model.Tower.GetPrice(Model.Tower.Type.Earth), m_view.m_state == View.GameView.PlayState.BUY_TOWER && m_type == Model.Tower.Type.Earth);
+            state = m_gui.DoButton(m_core, "Earth Tower", new Vector2(970, 230), a_game.m_cash >= Model.Tower.GetPrice(Model.Tower.Type.Earth), m_view.m_state == View.GameView.PlayState.BUY_TOWER && m_type == Model.Tower.Type.Earth);
             if (state == View.IMGui.ButtonState.MouseOverLBClicked)
             {
                 m_view.m_state = View.GameView.PlayState.BUY_TOWER;
@@ -68,13 +68,25 @@ namespace Tower_Defense.Controller
                 m_type = Model.Tower.Type.Earth;
             }
 
-            state = m_gui.DoButton(m_core, "Undead Tower", new Vector2(32 + 326, 700+26), a_game.m_cash >= Model.Tower.GetPrice(Model.Tower.Type.Undead), m_view.m_state == View.GameView.PlayState.BUY_TOWER && m_type == Model.Tower.Type.Undead);
+            state = m_gui.DoButton(m_core, "Undead Tower", new Vector2(970, 260), a_game.m_cash >= Model.Tower.GetPrice(Model.Tower.Type.Undead), m_view.m_state == View.GameView.PlayState.BUY_TOWER && m_type == Model.Tower.Type.Undead);
             if (state == View.IMGui.ButtonState.MouseOverLBClicked)
             {
                 m_view.m_state = View.GameView.PlayState.BUY_TOWER;
 
                 m_type = Model.Tower.Type.Undead;
             }
+
+
+
+            if (m_view.m_state == Tower_Defense.View.GameView.PlayState.UPGRADE_TOWER)
+            {
+                state = m_gui.DoButton(m_core, "Upgrade Range", new Vector2(970, 260+64), a_game.m_cash >= Model.Tower.GetPrice(Model.Tower.Type.Undead), m_view.m_state == View.GameView.PlayState.BUY_TOWER && m_type == Model.Tower.Type.Undead);
+                if (state == View.IMGui.ButtonState.MouseOverLBClicked)
+                {
+                   
+                }
+            }
+
 
             m_core.DrawMouse();
             //Mouse clicked
@@ -92,6 +104,19 @@ namespace Tower_Defense.Controller
                         }
                     case View.GameView.PlayState.NONE:
                         {
+                            Model.Tower selected = a_game.GetTower(logicalMousePos);
+                            if (selected != null)
+                            {
+                                m_view.m_state = View.GameView.PlayState.UPGRADE_TOWER;
+                                m_selectedTower = selected;
+                            }
+                            break;
+                        }
+                    case View.GameView.PlayState.UPGRADE_TOWER:
+                        {
+                            m_view.m_state = View.GameView.PlayState.NONE;
+                            m_selectedTower = null;
+
                             break;
                         }
                 }

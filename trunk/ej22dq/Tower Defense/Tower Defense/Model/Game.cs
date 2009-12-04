@@ -44,6 +44,25 @@ namespace Tower_Defense.Model
             }
         }
 
+        public Model.Tower GetTower(Vector2 a_pos)
+        {
+            Tower target = null;
+            float closest = 1.0f;
+            foreach (Tower c in m_towers)
+            {
+                if (c != null)
+                {
+                    float len = (a_pos - c.m_pos).Length();
+                    if (len < closest)
+                    {
+                        closest = len;
+                        target = c;
+                    }
+                }
+            }
+            return target;
+        }
+
         private void Init()
         {
             m_map = new Map();
@@ -70,7 +89,7 @@ namespace Tower_Defense.Model
             for (int i = 0; i < MAX_WAVES; i++)
             {
 
-                AddWave(MAX_ENEMIES, 10.0f, i);
+                AddWave(MAX_ENEMIES, 5.0f, i);
             }
 
             m_cash = 100;
@@ -80,22 +99,20 @@ namespace Tower_Defense.Model
         {
             a_wave.m_isActive = false;
             Random r = new Random();
-
+            int type = r.Next() % ((int)Enemy.Type.Max);
             for (int i = 0; i < a_wave.m_amount; i++)
             {
-                AddEnemy(new Vector2(-1 * i, 35), a_wave.m_index);
+                AddEnemy(new Vector2(-2 * i, 9), a_wave.m_index, (Model.Enemy.Type)type);
             }
         }
 
-        private int AddEnemy(Vector2 a_pos, int a_wave)
+        private int AddEnemy(Vector2 a_pos, int a_wave, Model.Enemy.Type a_type)
         {
             
             int enemy = GetDeadest(MAX_ENEMIES, m_enemies);
-            Random rand = new Random();
             if (enemy != -1)
             {
-                int value =  rand.Next()%((int)Enemy.Type.Max-1);
-                m_enemies[enemy] = new Enemy(a_pos, a_wave, (Enemy.Type)value);
+                m_enemies[enemy] = new Enemy(a_pos, a_wave, a_type);
             }
             return enemy;
         }
@@ -306,10 +323,45 @@ namespace Tower_Defense.Model
         private void Attack(Tower a_tower, Enemy a_target)
         {
 
-            a_target.m_hitPoints -= a_tower.GetDamage(a_target.CurrentType);
+            foreach (Enemy c in m_enemies)
+            {
+                float distance = (c.m_pos - a_target.m_pos).Length();
+                if (distance <= AoE(a_tower))
+                {
+
+                    if (a_tower.CurrentType == Tower.Type.Fire)
+                    {
+                        float damage = 1.0f - distance / AoE(a_tower);
+                        c.m_hitPoints -= a_tower.GetDamage(a_target.CurrentType) * damage;
+                    }
+                    else
+                    {
+                        c.m_hitPoints -= a_tower.GetDamage(a_target.CurrentType);
+                    }
+
+
+                    if (a_tower.CurrentType == Tower.Type.Water)
+                    {
+                        c.m_slowTimer = 3.0f;
+                    }
+
+                }
+            }
+            
             m_view.Attack(a_tower.m_pos, a_target.m_pos);
         }
 
+        private float AoE(Tower a_tower)
+        {
+            switch (a_tower.CurrentType)
+            {
+                case Model.Tower.Type.Earth: return 5;
+                case Model.Tower.Type.Fire: return 5;
+                case Model.Tower.Type.Water: return 3;
+            }
+            return 0.1f;
+            
+        }
         public void UpdateEnemy(int a_enemy, float a_gameTime)
         {
             if (m_enemies[a_enemy].Update(a_gameTime) == false)
@@ -332,17 +384,17 @@ namespace Tower_Defense.Model
 
             //har jag inget mål m_lockedEnemy, eller målet för långt bort eller målet dött
                 //Skaffa ett mål
-            if (m_towers[a_tower].m_lockedEnemy == null || (m_towers[a_tower].m_lockedEnemy.m_pos - m_towers[a_tower].m_pos).Length() > m_towers[a_tower].GetRange() ||
+            if (m_towers[a_tower].m_lockedEnemy == null || (m_towers[a_tower].m_lockedEnemy.m_pos - m_towers[a_tower].m_pos).Length() > m_towers[a_tower].GetRange(m_towers[a_tower].m_rangeUpgrade) ||
                 m_towers[a_tower].m_lockedEnemy.IsAlive() == false)
             {
-                GetClosestVisibleZombie(m_towers[a_tower], m_towers[a_tower].GetRange(), out m_towers[a_tower].m_lockedEnemy);
+                GetClosestVisibleZombie(m_towers[a_tower], m_towers[a_tower].GetRange(m_towers[a_tower].m_rangeUpgrade), out m_towers[a_tower].m_lockedEnemy);
             }
 
             //har jag ett mål
             if (m_towers[a_tower].m_lockedEnemy != null)
             {
                 Attack(m_towers[a_tower], m_towers[a_tower].m_lockedEnemy);
-                m_towers[a_tower].m_timer = Model.Tower.GetAttackSpeed(m_towers[a_tower].CurrentType);
+                m_towers[a_tower].m_timer = Model.Tower.GetAttackSpeed(m_towers[a_tower].CurrentType, m_towers[a_tower].m_speedUpgrade);
                 if (m_towers[a_tower].m_lockedEnemy.IsAlive() == false)
                 {
                     m_cash += m_towers[a_tower].m_lockedEnemy.GetValue();

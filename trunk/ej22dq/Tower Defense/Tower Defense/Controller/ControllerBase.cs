@@ -12,7 +12,7 @@ namespace Tower_Defense.Controller
         protected View.GameView m_view;
         protected View.IMGui m_gui;
         protected View.Core m_core;
-        protected int m_selectedCharacter = 0;
+        protected Model.Tower m_selectedTower = null;
 
         protected ControllerBase(View.Core a_core)
         {
