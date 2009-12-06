@@ -1,0 +1,45 @@
+P:\Grundläggande Spelprogrammering DT2370\Lokalt\WindowsGame1\WindowsGame1\obj\x86\Debug\ResolveAssemblyReference.cache
+P:\Grundläggande Spelprogrammering DT2370\Lokalt\WindowsGame1\WindowsGame1\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+P:\Grundläggande Spelprogrammering DT2370\Lokalt\WindowsGame1\WindowsGame1\bin\x86\Debug\WindowsGame1.exe
+P:\Grundläggande Spelprogrammering DT2370\Lokalt\WindowsGame1\WindowsGame1\bin\x86\Debug\WindowsGame1.pdb
+P:\Grundläggande Spelprogrammering DT2370\Lokalt\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.exe
+P:\Grundläggande Spelprogrammering DT2370\Lokalt\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.pdb
+P:\Grundläggande Spelprogrammering DT2370\Repositorium\pe22dh\WindowsGame1\WindowsGame1\obj\x86\Debug\ResolveAssemblyReference.cache
+P:\Grundläggande Spelprogrammering DT2370\Repositorium\pe22dh\WindowsGame1\WindowsGame1\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+P:\Grundläggande Spelprogrammering DT2370\Repositorium\pe22dh\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.exe
+G:\Skola\Grundläggande Spelprogrammering\pe22dh\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\assets\sprites\Untitled.xnb
+G:\Skola\Grundläggande Spelprogrammering\pe22dh\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\assets\sprites\whiteTile.xnb
+G:\Skola\Grundläggande Spelprogrammering\pe22dh\WindowsGame1\WindowsGame1\bin\x86\Debug\WindowsGame1.exe
+G:\Skola\Grundläggande Spelprogrammering\pe22dh\WindowsGame1\WindowsGame1\bin\x86\Debug\WindowsGame1.pdb
+G:\Skola\Grundläggande Spelprogrammering\pe22dh\WindowsGame1\WindowsGame1\obj\x86\Debug\ResolveAssemblyReference.cache
+G:\Skola\Grundläggande Spelprogrammering\pe22dh\WindowsGame1\WindowsGame1\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+G:\Skola\Grundläggande Spelprogrammering\pe22dh\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.exe
+G:\Skola\Grundläggande Spelprogrammering\pe22dh\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.pdb
+G:\Skola\Grundläggande Spelprogrammering\pe22dh\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\assets\sprites\player.xnb
+P:\Grundläggande Spelprogrammering DT2370\Repositorium\pe22dh\Iteration 3\Code\WindowsGame1\bin\x86\Debug\Content\assets\sprites\Untitled.xnb
+P:\Grundläggande Spelprogrammering DT2370\Repositorium\pe22dh\Iteration 3\Code\WindowsGame1\bin\x86\Debug\Content\assets\sprites\whiteTile.xnb
+P:\Grundläggande Spelprogrammering DT2370\Repositorium\pe22dh\Iteration 3\Code\WindowsGame1\bin\x86\Debug\Content\assets\sprites\player.xnb
+P:\Grundläggande Spelprogrammering DT2370\Repositorium\pe22dh\Iteration 3\Code\WindowsGame1\bin\x86\Debug\WindowsGame1.exe
+P:\Grundläggande Spelprogrammering DT2370\Repositorium\pe22dh\Iteration 3\Code\WindowsGame1\bin\x86\Debug\WindowsGame1.pdb
+P:\Grundläggande Spelprogrammering DT2370\Repositorium\pe22dh\Iteration 3\Code\WindowsGame1\obj\x86\Debug\ResolveAssemblyReference.cache
+P:\Grundläggande Spelprogrammering DT2370\Repositorium\pe22dh\Iteration 3\Code\WindowsGame1\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+P:\Grundläggande Spelprogrammering DT2370\Repositorium\pe22dh\Iteration 3\Code\WindowsGame1\obj\x86\Debug\WindowsGame1.exe
+P:\Grundläggande Spelprogrammering DT2370\Repositorium\pe22dh\Iteration 3\Code\WindowsGame1\obj\x86\Debug\WindowsGame1.pdb
+G:\Skola\WindowsGame1\bin\x86\Debug\Content\assets\sprites\Untitled.xnb
+G:\Skola\WindowsGame1\bin\x86\Debug\Content\assets\sprites\whiteTile.xnb
+G:\Skola\WindowsGame1\bin\x86\Debug\Content\assets\sprites\player.xnb
+G:\Skola\WindowsGame1\bin\x86\Debug\WindowsGame1.exe
+G:\Skola\WindowsGame1\bin\x86\Debug\WindowsGame1.pdb
+G:\Skola\WindowsGame1\obj\x86\Debug\ResolveAssemblyReference.cache
+G:\Skola\WindowsGame1\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+G:\Skola\WindowsGame1\obj\x86\Debug\WindowsGame1.exe
+G:\Skola\WindowsGame1\obj\x86\Debug\WindowsGame1.pdb
+D:\Skola\WindowsGame1\bin\x86\Debug\Content\assets\sprites\Untitled.xnb
+D:\Skola\WindowsGame1\bin\x86\Debug\Content\assets\sprites\whiteTile.xnb
+D:\Skola\WindowsGame1\bin\x86\Debug\Content\assets\sprites\player.xnb
+D:\Skola\WindowsGame1\bin\x86\Debug\WindowsGame1.exe
+D:\Skola\WindowsGame1\bin\x86\Debug\WindowsGame1.pdb
+D:\Skola\WindowsGame1\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Skola\WindowsGame1\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+D:\Skola\WindowsGame1\obj\x86\Debug\WindowsGame1.exe
+D:\Skola\WindowsGame1\obj\x86\Debug\WindowsGame1.pdb
