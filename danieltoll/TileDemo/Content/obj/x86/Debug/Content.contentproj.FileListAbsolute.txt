@@ -1,0 +1,1 @@
+C:\Daniel\programming\xna\TileDemo\TileDemo\Content\obj\x86\Debug\ResolveAssemblyReference.cache
