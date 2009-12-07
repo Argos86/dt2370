@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<KeyboardSettings>
+  <A>Space</A>
+  <B>NumPad2</B>
+  <X>NumPad4</X>
+  <Y>NumPad5</Y>
+  <LeftShoulder>LeftShift</LeftShoulder>
+  <RightShoulder>RightShift</RightShoulder>
+  <LeftTrigger>LeftControl</LeftTrigger>
+  <RightTrigger>RightControl</RightTrigger>
+  <LeftStick>F</LeftStick>
+  <RightStick>H</RightStick>
+  <Back>F4</Back>
+  <Start>Enter</Start>
+  <DPadDown>Down</DPadDown>
+  <DPadLeft>Left</DPadLeft>
+  <DPadRight>Right</DPadRight>
+  <DPadUp>Up</DPadUp>
+  <LeftThumbstickDown>O</LeftThumbstickDown>
+  <LeftThumbstickLeft>A</LeftThumbstickLeft>
+  <LeftThumbstickRight>E</LeftThumbstickRight>
+  <LeftThumbstickUp>OemComma</LeftThumbstickUp>
+  <RightThumbstickDown>N</RightThumbstickDown>
+  <RightThumbstickLeft>T</RightThumbstickLeft>
+  <RightThumbstickRight>S</RightThumbstickRight>
+  <RightThumbstickUp>R</RightThumbstickUp>
+</KeyboardSettings>
