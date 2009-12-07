@@ -87,8 +87,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\ControllerBase.cs" />
+    <Compile Include="Controllers\Editor.cs" />
     <Compile Include="Controllers\PlayGame.cs" />
     <Compile Include="Helpers\LineBatch.cs" />
+    <Compile Include="Helpers\MouseInput.cs" />
     <Compile Include="Helpers\Paths.cs" />
     <Compile Include="Helpers\PointBatch.cs" />
     <Compile Include="Helpers\RectangleRenderer.cs" />
@@ -105,6 +107,7 @@
     <Compile Include="MeCloid.cs" />
     <Compile Include="Views\Camera.cs" />
     <Compile Include="Views\Core.cs" />
+    <Compile Include="Views\EditView.cs" />
     <Compile Include="Views\FontAssets.cs" />
     <Compile Include="Views\GameView.cs" />
     <Compile Include="Views\LevelView.cs" />

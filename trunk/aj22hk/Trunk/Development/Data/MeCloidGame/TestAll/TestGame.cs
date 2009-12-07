@@ -39,7 +39,7 @@ namespace TestAll
             m_levelView = new MeCloidGame.Views.LevelView();
             m_playerView = new MeCloidGame.Views.PlayerView();
 
-            m_playGameController = new MeCloidGame.Controllers.PlayGame(m_coreView, GraphicsDevice);
+            m_playGameController = new MeCloidGame.Controllers.PlayGame(m_coreView);
             m_game = new MeCloidGame.Model.Game(m_playGameController);
 
             Content.RootDirectory = "Content";

@@ -13,8 +13,9 @@ namespace MeCloidGame.Controllers
     {
         #region Fields
 
-        protected Views.GameView m_gameView;
         protected Views.Core m_coreView;
+        protected Views.GameView m_gameView;
+        protected Views.EditView m_editView;
 
         #endregion
 
@@ -22,8 +23,9 @@ namespace MeCloidGame.Controllers
 
         protected ControllerBase(Views.Core a_coreView)
         {
-            m_gameView = new Views.GameView(a_coreView);
             m_coreView = a_coreView;
+            m_gameView = new Views.GameView(a_coreView);
+            m_editView = new Views.EditView(a_coreView);
         }
 
         #endregion

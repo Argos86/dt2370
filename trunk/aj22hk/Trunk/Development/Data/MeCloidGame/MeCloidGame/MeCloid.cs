@@ -24,14 +24,19 @@ namespace MeCloidGame
         
         // Controllers
         Controllers.PlayGame m_playGameController;
+        Controllers.Editor m_editor;
 
         // Views
         Views.Core m_coreView;
 
+        bool edit = false;
+        bool play = true;
+
         public MeCloid()
         {
             m_coreView = new Views.Core(new GraphicsDeviceManager(this));
-            m_playGameController = new Controllers.PlayGame(m_coreView, GraphicsDevice);
+            m_playGameController = new Controllers.PlayGame(m_coreView);
+            m_editor = new Controllers.Editor(m_coreView);
             m_game = new Model.Game(m_playGameController);
             
             Content.RootDirectory = "Content";
@@ -86,9 +91,14 @@ namespace MeCloidGame
             float elapsedTime = (float)a_gameTime.ElapsedGameTime.TotalSeconds;
             m_game.Update(elapsedTime);
 
-            //base.Update(a_gameTime);
-
-            //m_coreView.Update();
+            if (Helpers.Settings.Edit == false && m_coreView.Input.ToggleEdit())
+            {
+                Helpers.Settings.Edit = true;
+            }
+            else if (Helpers.Settings.Edit == true && m_coreView.Input.ToggleEdit())
+            {
+                Helpers.Settings.Edit = false;
+            }
         }
 
         /// <summary>
@@ -107,9 +117,19 @@ namespace MeCloidGame
             
             m_coreView.Begin();
 
-            if (m_playGameController.DoControll(m_game, elapsedTime, m_game, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height) == false)
+            if (!Helpers.Settings.Edit)
             {
-                Exit();
+                if (m_playGameController.DoControll(m_game, elapsedTime, m_game, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height) == false)
+                {
+                    Exit();
+                }
+            }
+            else
+            {
+                if (m_editor.DoControll(m_game, elapsedTime, m_game, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height) == false)
+                {
+                    Exit();
+                }
             }
             
             m_coreView.End();

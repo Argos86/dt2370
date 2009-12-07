@@ -47,11 +47,11 @@ namespace MeCloidGame.Helpers
             m_prevGamePadState = m_gamePadState;
             m_gamePadState = GamePad.GetState(m_playerIndex);
 
-            if (!m_gamePadState.IsConnected)
-            {
+            //if (!m_gamePadState.IsConnected)
+            //{
                 m_prevKeyboardState = m_keyboardState;
                 m_keyboardState = Keyboard.GetState(m_playerIndex);
-            }
+            //}
         }
 
         public float GetLeftTrigger()
@@ -188,6 +188,16 @@ namespace MeCloidGame.Helpers
             }
 
             return pressed;
+        }
+
+        public bool ToggleEdit()
+        {
+            if (m_keyboardState.IsKeyDown(Keys.F1) && !m_prevKeyboardState.IsKeyDown(Keys.F1))
+            {
+                return true;
+            }
+
+            return false;
         }
 
         #endregion
