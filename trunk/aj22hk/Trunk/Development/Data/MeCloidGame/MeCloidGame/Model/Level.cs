@@ -69,6 +69,40 @@ namespace MeCloidGame.Model
             }
         }
 
+        public void SaveLevel(string a_level)
+        {
+            List<string> lines = new List<string>();
+
+            using (StreamWriter writer = new StreamWriter(@"Content\" + Helpers.Paths.LEVELS + a_level))
+            {
+                for (int y = 0; y < HEIGHT; ++y)
+                {
+                    string line = string.Empty;
+                    for (int x = 0; x < WIDTH; ++x)
+                    {
+                        switch (m_tiles[x, y].Type)
+                        {
+                            case Tile.TileType.Clear:
+                                line += ".";
+                                break;
+                            case Tile.TileType.Solid:
+                                line += "#";
+                                break;
+                            case Tile.TileType.Destroyable:
+                                line += "%";
+                                break;
+                        }
+                    }
+                    lines.Add(line);
+                }
+
+                foreach (string l in lines)
+                {
+                    writer.WriteLine(l);
+                }
+            }
+        }
+
         private Tile LoadTile(char a_tileType, int a_x, int a_y)
         {
             switch (a_tileType)

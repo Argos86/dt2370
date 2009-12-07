@@ -34,8 +34,6 @@ namespace MeCloidGame.Controllers
 
             m_mouse.Update(Vector2.Zero, new Vector2(a_width, a_height), a_elapsedTime);
 
-            //Vector2 logMPos = new Vector2((int)(m_mouse.Pos.X / m_camera.m_zoom - 19), (int)(m_mouse.Pos.Y / m_camera.m_zoom));
-
             Vector2 logMPos = (m_mouse.Pos + m_camera.TopLeft) / m_camera.m_zoom;
 
             Model.Tile.TileType thisType = a_game.m_level.GetCollision((int)logMPos.X, (int)logMPos.Y);
@@ -48,6 +46,11 @@ namespace MeCloidGame.Controllers
             if (thisType == Model.Tile.TileType.Clear && m_mouse.IsDownLMB() && (int)logMPos.X >= 0 && (int)logMPos.X < a_game.m_level.Width && (int)logMPos.Y >= 0 && (int)logMPos.Y < a_game.m_level.Height)
             {
                 a_game.m_level.Tiles[(int)logMPos.X, (int)logMPos.Y].Type = Model.Tile.TileType.Solid;
+            }
+
+            if (m_coreView.Input.Save())
+            {
+                a_game.m_level.SaveLevel("0.txt");
             }
 
             m_editView.Draw(a_game, a_elapsedTime, m_camera, m_mouse);
