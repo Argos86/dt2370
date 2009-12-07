@@ -8,5 +8,6 @@ namespace MeCloidGame.Helpers
     class Settings
     {
         public static bool Debug = false;
+        public static bool Edit = false;
     }
 }

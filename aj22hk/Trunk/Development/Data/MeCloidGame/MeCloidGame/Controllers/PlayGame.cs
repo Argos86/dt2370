@@ -16,7 +16,7 @@ namespace MeCloidGame.Controllers
 
         #region Constructors
 
-        public PlayGame(Views.Core a_coreView, GraphicsDevice a_device)
+        public PlayGame(Views.Core a_coreView)
             : base(a_coreView)
         {
             m_camera = new Views.Camera();
@@ -44,11 +44,6 @@ namespace MeCloidGame.Controllers
                     Helpers.Settings.Debug = true;
                 }
             }
-
-            Vector2 cameraMovement = Vector2.Zero;
-            cameraMovement.X = m_coreView.Input.GetRightThumbStick().X;
-            cameraMovement.Y = -m_coreView.Input.GetRightThumbStick().Y;
-            m_camera.m_movement = cameraMovement;
 
             if (m_coreView.Input.IsKeyPressed(Buttons.RightShoulder))
             {

@@ -12,37 +12,45 @@ namespace MeCloidGame.Views
     {
         public void DrawLevel(Model.Level a_level, Core a_coreView, Camera a_camera)
         {
-            for (int x = 0; x < Model.Level.WIDTH; ++x)
-            {
-                for (int y = 0; y < Model.Level.HEIGHT; ++y)
-                {
-                    Vector2 pos = a_camera.Translate(new Vector2(x, y));
-                    Rectangle dest = new Rectangle((int)pos.X, (int)pos.Y, a_camera.m_zoom, a_camera.m_zoom);
-                    Rectangle src;
-                    switch (a_level.Tiles[x, y].Type)
-                    {
-                        case Model.Tile.TileType.Solid:
-                            if (x % 2 == 0)
-                            {
-                                src = new Rectangle(64 * 0, 48 * 0, 64, 48);
-                            }
-                            else
-                            {
-                                src = new Rectangle(64 * 2, 48 * 0, 64, 48);
-                            }
-                            a_coreView.Draw(a_coreView.Textures.Tiles, dest, src, Color.White);
-                            break;
-                        case Model.Tile.TileType.Destroyable:
-                            src = new Rectangle(64 * 1, 48 * 0, 64, 48);
-                            a_coreView.Draw(a_coreView.Textures.Tiles, dest, src, Color.White);
-                            break;
-                    }
-                }
-            }
-
-            if (Helpers.Settings.Debug)
+            if (Helpers.Settings.Edit)
             {
                 DrawGrid(a_level, a_coreView, a_camera);
+                DrawTiles(a_level, a_coreView, a_camera);
+            }
+            else
+            {
+                for (int x = 0; x < Model.Level.WIDTH; ++x)
+                {
+                    for (int y = 0; y < Model.Level.HEIGHT; ++y)
+                    {
+                        Vector2 pos = a_camera.Translate(new Vector2(x, y));
+                        Rectangle dest = new Rectangle((int)pos.X, (int)pos.Y, a_camera.m_zoom, a_camera.m_zoom);
+                        Rectangle src;
+                        switch (a_level.Tiles[x, y].Type)
+                        {
+                            case Model.Tile.TileType.Solid:
+                                if (x % 2 == 0)
+                                {
+                                    src = new Rectangle(64 * 0, 48 * 0, 64, 48);
+                                }
+                                else
+                                {
+                                    src = new Rectangle(64 * 2, 48 * 0, 64, 48);
+                                }
+                                a_coreView.Draw(a_coreView.Textures.Tiles, dest, src, Color.White);
+                                break;
+                            case Model.Tile.TileType.Destroyable:
+                                src = new Rectangle(64 * 1, 48 * 0, 64, 48);
+                                a_coreView.Draw(a_coreView.Textures.Tiles, dest, src, Color.White);
+                                break;
+                        }
+                    }
+                }
+
+                if (Helpers.Settings.Debug)
+                {
+                    DrawGrid(a_level, a_coreView, a_camera);
+                }
             }
         }
 
@@ -65,20 +73,32 @@ namespace MeCloidGame.Views
             }
 
             gridLines.End();
-            /*
-            // Grid centers
-            Helpers.PointBatch gridCenters = new Helpers.PointBatch(a_coreView.m_device, 0.8f, 3);
-            gridCenters.Begin();
+        }
 
-            for (int x = 0; x < 20; ++x)
+        private void DrawTiles(Model.Level a_level, Core a_coreView, Camera a_camera)
+        {
+            Helpers.PointBatch tiles = new Helpers.PointBatch(a_coreView.m_device, 0.8f, a_camera.m_zoom);
+            tiles.Begin();
+
+            for (int x = 0; x < Model.Level.WIDTH; ++x)
             {
-                for (int y = 0; y < 15; ++y)
+                for (int y = 0; y < Model.Level.HEIGHT; ++y)
                 {
-                    gridCenters.Batch(new Vector2(x * Model.Tile.WIDTH + Model.Tile.WIDTH / 2, y * Model.Tile.HEIGHT + Model.Tile.HEIGHT / 2), Color.Green);
+                    Vector2 pos = a_camera.Translate(new Vector2(x, y));
+                    pos = new Vector2(pos.X + a_camera.m_zoom / 2, pos.Y + a_camera.m_zoom / 2);
+                    switch (a_level.Tiles[x, y].Type)
+                    {
+                        case Model.Tile.TileType.Solid:
+                            tiles.Batch(pos, Color.BlanchedAlmond);
+                            break;
+                        case Model.Tile.TileType.Destroyable:
+                            tiles.Batch(pos, Color.BlueViolet);
+                            break;
+                    }
                 }
             }
 
-            gridCenters.End();*/
+            tiles.End();
         }
 
         #region Test
