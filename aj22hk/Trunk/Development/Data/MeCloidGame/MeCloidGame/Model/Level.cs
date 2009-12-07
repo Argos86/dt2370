@@ -111,7 +111,7 @@ namespace MeCloidGame.Model
                 {
                     if (bottomRight.X < (float)x)
                         continue;
-                    if (bottomRight.Y < (float)y)
+                    if (bottomRight.Y <= (float)y)
                         continue;
                     if (topLeft.X > (float)x + 1.0f)
                         continue;

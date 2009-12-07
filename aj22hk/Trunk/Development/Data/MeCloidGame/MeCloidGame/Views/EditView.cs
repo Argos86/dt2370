@@ -25,9 +25,12 @@ namespace MeCloidGame.Views
 
             DrawMouse(a_mouse);
 
-            Vector2 logMPos = new Vector2((int)(a_mouse.Pos.X / a_camera.m_zoom - 19), (int)(a_mouse.Pos.Y / a_camera.m_zoom));
+            //Vector2 logMPos = new Vector2((int)(a_mouse.Pos.X / a_camera.m_zoom - 19), (int)(a_mouse.Pos.Y / a_camera.m_zoom));
+            Vector2 logMPos = (a_mouse.Pos + a_camera.TopLeft) / a_camera.m_zoom;
 
             m_coreView.DrawText(logMPos.ToString(), m_coreView.Fonts.Georgia, Vector2.Zero, Color.Chartreuse);
+            m_coreView.DrawText(a_camera.TopLeft.ToString(), m_coreView.Fonts.Georgia, new Vector2(0, 100), Color.Chartreuse);
+            m_coreView.DrawText(a_mouse.Pos.ToString(), m_coreView.Fonts.Georgia, new Vector2(0, 200), Color.Chartreuse);
 
             Model.Tile.TileType tt = a_game.m_level.GetCollision((int)logMPos.X, (int)logMPos.Y);
 

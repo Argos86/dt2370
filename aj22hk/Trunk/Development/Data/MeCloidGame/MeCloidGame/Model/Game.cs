@@ -14,6 +14,9 @@ namespace MeCloidGame.Model
         public Level m_level;
         public Player m_player;
 
+        public Level[,] m_worldGrid;
+        public Point m_currentLevel;
+
         public IEventTarget m_view;
 
         public Game(IEventTarget a_view)
@@ -67,6 +70,7 @@ namespace MeCloidGame.Model
 
                     if (xMove.Y < a_newPos.Y)
                     {
+                        xMove.Y = (int)(a_newPos.Y);
                         a_isOnGround = true;
                     }
 
@@ -83,7 +87,11 @@ namespace MeCloidGame.Model
                 }
 
                 a_velocity = Vector2.Zero;
-                a_isOnGround = true;
+                if (a_newPos.Y > a_oldPos.Y)
+                {
+                    a_oldPos.Y = (int)(a_newPos.Y);
+                    a_isOnGround = true;
+                }
                 return a_oldPos;
             }
 
