@@ -25,8 +25,8 @@ namespace MeCloidGame.Views
 
             DrawMouse(a_mouse);
 
-            //Vector2 logMPos = new Vector2((int)(a_mouse.Pos.X / a_camera.m_zoom - 19), (int)(a_mouse.Pos.Y / a_camera.m_zoom));
             Vector2 logMPos = (a_mouse.Pos + a_camera.TopLeft) / a_camera.m_zoom;
+            logMPos.X = (int)logMPos.X;
 
             m_coreView.DrawText(logMPos.ToString(), m_coreView.Fonts.Georgia, Vector2.Zero, Color.Chartreuse);
             m_coreView.DrawText(a_camera.TopLeft.ToString(), m_coreView.Fonts.Georgia, new Vector2(0, 100), Color.Chartreuse);
@@ -34,7 +34,7 @@ namespace MeCloidGame.Views
 
             Model.Tile.TileType tt = a_game.m_level.GetCollision((int)logMPos.X, (int)logMPos.Y);
 
-            if ((int)logMPos.X > 0 && (int)logMPos.X < a_game.m_level.Width && (int)logMPos.Y > 0 && (int)logMPos.Y < a_game.m_level.Height)
+            if ((int)logMPos.X >= 0 && (int)logMPos.X < a_game.m_level.Width && (int)logMPos.Y > 0 && (int)logMPos.Y < a_game.m_level.Height)
             {
                 m_coreView.DrawText(tt.ToString(), m_coreView.Fonts.Georgia, new Vector2(0.0f, 20.0f), Color.Chartreuse);
             }

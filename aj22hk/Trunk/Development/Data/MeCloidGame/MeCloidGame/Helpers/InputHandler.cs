@@ -200,6 +200,16 @@ namespace MeCloidGame.Helpers
             return false;
         }
 
+        public bool Save()
+        {
+            if (m_keyboardState.IsKeyDown(Keys.F2) && !m_prevKeyboardState.IsKeyDown(Keys.F2))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         #endregion
 
         #region Test
