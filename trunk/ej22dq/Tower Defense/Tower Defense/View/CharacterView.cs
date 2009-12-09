@@ -33,20 +33,24 @@ namespace Tower_Defense.View
 
         public void DrawTower(Core a_core, Vector2 a_pos, Model.Tower.Type a_type, int a_scale)
         {
-            int size = a_scale;
-            Vector2 pos = a_pos * a_scale - new Vector2(a_scale / 2, a_scale / 2);
-            Rectangle dest = new Rectangle((int)pos.X, (int)pos.Y, size, size);
+
+            float rel = 288.0f / 128.0f;
+            float rel2 = 48.0f / 128.0f;
+
+            Vector2 pos = a_pos * a_scale - new Vector2(a_scale / 2, a_scale * rel - rel2 * a_scale);
+            Rectangle dest = new Rectangle((int)pos.X, (int)pos.Y, a_scale, (int)(a_scale * rel));
             Color color = Color.White;
+            Byte c = 128;
             switch (a_type)
             {
                 case Model.Tower.Type.Normal: color = Color.White; break;
                 case Model.Tower.Type.Earth: color = Color.Brown; break;
                 case Model.Tower.Type.Fire: color = Color.Red; break;
-                case Model.Tower.Type.Water: color = Color.Blue; break;
+                case Model.Tower.Type.Water: color = new Color(c, c, 255); break;
                 case Model.Tower.Type.Wind: color = Color.Green; break;
                 case Model.Tower.Type.Undead: color = Color.Gray; break;
             }
-            a_core.Draw(a_core.m_assets.m_texture, dest, new Rectangle(4, 4, 40, 40), color);
+            a_core.Draw(a_core.m_assets.m_tower, dest, new Rectangle(256, 0, 128, 288), color);
         }
 
         public void DrawCivilian(Core a_core, Model.Enemy a_character, float a_elapsedTime, int a_id, int a_scale)

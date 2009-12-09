@@ -59,7 +59,7 @@ namespace Tower_Defense.Model
 
         public void PlacedTower(Vector2 a_pos)
         {
-            m_tiles[(int)a_pos.Y, (int)a_pos.X].m_tileType = Tile.TileType.Blocked;
+            m_tiles[(int)a_pos.Y, (int)a_pos.X].m_tileType = Tile.TileType.Towerground;
         }
 
         public bool CanPlaceTower(Vector2 a_pos)

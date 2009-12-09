@@ -10,7 +10,8 @@ namespace Tower_Defense.Model
         public enum TileType
         {
             Clear,
-            Blocked
+            Blocked,
+            Towerground
         };
 
         public TileType m_tileType;

@@ -14,6 +14,5 @@ namespace Tower_Defense
     interface IModel
     {
         void BuyTower(Vector2 a_at, Model.Tower.Type a_type);
-        void Draw(bool a_index, Vector2 a_at);
     }
 }

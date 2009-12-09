@@ -80,9 +80,9 @@ namespace Tower_Defense.View
 
         }
 
-        public void Begin()
+        public void Begin(SpriteBlendMode a_mode)
         {
-            m_spriteBatch.Begin();
+            m_spriteBatch.Begin(a_mode);
         }
 
         public void End()

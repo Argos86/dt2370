@@ -19,14 +19,128 @@ namespace Tower_Defense.Controller
 
         }
 
+        public enum GameState
+        {
+            PLAYING,
+            PAUS,
+            MENU,
+            END
+        }
+
+        public enum Difficulty
+        {
+            NONE,
+            EASY,
+            MEDIUM,
+            HARD
+        }
+
+        GameState gameState = GameState.MENU;
+        Difficulty difficulty = Difficulty.NONE;
+        
         public override bool DoControl(Tower_Defense.Model.Game a_game, float a_elapsedTime, IModel a_model)
         {
 
             int scale = 800/Model.Map.HEIGHT;
             
             //Use views to draw game... 
-            m_view.Draw(a_game, a_elapsedTime, scale, m_selectedTower, m_type);
-            
+
+            if (gameState == GameState.MENU)
+            {
+                m_core.DrawMouse();
+                m_view.DrawWelcome();
+                View.IMGui.ButtonState state = m_gui.DoButton(m_core, "Easy", new Vector2(350, 350), true, false);
+                if (state == View.IMGui.ButtonState.MouseOverLBClicked)
+                {
+                    gameState = GameState.PLAYING;
+                    difficulty = Difficulty.EASY;
+                    
+                }
+
+                state = m_gui.DoButton(m_core, "Medium", new Vector2(450, 350), true, false);
+                if (state == View.IMGui.ButtonState.MouseOverLBClicked)
+                {
+                    gameState = GameState.PLAYING;
+                    difficulty = Difficulty.MEDIUM;
+                }
+
+                state = m_gui.DoButton(m_core, "Hard", new Vector2(550, 350), true, false);
+                if (state == View.IMGui.ButtonState.MouseOverLBClicked)
+                {
+                    gameState = GameState.PLAYING;
+                    difficulty = Difficulty.HARD;
+                }
+            }
+
+            if (a_game.IsGameOver())
+            {
+                gameState = GameState.END;
+                m_view.DrawLost();
+                RestartButton(a_game);
+                MenuButton();
+                m_core.DrawMouse();
+            }
+            else if (a_game.HasWon())
+            {
+                gameState = GameState.END;
+                m_view.DrawWon();
+                RestartButton(a_game);
+                MenuButton();
+                m_core.DrawMouse();
+            }
+            if (gameState == GameState.PLAYING)
+            {
+                m_view.Draw(a_game, a_elapsedTime, scale, m_selectedTower, m_type);
+                ControlGamePlay(a_game, a_model, scale);
+            }
+
+            //Handle quit by esc or back button (XBOX)
+            if (m_core.m_input.DoQuit())
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public void MenuButton()
+        {
+            View.IMGui.ButtonState state = m_gui.DoButton(m_core, "Go to the Menu", new Vector2(300, 350), true, false);
+            if (state == View.IMGui.ButtonState.MouseOverLBClicked)
+            {
+                gameState = GameState.MENU;
+            }
+        }
+
+        public void RestartButton(Model.Game a_game)
+        {
+            View.IMGui.ButtonState state = m_gui.DoButton(m_core, "Restart this difficulty", new Vector2(300, 400), true, false);
+            if (state == View.IMGui.ButtonState.MouseOverLBClicked)
+            {
+                gameState = GameState.PLAYING;
+                a_game.Init();
+            }
+        }
+
+        public bool DoUpgradeButton(Model.Tower.UpgradeLevel a_upgrade, string a_text, Vector2 a_pos, Model.Game a_game, int a_cash, float a_cost)
+        {
+            if (a_upgrade < Model.Tower.UpgradeLevel.Max)
+            {
+                View.IMGui.ButtonState state = m_gui.DoButton(m_core, "Upgrade " + a_text + " " + a_upgrade, a_pos, a_cash >= a_cost, m_view.m_state == View.GameView.PlayState.UPGRADE_TOWER);
+
+                if (state == View.IMGui.ButtonState.MouseOverLBClicked)
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                m_view.DrawMax(a_text, a_pos);
+            }
+            return false;
+        }
+        private void ControlGamePlay(Tower_Defense.Model.Game a_game, IModel a_model, int scale)
+        {
             Vector2 logicalMousePos = m_view.GetLogicalMousePos(scale);
             //Handle input from tower button
             View.IMGui.ButtonState state = m_gui.DoButton(m_core, "Basic Tower", new Vector2(970, 110), a_game.m_cash >= Model.Tower.GetPrice(Model.Tower.Type.Normal), m_view.m_state == View.GameView.PlayState.BUY_TOWER && m_type == Model.Tower.Type.Normal);
@@ -76,15 +190,30 @@ namespace Tower_Defense.Controller
                 m_type = Model.Tower.Type.Undead;
             }
 
-
-
             if (m_view.m_state == Tower_Defense.View.GameView.PlayState.UPGRADE_TOWER)
             {
-                state = m_gui.DoButton(m_core, "Upgrade Range", new Vector2(970, 260+64), a_game.m_cash >= Model.Tower.GetPrice(Model.Tower.Type.Undead), m_view.m_state == View.GameView.PlayState.BUY_TOWER && m_type == Model.Tower.Type.Undead);
-                if (state == View.IMGui.ButtonState.MouseOverLBClicked)
+
+                Model.Tower tower = m_selectedTower;
+                if (DoUpgradeButton(tower.CurrentRangeLevel, "Range", new Vector2(970, 260 + 64), a_game, a_game.m_cash, Model.Tower.UpgradePrice(tower.CurrentType, tower.m_rangeUpgrade)) == true)
                 {
-                   
+                    a_game.UpgradeRange(m_selectedTower);
                 }
+
+                if (DoUpgradeButton(tower.CurrentAttackSpeed, "Speed", new Vector2(970, 260 + 114), a_game, a_game.m_cash, Model.Tower.UpgradePrice(tower.CurrentType, tower.m_speedUpgrade)) == true)
+                {
+                    a_game.UpgradeAttackspeed(m_selectedTower);
+                }
+
+                if (DoUpgradeButton(tower.CurrentAoE, "AoE", new Vector2(970, 260 + 164), a_game, a_game.m_cash, Model.Tower.UpgradePrice(tower.CurrentType, tower.m_AoEUpgrade)) == true)
+                {
+                    a_game.UpgradeAoE(m_selectedTower);
+                }
+
+                if (DoUpgradeButton(tower.CurrentDamage, "Damage", new Vector2(970, 260 + 214), a_game, a_game.m_cash, Model.Tower.UpgradePrice(tower.CurrentType, tower.m_damageUpgrade)) == true)
+                {
+                    a_game.UpgradeDamage(m_selectedTower);
+                }
+                
             }
 
 
@@ -125,14 +254,6 @@ namespace Tower_Defense.Controller
             {
                 m_view.m_state = View.GameView.PlayState.NONE;
             }
-
-            //Handle quit by esc or back button (XBOX)
-            if (m_core.m_input.DoQuit())
-            {
-                return false;
-            }
-
-            return true;
         }
 
     }

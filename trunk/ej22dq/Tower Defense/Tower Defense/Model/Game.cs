@@ -63,7 +63,7 @@ namespace Tower_Defense.Model
             return target;
         }
 
-        private void Init()
+        public void Init()
         {
             m_map = new Map();
             hitpoints = 20;
@@ -92,11 +92,12 @@ namespace Tower_Defense.Model
                 AddWave(MAX_ENEMIES, 5.0f, i);
             }
 
-            m_cash = 100;
+            m_cash = 1000;
         }
 
         public void ActivateWave(ref Wave a_wave)
         {
+            m_cash += 50 * (a_wave.m_index);
             a_wave.m_isActive = false;
             Random r = new Random();
             int type = r.Next() % ((int)Enemy.Type.Max);
@@ -154,11 +155,6 @@ namespace Tower_Defense.Model
             return -1;
         }
 
-        public void Draw(bool a_blocked, Vector2 a_at)
-        {
-            a_at = Model.MathHelper.Clamp(new Vector2(0, 0), new Vector2(Map.WIDTH - 1, Map.HEIGHT - 1), a_at);
-            m_map.m_tiles[(int)a_at.X, (int)a_at.Y].m_tileType = a_blocked ? Tile.TileType.Blocked : Tile.TileType.Clear;
-        }
 
         public bool Update(float a_gameTime)
         {
@@ -166,6 +162,7 @@ namespace Tower_Defense.Model
             //no civilians alive return false
             if (IsGameOver() == true || HasWon() == true)
             {
+                
                 return false;
             }
 
@@ -253,6 +250,61 @@ namespace Tower_Defense.Model
             return true;
         }
 
+        public void UpgradeRange(Model.Tower a_tower)
+        {
+            Model.Tower.Type type = a_tower.CurrentType;
+            Model.Tower.UpgradeLevel upgradeRange = a_tower.CurrentRangeLevel;
+
+            if (m_cash >= Model.Tower.UpgradePrice(type, upgradeRange))
+            {
+                int increaseLevel = (int)a_tower.CurrentRangeLevel;
+                increaseLevel++;
+                a_tower.m_rangeUpgrade = (Model.Tower.UpgradeLevel)increaseLevel;
+                m_cash -= (int)Model.Tower.UpgradePrice(type, upgradeRange);
+            }
+        }
+
+        public void UpgradeAttackspeed(Model.Tower a_tower)
+        {
+            Model.Tower.Type type = a_tower.CurrentType;
+            Model.Tower.UpgradeLevel speedUpgrade = a_tower.CurrentAttackSpeed ;
+
+            if (m_cash >= Model.Tower.UpgradePrice(type, speedUpgrade))
+            {
+                int increaseLevel = (int)a_tower.CurrentAttackSpeed;
+                increaseLevel++;
+                a_tower.m_speedUpgrade = (Model.Tower.UpgradeLevel)increaseLevel;
+                m_cash -= (int)Model.Tower.UpgradePrice(type, speedUpgrade);
+            }
+        }
+
+        public void UpgradeAoE(Model.Tower a_tower)
+        {
+            Model.Tower.Type type = a_tower.CurrentType;
+            Model.Tower.UpgradeLevel aoeUpgrade = a_tower.CurrentAoE;
+
+            if (m_cash >= Model.Tower.UpgradePrice(type, aoeUpgrade))
+            {
+                int increaseLevel = (int)a_tower.CurrentAoE;
+                increaseLevel++;
+                a_tower.m_AoEUpgrade = (Model.Tower.UpgradeLevel)increaseLevel;
+                m_cash -= (int)Model.Tower.UpgradePrice(type, aoeUpgrade);
+            }
+        }
+
+        public void UpgradeDamage(Model.Tower a_tower)
+        {
+            Model.Tower.Type type = a_tower.CurrentType;
+            Model.Tower.UpgradeLevel damageUpgrade = a_tower.CurrentDamage;
+
+            if (m_cash >= Model.Tower.UpgradePrice(type, damageUpgrade))
+            {
+                int increaseLevel = (int)a_tower.CurrentDamage;
+                increaseLevel++;
+                a_tower.m_damageUpgrade = (Model.Tower.UpgradeLevel)increaseLevel;
+                m_cash -= (int)Model.Tower.UpgradePrice(type, damageUpgrade);
+            }
+        }
         public bool HasWon()
         {
             for (int i = 0; i < MAX_WAVES; i++)
@@ -289,12 +341,15 @@ namespace Tower_Defense.Model
             {
                 if (a_arr[i].IsAlive() == true)
                 {
-                    float range = (a_pos - a_arr[i].m_pos).Length();
-                    if (range < a_range && range < a_closest)
+                    if (a_arr[i].m_pos.X > 0)
                     {
-                        a_target = a_arr[i];
-                        a_closest = range;
-                        closestIndex = i;
+                        float range = (a_pos - a_arr[i].m_pos).Length();
+                        if (range < a_range && range < a_closest)
+                        {
+                            a_target = a_arr[i];
+                            a_closest = range;
+                            closestIndex = i;
+                        }
                     }
                 }
             }
@@ -325,43 +380,40 @@ namespace Tower_Defense.Model
 
             foreach (Enemy c in m_enemies)
             {
-                float distance = (c.m_pos - a_target.m_pos).Length();
-                if (distance <= AoE(a_tower))
+                if (c.IsAlive() == true)
                 {
-
-                    if (a_tower.CurrentType == Tower.Type.Fire)
+                    float distance = (c.m_pos - a_target.m_pos).Length();
+                    if (distance <= a_tower.AoE(a_tower.CurrentType, a_tower.CurrentAoE))
                     {
-                        float damage = 1.0f - distance / AoE(a_tower);
-                        c.m_hitPoints -= a_tower.GetDamage(a_target.CurrentType) * damage;
-                    }
-                    else
-                    {
-                        c.m_hitPoints -= a_tower.GetDamage(a_target.CurrentType);
-                    }
 
+                        if (a_tower.CurrentType == Tower.Type.Fire)
+                        {
+                            float damage = 1.0f - distance / a_tower.AoE(a_tower.CurrentType, a_tower.CurrentAoE);
+                            c.m_hitPoints -= a_tower.GetDamage(a_target.CurrentType, a_tower.CurrentDamage) * damage;
+                        }
+                        else
+                        {
+                            c.m_hitPoints -= a_tower.GetDamage(a_target.CurrentType, a_tower.CurrentDamage);
+                        }
 
-                    if (a_tower.CurrentType == Tower.Type.Water)
-                    {
-                        c.m_slowTimer = 3.0f;
+                        if (c.IsAlive() == false)
+                        {
+                            m_cash += 2;
+                        }
+                        if (a_tower.CurrentType == Tower.Type.Water)
+                        {
+                            c.m_slowTimer = 3.0f;
+                        }
+
                     }
-
                 }
             }
             
             m_view.Attack(a_tower.m_pos, a_target.m_pos);
         }
 
-        private float AoE(Tower a_tower)
-        {
-            switch (a_tower.CurrentType)
-            {
-                case Model.Tower.Type.Earth: return 5;
-                case Model.Tower.Type.Fire: return 5;
-                case Model.Tower.Type.Water: return 3;
-            }
-            return 0.1f;
-            
-        }
+
+
         public void UpdateEnemy(int a_enemy, float a_gameTime)
         {
             if (m_enemies[a_enemy].Update(a_gameTime) == false)
@@ -395,10 +447,6 @@ namespace Tower_Defense.Model
             {
                 Attack(m_towers[a_tower], m_towers[a_tower].m_lockedEnemy);
                 m_towers[a_tower].m_timer = Model.Tower.GetAttackSpeed(m_towers[a_tower].CurrentType, m_towers[a_tower].m_speedUpgrade);
-                if (m_towers[a_tower].m_lockedEnemy.IsAlive() == false)
-                {
-                    m_cash += m_towers[a_tower].m_lockedEnemy.GetValue();
-                }
             }
 
             //Close to civilian or soldier

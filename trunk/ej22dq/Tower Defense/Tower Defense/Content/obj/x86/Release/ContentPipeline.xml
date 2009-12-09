@@ -8,7 +8,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>P:\Skolarbete\Grundläggande spelprogrammering\ej22dq\Tower Defense\Tower Defense\bin\x86\Release\Content\Images\sprites.xnb</Output>
-      <Time>2009-11-30T16:17:19.170812+01:00</Time>
+      <Time>2009-11-30T16:17:20+01:00</Time>
     </Item>
     <Item>
       <Source>Images\cursor.png</Source>
@@ -17,7 +17,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>P:\Skolarbete\Grundläggande spelprogrammering\ej22dq\Tower Defense\Tower Defense\bin\x86\Release\Content\Images\cursor.xnb</Output>
-      <Time>2009-11-12T14:13:48.7347441+01:00</Time>
+      <Time>2009-11-12T14:13:50+01:00</Time>
     </Item>
     <Item>
       <Source>Images\bana1.jpg</Source>
@@ -26,7 +26,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>P:\Skolarbete\Grundläggande spelprogrammering\ej22dq\Tower Defense\Tower Defense\bin\x86\Release\Content\Images\bana1.xnb</Output>
-      <Time>2009-11-30T14:30:02.788254+01:00</Time>
+      <Time>2009-11-30T14:30:04+01:00</Time>
     </Item>
     <Item>
       <Source>Images\Menu.png</Source>
@@ -35,7 +35,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>P:\Skolarbete\Grundläggande spelprogrammering\ej22dq\Tower Defense\Tower Defense\bin\x86\Release\Content\Images\Menu.xnb</Output>
-      <Time>2009-11-30T13:53:41.2383808+01:00</Time>
+      <Time>2009-11-30T13:53:42+01:00</Time>
     </Item>
     <Item>
       <Source>Images\healthbar.png</Source>
@@ -44,7 +44,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>P:\Skolarbete\Grundläggande spelprogrammering\ej22dq\Tower Defense\Tower Defense\bin\x86\Release\Content\Images\healthbar.xnb</Output>
-      <Time>2009-11-30T14:46:50.7033808+01:00</Time>
+      <Time>2009-11-30T14:46:52+01:00</Time>
     </Item>
     <Item>
       <Source>Images\blank.jpg</Source>
@@ -53,7 +53,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>P:\Skolarbete\Grundläggande spelprogrammering\ej22dq\Tower Defense\Tower Defense\bin\x86\Release\Content\Images\blank.xnb</Output>
-      <Time>2009-11-30T15:24:10.6143808+01:00</Time>
+      <Time>2009-11-30T15:24:12+01:00</Time>
     </Item>
     <Item>
       <Source>Images\Map1.jpg</Source>
@@ -62,7 +62,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>P:\Skolarbete\Grundläggande spelprogrammering\ej22dq\Tower Defense\Tower Defense\bin\x86\Release\Content\Images\Map1.xnb</Output>
-      <Time>2009-12-01T14:28:47.0259954+01:00</Time>
+      <Time>2009-12-01T14:28:48+01:00</Time>
     </Item>
     <Item>
       <Source>Kootenay.spritefont</Source>
@@ -71,7 +71,25 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>P:\Skolarbete\Grundläggande spelprogrammering\ej22dq\Tower Defense\Tower Defense\bin\x86\Release\Content\Kootenay.xnb</Output>
-      <Time>2009-11-12T14:50:00.877751+01:00</Time>
+      <Time>2009-11-12T14:50:02+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Torn.tga</Source>
+      <Name>Images\Torn</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>P:\Skolarbete\Grundläggande spelprogrammering\ej22dq\Tower Defense\Tower Defense\bin\x86\Release\Content\Images\Torn.xnb</Output>
+      <Time>2009-12-09T12:05:42.6878618+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\circle.bmp</Source>
+      <Name>Images\circle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>P:\Skolarbete\Grundläggande spelprogrammering\ej22dq\Tower Defense\Tower Defense\bin\x86\Release\Content\Images\circle.xnb</Output>
+      <Time>2009-12-09T15:04:53.4105483+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
