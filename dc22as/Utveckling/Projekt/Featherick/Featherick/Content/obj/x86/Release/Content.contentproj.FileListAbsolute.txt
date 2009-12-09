@@ -1,0 +1,3 @@
+C:\Users\dc22as\Desktop\Featherick\Featherick\Content\obj\x86\Release\ResolveAssemblyReference.cache
+G:\Featherick\Featherick\Content\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\Daniel\Desktop\Featherick\Featherick\Content\obj\x86\Release\ResolveAssemblyReference.cache
