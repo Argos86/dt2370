@@ -19,6 +19,7 @@ namespace Tower_Defense.View
         public PlayState m_state = PlayState.NONE;
 
 
+
         private View.CharacterView m_characterView;
         private View.Effects m_effects;
         private View.LevelView m_level;
@@ -50,19 +51,52 @@ namespace Tower_Defense.View
         {
 
         }
-        /*public void DrawPath(List<Vector2> a_path, int a_scale)
-        {
-            foreach (Vector2 v in a_path)
-            {
-                m_characterView.DrawTower(m_core, v * a_scale);
-            }
-        }*/
+        
 
+        public void DrawMax(string a_text, Vector2 a_pos)
+        {
+            m_core.DrawText(a_text + " Maxed".ToString(), m_core.m_fonts.m_baseFont, a_pos, Color.Red);
+        }
+
+        public void DrawLost()
+        {
+            m_core.DrawText("You utterly utterly failed, you suck!", m_core.m_fonts.m_baseFont, new Vector2(300, 300), Color.Red);
+        }
+
+        public void DrawWon()
+        {
+            m_core.DrawText("You have completed the game at this difficulty, congratulations!", m_core.m_fonts.m_baseFont, new Vector2(300, 300), Color.Red);
+        }
+
+        public void DrawWelcome()
+        {
+            m_core.DrawText("Welcome to the Tower Defend of DOOOOM!", m_core.m_fonts.m_baseFont, new Vector2(300, 250), Color.Red);
+            m_core.DrawText("Choose your difficulty:", m_core.m_fonts.m_baseFont, new Vector2(350, 300), Color.Red);
+        }
         public void Draw(Tower_Defense.Model.Game a_game, float a_elapsedTime, int a_scale, Model.Tower a_selectedTower, Model.Tower.Type a_type)
         {
 
             int scale = a_scale;
             m_level.DrawLevel(a_game.m_map, m_core, scale);
+
+            if (m_state == PlayState.UPGRADE_TOWER)
+            {
+
+                DrawRange(a_scale, a_selectedTower);
+            }
+
+            else if (m_state == PlayState.BUY_TOWER)
+            {
+
+                 Vector2 pos = new Vector2();
+                pos.X = (int)(m_core.m_input.m_mousePos.X / scale);
+                pos.Y = (int)(m_core.m_input.m_mousePos.Y / scale);
+
+                Model.Tower t = new Tower_Defense.Model.Tower(pos, a_type);
+
+                DrawRange(a_scale, t);
+            }
+
             m_effects.Update(a_elapsedTime, m_core, scale);
 
            
@@ -77,21 +111,11 @@ namespace Tower_Defense.View
                 m_characterView.DrawHP(m_core, a_game.m_enemies[i].m_pos, a_scale, a_game.m_enemies[i].m_hitPoints, a_game.m_enemies[i].GetMaxHP()); 
             }
 
-            for (int i = 0; i < Model.Game.MAX_TOWERS; i++)
-            {
-                if (a_game.m_towers[i] != null)
-                {
-                    m_characterView.DrawTower(m_core, a_game.m_towers[i].m_pos, a_game.m_towers[i].CurrentType, scale);
-                }
 
-                /*if (m_state == PlayState.MOVE && i == a_selectedIndex)
-                {
-                    m_characterView.DrawSoldier(m_core, a_game.m_soldiers[i].m_pos * scale);
-                }*/
-            }
 
-            m_core.DrawText(a_game.m_cash.ToString(), m_core.m_fonts.m_baseFont, new Vector2(16, 16), Color.Red);
+            DrawAllTowers(a_game, scale, a_type);
             m_level.DrawMenu(m_core);
+            m_core.DrawText("Money " + a_game.m_cash.ToString(), m_core.m_fonts.m_baseFont, new Vector2(970, 10), Color.Red);
             if (Settings.Debugging == true)
             {
                 //int civiliansAlive = 0;
@@ -122,23 +146,64 @@ namespace Tower_Defense.View
                     }
                 }
                 
-                m_core.DrawText("Hitpoints: " + a_game.hitpoints.ToString(), m_core.m_fonts.m_baseFont, new Vector2(100, 15), Color.Red);
-                m_core.DrawText("Enemies Alive: " + enemiesAlive.ToString(), m_core.m_fonts.m_baseFont, new Vector2(100, 40), Color.Red);
-                m_core.DrawText("Enemy Type: " + enemyType, m_core.m_fonts.m_baseFont, new Vector2(100, 65), Color.Red);
-                m_core.DrawText("Current Wave: " + currentWave, m_core.m_fonts.m_baseFont, new Vector2(300, 15), Color.Red);
+                m_core.DrawText("Hitpoints: " + a_game.hitpoints.ToString(), m_core.m_fonts.m_baseFont, new Vector2(200, 15), Color.Red);
+                m_core.DrawText("Enemies Alive: " + enemiesAlive.ToString(), m_core.m_fonts.m_baseFont, new Vector2(200, 40), Color.Red);
+                m_core.DrawText("Enemy Type: " + enemyType, m_core.m_fonts.m_baseFont, new Vector2(200, 65), Color.Red);
+                m_core.DrawText("Current Wave: " + currentWave, m_core.m_fonts.m_baseFont, new Vector2(400, 15), Color.Red);
+            }
+
+
+
+        }
+
+        private void DrawRange(int a_scale, Model.Tower a_selectedTower)
+        {
+            m_core.End();
+
+            m_core.Begin(SpriteBlendMode.Additive);
+
+            float range = a_selectedTower.GetRange(a_selectedTower.CurrentRangeLevel);
+            Rectangle dest = new Rectangle((int)((a_selectedTower.m_pos.X - range) * a_scale),
+                (int)((a_selectedTower.m_pos.Y - range) * a_scale), (int)((float)a_scale * 2.0f * range), (int)((float)a_scale * 2.0f * range));
+            Rectangle src = new Rectangle(0, 0, 255, 255);
+            m_core.Draw(m_core.m_assets.m_circle, dest, src, new Color(32, 32, 32));
+
+            m_core.End();
+            m_core.Begin(SpriteBlendMode.AlphaBlend);
+        }
+
+
+
+        private void DrawAllTowers(Tower_Defense.Model.Game a_game, int scale, Model.Tower.Type a_type)
+        {
+            List<Model.Tower> towerList = new List<Tower_Defense.Model.Tower>();
+            for (int i = 0; i < Model.Game.MAX_TOWERS; i++)
+            {
+                if (a_game.m_towers[i] != null)
+                {
+                    towerList.Add(a_game.m_towers[i]);
+                }
             }
 
             if (m_state == PlayState.BUY_TOWER)
             {
-                foreach (Model.Tower c in a_game.m_towers)
-                {
-                    Vector2 pos = new Vector2();
-                    pos.X = (int)(m_core.m_input.m_mousePos.X / scale);
-                    pos.Y = (int)(m_core.m_input.m_mousePos.Y / scale);
-                    m_characterView.DrawTower(m_core, pos, a_type, scale);
-                }
+
+                Vector2 pos = new Vector2();
+                pos.X = (int)(m_core.m_input.m_mousePos.X / scale);
+                pos.Y = (int)(m_core.m_input.m_mousePos.Y / scale);
+
+                Model.Tower t = new Tower_Defense.Model.Tower(pos, a_type);
+                towerList.Add(t);
+                //m_characterView.DrawTower(m_core, pos, a_type, scale);
+
             }
 
+            towerList.Sort();
+
+            foreach (Model.Tower t in towerList)
+            {
+                m_characterView.DrawTower(m_core, t.m_pos, t.CurrentType, scale);
+            }
         }
 
     }

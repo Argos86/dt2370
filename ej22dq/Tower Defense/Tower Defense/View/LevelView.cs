@@ -21,6 +21,10 @@ namespace Tower_Defense.View
                     {
                         a_core.Draw(a_core.m_assets.m_blank, new Rectangle(x * a_scale - a_scale / 2, y * a_scale - a_scale / 2, a_scale, a_scale), src, Color.Brown);
                     }
+                    else if (a_map.m_tiles[y, x].m_tileType == Model.Tile.TileType.Towerground)
+                    {
+                        a_core.Draw(a_core.m_assets.m_blank, new Rectangle(x * a_scale - a_scale / 2, y * a_scale - a_scale / 2, a_scale, a_scale), src, new Color(64,64,64,255));
+                    }
                     else
                     {
                         // a_core.Draw(a_core.m_assets.m_texture, new Rectangle(x * a_scale, y * a_scale, a_scale, a_scale), src, Color.DarkGray);
