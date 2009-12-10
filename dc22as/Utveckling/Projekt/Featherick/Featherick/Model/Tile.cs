@@ -15,7 +15,7 @@ namespace Featherick.Model
             Platform = 2,
             Start = 3,
             Exit = 4,
-            //en tile som man kan hänga fast på undersidan.
+            //en tile som man kan hänga sig fast på undersidan.
             Sticky = 5, //awesome
             Water = 6
         }
