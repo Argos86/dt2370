@@ -41,7 +41,6 @@ namespace Featherick.Controller
                 }
                 else
                 {
-                    //TODO: fixa så att man kan trycka enter eller space för att starta om
                     Vector2 size = new Vector2(m_core.m_assets.m_LoseScreen.Width, m_core.m_assets.m_LoseScreen.Height);
                     m_core.Draw(m_core.m_assets.m_LoseScreen, new Vector2(a_width / 2 - size.X / 2, a_height / 2 - size.Y / 2), Color.White);
                 }
@@ -55,7 +54,6 @@ namespace Featherick.Controller
                 }
                 else
                 {
-                    //TODO: fixa så att man kan trycka enter eller space för att gå vidare
                     Vector2 size = new Vector2(m_core.m_assets.m_WinScreen.Width, m_core.m_assets.m_WinScreen.Height);
                     m_core.Draw(m_core.m_assets.m_WinScreen, new Vector2(a_width / 2 - size.X / 2, a_height / 2 - size.Y / 2), Color.White);
                 }

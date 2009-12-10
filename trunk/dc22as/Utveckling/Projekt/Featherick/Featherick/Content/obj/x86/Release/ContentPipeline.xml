@@ -83,6 +83,24 @@
       <Time>2009-12-07T19:37:56+01:00</Time>
     </Item>
     <Item>
+      <Source>images\water.png</Source>
+      <Name>images\water</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\dc22as\Desktop\Featherick\Featherick\bin\x86\Release\Content\images\water.xnb</Output>
+      <Time>2009-12-09T20:23:10+01:00</Time>
+    </Item>
+    <Item>
+      <Source>images\sticky.png</Source>
+      <Name>images\sticky</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\dc22as\Desktop\Featherick\Featherick\bin\x86\Release\Content\images\sticky.xnb</Output>
+      <Time>2009-12-09T20:29:28+01:00</Time>
+    </Item>
+    <Item>
       <Source>Mufferaw.spritefont</Source>
       <Name>Mufferaw</Name>
       <Importer>FontDescriptionImporter</Importer>
@@ -117,24 +135,6 @@
       <Options>None</Options>
       <Output>C:\Users\dc22as\Desktop\Featherick\Featherick\bin\x86\Release\Content\sounds\jump3.xnb</Output>
       <Time>2009-11-25T20:04:42+01:00</Time>
-    </Item>
-    <Item>
-      <Source>images\water.png</Source>
-      <Name>images\water</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\dc22as\Desktop\Featherick\Featherick\bin\x86\Release\Content\images\water.xnb</Output>
-      <Time>2009-12-09T13:45:43.5129256+01:00</Time>
-    </Item>
-    <Item>
-      <Source>images\sticky.png</Source>
-      <Name>images\sticky</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\dc22as\Desktop\Featherick\Featherick\bin\x86\Release\Content\images\sticky.xnb</Output>
-      <Time>2009-12-09T14:39:04.7386054+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

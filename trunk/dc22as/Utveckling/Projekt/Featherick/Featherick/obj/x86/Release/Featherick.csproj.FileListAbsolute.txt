@@ -54,3 +54,5 @@ C:\Users\Daniel\Desktop\Featherick\Featherick\bin\x86\Release\Content\images\Los
 C:\Users\Daniel\Desktop\Featherick\Featherick\bin\x86\Release\Content\images\WinScreen.xnb
 C:\Users\dc22as\Desktop\Featherick\Featherick\bin\x86\Release\Content\images\water.xnb
 C:\Users\dc22as\Desktop\Featherick\Featherick\bin\x86\Release\Content\images\sticky.xnb
+C:\Users\Daniel\Desktop\Featherick\Featherick\bin\x86\Release\Content\images\water.xnb
+C:\Users\Daniel\Desktop\Featherick\Featherick\bin\x86\Release\Content\images\sticky.xnb

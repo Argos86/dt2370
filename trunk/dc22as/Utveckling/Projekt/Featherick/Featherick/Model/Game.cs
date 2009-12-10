@@ -129,7 +129,7 @@ namespace Featherick.Model
                    }
                    else //colliderat med taket
                    {
-                       //vilken typ av tile colliderar vi med  a_newPos.X + a_size.X / 2, a_newPos.Y 
+                       //vilken typ av tile colliderar vi med 
                        //Tile tileRoof = m_level.GetTileAt(a_newPos, a_size);
                        //om det är specialtaket då a_outCollideGround = true;
                        if (m_level.GetTileAt(new Vector2(a_newPos.X, a_newPos.Y), a_size))
@@ -153,13 +153,14 @@ namespace Featherick.Model
 
                    return yMove;
                }
-              
+                
                a_outCollideGround = true;
                a_velocity = Vector2.Zero;
 
                return a_oldPos;
            }
 
+            
            return a_newPos;
         }
 
