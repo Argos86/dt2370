@@ -98,8 +98,14 @@ namespace JumpMania
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                 this.Exit();
 
-           
-            m_game.Update(gameTime);
+            //_________________________Slutar uppdatera spelet om man nuddar golvet eller når Stora Stjärnan____________________________
+           if (m_game.m_over == false)
+            {
+                if (m_game.m_won == false)
+                {
+                     m_game.Update(gameTime);
+                }
+            }
 
 
             // TODO: Add your update logic here
@@ -116,20 +122,39 @@ namespace JumpMania
             m_playcon.Update(gameTime, m_game);
 
             GraphicsDevice.Clear(Color.DarkRed);
-            //_________________________Slutar rita om man nuddar golvet____________________________
+            //_________________________Slutar rita om man nuddar golvet eller når Stora Stjärnan____________________________
             if (m_game.m_over == false)
             {
-                m_chview.Begin();
+                if (m_game.m_won == false)
+                {
+                    m_chview.Begin();
 
 
-                m_cam.centreCamera(m_game.m_player.m_position.Y, m_chview.m_graphics.GraphicsDevice.Viewport.Height);
-                m_leview.Level1(m_chview, m_game.m_level, m_cam);
-                m_chview.DrawPlaya(gameTime, GraphicsDevice, m_game.m_player.m_position, m_cam);
-                //m_floview.Floor1(m_chview, m_game.m_level, m_cam); 
+                    m_cam.centreCamera(m_game.m_player.m_position.Y, m_chview.m_graphics.GraphicsDevice.Viewport.Height);
+                    m_leview.Level1(m_chview, m_game.m_level, m_cam);
+                    m_chview.DrawPlaya(gameTime, GraphicsDevice, m_game.m_player.m_position, m_cam, m_game.m_player);
+                    //m_floview.Floor1(m_chview, m_game.m_level, m_cam); 
 
 
-                m_chview.End();
+                    m_chview.End();
+                }
             }
+
+            /*if (m_game.m_over == false)
+            {
+                if (m_game.m_won == true)
+                {
+                    ShowWonScreen();
+                }
+            }                                          <-- Skisser på eventuella situationer (vinner, förlorar) 
+                                                       <-- Fundera på att ha eventuella "states" (Game, Lost, Won, ChooseLevel, HighScores)
+            if (m_game.m_over == false)
+            {
+                if (m_game.m_won == true)
+                {
+                    ShowLostScreen();
+                }
+            }*/
             base.Draw(gameTime);
         }
     }

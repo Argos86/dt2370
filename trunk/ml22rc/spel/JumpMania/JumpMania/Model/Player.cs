@@ -20,10 +20,11 @@ namespace JumpMania.Model
         /*public Vector2 m_veli = new Vector2(0, 0);
         float m_acceleration = 0.7f;*/
         public float m_movement = 0.0f;
-        float m_speed = 30.0f;
+        public float m_speed = 30.0f;
         //bool m_isjumping = false;
         bool m_ismoving = false;
         public bool m_onground = true;
+        const float MAX_SPEED = 10.0f;
 
 
         public int m_hitPoints = 0;
@@ -42,7 +43,7 @@ namespace JumpMania.Model
         public Player()
         {
             m_hitPoints = 0;
-            m_position = new Vector2(9, 85);
+            m_position = new Vector2(14, 82);
             m_oldPos = new Vector2(0, 0);
             m_velocity = new Vector2(0, 0);
         }
@@ -100,6 +101,14 @@ namespace JumpMania.Model
             {
                 float elapsed = (float)theGameTime.ElapsedGameTime.TotalSeconds;
                 m_velocity.X += m_speed * elapsed * m_movement;
+                if (m_velocity.X >= MAX_SPEED)
+                {
+                    m_velocity.X = MAX_SPEED;
+                }                                       // <-- Ta en fucking titt på detta. ADAFSRGERYN ¤/W /&W¤/& /SRTUYSZRTHFTH XTH
+                if (m_velocity.X <= -MAX_SPEED)
+                {
+                    m_velocity.X = -MAX_SPEED;
+                }
                 m_movement = 0.0f;
             }
         }

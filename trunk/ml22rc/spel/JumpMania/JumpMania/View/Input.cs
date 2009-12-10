@@ -52,5 +52,14 @@ namespace JumpMania.View
             }
             return false;
         }
+
+        public bool IsRestarting()
+        {
+            if (CurrentState.IsKeyDown(Keys.Enter))
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

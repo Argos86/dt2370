@@ -28,14 +28,23 @@ namespace JumpMania.View
                 { 
                     if (a_level.m_tiles[x, y].m_tileType == Model.Tile.TileType.Platform)
                     {
-                        a_core.Draw(a_core.m_assets.m_platformtexture, new Vector2(x * a_camera.m_scale, y * a_camera.m_scale - a_camera.camY), new Rectangle(0, 0, 1, 1), a_camera.m_scale, Color.White);
+                        a_core.DrawRectangle(a_core.m_assets.m_platformtexture, new Vector2(x * a_camera.m_scale, y * a_camera.m_scale - a_camera.camY), new Rectangle(0, 0, 1, 1), a_camera.m_scale, Color.White);
                     }
                     if (a_level.m_tiles[x, y].m_tileType == Model.Tile.TileType.FloorOfDeath)
                     {
-                        a_core.Draw(a_core.m_assets.m_floortexture, new Vector2(x * a_camera.m_scale, y * a_camera.m_scale - a_camera.camY), new Rectangle(0, 0, 1, 1), a_camera.m_scale, Color.White);
+                        a_core.DrawRectangle(a_core.m_assets.m_floortexture, new Vector2(x * a_camera.m_scale, y * a_camera.m_scale - a_camera.camY), new Rectangle(0, 0, 1, 1), a_camera.m_scale, Color.White);
+                    }
+                    if (a_level.m_tiles[x, y].m_tileType == Model.Tile.TileType.GiantStar)
+                    {
+                        a_core.DrawRectangle(a_core.m_assets.m_giantstartexture, new Vector2(x * a_camera.m_scale, y * a_camera.m_scale - a_camera.camY), new Rectangle(0, 0, 1, 1), a_camera.m_scale, Color.White);
                     } 
                 }
             }
+
+
+            a_core.Draw(a_core.m_assets.m_floortexture, new Vector2(0, a_level.m_floorHeight * a_camera.m_scale - a_camera.camY), 
+                                                        new Vector2(Model.Level.WIDTH * a_camera.m_scale, a_camera.m_scale * (Model.Level.HEIGHT - a_level.m_floorHeight)), 
+                                                        new Rectangle(0, 0, 1, 1), Color.White);
         }
 
         public void Level1(Core a_core, Model.Level a_level, Camera a_camera)
