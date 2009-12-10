@@ -15,3 +15,6 @@ P:\spelprojekt\ml22rc\spel\JumpMania\JumpMania\bin\x86\Debug\JumpMania.pdb
 P:\spelprojekt\ml22rc\spel\JumpMania\JumpMania\bin\x86\Debug\Content\images\tile.xnb
 P:\spelprojekt\ml22rc\spel\JumpMania\JumpMania\bin\x86\Debug\Content\images\otile.xnb
 P:\spelprojekt\ml22rc\spel\JumpMania\JumpMania\bin\x86\Debug\Content\images\floor.xnb
+P:\spelprojekt\ml22rc\spel\JumpMania\JumpMania\bin\x86\Debug\Content\images\giantstar.xnb
+P:\spelprojekt\ml22rc\spel\JumpMania\JumpMania\bin\x86\Debug\Content\Levels\1.txt
+P:\spelprojekt\ml22rc\spel\JumpMania\JumpMania\bin\x86\Debug\Content\images\evert.xnb

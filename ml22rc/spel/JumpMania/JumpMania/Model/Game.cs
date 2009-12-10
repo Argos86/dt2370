@@ -16,38 +16,39 @@ namespace JumpMania.Model
 {
     class Game
     {
-
+                                            // <-- välja två vägar, ha tiles som höjer golvet
         public Player m_player;
         public Level m_level;
         public bool m_over = false;
+        public bool m_won = false;
 
 
         public void Init()
         {
             m_player = new JumpMania.Model.Player();
-            m_level = new JumpMania.Model.Level();
+            m_level = new JumpMania.Model.Level("1.txt");
         }
 
         public void Update(GameTime theGameTime)
         {
-            //_________________________Slutar uppdaterar om man nuddar golvet____________________________
-            if (m_over == false)
-            {
-                m_player.Update(theGameTime);
+      
+                    m_player.Update(theGameTime);
+                    
 
-                m_level.UpdateFloor(theGameTime); // <-- Uppdaterar golvet
+                    m_level.UpdateFloor(theGameTime); // <-- Uppdaterar golvet
 
-                IsGameOver();
+                    IsGameOver();
+                    HasWon();
 
-                Vector2 gravity = new Vector2(0, 9.82f);
-                float elapsed = (float)theGameTime.ElapsedGameTime.TotalSeconds;
-                m_player.m_velocity += elapsed * gravity;
-                Vector2 newPos = m_player.m_position + m_player.m_velocity * elapsed;
+                    Vector2 gravity = new Vector2(0, 30.0f);
+                    float elapsed = (float)theGameTime.ElapsedGameTime.TotalSeconds;
+                    m_player.m_velocity += elapsed * gravity;
+                    Vector2 newPos = m_player.m_position + m_player.m_velocity * elapsed;
 
 
-                m_player.m_collideGround = false;
-                m_player.m_position = Collide(m_player.m_position, newPos, new Vector2(1, 1), ref m_player.m_velocity, ref m_player.m_collideGround);
-            }
+                    m_player.m_collideGround = false;
+                    m_player.m_position = Collide(m_player.m_position, newPos, new Vector2(1, 2), ref m_player.m_velocity, ref m_player.m_collideGround);
+
         }
 
         public Vector2 Collide(Vector2 a_oldPos, Vector2 a_newPos, Vector2 a_size, ref Vector2 a_velocity, ref bool a_outCollideGround)
@@ -93,23 +94,16 @@ namespace JumpMania.Model
             }
         }
 
-        /*public bool HasWon()
+        public void HasWon()
         {
-            for (int i = 0; i < MAX_WAVES; i++)
-            {
-                if (m_waves[i].m_isActive == true)
+                if (m_level.IsTouchingGStar(m_player.m_position, new Vector2(1,1)) == true)
                 {
-                    return false;
+                    m_won = true;
                 }
-            }
-            for (int i = 0; i < MAX_ENEMIES; i++)
-            {
-                if (m_enemies[i].IsAlive() == true)
+                else
                 {
-                    return false;
+                    m_won = false;
                 }
-            }
-            return true;
-        }*/
+        }
     }
 }

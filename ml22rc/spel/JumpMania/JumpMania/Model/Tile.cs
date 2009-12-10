@@ -11,14 +11,15 @@ namespace JumpMania.Model
         {
             Air,
             Platform,
-            FloorOfDeath
+            FloorOfDeath,
+            GiantStar
         };
 
         public TileType m_tileType;
 
-        public Tile()
+        public Tile(TileType a_tileType)
         {
-            m_tileType = TileType.Air;
+            m_tileType = a_tileType;
         }
     }
 }

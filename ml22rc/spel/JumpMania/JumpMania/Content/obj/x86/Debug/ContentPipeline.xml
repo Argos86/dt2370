@@ -37,6 +37,24 @@
       <Output>P:\spelprojekt\ml22rc\spel\JumpMania\JumpMania\bin\x86\Debug\Content\images\floor.xnb</Output>
       <Time>2009-11-30T15:33:52.5575396+01:00</Time>
     </Item>
+    <Item>
+      <Source>images\giantstar.png</Source>
+      <Name>images\giantstar</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>P:\spelprojekt\ml22rc\spel\JumpMania\JumpMania\bin\x86\Debug\Content\images\giantstar.xnb</Output>
+      <Time>2009-12-07T14:26:53.8708425+01:00</Time>
+    </Item>
+    <Item>
+      <Source>images\evert.png</Source>
+      <Name>images\evert</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>P:\spelprojekt\ml22rc\spel\JumpMania\JumpMania\bin\x86\Debug\Content\images\evert.xnb</Output>
+      <Time>2009-12-09T09:38:13.179611+01:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
