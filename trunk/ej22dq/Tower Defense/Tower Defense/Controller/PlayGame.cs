@@ -54,7 +54,7 @@ namespace Tower_Defense.Controller
                 {
                     gameState = GameState.PLAYING;
                     difficulty = Difficulty.EASY;
-                    
+                    a_game.Init();
                 }
 
                 state = m_gui.DoButton(m_core, "Medium", new Vector2(450, 350), true, false);
@@ -62,6 +62,7 @@ namespace Tower_Defense.Controller
                 {
                     gameState = GameState.PLAYING;
                     difficulty = Difficulty.MEDIUM;
+                    a_game.Init();
                 }
 
                 state = m_gui.DoButton(m_core, "Hard", new Vector2(550, 350), true, false);
@@ -69,6 +70,7 @@ namespace Tower_Defense.Controller
                 {
                     gameState = GameState.PLAYING;
                     difficulty = Difficulty.HARD;
+                    a_game.Init();
                 }
             }
 
@@ -77,7 +79,7 @@ namespace Tower_Defense.Controller
                 gameState = GameState.END;
                 m_view.DrawLost();
                 RestartButton(a_game);
-                MenuButton();
+                MenuButton(a_game);
                 m_core.DrawMouse();
             }
             else if (a_game.HasWon())
@@ -85,7 +87,7 @@ namespace Tower_Defense.Controller
                 gameState = GameState.END;
                 m_view.DrawWon();
                 RestartButton(a_game);
-                MenuButton();
+                MenuButton(a_game);
                 m_core.DrawMouse();
             }
             if (gameState == GameState.PLAYING)
@@ -103,11 +105,12 @@ namespace Tower_Defense.Controller
             return true;
         }
 
-        public void MenuButton()
+        public void MenuButton(Model.Game a_game)
         {
             View.IMGui.ButtonState state = m_gui.DoButton(m_core, "Go to the Menu", new Vector2(300, 350), true, false);
             if (state == View.IMGui.ButtonState.MouseOverLBClicked)
             {
+                a_game.Init();
                 gameState = GameState.MENU;
             }
         }

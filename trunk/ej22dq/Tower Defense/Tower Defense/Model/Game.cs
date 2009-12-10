@@ -92,7 +92,7 @@ namespace Tower_Defense.Model
                 AddWave(MAX_ENEMIES, 5.0f, i);
             }
 
-            m_cash = 1000;
+            m_cash = 100;
         }
 
         public void ActivateWave(ref Wave a_wave)
@@ -398,7 +398,7 @@ namespace Tower_Defense.Model
 
                         if (c.IsAlive() == false)
                         {
-                            m_cash += 2;
+                            m_cash += 1;
                         }
                         if (a_tower.CurrentType == Tower.Type.Water)
                         {
