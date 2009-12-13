@@ -12,6 +12,8 @@ namespace MeCloidGame.Helpers
 {
     class InputHandler
     {
+        // TODO: Extend the inputhandler to encompass mouse and keyboard events
+        // that aren't tied to the game controller, such as the editor.
         #region Fields
 
         PlayerIndex m_playerIndex;

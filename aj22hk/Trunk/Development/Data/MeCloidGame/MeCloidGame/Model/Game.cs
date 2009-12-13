@@ -14,7 +14,11 @@ namespace MeCloidGame.Model
         public Level m_level;
         public Player m_player;
 
-        public Level[,] m_worldGrid;
+        public Level[,] m_worldGrid = {
+                                        {   new Level("0_0.lvl"),           null,                   new Level("2_0.lvl")        },
+                                        {   new Level("0_1.lvl"),           new Level("1_1.lvl"),   null                        },
+                                        {   null,                           null,                   new Level("2_2.lvl")        },
+                                      };
         public Point m_currentLevel;
 
         public IEventTarget m_view;
@@ -27,7 +31,12 @@ namespace MeCloidGame.Model
 
         private void Initialize()
         {
-            m_level = new Level("0.txt");
+            m_currentLevel = new Point(0, 0);
+
+            // Reverse x and y to account for the fact that m_worldGrid as it is written
+            // above is in the form of each row representing a collumn.
+            m_level = m_worldGrid[m_currentLevel.Y, m_currentLevel.X];
+
             m_player = new Player();
         }
 
@@ -46,6 +55,20 @@ namespace MeCloidGame.Model
             UpdatePlayer(a_elapsedTime);
 
             return true;
+        }
+
+        public void ChangeLevel()
+        {
+            if (m_currentLevel == new Point(0, 0))
+            {
+                m_currentLevel = new Point(0, 1);
+            }
+            else
+            {
+                m_currentLevel = new Point(0, 0);
+            }
+
+            m_level = m_worldGrid[m_currentLevel.Y, m_currentLevel.X];
         }
 
         public void UpdatePlayer(float a_elapsedTime)

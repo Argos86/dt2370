@@ -10,6 +10,7 @@ namespace MeCloidGame.Views
 {
     class EditView
     {
+        // TODO: Move mouse input and keyboard status to InputHandler
         private Core m_coreView;
         private LevelView m_levelView;
 
@@ -34,7 +35,7 @@ namespace MeCloidGame.Views
 
             Model.Tile.TileType tt = a_game.m_level.GetCollision((int)logMPos.X, (int)logMPos.Y);
 
-            if ((int)logMPos.X >= 0 && (int)logMPos.X < a_game.m_level.Width && (int)logMPos.Y > 0 && (int)logMPos.Y < a_game.m_level.Height)
+            if ((int)logMPos.X >= 0 && (int)logMPos.X < Model.Level.WIDTH && (int)logMPos.Y > 0 && (int)logMPos.Y < Model.Level.HEIGHT)
             {
                 m_coreView.DrawText(tt.ToString(), m_coreView.Fonts.Georgia, new Vector2(0.0f, 20.0f), Color.Chartreuse);
             }

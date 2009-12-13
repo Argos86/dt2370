@@ -8,11 +8,17 @@ using Microsoft.Xna.Framework;
 
 namespace MeCloidGame.Model
 {
+    public struct Portal
+    {
+        public Point ToLvl;
+        public Point ToCoord;
+    }
+
     class Level
     {
-        // TODO: Decide whether or not to use uniform tiles.
-        // TODO: Come up with a level creating process that better supports editing and expansion of width and height of level.
+        // TODO: Create a system for portals.
         private Tile[,] m_tiles;
+        public Dictionary<Point, Portal> m_portals;
 
         public const int WIDTH = 48;
         public const int HEIGHT = 48;
@@ -23,50 +29,115 @@ namespace MeCloidGame.Model
             set { m_tiles = value; }
         }
 
-        public int Width
-        {
-            get { return m_tiles.GetLength(0); }
-        }
-
-        public int Height
-        {
-            get { return m_tiles.GetLength(1); }
-        }
-
         public Level(string a_level)
         {
+            m_tiles = new Tile[WIDTH, HEIGHT];
+            m_portals = new Dictionary<Point, Portal>();
+
             LoadTiles(a_level);
+
+            foreach (Point p in m_portals.Keys)
+            {
+                Console.WriteLine(p);
+            }
+
+            foreach (Portal p in m_portals.Values)
+            {
+                Console.WriteLine(p.ToLvl);
+                Console.WriteLine(p.ToCoord);
+            }
         }
 
         private void LoadTiles(string a_level)
         {
-            int width;
+            if (File.Exists(@"Content\" + Helpers.Paths.LEVELS + a_level))
+            {
+                LoadLvlFromFile(a_level);
+            }
+            else
+            {
+                CreateNewLvl(a_level);
+            }
+        }
+
+        private void LoadLvlFromFile(string a_level)
+        {
             List<string> lines = new List<string>();
+
             using (StreamReader reader = new StreamReader(@"Content\" + Helpers.Paths.LEVELS + a_level))
             {
                 string line = reader.ReadLine();
-                width = line.Length;
                 while (line != null)
                 {
                     lines.Add(line);
-                    if (line.Length != width)
-                    {
-                        throw new Exception(String.Format("The length of line {0} is different from all preceeding lines.", lines.Count));
-                    }
                     line = reader.ReadLine();
                 }
             }
 
-            m_tiles = new Tile[width, lines.Count];
-
-            for (int y = 0; y < Height; ++y)
+            List<string> portals = new List<string>();
+            using (StreamReader reader = new StreamReader(@"Content\" + Helpers.Paths.LEVELS + "0_0.ptl"))
             {
-                for (int x = 0; x < Width; ++x)
+                string line = reader.ReadLine();
+                while (line != null)
+                {
+                    portals.Add(line);
+                    line = reader.ReadLine();
+                }
+            }
+
+            for (int y = 0; y < HEIGHT; ++y)
+            {
+                for (int x = 0; x < WIDTH; ++x)
                 {
                     char tileType = lines[y][x];
+                    if (tileType == '@')
+                    {
+                        LoadPortal(new Point(x, y), portals);
+                    }
                     m_tiles[x, y] = LoadTile(tileType, x, y);
                 }
             }
+        }
+
+        private void LoadPortal(Point a_point, List<string> a_portals)
+        {
+            foreach (string s in a_portals)
+            {
+                string[] elements = s.Split('|');
+                Point pt = GetPoint(elements[0]);
+                if (a_point == pt)
+                {
+                    Portal ptl = new Portal();
+                    ptl.ToLvl = GetPoint(elements[1]);
+                    ptl.ToCoord = GetPoint(elements[2]);
+                    m_portals.Add(pt, ptl);
+                    continue;
+                }
+            }
+        }
+
+        private Point GetPoint(string a_str)
+        {
+            string[] coords = a_str.Split(',');
+            int x, y;
+            int.TryParse(coords[0], out x);
+            int.TryParse(coords[1], out y);
+
+            return new Point(x, y);
+        }
+
+        private void CreateNewLvl(string a_level)
+        {
+            for (int y = 0; y < HEIGHT; ++y)
+            {
+                for (int x = 0; x < WIDTH; ++x)
+                {
+                    m_tiles[x, y] = LoadTile('.', x, y);
+                }
+            }
+
+            SaveLevel(a_level);
+            using (StreamWriter writer = new StreamWriter(@"Content\" + Helpers.Paths.LEVELS + "0_0.ptl"));
         }
 
         public void SaveLevel(string a_level)
@@ -91,6 +162,12 @@ namespace MeCloidGame.Model
                             case Tile.TileType.Destroyable:
                                 line += "%";
                                 break;
+                            case Tile.TileType.Portal:
+                                line += "@";
+                                break;
+                            case Tile.TileType.PortalFill:
+                                line += "$";
+                                break;
                         }
                     }
                     lines.Add(line);
@@ -114,6 +191,10 @@ namespace MeCloidGame.Model
                     return new Tile(Tile.TileType.Solid);
                 case '%':
                     return new Tile(Tile.TileType.Destroyable);
+                case '@':
+                    return new Tile(Tile.TileType.Portal);
+                case '$':
+                    return new Tile(Tile.TileType.PortalFill);
                 default:
                     throw new NotSupportedException(String.Format("Unsupported tile type character '{0}' at position {1}, {2}.", a_tileType, a_x, a_y));
             }

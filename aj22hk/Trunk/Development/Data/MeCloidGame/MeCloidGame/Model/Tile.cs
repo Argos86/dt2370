@@ -13,7 +13,9 @@ namespace MeCloidGame.Model
         {
             Clear = 0,
             Solid = 1,
-            Destroyable = 2
+            Destroyable = 2,
+            Portal = 3,
+            PortalFill = 4
         }
 
         private TileType m_tileType;
