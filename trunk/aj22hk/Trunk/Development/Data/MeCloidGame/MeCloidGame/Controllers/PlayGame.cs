@@ -70,6 +70,11 @@ namespace MeCloidGame.Controllers
                 m_coreView.Sounds.TestSound.Play();
             }
 
+            if (m_coreView.Input.IsKeyJustPressed(Buttons.Y))
+            {
+                a_game.ChangeLevel();
+            }
+
             float movement = 0;
             movement = m_coreView.Input.GetLeftThumbStick().X;
 

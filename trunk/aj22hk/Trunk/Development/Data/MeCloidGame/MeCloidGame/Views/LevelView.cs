@@ -29,18 +29,16 @@ namespace MeCloidGame.Views
                         switch (a_level.Tiles[x, y].Type)
                         {
                             case Model.Tile.TileType.Solid:
-                                if (x % 2 == 0)
-                                {
-                                    src = new Rectangle(64 * 0, 48 * 0, 64, 48);
-                                }
-                                else
-                                {
-                                    src = new Rectangle(64 * 2, 48 * 0, 64, 48);
-                                }
+                                src = new Rectangle(64 * 0, 48 * 0, 64, 48);
                                 a_coreView.Draw(a_coreView.Textures.Tiles, dest, src, Color.White);
                                 break;
                             case Model.Tile.TileType.Destroyable:
                                 src = new Rectangle(64 * 1, 48 * 0, 64, 48);
+                                a_coreView.Draw(a_coreView.Textures.Tiles, dest, src, Color.White);
+                                break;
+                            case Model.Tile.TileType.Portal:
+                            case Model.Tile.TileType.PortalFill:
+                                src = new Rectangle(64 * 2, 48 * 0, 64, 48);
                                 a_coreView.Draw(a_coreView.Textures.Tiles, dest, src, Color.White);
                                 break;
                         }
@@ -61,15 +59,15 @@ namespace MeCloidGame.Views
             gridLines.Begin();
 
             // Vertical lines
-            for (int x = 0; x <= a_level.Width; ++x)
+            for (int x = 0; x <= Model.Level.WIDTH; ++x)
             {
-                gridLines.Batch(new Vector2(x * a_camera.m_zoom - a_camera.TopLeft.X , 0 - a_camera.TopLeft.Y), new Vector2(x * a_camera.m_zoom - a_camera.TopLeft.X, a_level.Height * a_camera.m_zoom - a_camera.TopLeft.Y), Color.Red, 1.0f);
+                gridLines.Batch(new Vector2(x * a_camera.m_zoom - a_camera.TopLeft.X , 0 - a_camera.TopLeft.Y), new Vector2(x * a_camera.m_zoom - a_camera.TopLeft.X, Model.Level.HEIGHT * a_camera.m_zoom - a_camera.TopLeft.Y), Color.Red, 1.0f);
             }
 
             // Horizontal lines
-            for (int y = 0; y <= a_level.Height; ++y)
+            for (int y = 0; y <= Model.Level.HEIGHT; ++y)
             {
-                gridLines.Batch(new Vector2(0 - a_camera.TopLeft.X, y * a_camera.m_zoom - a_camera.TopLeft.Y), new Vector2(a_level.Width * a_camera.m_zoom - a_camera.TopLeft.X, y * a_camera.m_zoom - a_camera.TopLeft.Y), Color.Red, 1.0f);
+                gridLines.Batch(new Vector2(0 - a_camera.TopLeft.X, y * a_camera.m_zoom - a_camera.TopLeft.Y), new Vector2(Model.Level.WIDTH * a_camera.m_zoom - a_camera.TopLeft.X, y * a_camera.m_zoom - a_camera.TopLeft.Y), Color.Red, 1.0f);
             }
 
             gridLines.End();
@@ -93,6 +91,12 @@ namespace MeCloidGame.Views
                             break;
                         case Model.Tile.TileType.Destroyable:
                             tiles.Batch(pos, Color.BlueViolet);
+                            break;
+                        case Model.Tile.TileType.Portal:
+                            tiles.Batch(pos, Color.YellowGreen);
+                            break;
+                        case Model.Tile.TileType.PortalFill:
+                            tiles.Batch(pos, Color.Yellow);
                             break;
                     }
                 }

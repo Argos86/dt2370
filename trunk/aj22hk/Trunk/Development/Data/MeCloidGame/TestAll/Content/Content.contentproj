@@ -70,26 +70,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\MeCloidGame\Content\Levels\0.txt">
-      <Link>Levels\0.txt</Link>
-      <Name>0</Name>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="..\..\MeCloidGame\Content\Tiles\tiles.png">
       <Link>Tiles\tiles.png</Link>
       <Name>tiles</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\MeCloidGame\Content\Levels\test.txt">
-      <Link>Levels\test.txt</Link>
-      <Name>test</Name>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\MeCloidGame\Content\Sprites\sprites.png">
@@ -117,6 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Backgrounds\" />
+    <Folder Include="Levels\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

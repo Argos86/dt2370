@@ -38,19 +38,20 @@ namespace MeCloidGame.Controllers
 
             Model.Tile.TileType thisType = a_game.m_level.GetCollision((int)logMPos.X, (int)logMPos.Y);
 
-            if (thisType != Model.Tile.TileType.Clear && m_mouse.IsDownRMB() && (int)logMPos.X >= 0 && (int)logMPos.X < a_game.m_level.Width && (int)logMPos.Y >= 0 && (int)logMPos.Y < a_game.m_level.Height)
+            if (thisType != Model.Tile.TileType.Clear && m_mouse.IsDownRMB() && (int)logMPos.X >= 0 && (int)logMPos.X < Model.Level.WIDTH && (int)logMPos.Y >= 0 && (int)logMPos.Y < Model.Level.HEIGHT)
             {
                 a_game.m_level.Tiles[(int)logMPos.X, (int)logMPos.Y].Type = Model.Tile.TileType.Clear;
             }
 
-            if (thisType == Model.Tile.TileType.Clear && m_mouse.IsDownLMB() && (int)logMPos.X >= 0 && (int)logMPos.X < a_game.m_level.Width && (int)logMPos.Y >= 0 && (int)logMPos.Y < a_game.m_level.Height)
+            if (thisType == Model.Tile.TileType.Clear && m_mouse.IsDownLMB() && (int)logMPos.X >= 0 && (int)logMPos.X < Model.Level.WIDTH && (int)logMPos.Y >= 0 && (int)logMPos.Y < Model.Level.HEIGHT)
             {
                 a_game.m_level.Tiles[(int)logMPos.X, (int)logMPos.Y].Type = Model.Tile.TileType.Solid;
             }
 
             if (m_coreView.Input.Save())
             {
-                a_game.m_level.SaveLevel("0.txt");
+                string lvl = string.Format("{0}_{1}.lvl", a_game.m_currentLevel.X, a_game.m_currentLevel.Y);
+                a_game.m_level.SaveLevel(lvl);
             }
 
             m_editView.Draw(a_game, a_elapsedTime, m_camera, m_mouse);
