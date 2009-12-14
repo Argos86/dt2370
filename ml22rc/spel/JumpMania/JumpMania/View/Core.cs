@@ -22,6 +22,9 @@ namespace JumpMania.View
         GraphicsDevice m_device;
         SpriteEffects m_flip = SpriteEffects.None;
 
+        public Particle[] m_particles;
+        int MAXPARTICLES = 300;
+
 
         public Core(GraphicsDeviceManager a_graphics)
         {
@@ -29,6 +32,16 @@ namespace JumpMania.View
             m_assets = new View.TextureAssets();
             m_graphics.PreferredBackBufferHeight = 900;
             m_graphics.PreferredBackBufferWidth = 900;
+
+
+            m_particles = new Particle[MAXPARTICLES];
+            Random r = new Random();
+            for (int i = 0; i < MAXPARTICLES; i++)
+            {
+                m_particles[i] = new Particle(ref r);
+            }
+
+            
 
             //Möjliggör fullskärm
             //m_graphics.ToggleFullScreen();
@@ -60,7 +73,7 @@ namespace JumpMania.View
             m_spriteBatch.Draw(a_texture, dest, a_source, a_color, a_rotation, a_origin, a_effect, a_layerDepth);
         }    
 
-        public void DrawPlaya(GameTime gameTime, GraphicsDevice a_device, Vector2 a_pos, Camera a_camera, Model.Player a_player)
+        public void DrawPlaya(GameTime gameTime, Vector2 a_pos, Camera a_camera, Model.Player a_player)
         {
             if (a_player.m_movement < 0)
             {
@@ -75,6 +88,24 @@ namespace JumpMania.View
             a_pos *= a_camera.m_scale;
             a_pos.Y -= a_camera.camY;
             Draw(m_assets.m_texture, a_pos, new Vector2(a_camera.m_scale * 1, a_camera.m_scale * 2), new Rectangle(0, 0, 50, 100), Color.White, 0, Vector2.Zero, m_flip, 0);
+        }
+
+        public void DrawParticle()
+        {
+            for (int i = 0; i < MAXPARTICLES; i++)
+            {
+
+                m_spriteBatch.Draw(m_assets.m_flametexture, m_particles[i].m_pos, new Rectangle(0, 0, m_assets.m_flametexture.Width, m_assets.m_flametexture.Height),
+                    Color.White, m_particles[i].m_rot, new Vector2(m_assets.m_flametexture.Width / 2, m_assets.m_flametexture.Height / 2), 0.1f, SpriteEffects.None, 0);
+            }
+        }
+
+        public void Update(float gameTime)
+        {
+            for (int i = 0; i < MAXPARTICLES; i++)
+            {
+                m_particles[i].Update(gameTime);
+            }
         }
 
         public void Begin()

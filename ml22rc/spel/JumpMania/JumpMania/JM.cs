@@ -26,10 +26,8 @@ namespace JumpMania
 
 
         //View
-        JumpMania.View.Core m_chview;
-        JumpMania.View.LevelView m_leview;
-        //JumpMania.View.FloorView m_floview;
-        JumpMania.View.Camera m_cam;
+
+        View.GameView m_gameview;
 
         public JM()
         {
@@ -37,10 +35,7 @@ namespace JumpMania
 
             m_playcon = new JumpMania.Controller.ControllPlayer();
             m_game = new JumpMania.Model.Game();
-            m_chview = new JumpMania.View.Core(new GraphicsDeviceManager(this));
-            m_leview = new JumpMania.View.LevelView();
-            //m_floview = new JumpMania.View.FloorView();
-            m_cam = new JumpMania.View.Camera();
+            m_gameview = new JumpMania.View.GameView(this);
 
             
         }
@@ -72,7 +67,7 @@ namespace JumpMania
             // Create a new SpriteBatch, which can be used to draw textures.
 
 
-            m_chview.Initiate(GraphicsDevice, Content);
+            m_gameview.Load(Content, GraphicsDevice);
 
 
             // TODO: use this.Content to load your game content here
@@ -127,16 +122,27 @@ namespace JumpMania
             {
                 if (m_game.m_won == false)
                 {
-                    m_chview.Begin();
+                    m_gameview.Draw(gameTime, m_game);
 
+
+                    /*m_chview.Begin();
+
+                    float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
                     m_cam.centreCamera(m_game.m_player.m_position.Y, m_chview.m_graphics.GraphicsDevice.Viewport.Height);
                     m_leview.Level1(m_chview, m_game.m_level, m_cam);
-                    m_chview.DrawPlaya(gameTime, GraphicsDevice, m_game.m_player.m_position, m_cam, m_game.m_player);
+                    m_chview.DrawPlaya(gameTime, m_game.m_player.m_position, m_cam, m_game.m_player);
                     //m_floview.Floor1(m_chview, m_game.m_level, m_cam); 
 
 
-                    m_chview.End();
+
+                    m_chview.Update(elapsed);
+                    m_chview.DrawParticle();
+
+
+
+
+                    m_chview.End();*/
                 }
             }
 
