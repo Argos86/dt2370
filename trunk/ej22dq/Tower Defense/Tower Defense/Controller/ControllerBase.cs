@@ -28,6 +28,12 @@ namespace Tower_Defense.Controller
 
         }
 
+        public void KilledEnemy(int a_index)
+        {
+            m_view.KilledEnemy(a_index);
+
+        }
+
 
         /*
          * Returns false to quit current controller else true 

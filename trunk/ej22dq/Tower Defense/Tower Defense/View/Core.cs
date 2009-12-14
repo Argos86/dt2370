@@ -23,9 +23,17 @@ namespace Tower_Defense.View
         public View.FontAssets m_fonts;
         public View.SoundAssets m_sounds;
         GraphicsDevice m_device;
+        public Particle[] m_particles;
+        int MAXPARTICLE = 5000;
 
         public Core(GraphicsDeviceManager a_graphic)
         {
+            m_particles = new Particle[MAXPARTICLE];
+            Random r = new Random();
+            for (int i = 0; i < MAXPARTICLE; i++)
+            {
+                m_particles[i] = new Particle(ref r);
+            }
             m_graphics = a_graphic;
             m_input = new View.Input();
             m_assets = new View.TextureAssets();
@@ -50,7 +58,10 @@ namespace Tower_Defense.View
         {
 
             m_input.Update(a_elapsedTime, new Vector2(0, 0), new Vector2(a_width, a_height));
-
+            for (int i = 0; i < MAXPARTICLE; i++)
+            {
+                m_particles[i].Update(a_elapsedTime);
+            }
         }
 
         public void Draw(Texture2D a_texture, Rectangle a_dest, Rectangle a_source, Color a_color)
@@ -61,6 +72,16 @@ namespace Tower_Defense.View
         public void DrawText(string a_text, SpriteFont a_font, Vector2 a_pos, Color a_color)
         {
             m_spriteBatch.DrawString(a_font, a_text, a_pos, a_color);
+        }
+
+        public void DrawParticle()
+        {
+            for (int i = 0; i < MAXPARTICLE; i++)
+            {
+
+                m_spriteBatch.Draw(m_assets.m_particle, m_particles[i].m_pos, new Rectangle(0, 0, m_assets.m_particle.Width, m_assets.m_particle.Height),
+                    Color.White, m_particles[i].m_rot, new Vector2(m_assets.m_particle.Width/2, m_assets.m_particle.Height/2), 0.1f, SpriteEffects.None, 0);
+            }
         }
 
         public void DrawMouse()

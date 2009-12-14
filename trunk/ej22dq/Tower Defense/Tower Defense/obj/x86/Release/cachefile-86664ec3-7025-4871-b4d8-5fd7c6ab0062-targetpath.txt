@@ -8,3 +8,5 @@ Content\Images\Map1.xnb
 Content\Kootenay.xnb
 Content\Images\Torn.xnb
 Content\Images\circle.xnb
+Content\Images\flame.xnb
+Content\Images\tippingknight.xnb

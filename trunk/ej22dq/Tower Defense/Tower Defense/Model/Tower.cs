@@ -99,21 +99,21 @@ namespace Tower_Defense.Model
 
             switch (a_level)
             {
-                case UpgradeLevel.None: upgradeModifier = 0.90f; break;
-                case UpgradeLevel.One: upgradeModifier = 0.75f; break;
-                case UpgradeLevel.Two: upgradeModifier = 0.60f; break;
-                case UpgradeLevel.Three: upgradeModifier = 0.45f; break;
-                case UpgradeLevel.Max: upgradeModifier = 0.15f; break;
+                case UpgradeLevel.None: upgradeModifier = 1.0f; break;
+                case UpgradeLevel.One: upgradeModifier = 0.85f; break;
+                case UpgradeLevel.Two: upgradeModifier = 0.70f; break;
+                case UpgradeLevel.Three: upgradeModifier = 0.55f; break;
+                case UpgradeLevel.Max: upgradeModifier = 0.30f; break;
             }
 
             switch (a_type)
             {
                 case Type.Earth: return 2.0f * upgradeModifier;
-                case Type.Undead: return 0.3f * upgradeModifier;
-                case Type.Fire: return 0.5f * upgradeModifier;
+                case Type.Undead: return 0.5f * upgradeModifier;
+                case Type.Fire: return 0.8f * upgradeModifier;
                 case Type.Water: return 1.0f * upgradeModifier;
-                case Type.Wind: return 0.3f * upgradeModifier;
-                case Type.Normal: return 0.3f * upgradeModifier;
+                case Type.Wind: return 0.5f * upgradeModifier;
+                case Type.Normal: return 0.5f * upgradeModifier;
             }
             return 1.0f;
         }
@@ -125,19 +125,19 @@ namespace Tower_Defense.Model
             switch (a_level)
             {
                 case UpgradeLevel.None: upgradeModifier = 0.0f; break;
-                case UpgradeLevel.One: upgradeModifier = 1.5f; break;
-                case UpgradeLevel.Two: upgradeModifier = 3.0f; break;
-                case UpgradeLevel.Three: upgradeModifier = 4.5f; break;
-                case UpgradeLevel.Max: upgradeModifier = 10.0f; break;
+                case UpgradeLevel.One: upgradeModifier = 1.0f; break;
+                case UpgradeLevel.Two: upgradeModifier = 2.0f; break;
+                case UpgradeLevel.Three: upgradeModifier = 3.0f; break;
+                case UpgradeLevel.Max: upgradeModifier = 6.0f; break;
             }
             switch (m_type)
             {
-                case Type.Earth: return 4f + upgradeModifier;
-                case Type.Undead: return 8f + upgradeModifier;
-                case Type.Fire: return 7f + upgradeModifier;
-                case Type.Water: return 3f + upgradeModifier;
-                case Type.Wind: return 10f + upgradeModifier;
-                case Type.Normal: return 7f + upgradeModifier;
+                case Type.Earth: return 3f + upgradeModifier;
+                case Type.Undead: return 5f + upgradeModifier;
+                case Type.Fire: return 4f + upgradeModifier;
+                case Type.Water: return 2f + upgradeModifier;
+                case Type.Wind: return 6f + upgradeModifier;
+                case Type.Normal: return 5f + upgradeModifier;
             }
             return upgradeModifier;
         }
@@ -149,8 +149,8 @@ namespace Tower_Defense.Model
             switch (a_level)
             {
                 case UpgradeLevel.None: upgradeModifier = 3.0f; break;
-                case UpgradeLevel.One: upgradeModifier = 6.0f; break;
-                case UpgradeLevel.Two: upgradeModifier = 9.0f; break;
+                case UpgradeLevel.One: upgradeModifier = 8.0f; break;
+                case UpgradeLevel.Two: upgradeModifier = 18.0f; break;
                 case UpgradeLevel.Three: upgradeModifier = 50.0f; break;
             }
 
@@ -170,11 +170,11 @@ namespace Tower_Defense.Model
         {
             switch (a_type)
             {
-                case Type.Earth: return 23;
-                case Type.Undead: return 28;
-                case Type.Fire: return 28;
-                case Type.Water: return 35;
-                case Type.Wind: return 40;
+                case Type.Earth: return 25;
+                case Type.Undead: return 25;
+                case Type.Fire: return 25;
+                case Type.Water: return 25;
+                case Type.Wind: return 25;
                 case Type.Normal: return 25;
             }
             return 10;
@@ -186,16 +186,16 @@ namespace Tower_Defense.Model
 
             switch (a_level)
             {
-                case UpgradeLevel.None: upgradeModifier = 3f; break;
-                case UpgradeLevel.One: upgradeModifier = 5f; break;
-                case UpgradeLevel.Two: upgradeModifier = 7f; break;
+                case UpgradeLevel.None: upgradeModifier = 0f; break;
+                case UpgradeLevel.One: upgradeModifier = 3f; break;
+                case UpgradeLevel.Two: upgradeModifier = 5f; break;
                 case UpgradeLevel.Three: upgradeModifier = 9f; break;
-                case UpgradeLevel.Max: upgradeModifier = 30f; break;
+                case UpgradeLevel.Max: upgradeModifier = 20f; break;
             }
 
             switch (a_type)
             {
-                case Type.Earth: return 5.0f + 0.5f * upgradeModifier;
+                case Type.Earth: return 3.0f + 0.5f * upgradeModifier;
                 case Type.Undead: return 0.1f * upgradeModifier;
                 case Type.Fire: return 3.0f + 0.3f * upgradeModifier;
                 case Type.Water: return 2.0f + 0.2f * upgradeModifier;
@@ -214,10 +214,10 @@ namespace Tower_Defense.Model
             switch (a_level)
             {
                 case UpgradeLevel.None: upgradeModifier = 1f; break;
-                case UpgradeLevel.One: upgradeModifier = 2f; break;
-                case UpgradeLevel.Two: upgradeModifier = 3f; break;
-                case UpgradeLevel.Three: upgradeModifier = 4f; break;
-                case UpgradeLevel.Max: upgradeModifier = 10f; break;
+                case UpgradeLevel.One: upgradeModifier = 1.5f; break;
+                case UpgradeLevel.Two: upgradeModifier = 2f; break;
+                case UpgradeLevel.Three: upgradeModifier = 3f; break;
+                case UpgradeLevel.Max: upgradeModifier = 5f; break;
             }
 
             float VersusSelf = 2.0f * upgradeModifier;

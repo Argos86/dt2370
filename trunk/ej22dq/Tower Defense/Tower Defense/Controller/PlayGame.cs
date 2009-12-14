@@ -27,16 +27,10 @@ namespace Tower_Defense.Controller
             END
         }
 
-        public enum Difficulty
-        {
-            NONE,
-            EASY,
-            MEDIUM,
-            HARD
-        }
+
 
         GameState gameState = GameState.MENU;
-        Difficulty difficulty = Difficulty.NONE;
+        
         
         public override bool DoControl(Tower_Defense.Model.Game a_game, float a_elapsedTime, IModel a_model)
         {
@@ -47,30 +41,30 @@ namespace Tower_Defense.Controller
 
             if (gameState == GameState.MENU)
             {
+                a_game.m_IsOver = false;
                 m_core.DrawMouse();
                 m_view.DrawWelcome();
                 View.IMGui.ButtonState state = m_gui.DoButton(m_core, "Easy", new Vector2(350, 350), true, false);
                 if (state == View.IMGui.ButtonState.MouseOverLBClicked)
                 {
                     gameState = GameState.PLAYING;
-                    difficulty = Difficulty.EASY;
-                    a_game.Init();
+                    a_game.Init(Model.Game.Difficulty.EASY);
+                    
+                    
                 }
 
                 state = m_gui.DoButton(m_core, "Medium", new Vector2(450, 350), true, false);
                 if (state == View.IMGui.ButtonState.MouseOverLBClicked)
                 {
                     gameState = GameState.PLAYING;
-                    difficulty = Difficulty.MEDIUM;
-                    a_game.Init();
+                    a_game.Init(Model.Game.Difficulty.MEDIUM);
                 }
 
                 state = m_gui.DoButton(m_core, "Hard", new Vector2(550, 350), true, false);
                 if (state == View.IMGui.ButtonState.MouseOverLBClicked)
                 {
                     gameState = GameState.PLAYING;
-                    difficulty = Difficulty.HARD;
-                    a_game.Init();
+                    a_game.Init(Model.Game.Difficulty.HARD);
                 }
             }
 
@@ -90,8 +84,9 @@ namespace Tower_Defense.Controller
                 MenuButton(a_game);
                 m_core.DrawMouse();
             }
-            if (gameState == GameState.PLAYING)
+            if (gameState == GameState.PLAYING || gameState == GameState.PAUS)
             {
+                a_game.m_IsOver = false;
                 m_view.Draw(a_game, a_elapsedTime, scale, m_selectedTower, m_type);
                 ControlGamePlay(a_game, a_model, scale);
             }
@@ -110,7 +105,7 @@ namespace Tower_Defense.Controller
             View.IMGui.ButtonState state = m_gui.DoButton(m_core, "Go to the Menu", new Vector2(300, 350), true, false);
             if (state == View.IMGui.ButtonState.MouseOverLBClicked)
             {
-                a_game.Init();
+                //a_game.Init();
                 gameState = GameState.MENU;
             }
         }
@@ -121,9 +116,28 @@ namespace Tower_Defense.Controller
             if (state == View.IMGui.ButtonState.MouseOverLBClicked)
             {
                 gameState = GameState.PLAYING;
-                a_game.Init();
+                a_game.Init(a_game.m_difficulty);
             }
         }
+
+        public void PauseButton(Model.Game a_game)
+        {
+            View.IMGui.ButtonState state = m_gui.DoButton(m_core, "Pause Game", new Vector2(970, 720), true, false);
+            if (state == View.IMGui.ButtonState.MouseOverLBClicked)
+            {
+                if (gameState == GameState.PLAYING)
+                {
+                    gameState = GameState.PAUS;
+                    a_game.m_IsStarted = false;
+                }
+                else if (gameState == GameState.PAUS)
+                {
+                    gameState = GameState.PLAYING;
+                    a_game.m_IsStarted = true;
+                }
+            }
+        }
+
 
         public bool DoUpgradeButton(Model.Tower.UpgradeLevel a_upgrade, string a_text, Vector2 a_pos, Model.Game a_game, int a_cash, float a_cost)
         {
@@ -219,6 +233,7 @@ namespace Tower_Defense.Controller
                 
             }
 
+            PauseButton(a_game);
 
             m_core.DrawMouse();
             //Mouse clicked
@@ -259,5 +274,8 @@ namespace Tower_Defense.Controller
             }
         }
 
+        
     }
+
+    
 }
