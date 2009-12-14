@@ -107,7 +107,12 @@ namespace MeCloidGame.Views
 
         public void Begin()
         {
-            m_spriteBatch.Begin();
+            m_spriteBatch.Begin(SpriteBlendMode.Additive);
+        }
+
+        public void BeginAdditive()
+        {
+            m_spriteBatch.Begin(SpriteBlendMode.Additive);
         }
 
         public void End()
