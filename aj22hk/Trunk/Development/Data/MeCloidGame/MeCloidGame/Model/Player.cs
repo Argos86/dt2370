@@ -85,6 +85,11 @@ namespace MeCloidGame.Model
             return newPos;
         }
 
+        public void SetPos(Vector2 a_pos)
+        {
+            m_pos = a_pos;
+        }
+
         private float DoJump(float a_velY)
         {
             if (m_isJumping)

@@ -111,6 +111,8 @@
     <Compile Include="Views\FontAssets.cs" />
     <Compile Include="Views\GameView.cs" />
     <Compile Include="Views\LevelView.cs" />
+    <Compile Include="Views\Particle.cs" />
+    <Compile Include="Views\ParticleExplosion.cs" />
     <Compile Include="Views\PlayerView.cs" />
     <Compile Include="Views\SoundAssets.cs" />
     <Compile Include="Views\TextureAssets.cs" />

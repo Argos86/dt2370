@@ -148,6 +148,12 @@
     <Compile Include="..\MeCloidGame\Views\LevelView.cs">
       <Link>Views\LevelView.cs</Link>
     </Compile>
+    <Compile Include="..\MeCloidGame\Views\Particle.cs">
+      <Link>Views\Particle.cs</Link>
+    </Compile>
+    <Compile Include="..\MeCloidGame\Views\ParticleExplosion.cs">
+      <Link>Views\ParticleExplosion.cs</Link>
+    </Compile>
     <Compile Include="..\MeCloidGame\Views\PlayerView.cs">
       <Link>Views\PlayerView.cs</Link>
     </Compile>

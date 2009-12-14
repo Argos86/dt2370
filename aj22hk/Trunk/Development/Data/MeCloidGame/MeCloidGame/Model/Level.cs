@@ -215,7 +215,7 @@ namespace MeCloidGame.Model
             return m_tiles[x, y].Type;
         }
 
-        public bool IsCollidingAt(Vector2 a_pos)
+        public bool IsCollidingAt(Vector2 a_pos, Tile.TileType a_type)
         {
             Vector2 topLeft = new Vector2(a_pos.X - Model.Player.WIDTH / 2.0f, a_pos.Y - Model.Player.HEIGHT);
             Vector2 bottomRight = new Vector2(a_pos.X + Model.Player.WIDTH / 2.0f, a_pos.Y);
@@ -233,7 +233,7 @@ namespace MeCloidGame.Model
                     if (topLeft.Y > (float)y + 1.0f)
                         continue;
 
-                    if (GetCollision(x, y) == Tile.TileType.Solid)
+                    if (GetCollision(x, y) == a_type)
                     {
                         return true;
                     }

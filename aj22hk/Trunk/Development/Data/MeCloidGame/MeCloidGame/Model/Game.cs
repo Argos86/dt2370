@@ -59,15 +59,12 @@ namespace MeCloidGame.Model
 
         public void ChangeLevel()
         {
-            if (m_currentLevel == new Point(0, 0))
-            {
-                m_currentLevel = new Point(0, 1);
-            }
-            else
-            {
-                m_currentLevel = new Point(0, 0);
-            }
+            Point p = new Point(23, 45);
 
+            int x = m_level.m_portals[p].ToCoord.X;
+            int y = m_level.m_portals[p].ToCoord.Y;
+            m_player.SetPos(new Vector2(x, y));
+            m_currentLevel = m_level.m_portals[new Point(23, 45)].ToLvl;
             m_level = m_worldGrid[m_currentLevel.Y, m_currentLevel.X];
         }
 
@@ -83,11 +80,11 @@ namespace MeCloidGame.Model
 
         public Vector2 Collide(Vector2 a_oldPos, Vector2 a_newPos, ref Vector2 a_velocity, ref bool a_isOnGround)
         {
-            if (m_level.IsCollidingAt(a_newPos))
+            if (m_level.IsCollidingAt(a_newPos, Tile.TileType.Solid))
             {
                 // Try x movement
                 Vector2 xMove = new Vector2(a_newPos.X, a_oldPos.Y);
-                if (m_level.IsCollidingAt(xMove) == false)
+                if (m_level.IsCollidingAt(xMove, Tile.TileType.Solid) == false)
                 {
                     a_velocity.Y = 0.0f;
 
@@ -102,7 +99,7 @@ namespace MeCloidGame.Model
 
                 // Try y movement
                 Vector2 yMove = new Vector2(a_oldPos.X, a_newPos.Y);
-                if (m_level.IsCollidingAt(yMove) == false)
+                if (m_level.IsCollidingAt(yMove, Tile.TileType.Solid) == false)
                 {
                     a_velocity.X = 0.0f;
 
@@ -116,6 +113,11 @@ namespace MeCloidGame.Model
                     a_isOnGround = true;
                 }
                 return a_oldPos;
+            }
+
+            if (m_level.IsCollidingAt(a_newPos, Tile.TileType.Portal))
+            {
+                ChangeLevel();
             }
 
             return a_newPos;
