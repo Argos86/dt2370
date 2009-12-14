@@ -10,9 +10,9 @@ namespace CombatLand.Model
     {
         public const int MAX_HP = 10;
         public const float GRAVITY = 20.0f;
-        public const float ACCELERATION = 200.0f;
+        public const float ACCELERATION = 100.0f;
         public const float MAX_FALL_SPEED = 800.0f;
-        public const float JUMP_SPEED = -15.0f;
+        public const float JUMP_SPEED = -14.0f;
         
         
         public int m_hitPoints;
@@ -45,6 +45,8 @@ namespace CombatLand.Model
             m_isFacingRight = true;
         }
 
+        //public void Shoot(
+
         public void DoJump()
         {
             m_velocity.Y += JUMP_SPEED;
@@ -54,15 +56,34 @@ namespace CombatLand.Model
         {
             m_movement = a_movement;
             m_isJumping = a_isJumping;
+
+            if (!m_isOnGround)
+            {
+                m_movement = m_movement / 2;
+            }
+
         }
         public void UpdateMovement(float a_elapsedTime)
         {
-            m_velocity.X = (m_movement * ACCELERATION);
+            m_velocity.X += m_movement * ACCELERATION * a_elapsedTime;
             m_velocity.X = MathHelper.Clamp(m_velocity.X, -m_maxSpeed, m_maxSpeed);
             
             m_velocity.Y += (GRAVITY * a_elapsedTime);
             m_velocity.Y = MathHelper.Clamp(m_velocity.Y, -MAX_FALL_SPEED, MAX_FALL_SPEED);
 
+            if (m_movement == 0 && m_isOnGround)
+            {
+                m_velocity.X -= m_velocity.X * (float)Math.Pow(3.0f, 2.0f) * a_elapsedTime;
+                if (Math.Abs(m_velocity.X) < 1.0f)
+                {
+                    m_velocity.X = 0;
+                }
+            }
+
+            if (m_movement == 0 && !m_isOnGround)
+            {
+                m_velocity.X -= m_velocity.X * 1.0f * a_elapsedTime;
+            }
 
             if (m_isJumping && m_isOnGround)
             {

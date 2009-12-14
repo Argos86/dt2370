@@ -50,6 +50,7 @@ namespace CombatLand.Model
             m_player.m_isOnGround = false;
             m_player.m_pos = Collide(m_player.m_pos, newPos, m_player.m_size, ref m_player.m_velocity, ref m_player.m_isOnGround);
             this.isDying();
+            this.isWinning();
         }
 
         public void isDying()
@@ -62,8 +63,7 @@ namespace CombatLand.Model
 
         public void isWinning()
         {
-            string a_case = "win";
-            if (m_map.IsCollidingAt(m_player.m_pos, m_player.m_size, a_case))
+            if (m_map.IsCollidingAt(m_player.m_pos, m_player.m_size, Tile.TileType.Win))
             {
                 m_hasWon = true;
             }
@@ -71,12 +71,12 @@ namespace CombatLand.Model
 
         public Vector2 Collide(Vector2 a_oldPos, Vector2 a_newPos, Vector2 a_size, ref Vector2 a_outVelocity, ref bool a_outIsOnGround)
         {
-            string a_case = "blocked";
-            if (m_map.IsCollidingAt(a_newPos, a_size, a_case))
+            
+            if (m_map.IsCollidingAt(a_newPos, a_size, Tile.TileType.Blocked))
             {
                 // Try x movement
                 Vector2 xMove = new Vector2(a_newPos.X, a_oldPos.Y);
-                if (m_map.IsCollidingAt(xMove, a_size, a_case) == false)
+                if (m_map.IsCollidingAt(xMove, a_size, Tile.TileType.Blocked) == false)
                 {
                     a_outVelocity.Y = 0.0f;
 
@@ -91,7 +91,7 @@ namespace CombatLand.Model
 
                 // Try y movement
                 Vector2 yMove = new Vector2(a_oldPos.X, a_newPos.Y);
-                if (m_map.IsCollidingAt(yMove, a_size, a_case) == false)
+                if (m_map.IsCollidingAt(yMove, a_size, Tile.TileType.Blocked) == false)
                 {
 
                    
@@ -99,15 +99,16 @@ namespace CombatLand.Model
 
                     return yMove;
                 }
-                //Check if we have won
 
-                a_case = "win";
-                if (m_map.IsCollidingAt(m_player.m_pos, m_player.m_size, a_case))
+                if (a_newPos.Y > a_oldPos.Y)
                 {
-                    m_hasWon = true;
+                    a_oldPos.Y = (int)(a_newPos.Y + a_size.Y) - a_size.Y;
+                    a_outIsOnGround = true;
                 }
+
+                
                 a_outVelocity = Vector2.Zero;
-                a_outIsOnGround = true;
+               
                 return a_oldPos;
             }
 

@@ -18,7 +18,7 @@ namespace CombatLand.Model
             Clear();
         }
 
-        public bool IsCollidingAt(Vector2 a_pos, Vector2 a_size, string a_case)
+        public bool IsCollidingAt(Vector2 a_pos, Vector2 a_size, Tile.TileType a_type)
         {
 
             Vector2 topLeft = new Vector2((a_pos.X + (1.0f - a_size.X)), a_pos.Y);
@@ -39,14 +39,12 @@ namespace CombatLand.Model
                     if (topLeft.Y > (float)y + 1.0f)
                         continue;
 
-                    if (a_case == "blocked" && m_tiles[x, y].m_tileType == Tile.TileType.Blocked)
+                    
+                    if (a_type == m_tiles[x, y].m_tileType)
                     {
                         return true;
                     }
-                    if (a_case == "win" && m_tiles[x, y].m_tileType == Tile.TileType.Win)
-                    {
-                        return true;
-                    }
+                    
                 }
             }
 
@@ -92,7 +90,7 @@ namespace CombatLand.Model
             {
                 m_tiles[x, HEIGHT - 7].m_tileType = Tile.TileType.Blocked;
             }
-            //Build hole
+            ////Build hole
             for (int x = 20; x < 24; x++)
             {
                 m_tiles[x, HEIGHT - 1].m_tileType = Tile.TileType.Empty;

@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Skola\Code\WindowsGame1\bin\x86\Release\Content\assets\sprites\Untitled.xnb</Output>
-      <Time>2009-12-07T10:19:00+01:00</Time>
+      <Output>P:\Grundläggande Spelprogrammering DT2370\Repositorium\pe22dh\Work copy\WindowsGame1\bin\x86\Release\Content\assets\sprites\Untitled.xnb</Output>
+      <Time>2009-12-14T13:45:05.088183+01:00</Time>
     </Item>
     <Item>
       <Source>assets\sprites\whiteTile.jpg</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Skola\Code\WindowsGame1\bin\x86\Release\Content\assets\sprites\whiteTile.xnb</Output>
-      <Time>2009-12-07T10:19:00+01:00</Time>
+      <Output>P:\Grundläggande Spelprogrammering DT2370\Repositorium\pe22dh\Work copy\WindowsGame1\bin\x86\Release\Content\assets\sprites\whiteTile.xnb</Output>
+      <Time>2009-12-14T13:45:05.399188+01:00</Time>
     </Item>
     <Item>
       <Source>assets\sprites\player.png</Source>
@@ -25,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Skola\Code\WindowsGame1\bin\x86\Release\Content\assets\sprites\player.xnb</Output>
-      <Time>2009-12-07T10:19:00+01:00</Time>
+      <Output>P:\Grundläggande Spelprogrammering DT2370\Repositorium\pe22dh\Work copy\WindowsGame1\bin\x86\Release\Content\assets\sprites\player.xnb</Output>
+      <Time>2009-12-14T13:45:04.858183+01:00</Time>
     </Item>
     <Item>
       <Source>assets\sprites\mainMenu.jpg</Source>
@@ -34,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Skola\Code\WindowsGame1\bin\x86\Release\Content\assets\sprites\mainMenu.xnb</Output>
-      <Time>2009-12-09T15:48:00+01:00</Time>
+      <Output>P:\Grundläggande Spelprogrammering DT2370\Repositorium\pe22dh\Work copy\WindowsGame1\bin\x86\Release\Content\assets\sprites\mainMenu.xnb</Output>
+      <Time>2009-12-14T13:45:05.200185+01:00</Time>
     </Item>
     <Item>
       <Source>assets\sprites\overlayGameOver.png</Source>
@@ -43,8 +43,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Skola\Code\WindowsGame1\bin\x86\Release\Content\assets\sprites\overlayGameOver.xnb</Output>
-      <Time>2009-12-14T00:11:11.015625+01:00</Time>
+      <Output>P:\Grundläggande Spelprogrammering DT2370\Repositorium\pe22dh\Work copy\WindowsGame1\bin\x86\Release\Content\assets\sprites\overlayGameOver.xnb</Output>
+      <Time>2009-12-14T13:45:05.340183+01:00</Time>
     </Item>
     <Item>
       <Source>assets\sprites\overlayWin.png</Source>
@@ -52,8 +52,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Skola\Code\WindowsGame1\bin\x86\Release\Content\assets\sprites\overlayWin.xnb</Output>
-      <Time>2009-12-14T00:11:11.015625+01:00</Time>
+      <Output>P:\Grundläggande Spelprogrammering DT2370\Repositorium\pe22dh\Work copy\WindowsGame1\bin\x86\Release\Content\assets\sprites\overlayWin.xnb</Output>
+      <Time>2009-12-14T13:45:05.019183+01:00</Time>
     </Item>
     <Item>
       <Source>assets\fonts\Courier New.spritefont</Source>
@@ -61,47 +61,47 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Skola\Code\WindowsGame1\bin\x86\Release\Content\assets\fonts\Courier New.xnb</Output>
-      <Time>2009-12-09T16:47:00+01:00</Time>
+      <Output>P:\Grundläggande Spelprogrammering DT2370\Repositorium\pe22dh\Work copy\WindowsGame1\bin\x86\Release\Content\assets\fonts\Courier New.xnb</Output>
+      <Time>2009-12-14T13:45:04.320273+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
       <BuildConfiguration>Release</BuildConfiguration>
       <CompressContent>true</CompressContent>
-      <RootDirectory>D:\Skola\Code\WindowsGame1\Content\</RootDirectory>
-      <LoggerRootDirectory>D:\Skola\Code\WindowsGame1\</LoggerRootDirectory>
-      <IntermediateDirectory>D:\Skola\Code\WindowsGame1\Content\obj\x86\Release\</IntermediateDirectory>
-      <OutputDirectory>D:\Skola\Code\WindowsGame1\bin\x86\Release\Content\</OutputDirectory>
+      <RootDirectory>P:\Grundläggande Spelprogrammering DT2370\Repositorium\pe22dh\Work copy\WindowsGame1\Content\</RootDirectory>
+      <LoggerRootDirectory>P:\Grundläggande Spelprogrammering DT2370\Repositorium\pe22dh\Work copy\WindowsGame1\</LoggerRootDirectory>
+      <IntermediateDirectory>P:\Grundläggande Spelprogrammering DT2370\Repositorium\pe22dh\Work copy\WindowsGame1\Content\obj\x86\Release\</IntermediateDirectory>
+      <OutputDirectory>P:\Grundläggande Spelprogrammering DT2370\Repositorium\pe22dh\Work copy\WindowsGame1\bin\x86\Release\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
-        <Key>C:\Program\Microsoft XNA\XNA Game Studio\v3.1\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
-        <Value>2009-05-28T01:16:14+02:00</Value>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.1\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2009-05-28T00:16:14+02:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program\Microsoft XNA\XNA Game Studio\v3.1\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
-        <Value>2009-05-28T01:16:06+02:00</Value>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.1\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2009-05-28T00:16:06+02:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program\Microsoft XNA\XNA Game Studio\v3.1\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
-        <Value>2009-05-28T01:16:16+02:00</Value>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.1\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2009-05-28T00:16:16+02:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program\Microsoft XNA\XNA Game Studio\v3.1\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
-        <Value>2009-05-28T01:16:26+02:00</Value>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.1\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2009-05-28T00:16:26+02:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program\Microsoft XNA\XNA Game Studio\v3.1\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
-        <Value>2009-05-28T01:16:12+02:00</Value>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.1\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2009-05-28T00:16:12+02:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program\Microsoft XNA\XNA Game Studio\v3.1\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
-        <Value>2009-05-28T01:16:06+02:00</Value>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.1\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2009-05-28T00:16:06+02:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\WINDOWS\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\3.1.0.0__6d5c3888ef60e27d\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2009-11-16T01:21:18.375+01:00</Value>
+        <Key>C:\Windows\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\3.1.0.0__6d5c3888ef60e27d\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2009-10-23T10:10:39.4201372+02:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

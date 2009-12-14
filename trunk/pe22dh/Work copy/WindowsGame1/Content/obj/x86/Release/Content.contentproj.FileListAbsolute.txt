@@ -2,3 +2,4 @@ P:\Grundläggande Spelprogrammering DT2370\Repositorium\pe22dh\WindowsGame1\Wind
 G:\Skola\Grundläggande Spelprogrammering\pe22dh\WindowsGame1\WindowsGame1\Content\obj\x86\Release\ResolveAssemblyReference.cache
 D:\Skola\WindowsGame1\Content\obj\x86\Release\ResolveAssemblyReference.cache
 D:\Skola\Code\WindowsGame1\Content\obj\x86\Release\ResolveAssemblyReference.cache
+P:\Grundläggande Spelprogrammering DT2370\Repositorium\pe22dh\Work copy\WindowsGame1\Content\obj\x86\Release\ResolveAssemblyReference.cache
