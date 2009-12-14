@@ -1,3 +1,0 @@
-Content\assets\sprites\Untitled.xnb
-Content\assets\sprites\whiteTile.xnb
-Content\assets\sprites\player.xnb
