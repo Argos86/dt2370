@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace CombatLand.View
 {
@@ -24,9 +25,9 @@ namespace CombatLand.View
         }
         public void Draw(CombatLand.Model.Game a_game)
         {
-            
             m_mapView.DrawMap(a_game.m_map, m_core, m_camera);
             m_charView.DrawPlayer(m_core, a_game.m_player, m_camera);
+            m_core.DrawText("HP: " +a_game.m_player.m_hitPoints.ToString(), m_core.m_fonts.m_font, new Vector2(50.0f, 10.0f), Color.Black);
         }
     }
 }

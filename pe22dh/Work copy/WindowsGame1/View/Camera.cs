@@ -36,14 +36,14 @@ namespace CombatLand.View
             float a_width = Model.Map.WIDTH * m_scale;
             float m_playerPos = a_game.m_player.m_pos.X * m_scale;
             
-            if (m_playerPos > (600.0f + m_pos.X) && a_game.m_player.m_movement > 0) 
+            if (m_playerPos > (600.0f + m_pos.X) && a_game.m_player.m_velocity.X > 0) 
             {
                 if (m_playerPos < (a_width - 680.0f))
                 {
                     m_pos.X += ((a_game.m_player.m_velocity.X * (float)m_scale) * a_elapsedTime);
                 }
             }
-            if (m_playerPos < (400.0f + m_pos.X) && a_game.m_player.m_movement < 0)
+            if (m_playerPos < (400.0f + m_pos.X) && a_game.m_player.m_velocity.X < 0)
             {
                 m_pos.X += ((a_game.m_player.m_velocity.X * (float)m_scale) * a_elapsedTime);
             }
