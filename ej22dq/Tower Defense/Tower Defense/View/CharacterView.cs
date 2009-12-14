@@ -12,7 +12,10 @@ namespace Tower_Defense.View
 
         public void DrawEnemy(Core a_core, Model.Enemy a_character, float a_elapsedTime, int a_id, int a_scale)
         {
-            DrawCharacter(a_core, a_character, a_scale, new Rectangle(51, 68, 20, 20));
+
+            // nya pos - gamla för att få riktning, stega igenom en sprite för animationer. olika per typ, riktning på gubben, timer för animationen.
+
+            DrawCharacter(a_core, a_character, a_scale, new Rectangle(51, 68, 20, 20), a_id, a_elapsedTime);
 
         }
 
@@ -53,12 +56,8 @@ namespace Tower_Defense.View
             a_core.Draw(a_core.m_assets.m_tower, dest, new Rectangle(256, 0, 128, 288), color);
         }
 
-        public void DrawCivilian(Core a_core, Model.Enemy a_character, float a_elapsedTime, int a_id, int a_scale)
-        {
-            DrawCharacter(a_core, a_character, a_scale, new Rectangle(73, 103, 22, 27));
-        }
-
-        private void DrawCharacter(Core a_core, Model.Enemy a_character, int a_scale, Rectangle a_src)
+       
+        private void DrawCharacter(Core a_core, Model.Enemy a_character, int a_scale, Rectangle a_src, int a_enemyIndex, float a_elapsedTime)
         {
             if (a_character.IsAlive())
             {
@@ -77,15 +76,42 @@ namespace Tower_Defense.View
                 switch (a_character.CurrentType)
                 {
                     case Model.Enemy.Type.Normal: color = Color.White; break;
-                    case Model.Enemy.Type.Earth : color = Color.Brown; break;
-                    case Model.Enemy.Type.Fire : color = Color.Red; break;
-                    case Model.Enemy.Type.Water : color = Color.Blue; break;
-                    case Model.Enemy.Type.Wind : color = Color.Green; break;
+                    case Model.Enemy.Type.Earth: color = Color.Brown; break;
+                    case Model.Enemy.Type.Fire: color = Color.Red; break;
+                    case Model.Enemy.Type.Water: color = Color.Blue; break;
+                    case Model.Enemy.Type.Wind: color = Color.Green; break;
                     case Model.Enemy.Type.Undead: color = Color.Gray; break;
                 }
 
                 a_core.Draw(a_core.m_assets.m_texture, dest, a_src, color);
             }
+            else
+            {
+
+                m_deathTimers[a_enemyIndex] += a_elapsedTime;
+
+                if (m_deathTimers[a_enemyIndex] < 1.0f)
+                {
+                    Vector2 pos = a_character.m_pos;//time * a_character.m_pos + (1.0f - time) * a_character.m_oldPos;
+
+
+                    pos = pos * a_scale - new Vector2(a_scale / 2, a_scale / 2);
+                    Rectangle dest = new Rectangle((int)pos.X, (int)pos.Y, a_scale, a_scale);
+
+
+                    int xFrame = (int)(m_deathTimers[a_enemyIndex] * 13.0f);
+
+
+                    Rectangle source = new Rectangle(xFrame * 128, 0, 128, 128);
+                    //draw tipping knight
+                    a_core.Draw(a_core.m_assets.m_knight, dest, source, Color.White);
+                }
+            }
         }
+
+        public float[] m_deathTimers = new float[Model.Game.MAX_ENEMIES];
+
+
+
     }
 }

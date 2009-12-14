@@ -20,7 +20,7 @@ namespace Tower_Defense.View
 
 
 
-        private View.CharacterView m_characterView;
+        public  View.CharacterView m_characterView;
         private View.Effects m_effects;
         private View.LevelView m_level;
         private View.Core m_core;
@@ -51,7 +51,13 @@ namespace Tower_Defense.View
         {
 
         }
-        
+
+
+        public void KilledEnemy(int a_index)
+        {
+            m_characterView.m_deathTimers[a_index] = 0.0f;
+
+        }
 
         public void DrawMax(string a_text, Vector2 a_pos)
         {
@@ -150,6 +156,7 @@ namespace Tower_Defense.View
                 m_core.DrawText("Enemies Alive: " + enemiesAlive.ToString(), m_core.m_fonts.m_baseFont, new Vector2(200, 40), Color.Red);
                 m_core.DrawText("Enemy Type: " + enemyType, m_core.m_fonts.m_baseFont, new Vector2(200, 65), Color.Red);
                 m_core.DrawText("Current Wave: " + currentWave, m_core.m_fonts.m_baseFont, new Vector2(400, 15), Color.Red);
+                m_core.DrawParticle();
             }
 
 

@@ -13,12 +13,26 @@ namespace Tower_Defense.Model
         public Tower[] m_towers;
         public Wave[] m_waves;
         public int hitpoints = 0;
-        
+
+        public bool m_IsStarted = false;
+        public bool m_IsOver = false;
+
         public const int MAX_ENEMIES = 50;
         public const int MAX_TOWERS = 20000;
-        public const int MAX_WAVES = 100;
+        public const int MAX_WAVES = 50;
 
         public int m_cash = 0;
+
+
+        public Difficulty m_difficulty = Difficulty.EASY;
+
+        public enum Difficulty
+        {
+            NONE,
+            EASY,
+            MEDIUM,
+            HARD
+        }
 
         public float GetTimeSeconds(GameTime a_gameTime)
         {
@@ -30,7 +44,6 @@ namespace Tower_Defense.Model
         public Game(Tower_Defense.IEventTarget a_view)
         {
             m_view = a_view;
-            Init();
         }
 
         public void BuyTower(Vector2 a_at, Model.Tower.Type a_type)
@@ -63,9 +76,10 @@ namespace Tower_Defense.Model
             return target;
         }
 
-        public void Init()
+        public void Init(Difficulty a_diff)
         {
-            m_map = new Map();
+            m_IsStarted = true;
+            m_map = new Map(m_difficulty);
             hitpoints = 20;
 
             m_towers = new Tower[MAX_TOWERS];
@@ -89,7 +103,7 @@ namespace Tower_Defense.Model
             for (int i = 0; i < MAX_WAVES; i++)
             {
 
-                AddWave(MAX_ENEMIES, 5.0f, i);
+                AddWave(MAX_ENEMIES, 1.0f, i);
             }
 
             m_cash = 100;
@@ -160,7 +174,7 @@ namespace Tower_Defense.Model
         {
 
             //no civilians alive return false
-            if (IsGameOver() == true || HasWon() == true)
+            if (IsGameOver() == true || HasWon() == true || m_IsStarted == false)
             {
                 
                 return false;
@@ -188,20 +202,19 @@ namespace Tower_Defense.Model
                 {
                     continue;
                 }
-                Vector2 dir = c.m_waypoints[c.m_targetCoord] - c.m_pos;
+
+
+                Vector2 dir = c.GetWayPoints(m_difficulty)[c.m_targetCoord] - c.m_pos;
 
                 float len = dir.Length();
 
 
-
-
-
                 if (len <= c.GetSpeed() * a_gameTime)
                 {
-                    c.m_pos = c.m_waypoints[c.m_targetCoord];
+                    c.m_pos = c.GetWayPoints(m_difficulty)[c.m_targetCoord];
                     c.m_targetCoord++;
 
-                    if (c.m_targetCoord == c.m_waypoints.Count())
+                    if (c.m_targetCoord == c.GetWayPoints(m_difficulty).Count())
                     {
                         c.m_hitPoints = 0;
                         hitpoints -= 1;
@@ -243,11 +256,15 @@ namespace Tower_Defense.Model
         }
         public bool IsGameOver()
         {
+
             if (hitpoints > 0)
             {
                 return false;
             }
-            return true;
+            if (m_IsOver == true)
+            {
+                return true;
+            }
         }
 
         public void UpgradeRange(Model.Tower a_tower)
@@ -307,21 +324,25 @@ namespace Tower_Defense.Model
         }
         public bool HasWon()
         {
-            for (int i = 0; i < MAX_WAVES; i++)
-            {
-                if (m_waves[i].m_isActive == true)
+                for (int i = 0; i < MAX_WAVES; i++)
                 {
-                    return false;
+                    if (m_waves[i].m_isActive == true)
+                    {
+                        return false;
+                    }
                 }
-            }
-            for (int i = 0; i < MAX_ENEMIES; i++)
-            {
-                if (m_enemies[i].IsAlive() == true)
+                for (int i = 0; i < MAX_ENEMIES; i++)
                 {
-                    return false;
+                    if (m_enemies[i].IsAlive() == true)
+                    {
+                        return false;
+                    }
                 }
-            }
-            return true;
+
+                if (m_IsOver == true)
+                {
+                    return true;
+                }
         }
 
         private bool GetClosestVisibleZombie(Tower a_tower, float a_range, out Enemy a_target)
@@ -378,8 +399,9 @@ namespace Tower_Defense.Model
         private void Attack(Tower a_tower, Enemy a_target)
         {
 
-            foreach (Enemy c in m_enemies)
+            for (int i = 0; i< MAX_ENEMIES; i++) 
             {
+                Enemy c = m_enemies[i];
                 if (c.IsAlive() == true)
                 {
                     float distance = (c.m_pos - a_target.m_pos).Length();
@@ -398,6 +420,8 @@ namespace Tower_Defense.Model
 
                         if (c.IsAlive() == false)
                         {
+
+                            m_view.KilledEnemy(i);
                             m_cash += 1;
                         }
                         if (a_tower.CurrentType == Tower.Type.Water)

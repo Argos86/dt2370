@@ -18,7 +18,50 @@ namespace Tower_Defense.Model
         public int m_targetCoord = 0;
         public int MaxHP = 0;
 
-        public Vector2[] m_waypoints =
+
+        public Vector2[] GetWayPoints(Game.Difficulty a_diff)
+        {
+            return m_easyWaypoints;
+        }
+        public Vector2[] m_easyWaypoints =
+        {
+            new Vector2(0,9),
+            new Vector2(3,9),
+            new Vector2(3,1),
+            new Vector2(1,1),
+            new Vector2(1,3),
+            new Vector2(21,3),
+            new Vector2(21,1),
+            new Vector2(19,1),
+            new Vector2(19,18),
+            new Vector2(21,18),
+            new Vector2(21,16),
+            new Vector2(1,16),
+            new Vector2(1,18),
+            new Vector2(3,18),
+            new Vector2(3,11),
+            new Vector2(Model.Map.WIDTH,11)
+        };
+        public Vector2[] m_mediumWaypoints =
+        {
+            new Vector2(0,9),
+            new Vector2(3,9),
+            new Vector2(3,1),
+            new Vector2(1,1),
+            new Vector2(1,3),
+            new Vector2(21,3),
+            new Vector2(21,1),
+            new Vector2(19,1),
+            new Vector2(19,18),
+            new Vector2(21,18),
+            new Vector2(21,16),
+            new Vector2(1,16),
+            new Vector2(1,18),
+            new Vector2(3,18),
+            new Vector2(3,11),
+            new Vector2(Model.Map.WIDTH,11)
+        };
+        public Vector2[] m_hardWaypoints =
         {
             new Vector2(0,9),
             new Vector2(3,9),

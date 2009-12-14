@@ -17,6 +17,8 @@ namespace Tower_Defense.View
         public Texture2D m_blank;
         public Texture2D m_tower;
         public Texture2D m_circle;
+        public Texture2D m_particle;
+        public Texture2D m_knight;
 
         public void LoadContent(ContentManager a_content)
         {
@@ -28,6 +30,8 @@ namespace Tower_Defense.View
             m_blank = a_content.Load<Texture2D>("images/blank");
             m_tower = a_content.Load<Texture2D>("images/Torn");
             m_circle = a_content.Load<Texture2D>("images/circle");
+            m_particle = a_content.Load<Texture2D>("images/flame");
+            m_knight = a_content.Load<Texture2D>("images/tippingknight");
         }
     }
 }

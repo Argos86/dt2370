@@ -91,6 +91,24 @@
       <Output>P:\Skolarbete\Grundläggande spelprogrammering\ej22dq\Tower Defense\Tower Defense\bin\x86\Release\Content\Images\circle.xnb</Output>
       <Time>2009-12-09T15:04:53.4105483+01:00</Time>
     </Item>
+    <Item>
+      <Source>Images\flame.png</Source>
+      <Name>Images\flame</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>P:\Skolarbete\Grundläggande spelprogrammering\ej22dq\Tower Defense\Tower Defense\bin\x86\Release\Content\Images\flame.xnb</Output>
+      <Time>2009-12-14T11:21:55.9791161+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\tippingknight.tga</Source>
+      <Name>Images\tippingknight</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>P:\Skolarbete\Grundläggande spelprogrammering\ej22dq\Tower Defense\Tower Defense\bin\x86\Release\Content\Images\tippingknight.xnb</Output>
+      <Time>2009-12-14T15:04:31.8562294+01:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
