@@ -55,6 +55,15 @@
       <Output>P:\spelprojekt\ml22rc\spel\JumpMania\JumpMania\bin\x86\Debug\Content\images\evert.xnb</Output>
       <Time>2009-12-09T09:38:13.179611+01:00</Time>
     </Item>
+    <Item>
+      <Source>images\flame.png</Source>
+      <Name>images\flame</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>P:\spelprojekt\ml22rc\spel\JumpMania\JumpMania\bin\x86\Debug\Content\images\flame.xnb</Output>
+      <Time>2009-12-14T14:12:49.6443794+01:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

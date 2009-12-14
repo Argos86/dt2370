@@ -16,6 +16,7 @@ namespace JumpMania.View
 {
     class LevelView
     {
+
         public void DrawLevel(Model.Level a_level, Core a_core, Camera a_camera)
         {
           /*  int scale = a_core.m_graphics.GraphicsDevice.Viewport.Width / Model.Level.WIDTH;
@@ -41,11 +42,11 @@ namespace JumpMania.View
                 }
             }
 
-
             a_core.Draw(a_core.m_assets.m_floortexture, new Vector2(0, a_level.m_floorHeight * a_camera.m_scale - a_camera.camY), 
                                                         new Vector2(Model.Level.WIDTH * a_camera.m_scale, a_camera.m_scale * (Model.Level.HEIGHT - a_level.m_floorHeight)), 
                                                         new Rectangle(0, 0, 1, 1), Color.White);
         }
+
 
         public void Level1(Core a_core, Model.Level a_level, Camera a_camera)
         {
