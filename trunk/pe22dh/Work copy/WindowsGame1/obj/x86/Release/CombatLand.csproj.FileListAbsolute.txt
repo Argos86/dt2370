@@ -1,0 +1,39 @@
+P:\Grundläggande Spelprogrammering DT2370\Repositorium\pe22dh\WindowsGame1\WindowsGame1\obj\x86\Release\ResolveAssemblyReference.cache
+P:\Grundläggande Spelprogrammering DT2370\Repositorium\pe22dh\WindowsGame1\WindowsGame1\obj\x86\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
+P:\Grundläggande Spelprogrammering DT2370\Repositorium\pe22dh\WindowsGame1\WindowsGame1\bin\x86\Release\WindowsGame1.exe
+P:\Grundläggande Spelprogrammering DT2370\Repositorium\pe22dh\WindowsGame1\WindowsGame1\bin\x86\Release\WindowsGame1.pdb
+P:\Grundläggande Spelprogrammering DT2370\Repositorium\pe22dh\WindowsGame1\WindowsGame1\obj\x86\Release\WindowsGame1.exe
+P:\Grundläggande Spelprogrammering DT2370\Repositorium\pe22dh\WindowsGame1\WindowsGame1\obj\x86\Release\WindowsGame1.pdb
+P:\Grundläggande Spelprogrammering DT2370\Repositorium\pe22dh\WindowsGame1\WindowsGame1\bin\x86\Release\Content\assets\sprites\Untitled.xnb
+P:\Grundläggande Spelprogrammering DT2370\Repositorium\pe22dh\WindowsGame1\WindowsGame1\bin\x86\Release\Content\assets\sprites\whiteTile.xnb
+G:\Skola\Grundläggande Spelprogrammering\pe22dh\WindowsGame1\WindowsGame1\bin\x86\Release\Content\assets\sprites\Untitled.xnb
+G:\Skola\Grundläggande Spelprogrammering\pe22dh\WindowsGame1\WindowsGame1\bin\x86\Release\Content\assets\sprites\whiteTile.xnb
+G:\Skola\Grundläggande Spelprogrammering\pe22dh\WindowsGame1\WindowsGame1\bin\x86\Release\Content\assets\sprites\player.xnb
+G:\Skola\Grundläggande Spelprogrammering\pe22dh\WindowsGame1\WindowsGame1\bin\x86\Release\WindowsGame1.exe
+G:\Skola\Grundläggande Spelprogrammering\pe22dh\WindowsGame1\WindowsGame1\bin\x86\Release\WindowsGame1.pdb
+G:\Skola\Grundläggande Spelprogrammering\pe22dh\WindowsGame1\WindowsGame1\obj\x86\Release\ResolveAssemblyReference.cache
+G:\Skola\Grundläggande Spelprogrammering\pe22dh\WindowsGame1\WindowsGame1\obj\x86\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
+G:\Skola\Grundläggande Spelprogrammering\pe22dh\WindowsGame1\WindowsGame1\obj\x86\Release\WindowsGame1.exe
+G:\Skola\Grundläggande Spelprogrammering\pe22dh\WindowsGame1\WindowsGame1\obj\x86\Release\WindowsGame1.pdb
+D:\Skola\WindowsGame1\bin\x86\Release\Content\assets\sprites\Untitled.xnb
+D:\Skola\WindowsGame1\bin\x86\Release\Content\assets\sprites\whiteTile.xnb
+D:\Skola\WindowsGame1\bin\x86\Release\Content\assets\sprites\player.xnb
+D:\Skola\WindowsGame1\bin\x86\Release\WindowsGame1.exe
+D:\Skola\WindowsGame1\bin\x86\Release\WindowsGame1.pdb
+D:\Skola\WindowsGame1\obj\x86\Release\ResolveAssemblyReference.cache
+D:\Skola\WindowsGame1\obj\x86\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
+D:\Skola\WindowsGame1\obj\x86\Release\WindowsGame1.exe
+D:\Skola\WindowsGame1\obj\x86\Release\WindowsGame1.pdb
+D:\Skola\Code\WindowsGame1\bin\x86\Release\Content\assets\sprites\Untitled.xnb
+D:\Skola\Code\WindowsGame1\bin\x86\Release\Content\assets\sprites\whiteTile.xnb
+D:\Skola\Code\WindowsGame1\bin\x86\Release\Content\assets\sprites\player.xnb
+D:\Skola\Code\WindowsGame1\bin\x86\Release\Content\assets\sprites\mainMenu.xnb
+D:\Skola\Code\WindowsGame1\bin\x86\Release\Content\assets\sprites\overlayGameOver.xnb
+D:\Skola\Code\WindowsGame1\bin\x86\Release\Content\assets\sprites\overlayWin.xnb
+D:\Skola\Code\WindowsGame1\bin\x86\Release\Content\assets\fonts\Courier New.xnb
+D:\Skola\Code\WindowsGame1\bin\x86\Release\WindowsGame1.exe
+D:\Skola\Code\WindowsGame1\bin\x86\Release\WindowsGame1.pdb
+D:\Skola\Code\WindowsGame1\obj\x86\Release\ResolveAssemblyReference.cache
+D:\Skola\Code\WindowsGame1\obj\x86\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
+D:\Skola\Code\WindowsGame1\obj\x86\Release\WindowsGame1.exe
+D:\Skola\Code\WindowsGame1\obj\x86\Release\WindowsGame1.pdb
