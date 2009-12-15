@@ -16,15 +16,13 @@ namespace JumpMania.View
 {
     class Core
     {
-        SpriteBatch m_spriteBatch;
+        public SpriteBatch m_spriteBatch;
         public View.TextureAssets m_assets;
         public GraphicsDeviceManager m_graphics;
         GraphicsDevice m_device;
         SpriteEffects m_flip = SpriteEffects.None;
 
-        public Particle[] m_particles;
-        int MAXPARTICLES = 300;
-
+        
 
         public Core(GraphicsDeviceManager a_graphics)
         {
@@ -33,15 +31,6 @@ namespace JumpMania.View
             m_graphics.PreferredBackBufferHeight = 900;
             m_graphics.PreferredBackBufferWidth = 900;
 
-
-            m_particles = new Particle[MAXPARTICLES];
-            Random r = new Random();
-            for (int i = 0; i < MAXPARTICLES; i++)
-            {
-                m_particles[i] = new Particle(ref r);
-            }
-
-            
 
             //Möjliggör fullskärm
             //m_graphics.ToggleFullScreen();
@@ -90,23 +79,7 @@ namespace JumpMania.View
             Draw(m_assets.m_texture, a_pos, new Vector2(a_camera.m_scale * 1, a_camera.m_scale * 2), new Rectangle(0, 0, 50, 100), Color.White, 0, Vector2.Zero, m_flip, 0);
         }
 
-        public void DrawParticle()
-        {
-            for (int i = 0; i < MAXPARTICLES; i++)
-            {
-
-                m_spriteBatch.Draw(m_assets.m_flametexture, m_particles[i].m_pos, new Rectangle(0, 0, m_assets.m_flametexture.Width, m_assets.m_flametexture.Height),
-                    Color.White, m_particles[i].m_rot, new Vector2(m_assets.m_flametexture.Width / 2, m_assets.m_flametexture.Height / 2), 0.1f, SpriteEffects.None, 0);
-            }
-        }
-
-        public void Update(float gameTime)
-        {
-            for (int i = 0; i < MAXPARTICLES; i++)
-            {
-                m_particles[i].Update(gameTime);
-            }
-        }
+        
 
         public void Begin()
         {

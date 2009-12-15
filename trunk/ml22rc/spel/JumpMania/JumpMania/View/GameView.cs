@@ -45,11 +45,11 @@ namespace JumpMania.View
             m_cam.centreCamera(a_game.m_player.m_position.Y, m_chview.m_graphics.GraphicsDevice.Viewport.Height);
             m_leview.Level1(m_chview, a_game.m_level, m_cam);
             m_chview.DrawPlaya(gameTime, a_game.m_player.m_position, m_cam, a_game.m_player);
- 
 
 
-            m_chview.Update(elapsed);
-            m_chview.DrawParticle();
+
+            m_leview.Update(elapsed);
+           // m_leview.DrawParticle(m_chview);
 
 
 

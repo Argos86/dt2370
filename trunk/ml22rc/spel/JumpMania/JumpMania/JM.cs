@@ -116,7 +116,7 @@ namespace JumpMania
         {
             m_playcon.Update(gameTime, m_game);
 
-            GraphicsDevice.Clear(Color.DarkRed);
+            GraphicsDevice.Clear(Color.Black);
             //_________________________Slutar rita om man nuddar golvet eller når Stora Stjärnan____________________________
             if (m_game.m_over == false)
             {

@@ -16,6 +16,19 @@ namespace JumpMania.View
 {
     class LevelView
     {
+        public Particle[] m_particles;
+        int MAXPARTICLES = 300;
+
+
+        public LevelView()
+        {
+            m_particles = new Particle[MAXPARTICLES];
+            Random r = new Random();
+            for (int i = 0; i < MAXPARTICLES; i++)
+            {
+                m_particles[i] = new Particle(ref r);
+            }
+        }
 
         public void DrawLevel(Model.Level a_level, Core a_core, Camera a_camera)
         {
@@ -42,15 +55,45 @@ namespace JumpMania.View
                 }
             }
 
+
+            for (int i = 0; i < MAXPARTICLES; i++)
+            {
+
+                a_core.m_spriteBatch.Draw(a_core.m_assets.m_floortexture, m_particles[i].m_pos, new Rectangle(0, 0, a_core.m_assets.m_floortexture.Width, a_core.m_assets.m_floortexture.Height),
+                    Color.White, m_particles[i].m_rot, new Vector2(a_core.m_assets.m_floortexture.Width / 2, a_core.m_assets.m_floortexture.Height / 2), 0.1f, SpriteEffects.None, 0);
+            }
+
+
             a_core.Draw(a_core.m_assets.m_floortexture, new Vector2(0, a_level.m_floorHeight * a_camera.m_scale - a_camera.camY), 
                                                         new Vector2(Model.Level.WIDTH * a_camera.m_scale, a_camera.m_scale * (Model.Level.HEIGHT - a_level.m_floorHeight)), 
                                                         new Rectangle(0, 0, 1, 1), Color.White);
+
         }
 
 
         public void Level1(Core a_core, Model.Level a_level, Camera a_camera)
         {
             DrawLevel(a_level, a_core, a_camera);
+        }
+
+
+
+        /*public void DrawParticle(Core a_core)
+        {
+            for (int i = 0; i < MAXPARTICLES; i++)
+            {
+
+                a_core.m_spriteBatch.Draw(a_core.m_assets.m_flametexture, m_particles[i].m_pos, new Rectangle(0, 0, a_core.m_assets.m_flametexture.Width, a_core.m_assets.m_flametexture.Height),
+                    Color.White, m_particles[i].m_rot, new Vector2(a_core.m_assets.m_flametexture.Width / 2, a_core.m_assets.m_flametexture.Height / 2), 0.1f, SpriteEffects.None, 0);
+            }
+        }*/
+
+        public void Update(float gameTime)
+        {
+            for (int i = 0; i < MAXPARTICLES; i++)
+            {
+                m_particles[i].Update(gameTime);
+            }
         }
 
 
