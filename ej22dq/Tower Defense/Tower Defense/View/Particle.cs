@@ -32,7 +32,7 @@ namespace Tower_Defense.View
         public void Update(float a_elapsedtime)
         {
 
-            m_speed += new Vector2(0, 9.82f) * a_elapsedtime * 10.0f;
+            m_speed += new Vector2(0, 9.82f) * a_elapsedtime * 1.0f;
             m_pos += m_speed * a_elapsedtime;
             m_rot += a_elapsedtime * m_rotspeed;
         }

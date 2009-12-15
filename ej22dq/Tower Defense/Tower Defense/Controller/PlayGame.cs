@@ -49,8 +49,6 @@ namespace Tower_Defense.Controller
                 {
                     gameState = GameState.PLAYING;
                     a_game.Init(Model.Game.Difficulty.EASY);
-                    
-                    
                 }
 
                 state = m_gui.DoButton(m_core, "Medium", new Vector2(450, 350), true, false);
@@ -107,6 +105,7 @@ namespace Tower_Defense.Controller
             {
                 //a_game.Init();
                 gameState = GameState.MENU;
+                a_game.m_IsOver = false;
             }
         }
 
@@ -156,6 +155,7 @@ namespace Tower_Defense.Controller
             }
             return false;
         }
+
         private void ControlGamePlay(Tower_Defense.Model.Game a_game, IModel a_model, int scale)
         {
             Vector2 logicalMousePos = m_view.GetLogicalMousePos(scale);
@@ -232,6 +232,8 @@ namespace Tower_Defense.Controller
                 }
                 
             }
+
+            a_game.CheckGameOver();
 
             PauseButton(a_game);
 

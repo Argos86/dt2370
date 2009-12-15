@@ -12,7 +12,7 @@ namespace Tower_Defense.Model
         public Enemy[] m_enemies;
         public Tower[] m_towers;
         public Wave[] m_waves;
-        public int hitpoints = 0;
+        public int hitpoints = 20;
 
         public bool m_IsStarted = false;
         public bool m_IsOver = false;
@@ -44,6 +44,7 @@ namespace Tower_Defense.Model
         public Game(Tower_Defense.IEventTarget a_view)
         {
             m_view = a_view;
+            Init(Difficulty.NONE);
         }
 
         public void BuyTower(Vector2 a_at, Model.Tower.Type a_type)
@@ -196,6 +197,7 @@ namespace Tower_Defense.Model
                     }
                 }
             }
+
             foreach (Model.Enemy c in m_enemies)
             {
                 if (c.IsAlive() == false)
@@ -265,8 +267,16 @@ namespace Tower_Defense.Model
             {
                 return true;
             }
+            return false;
         }
 
+        public void CheckGameOver()
+        { sadfappnsd fixa Att denna går för vinster med.
+            if (hitpoints < 1)
+            {
+                m_IsOver = true;
+            }
+        }
         public void UpgradeRange(Model.Tower a_tower)
         {
             Model.Tower.Type type = a_tower.CurrentType;
@@ -343,6 +353,7 @@ namespace Tower_Defense.Model
                 {
                     return true;
                 }
+                return false;
         }
 
         private bool GetClosestVisibleZombie(Tower a_tower, float a_range, out Enemy a_target)
