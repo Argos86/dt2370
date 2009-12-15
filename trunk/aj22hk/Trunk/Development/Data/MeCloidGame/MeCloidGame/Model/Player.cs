@@ -12,6 +12,8 @@ namespace MeCloidGame.Model
         // TODO: Redo jumping to more mimic platform starter kit with jumphight depending on time button is pressed.
         // TODO: Add weapons.
         // TODO: Make it possible to die.
+        public int m_life;
+
         public Vector2 m_pos;
         public Vector2 m_velocity;
         public float m_movement;
@@ -33,6 +35,7 @@ namespace MeCloidGame.Model
 
         public Player()
         {
+            m_life = 100;
             m_pos = new Vector2(2.0f, 47.0f);
         }
 
@@ -83,11 +86,6 @@ namespace MeCloidGame.Model
             Vector2 newPos = m_pos + m_velocity * a_elapsedTime;
 
             return newPos;
-        }
-
-        public void SetPos(Vector2 a_pos)
-        {
-            m_pos = a_pos;
         }
 
         private float DoJump(float a_velY)

@@ -63,8 +63,7 @@ namespace MeCloidGame.Model
 
             int x = m_level.m_portals[p].ToCoord.X;
             int y = m_level.m_portals[p].ToCoord.Y;
-            m_player.SetPos(new Vector2(x, y));
-            m_currentLevel = m_level.m_portals[new Point(23, 45)].ToLvl;
+            m_currentLevel = m_level.m_portals[p].ToLvl;
             m_level = m_worldGrid[m_currentLevel.Y, m_currentLevel.X];
         }
 
@@ -76,10 +75,22 @@ namespace MeCloidGame.Model
             
             m_player.m_isOnGround = false;
             m_player.m_pos = Collide(m_player.m_pos, newPos, ref m_player.m_velocity, ref m_player.m_isOnGround);
+
+            if (m_level.IsCollidingAt(m_player.m_pos, Tile.TileType.Portal))
+            {
+                ChangeLevel();
+            }
+
+            if (m_level.IsCollidingAt(m_player.m_pos, Tile.TileType.Destroyable))
+            {
+                m_player.m_life -= 1;
+            }
         }
 
         public Vector2 Collide(Vector2 a_oldPos, Vector2 a_newPos, ref Vector2 a_velocity, ref bool a_isOnGround)
         {
+            
+
             if (m_level.IsCollidingAt(a_newPos, Tile.TileType.Solid))
             {
                 // Try x movement
@@ -115,10 +126,7 @@ namespace MeCloidGame.Model
                 return a_oldPos;
             }
 
-            if (m_level.IsCollidingAt(a_newPos, Tile.TileType.Portal))
-            {
-                ChangeLevel();
-            }
+            
 
             return a_newPos;
         }
