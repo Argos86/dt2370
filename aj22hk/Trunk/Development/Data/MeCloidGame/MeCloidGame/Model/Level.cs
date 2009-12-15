@@ -35,17 +35,6 @@ namespace MeCloidGame.Model
             m_portals = new Dictionary<Point, Portal>();
 
             LoadTiles(a_level);
-
-            foreach (Point p in m_portals.Keys)
-            {
-                Console.WriteLine(p);
-            }
-
-            foreach (Portal p in m_portals.Values)
-            {
-                Console.WriteLine(p.ToLvl);
-                Console.WriteLine(p.ToCoord);
-            }
         }
 
         private void LoadTiles(string a_level)

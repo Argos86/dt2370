@@ -31,6 +31,9 @@ namespace MeCloidGame.Views
                 Rectangle dest = new Rectangle((int)pos.X, (int)pos.Y, (int)width, (int)height);
                 a_coreView.Draw(a_coreView.Textures.Player, dest, new Rectangle(0, 0, 70, 130), Color.White);
             }
+
+            a_coreView.DrawText(a_player.m_pos.ToString(), a_coreView.Fonts.Georgia, new Vector2(30.0f), Color.White);
+            a_coreView.DrawText(a_player.m_life.ToString(), a_coreView.Fonts.Georgia, new Vector2(30.0f, 50.0f), Color.White);
         }
 
         private void DrawBounds(Core a_coreView, Vector2 a_pos, int a_scale)
