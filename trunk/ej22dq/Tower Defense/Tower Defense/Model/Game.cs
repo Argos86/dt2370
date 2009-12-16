@@ -16,10 +16,9 @@ namespace Tower_Defense.Model
 
         public bool m_IsStarted = false;
         public bool m_IsOver = false;
-
         public const int MAX_ENEMIES = 50;
         public const int MAX_TOWERS = 20000;
-        public const int MAX_WAVES = 50;
+        public const int MAX_WAVES = 1;
 
         public int m_cash = 0;
 
@@ -271,12 +270,13 @@ namespace Tower_Defense.Model
         }
 
         public void CheckGameOver()
-        { sadfappnsd fixa Att denna går för vinster med.
+        {
             if (hitpoints < 1)
             {
                 m_IsOver = true;
-            }
+            }  
         }
+
         public void UpgradeRange(Model.Tower a_tower)
         {
             Model.Tower.Type type = a_tower.CurrentType;
@@ -334,26 +334,23 @@ namespace Tower_Defense.Model
         }
         public bool HasWon()
         {
-                for (int i = 0; i < MAX_WAVES; i++)
+            for (int i = 0; i < MAX_WAVES; i++)
+            {
+                if (m_waves[i].m_isActive == true)
                 {
-                    if (m_waves[i].m_isActive == true)
-                    {
-                        return false;
-                    }
-                }
-                for (int i = 0; i < MAX_ENEMIES; i++)
-                {
-                    if (m_enemies[i].IsAlive() == true)
-                    {
-                        return false;
-                    }
+                    return false;
                 }
 
-                if (m_IsOver == true)
+            }
+            for (int j = 0; j < MAX_ENEMIES; j++)
+            {
+                if (m_enemies[j].IsAlive() == true)
                 {
-                    return true;
+                    return false;
                 }
-                return false;
+
+            }
+            return true;
         }
 
         private bool GetClosestVisibleZombie(Tower a_tower, float a_range, out Enemy a_target)
