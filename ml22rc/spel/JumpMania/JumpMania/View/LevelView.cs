@@ -17,16 +17,16 @@ namespace JumpMania.View
     class LevelView
     {
         public Particle[] m_particles;
-        int MAXPARTICLES = 300;
+        int MAXPARTICLES = 1000;
 
 
-        public LevelView()
+        public LevelView(float a_levelheight)
         {
             m_particles = new Particle[MAXPARTICLES];
             Random r = new Random();
             for (int i = 0; i < MAXPARTICLES; i++)
             {
-                m_particles[i] = new Particle(ref r);
+                m_particles[i] = new Particle(ref r, a_levelheight);
             }
         }
 
@@ -58,9 +58,12 @@ namespace JumpMania.View
 
             for (int i = 0; i < MAXPARTICLES; i++)
             {
+                Color color = new Color(m_particles[i].m_timetolive, m_particles[i].m_timetolive, m_particles[i].m_timetolive);
 
-                a_core.m_spriteBatch.Draw(a_core.m_assets.m_floortexture, m_particles[i].m_pos, new Rectangle(0, 0, a_core.m_assets.m_floortexture.Width, a_core.m_assets.m_floortexture.Height),
-                    Color.White, m_particles[i].m_rot, new Vector2(a_core.m_assets.m_floortexture.Width / 2, a_core.m_assets.m_floortexture.Height / 2), 0.1f, SpriteEffects.None, 0);
+                Vector2 pos = m_particles[i].m_pos * a_camera.m_scale - new Vector2(0, a_camera.camY) + new Vector2((float)Math.Sin(m_particles[i].m_timetolive*3.0f), 0);
+
+                a_core.m_spriteBatch.Draw(a_core.m_assets.m_floortexture, pos, new Rectangle(0, 0, a_core.m_assets.m_floortexture.Width, a_core.m_assets.m_floortexture.Height),
+                    color, m_particles[i].m_rot, new Vector2(a_core.m_assets.m_floortexture.Width / 2, a_core.m_assets.m_floortexture.Height / 2), 0.1f, SpriteEffects.None, 0);
             }
 
 
@@ -88,11 +91,18 @@ namespace JumpMania.View
             }
         }*/
 
-        public void Update(float gameTime)
+
+
+        public void Update(float gameTime, float a_levelheight)
         {
+            Random r = new Random();
+
             for (int i = 0; i < MAXPARTICLES; i++)
             {
-                m_particles[i].Update(gameTime);
+                if (m_particles[i].Update(gameTime) == false)
+                {
+                    m_particles[i] = new Particle(ref r, a_levelheight);
+                }
             }
         }
 
