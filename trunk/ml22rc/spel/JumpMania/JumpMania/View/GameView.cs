@@ -26,7 +26,7 @@ namespace JumpMania.View
             
             
             m_chview = new View.Core(new GraphicsDeviceManager(a_game));
-            m_leview = new View.LevelView();
+            m_leview = new View.LevelView(Model.Level.HEIGHT);
             //m_floview = new JumpMania.View.FloorView();
             m_cam = new View.Camera();
         }
@@ -48,7 +48,7 @@ namespace JumpMania.View
 
 
 
-            m_leview.Update(elapsed);
+            m_leview.Update(elapsed, a_game.m_level.m_floorHeight);
            // m_leview.DrawParticle(m_chview);
 
 
