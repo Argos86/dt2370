@@ -83,6 +83,32 @@ namespace Tower_Defense.View
                     case Model.Enemy.Type.Undead: color = Color.Gray; break;
                 }
 
+                //dir = newpos - oldpos;
+
+                /*if (dir.X*dir.X > dir.Y*dir.Y)
+                 * {
+                 * if(dir.X>0)
+                 * {
+                 * höger
+                 * }
+                 * else(dir.X<0)
+                 * {
+                 * vänster
+                 * }
+                 * }
+                 * else 
+                 * {
+                 * if (dir.Y>0)
+                 * {
+                 * neråt
+                 * }
+                 * else (dir.Y<0)
+                 * {
+                 * uppåt
+                 * }
+                 * }*/
+
+
                 a_core.Draw(a_core.m_assets.m_texture, dest, a_src, color);
             }
             else
@@ -97,6 +123,7 @@ namespace Tower_Defense.View
 
                     pos = pos * a_scale - new Vector2(a_scale / 2, a_scale / 2);
                     Rectangle dest = new Rectangle((int)pos.X, (int)pos.Y, a_scale, a_scale);
+
 
 
                     int xFrame = (int)(m_deathTimers[a_enemyIndex] * 13.0f);

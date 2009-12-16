@@ -41,6 +41,7 @@ namespace Tower_Defense.Controller
 
             if (gameState == GameState.MENU)
             {
+                a_game.Init(Tower_Defense.Model.Game.Difficulty.NONE);
                 a_game.m_IsOver = false;
                 m_core.DrawMouse();
                 m_view.DrawWelcome();
