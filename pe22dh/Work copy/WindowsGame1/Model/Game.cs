@@ -17,10 +17,9 @@ namespace CombatLand.Model
         public Character m_player;
         public Character[] m_enemies;
         public Map m_map;
-        public Bullet[] m_bullets;
+        
         public bool m_hasWon;
         public bool m_isRunning;
-
         public Game()
         {
             m_player = new Character(MAX_PLAYER_SPEED);

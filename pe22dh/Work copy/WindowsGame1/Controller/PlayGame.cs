@@ -25,7 +25,7 @@ namespace CombatLand.Controller
 
 
             a_game.m_player.SetMovement(m_core.m_input.GetMovement(), m_core.m_input.IsJumping());
-            
+            a_game.m_player.Shoot(m_core.m_input.IsDownLMB(), a_elapsedTime);
 
             
             m_core.Begin();

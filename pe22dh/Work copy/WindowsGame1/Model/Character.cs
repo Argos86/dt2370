@@ -9,6 +9,7 @@ namespace CombatLand.Model
     class Character
     {
         public const int MAX_HP = 10;
+        public const int MAX_BULLETS = 100;
         public const float GRAVITY = 20.0f;
         public const float ACCELERATION = 100.0f;
         public const float MAX_FALL_SPEED = 800.0f;
@@ -16,6 +17,8 @@ namespace CombatLand.Model
         
         
         public int m_hitPoints;
+        public int m_bulletIndex;
+        public float m_bulletDelay;
 
         public float m_movement;
         public float m_maxSpeed;
@@ -28,6 +31,9 @@ namespace CombatLand.Model
         public Vector2 m_velocity;
         public Vector2 m_pos;
         public Vector2 m_size = new Vector2(0.9f,1.8f);
+
+        public Bullet[] m_bullets;
+
         
         public bool IsAlive()
         {
@@ -43,9 +49,27 @@ namespace CombatLand.Model
             m_velocity = new Vector2(0, 0);
             m_jumpTime = 0.0f;
             m_isFacingRight = true;
+            m_bullets = new Bullet[MAX_BULLETS];
+            m_bulletIndex = 0;
+            m_bulletDelay = 0.2f;
         }
 
-        //public void Shoot(
+        public void Shoot(bool a_isPressed, float a_elapsedTime)
+        {
+            if (a_isPressed && m_bulletDelay < 0)
+            {
+                if (m_bulletIndex > 99)
+                {
+                    m_bulletIndex = 0;
+                } 
+                m_bullets[m_bulletIndex] = new Bullet(m_pos, Vector2.Zero);
+                    m_bulletIndex++;
+            }
+            else 
+            {
+                m_bulletDelay -= 0.01f;
+            }
+        }
 
         public void DoJump()
         {
@@ -59,7 +83,7 @@ namespace CombatLand.Model
 
             if (!m_isOnGround)
             {
-                m_movement = m_movement / 2;
+                m_movement = m_movement / 3;
             }
 
         }
@@ -110,7 +134,8 @@ namespace CombatLand.Model
             {
                 m_isFacingRight = false;
             }
-            
+            //Check if we will shoot
+
         }
         public Vector2 CalculateNewPosition(float a_elapsedTime)
         {
