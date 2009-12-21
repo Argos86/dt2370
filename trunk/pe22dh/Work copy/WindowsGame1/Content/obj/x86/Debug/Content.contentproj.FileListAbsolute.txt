@@ -7,3 +7,4 @@ D:\Skola\WindowsGame1\Content\obj\x86\Debug\ResolveAssemblyReference.cache
 P:\Grundläggande Spelprogrammering DT2370\Repositorium\pe22dh\Iteration 4\Code\WindowsGame1\Content\obj\x86\Debug\ResolveAssemblyReference.cache
 P:\Code\WindowsGame1\Content\obj\x86\Debug\ResolveAssemblyReference.cache
 D:\Skola\Code\WindowsGame1\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Respositorium\pe22dh\Work copy\WindowsGame1\Content\obj\x86\Debug\ResolveAssemblyReference.cache

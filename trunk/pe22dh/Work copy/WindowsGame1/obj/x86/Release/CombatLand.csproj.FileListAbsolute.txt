@@ -50,3 +50,17 @@ P:\Grundläggande Spelprogrammering DT2370\Repositorium\pe22dh\Work copy\Windows
 P:\Grundläggande Spelprogrammering DT2370\Repositorium\pe22dh\Work copy\WindowsGame1\obj\x86\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
 P:\Grundläggande Spelprogrammering DT2370\Repositorium\pe22dh\Work copy\WindowsGame1\obj\x86\Release\WindowsGame1.exe
 P:\Grundläggande Spelprogrammering DT2370\Repositorium\pe22dh\Work copy\WindowsGame1\obj\x86\Release\WindowsGame1.pdb
+D:\Respositorium\pe22dh\Work copy\WindowsGame1\bin\x86\Release\Content\assets\sprites\Untitled.xnb
+D:\Respositorium\pe22dh\Work copy\WindowsGame1\bin\x86\Release\Content\assets\sprites\whiteTile.xnb
+D:\Respositorium\pe22dh\Work copy\WindowsGame1\bin\x86\Release\Content\assets\sprites\player.xnb
+D:\Respositorium\pe22dh\Work copy\WindowsGame1\bin\x86\Release\Content\assets\sprites\mainMenu.xnb
+D:\Respositorium\pe22dh\Work copy\WindowsGame1\bin\x86\Release\Content\assets\sprites\overlayGameOver.xnb
+D:\Respositorium\pe22dh\Work copy\WindowsGame1\bin\x86\Release\Content\assets\sprites\overlayWin.xnb
+D:\Respositorium\pe22dh\Work copy\WindowsGame1\bin\x86\Release\Content\assets\fonts\Courier New.xnb
+D:\Respositorium\pe22dh\Work copy\WindowsGame1\bin\x86\Release\WindowsGame1.exe
+D:\Respositorium\pe22dh\Work copy\WindowsGame1\bin\x86\Release\WindowsGame1.pdb
+D:\Respositorium\pe22dh\Work copy\WindowsGame1\obj\x86\Release\ResolveAssemblyReference.cache
+D:\Respositorium\pe22dh\Work copy\WindowsGame1\obj\x86\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
+D:\Respositorium\pe22dh\Work copy\WindowsGame1\obj\x86\Release\WindowsGame1.exe
+D:\Respositorium\pe22dh\Work copy\WindowsGame1\obj\x86\Release\WindowsGame1.pdb
+D:\Respositorium\pe22dh\Work copy\WindowsGame1\bin\x86\Release\Content\assets\sprites\crosshair.xnb

@@ -76,3 +76,17 @@ D:\Skola\Code\WindowsGame1\obj\x86\Debug\WindowsGame1.exe
 D:\Skola\Code\WindowsGame1\obj\x86\Debug\WindowsGame1.pdb
 D:\Skola\Code\WindowsGame1\bin\x86\Debug\Content\assets\sprites\overlayGameOver.xnb
 D:\Skola\Code\WindowsGame1\bin\x86\Debug\Content\assets\sprites\overlayWin.xnb
+D:\Respositorium\pe22dh\Work copy\WindowsGame1\bin\x86\Debug\Content\assets\sprites\Untitled.xnb
+D:\Respositorium\pe22dh\Work copy\WindowsGame1\bin\x86\Debug\Content\assets\sprites\whiteTile.xnb
+D:\Respositorium\pe22dh\Work copy\WindowsGame1\bin\x86\Debug\Content\assets\sprites\player.xnb
+D:\Respositorium\pe22dh\Work copy\WindowsGame1\bin\x86\Debug\Content\assets\sprites\mainMenu.xnb
+D:\Respositorium\pe22dh\Work copy\WindowsGame1\bin\x86\Debug\Content\assets\sprites\overlayGameOver.xnb
+D:\Respositorium\pe22dh\Work copy\WindowsGame1\bin\x86\Debug\Content\assets\sprites\overlayWin.xnb
+D:\Respositorium\pe22dh\Work copy\WindowsGame1\bin\x86\Debug\Content\assets\sprites\crosshair.xnb
+D:\Respositorium\pe22dh\Work copy\WindowsGame1\bin\x86\Debug\Content\assets\fonts\Courier New.xnb
+D:\Respositorium\pe22dh\Work copy\WindowsGame1\bin\x86\Debug\WindowsGame1.exe
+D:\Respositorium\pe22dh\Work copy\WindowsGame1\bin\x86\Debug\WindowsGame1.pdb
+D:\Respositorium\pe22dh\Work copy\WindowsGame1\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Respositorium\pe22dh\Work copy\WindowsGame1\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+D:\Respositorium\pe22dh\Work copy\WindowsGame1\obj\x86\Debug\WindowsGame1.exe
+D:\Respositorium\pe22dh\Work copy\WindowsGame1\obj\x86\Debug\WindowsGame1.pdb
