@@ -31,7 +31,7 @@ namespace Tower_Defense.View
             m_tower = a_content.Load<Texture2D>("images/Torn");
             m_circle = a_content.Load<Texture2D>("images/circle");
             m_particle = a_content.Load<Texture2D>("images/flame");
-            m_knight = a_content.Load<Texture2D>("images/tippingknight");
+            m_knight = a_content.Load<Texture2D>("images/normalknight128");
         }
     }
 }

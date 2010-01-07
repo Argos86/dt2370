@@ -43,7 +43,7 @@ namespace Tower_Defense.Controller
             {
                 a_game.Init(Tower_Defense.Model.Game.Difficulty.NONE);
                 a_game.m_IsOver = false;
-                m_core.DrawMouse();
+                
                 m_view.DrawWelcome();
                 View.IMGui.ButtonState state = m_gui.DoButton(m_core, "Easy", new Vector2(350, 350), true, false);
                 if (state == View.IMGui.ButtonState.MouseOverLBClicked)
@@ -86,10 +86,15 @@ namespace Tower_Defense.Controller
             if (gameState == GameState.PLAYING || gameState == GameState.PAUS)
             {
                 a_game.m_IsOver = false;
-                m_view.Draw(a_game, a_elapsedTime, scale, m_selectedTower, m_type);
+                float currentTime = a_elapsedTime;
+                if (gameState == GameState.PAUS)
+                {
+                    currentTime = 0.0f;
+                }
+                m_view.Draw(a_game, currentTime, scale, m_selectedTower, m_type);
                 ControlGamePlay(a_game, a_model, scale);
             }
-
+            m_core.DrawMouse();
             //Handle quit by esc or back button (XBOX)
             if (m_core.m_input.DoQuit())
             {

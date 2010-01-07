@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 
 namespace Tower_Defense.Model
 {
-    class Enemy
+    class Enemy : IComparable<Enemy>
     {
         public float m_hitPoints = 0;
         public float m_slowTimer = 0;
@@ -17,7 +17,7 @@ namespace Tower_Defense.Model
         public List<Vector2> m_path;
         public int m_targetCoord = 0;
         public int MaxHP = 0;
-
+        public int m_index = 0;
 
         public Vector2[] GetWayPoints(Game.Difficulty a_diff)
         {
@@ -80,6 +80,22 @@ namespace Tower_Defense.Model
             new Vector2(3,11),
             new Vector2(Model.Map.WIDTH,11)
         };
+
+        public int CompareTo(Enemy other)
+        {
+            if (m_pos.Y < other.m_pos.Y)
+            {
+                return -1;
+            }
+            else if (m_pos.Y > other.m_pos.Y)
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
 
         public enum Type
         {

@@ -19,7 +19,7 @@ namespace Tower_Defense.View
                 {
                     if (a_map.m_tiles[y, x].m_tileType == Model.Tile.TileType.Blocked)
                     {
-                        a_core.Draw(a_core.m_assets.m_blank, new Rectangle(x * a_scale - a_scale / 2, y * a_scale - a_scale / 2, a_scale, a_scale), src, Color.Brown);
+                        a_core.Draw(a_core.m_assets.m_blank, new Rectangle(x * a_scale - a_scale / 2, y * a_scale - a_scale / 2, a_scale, a_scale), src, Color.PaleGoldenrod);
                     }
                     else if (a_map.m_tiles[y, x].m_tileType == Model.Tile.TileType.Towerground)
                     {
