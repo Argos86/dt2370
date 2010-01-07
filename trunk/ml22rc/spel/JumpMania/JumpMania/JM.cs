@@ -53,7 +53,7 @@ namespace JumpMania
 
             Window.Title = "JumpMania";
 
-            m_game.Init();
+            m_game.LoadLevel(m_game.m_levelLoaded + 1);
 
             base.Initialize();
         }
@@ -94,13 +94,9 @@ namespace JumpMania
                 this.Exit();
 
             //_________________________Slutar uppdatera spelet om man nuddar golvet eller når Stora Stjärnan____________________________
-           if (m_game.m_over == false)
-            {
-                if (m_game.m_won == false)
-                {
+           
                      m_game.Update(gameTime);
-                }
-            }
+              
 
 
             // TODO: Add your update logic here
@@ -118,10 +114,7 @@ namespace JumpMania
 
             GraphicsDevice.Clear(Color.Black);
             //_________________________Slutar rita om man nuddar golvet eller når Stora Stjärnan____________________________
-            if (m_game.m_over == false)
-            {
-                if (m_game.m_won == false)
-                {
+           
                     m_gameview.Draw(gameTime, m_game);
 
 
@@ -143,8 +136,7 @@ namespace JumpMania
 
 
                     m_chview.End();*/
-                }
-            }
+             
 
             /*if (m_game.m_over == false)
             {
