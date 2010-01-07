@@ -21,12 +21,38 @@ namespace JumpMania.Model
         public Level m_level;
         public bool m_over = false;
         public bool m_won = false;
+        public int m_levelLoaded = 0;
 
-
-        public void Init()
+         // skickar med int beroende på bana
+        public void LoadLevel(int a_levelnumber)
         {
-            m_player = new JumpMania.Model.Player();
-            m_level = new JumpMania.Model.Level("1.txt");
+            switch(a_levelnumber)
+            {
+                case 1:
+                    {
+                        m_player = new JumpMania.Model.Player();
+                        m_level = new JumpMania.Model.Level("2.txt");
+                        m_levelLoaded = 1;
+                        break;
+                    }
+                case 2:
+                    {
+                        m_player = new JumpMania.Model.Player();
+                        m_level = new JumpMania.Model.Level("1.txt");
+                        m_levelLoaded = 2;
+                        break;
+                    }
+                case 3:
+                    {
+                        m_player = new JumpMania.Model.Player();
+                        m_level = new JumpMania.Model.Level("3.txt");
+                        m_levelLoaded = 3;
+                        break;
+                    }
+                default:
+                    Console.WriteLine("Default case"); // Bild: Du vann! Tjiho!
+                    break;
+            }
         }
 
         public void Update(GameTime theGameTime)
@@ -84,7 +110,7 @@ namespace JumpMania.Model
 
         public void IsGameOver()
         {
-            if (m_level.IsTouchingFloor(m_player.m_position, new Vector2(1, 1)) == false)
+            if (m_level.IsTouchingFloor(m_player.m_position, new Vector2(1, 1.5f)) == false)
             {
                 m_over = false;
             }

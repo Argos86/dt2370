@@ -26,6 +26,24 @@ namespace JumpMania.Controller
 
         public void Update(GameTime theGameTime, JumpMania.Model.Game a_game)
         {
+            if (a_game.m_won == true)
+            {
+                a_game.LoadLevel(a_game.m_levelLoaded + 1);
+            }
+            else if (a_game.m_over == true)
+            {
+                a_game.LoadLevel(1);
+            }
+            else
+            {
+
+
+                UpdateGameRunning(theGameTime, a_game);
+            }
+        }
+
+        private void UpdateGameRunning(GameTime theGameTime, JumpMania.Model.Game a_game)
+        {
             bs = 10.0f * (float)theGameTime.ElapsedGameTime.TotalSeconds;
 
             a_input.Update();
@@ -84,7 +102,7 @@ namespace JumpMania.Controller
             }
             if (a_input.IsRestarting() == true) // <-- Funkar ej om man har förlorat SDFJKLÅPOISDFGHJKLÖQWERTYUIOPFGHJKCVB  DFGHJK
             {
-                a_game.Init();
+                a_game.LoadLevel(1);
                 a_game.m_over = false;
                 a_game.m_won = false;
 

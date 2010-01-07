@@ -6,3 +6,7 @@ Content\images\giantstar.xnb
 Content\images\evert.xnb
 Content\images\flame.xnb
 Content\Levels\1.txt
+Content\Levels\2.txt
+Content\Levels\3.txt
+Content\Levels\4.txt
+Content\Levels\5.txt
