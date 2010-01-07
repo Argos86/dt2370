@@ -224,6 +224,7 @@ namespace Tower_Defense.Model
                 else
                 {
                     dir.Normalize();
+                    c.m_oldPos = c.m_pos;
                     c.m_pos += dir * c.GetSpeed() * a_gameTime;
                 }
             }

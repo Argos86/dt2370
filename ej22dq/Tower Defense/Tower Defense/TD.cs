@@ -93,7 +93,7 @@ namespace Tower_Defense
 
             
             //Main controller
-            GraphicsDevice.Clear(Color.DarkGreen);
+            GraphicsDevice.Clear(Color.Black);
             m_coreView.Begin(SpriteBlendMode.AlphaBlend);
             
             if (m_playGameController.DoControl(m_game, elapsedTime, m_game) == false)

@@ -26,3 +26,4 @@ P:\Skolarbete\Grundläggande spelprogrammering\ej22dq\Tower Defense\Tower Defens
 P:\Skolarbete\Grundläggande spelprogrammering\ej22dq\Tower Defense\Tower Defense\bin\x86\Release\Content\Images\circle.xnb
 P:\Skolarbete\Grundläggande spelprogrammering\ej22dq\Tower Defense\Tower Defense\bin\x86\Release\Content\Images\flame.xnb
 P:\Skolarbete\Grundläggande spelprogrammering\ej22dq\Tower Defense\Tower Defense\bin\x86\Release\Content\Images\tippingknight.xnb
+P:\Skolarbete\Grundläggande spelprogrammering\ej22dq\Tower Defense\Tower Defense\bin\x86\Release\Content\Images\normalknight128.xnb

@@ -15,7 +15,7 @@ namespace Tower_Defense.View
 
             // nya pos - gamla för att få riktning, stega igenom en sprite för animationer. olika per typ, riktning på gubben, timer för animationen.
 
-            DrawCharacter(a_core, a_character, a_scale, new Rectangle(51, 68, 20, 20), a_id, a_elapsedTime);
+            DrawCharacter(a_core, a_character, a_scale, a_id, a_elapsedTime);
 
         }
 
@@ -57,86 +57,124 @@ namespace Tower_Defense.View
         }
 
        
-        private void DrawCharacter(Core a_core, Model.Enemy a_character, int a_scale, Rectangle a_src, int a_enemyIndex, float a_elapsedTime)
+        private void DrawCharacter(Core a_core, Model.Enemy a_character, int a_scale, int a_enemyIndex, float a_elapsedTime)
         {
+
+            Texture2D sprite = a_core.m_assets.m_knight;
+            switch (a_character.CurrentType)
+            {
+                case Model.Enemy.Type.Normal: sprite = a_core.m_assets.m_knight; break;
+                case Model.Enemy.Type.Earth: sprite = a_core.m_assets.m_knight; break;
+                case Model.Enemy.Type.Fire: sprite = a_core.m_assets.m_knight; break;
+                case Model.Enemy.Type.Water: sprite = a_core.m_assets.m_knight; break;
+                case Model.Enemy.Type.Wind: sprite = a_core.m_assets.m_knight; break;
+                case Model.Enemy.Type.Undead: sprite = a_core.m_assets.m_knight; break;
+            }
+
+            int size = 128;
+            switch (a_character.CurrentType)
+            {
+                case Model.Enemy.Type.Normal: size = 128; break;
+                case Model.Enemy.Type.Earth: size = 128; break;
+                case Model.Enemy.Type.Fire: size = 128; break;
+                case Model.Enemy.Type.Water: size = 128; break;
+                case Model.Enemy.Type.Wind: size = 128; break;
+                case Model.Enemy.Type.Undead: size = 128; break;
+            }
+            Vector2 pos = a_character.m_pos;//time * a_character.m_pos + (1.0f - time) * a_character.m_oldPos;
+            pos = pos * a_scale - new Vector2(a_scale , a_scale );
+            Rectangle dest = new Rectangle((int)pos.X, (int)pos.Y, a_scale * 2, a_scale * 2);
+
             if (a_character.IsAlive())
             {
                 //float time = 2.0f * (0.5f - a_character.m_timer);
 
-
-                Vector2 pos = a_character.m_pos;//time * a_character.m_pos + (1.0f - time) * a_character.m_oldPos;
-
-
-                pos = pos * a_scale - new Vector2(a_scale / 2, a_scale / 2);
-
-
-                Rectangle dest = new Rectangle((int)pos.X, (int)pos.Y, a_scale, a_scale);
+                
                 Color color = Color.White;
+                
 
-                switch (a_character.CurrentType)
+                Vector2 dir = a_character.m_pos - a_character.m_oldPos;
+                int ycoord = 0;
+                if (dir.X*dir.X > dir.Y*dir.Y)
                 {
-                    case Model.Enemy.Type.Normal: color = Color.White; break;
-                    case Model.Enemy.Type.Earth: color = Color.Brown; break;
-                    case Model.Enemy.Type.Fire: color = Color.Red; break;
-                    case Model.Enemy.Type.Water: color = Color.Blue; break;
-                    case Model.Enemy.Type.Wind: color = Color.Green; break;
-                    case Model.Enemy.Type.Undead: color = Color.Gray; break;
+                    if(dir.X>0)
+                    {
+                        //höger
+                        ycoord = 1 * size;
+                    }
+                    else 
+                    {
+                        ycoord = 4 * size;
+                    }
                 }
-
-                //dir = newpos - oldpos;
-
-                /*if (dir.X*dir.X > dir.Y*dir.Y)
-                 * {
-                 * if(dir.X>0)
-                 * {
-                 * höger
-                 * }
-                 * else(dir.X<0)
-                 * {
-                 * vänster
-                 * }
-                 * }
-                 * else 
-                 * {
-                 * if (dir.Y>0)
-                 * {
-                 * neråt
-                 * }
-                 * else (dir.Y<0)
-                 * {
-                 * uppåt
-                 * }
-                 * }*/
+                else 
+                {
+                    if (dir.Y>0)
+                    {
+                        //neråt
+                        ycoord = 3 * size;
+                    }
+                    else 
+                    {
+                        //uppåt
+                        ycoord = 2 * size;
+                    }
+                }
+                float framenumber = 12.0f;
+                m_animationTimer[a_enemyIndex] += a_elapsedTime;
 
 
-                a_core.Draw(a_core.m_assets.m_texture, dest, a_src, color);
+                int yFrame = ((int)(m_animationTimer[a_enemyIndex] * framenumber + (float)a_enemyIndex * 1.5f)) % (int)framenumber;
+
+                
+                Rectangle source = new Rectangle(yFrame * size, ycoord, size, size);
+
+                a_core.Draw(sprite, dest, source, color);
             }
             else
             {
 
-                m_deathTimers[a_enemyIndex] += a_elapsedTime;
+                m_animationTimer[a_enemyIndex] += a_elapsedTime;
 
-                if (m_deathTimers[a_enemyIndex] < 1.0f)
+                if (m_animationTimer[a_enemyIndex] < 1.0f)
                 {
-                    Vector2 pos = a_character.m_pos;//time * a_character.m_pos + (1.0f - time) * a_character.m_oldPos;
-
-
-                    pos = pos * a_scale - new Vector2(a_scale / 2, a_scale / 2);
-                    Rectangle dest = new Rectangle((int)pos.X, (int)pos.Y, a_scale, a_scale);
+                    
+                    
 
 
 
-                    int xFrame = (int)(m_deathTimers[a_enemyIndex] * 13.0f);
+                    float framedeath = 13.0f;
+                    switch (a_character.CurrentType)
+                    {
+                        case Model.Enemy.Type.Normal: framedeath = 13.0f; break;
+                        case Model.Enemy.Type.Earth: framedeath = 13.0f; break;
+                        case Model.Enemy.Type.Fire: framedeath = 13.0f; break;
+                        case Model.Enemy.Type.Water: framedeath = 13.0f; break;
+                        case Model.Enemy.Type.Wind: framedeath = 13.0f; break;
+                        case Model.Enemy.Type.Undead: framedeath = 13.0f; break;
+                    }
+  
+
+                    int xFrame = (int)(m_animationTimer[a_enemyIndex] * framedeath);
 
 
-                    Rectangle source = new Rectangle(xFrame * 128, 0, 128, 128);
-                    //draw tipping knight
-                    a_core.Draw(a_core.m_assets.m_knight, dest, source, Color.White);
+                    Rectangle source = new Rectangle(xFrame * size, 0, size, size);
+                    //draw dying knight
+                    
+                    a_core.Draw(sprite, dest, source, Color.White);
                 }
             }
         }
 
-        public float[] m_deathTimers = new float[Model.Game.MAX_ENEMIES];
+        public float[] m_animationTimer = new float[Model.Game.MAX_ENEMIES];
+
+        public CharacterView()
+        {
+            for (int i = 0; i < Model.Game.MAX_ENEMIES; i++)
+            {
+                m_animationTimer[i] = 10.0f;
+            }
+        }
 
 
 

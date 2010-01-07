@@ -55,7 +55,7 @@ namespace Tower_Defense.View
 
         public void KilledEnemy(int a_index)
         {
-            m_characterView.m_deathTimers[a_index] = 0.0f;
+            m_characterView.m_animationTimer[a_index] = 0.0f;
 
         }
 
@@ -109,15 +109,10 @@ namespace Tower_Defense.View
 
             for (int i = 0; i < Model.Game.MAX_ENEMIES; i++)
             {
-                m_characterView.DrawEnemy(m_core, a_game.m_enemies[i], a_elapsedTime, i, scale);
-            }
-
-            for (int i = 0; i < Model.Game.MAX_ENEMIES; i++)
-            {
                 m_characterView.DrawHP(m_core, a_game.m_enemies[i].m_pos, a_scale, a_game.m_enemies[i].m_hitPoints, a_game.m_enemies[i].GetMaxHP()); 
             }
 
-
+            DrawAllEnemies(a_game, a_scale, a_elapsedTime);
 
             DrawAllTowers(a_game, scale, a_type);
             m_level.DrawMenu(m_core);
@@ -156,7 +151,7 @@ namespace Tower_Defense.View
                 m_core.DrawText("Enemies Alive: " + enemiesAlive.ToString(), m_core.m_fonts.m_baseFont, new Vector2(200, 40), Color.Red);
                 m_core.DrawText("Enemy Type: " + enemyType, m_core.m_fonts.m_baseFont, new Vector2(200, 65), Color.Red);
                 m_core.DrawText("Current Wave: " + currentWave, m_core.m_fonts.m_baseFont, new Vector2(400, 15), Color.Red);
-                m_core.DrawParticle();
+                //m_core.DrawParticle();
             }
 
 
@@ -213,5 +208,26 @@ namespace Tower_Defense.View
             }
         }
 
+        private void DrawAllEnemies(Tower_Defense.Model.Game a_game, int scale, float a_elapsedTime)
+        {
+            List<Model.Enemy> enemyList = new List<Tower_Defense.Model.Enemy>();
+            for (int i = 0; i < Model.Game.MAX_ENEMIES; i++)
+            {
+                if (a_game.m_enemies[i] != null)
+                {
+                    a_game.m_enemies[i].m_index = i;
+                    enemyList.Add(a_game.m_enemies[i]);
+                }
+            }
+
+
+
+            enemyList.Sort();
+
+            foreach (Model.Enemy t in enemyList)
+            {
+                m_characterView.DrawEnemy(m_core, t, a_elapsedTime, t.m_index, scale);
+            }
+        }
     }
 }

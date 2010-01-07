@@ -10,3 +10,4 @@ Content\Images\circle.xnb
 Content\Images\flame.xnb
 Content\Images\tippingknight.xnb
 Content\Kootenay.xnb
+Content\Images\normalknight128.xnb
