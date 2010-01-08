@@ -21,7 +21,15 @@ namespace Tower_Defense.Model
 
         public Vector2[] GetWayPoints(Game.Difficulty a_diff)
         {
-            return m_easyWaypoints;
+            Vector2[] m_diff = m_easyWaypoints;
+
+            switch (a_diff)
+            {
+                case Game.Difficulty.EASY: m_diff = m_easyWaypoints; break;
+                case Game.Difficulty.MEDIUM: m_diff = m_mediumWaypoints; break;
+                case Game.Difficulty.HARD: m_diff = m_hardWaypoints; break;
+            }
+            return m_diff;
         }
         public Vector2[] m_easyWaypoints =
         {

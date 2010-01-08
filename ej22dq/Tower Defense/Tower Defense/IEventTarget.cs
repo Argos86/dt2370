@@ -8,7 +8,7 @@ namespace Tower_Defense
 {
     interface IEventTarget
     {
-        void Attack(Vector2 a_from, Vector2 a_to);
+        void Attack(Vector2 a_from, Vector2 a_to, Model.Tower.Type a_type);
         void KilledEnemy(int a_index);
     }
 

@@ -22,9 +22,9 @@ namespace Tower_Defense.Controller
         }
 
 
-        public void Attack(Vector2 a_from, Vector2 a_to)
+        public void Attack(Vector2 a_from, Vector2 a_to, Model.Tower.Type a_type)
         {
-            m_view.Attack(a_from, a_to);
+            m_view.Attack(a_from, a_to, a_type);
 
         }
 

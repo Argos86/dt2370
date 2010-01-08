@@ -118,6 +118,60 @@
       <Output>P:\Skolarbete\Grundläggande spelprogrammering\ej22dq\Tower Defense\Tower Defense\bin\x86\Release\Content\Images\normalknight128.xnb</Output>
       <Time>2010-01-07T13:08:47.1646347+01:00</Time>
     </Item>
+    <Item>
+      <Source>Images\airdragon128.tga</Source>
+      <Name>Images\airdragon128</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>P:\Skolarbete\Grundläggande spelprogrammering\ej22dq\Tower Defense\Tower Defense\bin\x86\Release\Content\Images\airdragon128.xnb</Output>
+      <Time>2010-01-08T12:59:24.4570788+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\earthmushroom.tga</Source>
+      <Name>Images\earthmushroom</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>P:\Skolarbete\Grundläggande spelprogrammering\ej22dq\Tower Defense\Tower Defense\bin\x86\Release\Content\Images\earthmushroom.xnb</Output>
+      <Time>2010-01-08T12:59:30.4317639+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\firedevil96.tga</Source>
+      <Name>Images\firedevil96</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>P:\Skolarbete\Grundläggande spelprogrammering\ej22dq\Tower Defense\Tower Defense\bin\x86\Release\Content\Images\firedevil96.xnb</Output>
+      <Time>2010-01-08T12:59:37.498428+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\icegolem96.tga</Source>
+      <Name>Images\icegolem96</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>P:\Skolarbete\Grundläggande spelprogrammering\ej22dq\Tower Defense\Tower Defense\bin\x86\Release\Content\Images\icegolem96.xnb</Output>
+      <Time>2010-01-08T12:59:42.7867263+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\undeadskeleton.tga</Source>
+      <Name>Images\undeadskeleton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>P:\Skolarbete\Grundläggande spelprogrammering\ej22dq\Tower Defense\Tower Defense\bin\x86\Release\Content\Images\undeadskeleton.xnb</Output>
+      <Time>2010-01-08T12:59:52.8953319+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\magicattackyellow.tga</Source>
+      <Name>Images\magicattackyellow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>P:\Skolarbete\Grundläggande spelprogrammering\ej22dq\Tower Defense\Tower Defense\bin\x86\Release\Content\Images\magicattackyellow.xnb</Output>
+      <Time>2010-01-08T13:31:38.303399+01:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

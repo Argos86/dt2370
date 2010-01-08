@@ -34,10 +34,10 @@ namespace Tower_Defense.View
             m_level = new View.LevelView();
         }
 
-        public void Attack(Vector2 a_from, Vector2 a_to)
+        public void Attack(Vector2 a_from, Vector2 a_to, Model.Tower.Type a_type)
         {
                 //m_core.m_sounds.m_fireGun.Play(0.1f, 0.0f, 0.0f);
-                m_effects.AddShot(a_from, a_to);
+                m_effects.AddShot(a_from, a_to, a_type);
         }
 
 
@@ -103,7 +103,7 @@ namespace Tower_Defense.View
                 DrawRange(a_scale, t);
             }
 
-            m_effects.Update(a_elapsedTime, m_core, scale);
+            
 
            
 
@@ -146,7 +146,7 @@ namespace Tower_Defense.View
                         currentWave++;
                     }
                 }
-                
+                m_effects.Update(a_elapsedTime, m_core, scale);
                 m_core.DrawText("Hitpoints: " + a_game.hitpoints.ToString(), m_core.m_fonts.m_baseFont, new Vector2(200, 15), Color.Red);
                 m_core.DrawText("Enemies Alive: " + enemiesAlive.ToString(), m_core.m_fonts.m_baseFont, new Vector2(200, 40), Color.Red);
                 m_core.DrawText("Enemy Type: " + enemyType, m_core.m_fonts.m_baseFont, new Vector2(200, 65), Color.Red);
