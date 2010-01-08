@@ -64,6 +64,15 @@
       <Output>P:\spelprojekt\ml22rc\spel\JumpMania\JumpMania\bin\x86\Debug\Content\images\flame.xnb</Output>
       <Time>2009-12-14T14:12:49.6443794+01:00</Time>
     </Item>
+    <Item>
+      <Source>images\background1.png</Source>
+      <Name>images\background1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>P:\spelprojekt\ml22rc\spel\JumpMania\JumpMania\bin\x86\Debug\Content\images\background1.xnb</Output>
+      <Time>2010-01-08T09:35:02.61035+01:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

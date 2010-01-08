@@ -23,3 +23,4 @@ P:\spelprojekt\ml22rc\spel\JumpMania\JumpMania\bin\x86\Debug\Content\Levels\2.tx
 P:\spelprojekt\ml22rc\spel\JumpMania\JumpMania\bin\x86\Debug\Content\Levels\3.txt
 P:\spelprojekt\ml22rc\spel\JumpMania\JumpMania\bin\x86\Debug\Content\Levels\4.txt
 P:\spelprojekt\ml22rc\spel\JumpMania\JumpMania\bin\x86\Debug\Content\Levels\5.txt
+P:\spelprojekt\ml22rc\spel\JumpMania\JumpMania\bin\x86\Debug\Content\images\background1.xnb
