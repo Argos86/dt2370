@@ -64,22 +64,22 @@ namespace Tower_Defense.View
             switch (a_character.CurrentType)
             {
                 case Model.Enemy.Type.Normal: sprite = a_core.m_assets.m_knight; break;
-                case Model.Enemy.Type.Earth: sprite = a_core.m_assets.m_knight; break;
-                case Model.Enemy.Type.Fire: sprite = a_core.m_assets.m_knight; break;
-                case Model.Enemy.Type.Water: sprite = a_core.m_assets.m_knight; break;
-                case Model.Enemy.Type.Wind: sprite = a_core.m_assets.m_knight; break;
-                case Model.Enemy.Type.Undead: sprite = a_core.m_assets.m_knight; break;
+                case Model.Enemy.Type.Earth: sprite = a_core.m_assets.m_mushroom; break;
+                case Model.Enemy.Type.Fire: sprite = a_core.m_assets.m_devil; break;
+                case Model.Enemy.Type.Water: sprite = a_core.m_assets.m_golem; break;
+                case Model.Enemy.Type.Wind: sprite = a_core.m_assets.m_dragon; break;
+                case Model.Enemy.Type.Undead: sprite = a_core.m_assets.m_skeleton; break;
             }
 
             int size = 128;
             switch (a_character.CurrentType)
             {
                 case Model.Enemy.Type.Normal: size = 128; break;
-                case Model.Enemy.Type.Earth: size = 128; break;
-                case Model.Enemy.Type.Fire: size = 128; break;
-                case Model.Enemy.Type.Water: size = 128; break;
+                case Model.Enemy.Type.Earth: size = 96; break;
+                case Model.Enemy.Type.Fire: size = 96; break;
+                case Model.Enemy.Type.Water: size = 96; break;
                 case Model.Enemy.Type.Wind: size = 128; break;
-                case Model.Enemy.Type.Undead: size = 128; break;
+                case Model.Enemy.Type.Undead: size = 96; break;
             }
             Vector2 pos = a_character.m_pos;//time * a_character.m_pos + (1.0f - time) * a_character.m_oldPos;
             pos = pos * a_scale - new Vector2(a_scale , a_scale );
@@ -121,6 +121,15 @@ namespace Tower_Defense.View
                     }
                 }
                 float framenumber = 12.0f;
+                switch (a_character.CurrentType)
+                {
+                    case Model.Enemy.Type.Normal: framenumber = 12.0f; break;
+                    case Model.Enemy.Type.Earth: framenumber = 8.0f; break;
+                    case Model.Enemy.Type.Fire: framenumber = 8.0f; break;
+                    case Model.Enemy.Type.Water: framenumber = 8.0f; break;
+                    case Model.Enemy.Type.Wind: framenumber = 8.0f; break;
+                    case Model.Enemy.Type.Undead: framenumber = 8.0f; break;
+                }
                 m_animationTimer[a_enemyIndex] += a_elapsedTime;
 
 
@@ -138,20 +147,16 @@ namespace Tower_Defense.View
 
                 if (m_animationTimer[a_enemyIndex] < 1.0f)
                 {
-                    
-                    
-
-
 
                     float framedeath = 13.0f;
                     switch (a_character.CurrentType)
                     {
                         case Model.Enemy.Type.Normal: framedeath = 13.0f; break;
-                        case Model.Enemy.Type.Earth: framedeath = 13.0f; break;
-                        case Model.Enemy.Type.Fire: framedeath = 13.0f; break;
-                        case Model.Enemy.Type.Water: framedeath = 13.0f; break;
-                        case Model.Enemy.Type.Wind: framedeath = 13.0f; break;
-                        case Model.Enemy.Type.Undead: framedeath = 13.0f; break;
+                        case Model.Enemy.Type.Earth: framedeath = 7.0f; break;
+                        case Model.Enemy.Type.Fire: framedeath = 12.0f; break;
+                        case Model.Enemy.Type.Water: framedeath = 10.0f; break;
+                        case Model.Enemy.Type.Wind: framedeath = 8.0f; break;
+                        case Model.Enemy.Type.Undead: framedeath = 9.0f; break;
                     }
   
 

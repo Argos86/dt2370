@@ -18,7 +18,7 @@ namespace Tower_Defense.Model
         public bool m_IsOver = false;
         public const int MAX_ENEMIES = 50;
         public const int MAX_TOWERS = 20000;
-        public const int MAX_WAVES = 1;
+        public const int MAX_WAVES = 20;
 
         public int m_cash = 0;
 
@@ -78,6 +78,7 @@ namespace Tower_Defense.Model
 
         public void Init(Difficulty a_diff)
         {
+            m_difficulty = a_diff;
             m_IsStarted = true;
             m_map = new Map(m_difficulty);
             hitpoints = 20;
@@ -442,7 +443,7 @@ namespace Tower_Defense.Model
                 }
             }
             
-            m_view.Attack(a_tower.m_pos, a_target.m_pos);
+            m_view.Attack(a_tower.m_pos, a_target.m_pos, a_tower.CurrentType);
         }
 
 

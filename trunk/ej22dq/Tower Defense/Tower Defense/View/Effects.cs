@@ -21,12 +21,14 @@ namespace Tower_Defense.View
                 TypeGunFire
             };
             public EffectType m_type;
+            public Model.Tower.Type m_towerType;
         }
+        float m_magicattacktimer = 0.0f;
 
         Effect[] m_effects;
 
         private const int MAX_EFFECTS = 50000;
-        private const float GUN_TIME = 0.5f;
+        private const float GUN_TIME = 2.5f;
 
         public Effects()
         {
@@ -47,11 +49,11 @@ namespace Tower_Defense.View
             m_effects[index].m_type = Effect.EffectType.TypeSplat;
         }
 
-        public void AddShot(Vector2 a_from, Vector2 a_to)
+        public void AddShot(Vector2 a_from, Vector2 a_to, Model.Tower.Type a_type)
         {
             int index = GetOldestEffect();
-
-            m_effects[index].m_from = a_from;
+            m_effects[index].m_towerType = a_type;
+            m_effects[index].m_from = a_from + new Vector2(0,-0.5f);
             m_effects[index].m_to = a_to;
             m_effects[index].m_timer = GUN_TIME;
             m_effects[index].m_type = Effect.EffectType.TypeGunFire;
@@ -75,6 +77,7 @@ namespace Tower_Defense.View
 
         public void Update(float a_elapsedTime, Core a_core, int a_scale)
         {
+            m_magicattacktimer += a_elapsedTime;
             for (int i = 0; i < MAX_EFFECTS; i++)
             {
                 m_effects[i].m_timer -= a_elapsedTime;
@@ -97,7 +100,7 @@ namespace Tower_Defense.View
                 Vector2 dir = a_effect.m_to - a_effect.m_from;
                 float len = dir.Length();
 
-                float timeTotal = len / 100.0f; //100 / sec
+                float timeTotal = len / 20.0f; //100 / sec
                 float timeElapsed = GUN_TIME - a_effect.m_timer;
                 float at = timeElapsed / timeTotal;
 
@@ -108,13 +111,34 @@ namespace Tower_Defense.View
                 {
                     pos = a_effect.m_to;
                 }
+                else
+                {
+                    Vector2 attackDir = a_effect.m_to - a_effect.m_from;
+                    float rot = (float)Math.Atan2(attackDir.Y, attackDir.X);
+
+                    Color color = Color.White;
+                    Byte c = 128;
+                    switch (a_effect.m_towerType)
+                    {
+                        case Model.Tower.Type.Normal: color = Color.White; break;
+                        case Model.Tower.Type.Earth: color = Color.Brown; break;
+                        case Model.Tower.Type.Fire: color = Color.Red; break;
+                        case Model.Tower.Type.Water: color = new Color(c, c, 255); break;
+                        case Model.Tower.Type.Wind: color = Color.Green; break;
+                        case Model.Tower.Type.Undead: color = Color.Gray; break;
+                    }
+
+                    float frameanimation = 21.0f;
+                    float fps = 24.0f;
+                    
+                    int xFrame = (int)(m_magicattacktimer * fps)% (int)frameanimation;
+
+                    Rectangle src = new Rectangle(xFrame * 64, 0, 64, 64);
+                    
+                    Vector2 attackPos = new Vector2(pos.X * a_scale, pos.Y * a_scale - a_scale / 2);
+                    a_core.DrawMagicAttack(a_core.m_assets.m_magicattack, attackPos, src, color, rot);
+                }
             }
-
-            Color color = new Color(255, 255, 255);
-            Rectangle src = new Rectangle(74, 12, 10, 10);
-            Rectangle dest = new Rectangle((int)(pos.X * a_scale - a_scale / 2), (int)(pos.Y * a_scale - a_scale / 2), (int)a_scale, (int)a_scale);
-
-            a_core.Draw(a_core.m_assets.m_texture, dest, src, color);
         }
     }
 }

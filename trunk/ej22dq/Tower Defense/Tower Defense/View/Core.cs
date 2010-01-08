@@ -69,6 +69,11 @@ namespace Tower_Defense.View
             m_spriteBatch.Draw(a_texture, a_dest, a_source, a_color);
         }
 
+        public void DrawMagicAttack(Texture2D a_texture, Vector2 a_centerpos, Rectangle a_source, Color a_color, float a_rotation)
+        {
+            m_spriteBatch.Draw(a_texture, a_centerpos, a_source, a_color, a_rotation, new Vector2(32,32), new Vector2(1,1), SpriteEffects.None, 0);
+        }
+
         public void DrawText(string a_text, SpriteFont a_font, Vector2 a_pos, Color a_color)
         {
             m_spriteBatch.DrawString(a_font, a_text, a_pos, a_color);

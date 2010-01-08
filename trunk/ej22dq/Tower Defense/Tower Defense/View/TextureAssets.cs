@@ -19,6 +19,12 @@ namespace Tower_Defense.View
         public Texture2D m_circle;
         public Texture2D m_particle;
         public Texture2D m_knight;
+        public Texture2D m_dragon;
+        public Texture2D m_mushroom;
+        public Texture2D m_devil;
+        public Texture2D m_skeleton;
+        public Texture2D m_golem;
+        public Texture2D m_magicattack;
 
         public void LoadContent(ContentManager a_content)
         {
@@ -32,6 +38,12 @@ namespace Tower_Defense.View
             m_circle = a_content.Load<Texture2D>("images/circle");
             m_particle = a_content.Load<Texture2D>("images/flame");
             m_knight = a_content.Load<Texture2D>("images/normalknight128");
+            m_dragon = a_content.Load<Texture2D>("images/airdragon128");
+            m_mushroom = a_content.Load<Texture2D>("images/earthmushroom");
+            m_devil = a_content.Load<Texture2D>("images/firedevil96");
+            m_skeleton = a_content.Load<Texture2D>("images/undeadskeleton");
+            m_golem = a_content.Load<Texture2D>("images/icegolem96");
+            m_magicattack = a_content.Load<Texture2D>("images/magicattackyellow");
         }
     }
 }
