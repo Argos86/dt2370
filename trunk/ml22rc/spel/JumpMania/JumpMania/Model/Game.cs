@@ -38,14 +38,28 @@ namespace JumpMania.Model
                 case 2:
                     {
                         m_player = new JumpMania.Model.Player();
-                        m_level = new JumpMania.Model.Level("1.txt");
+                        m_level = new JumpMania.Model.Level("3.txt");
                         m_levelLoaded = 2;
                         break;
                     }
                 case 3:
                     {
                         m_player = new JumpMania.Model.Player();
-                        m_level = new JumpMania.Model.Level("3.txt");
+                        m_level = new JumpMania.Model.Level("1.txt");
+                        m_levelLoaded = 3;
+                        break;
+                    }
+                case 4:
+                    {
+                        m_player = new JumpMania.Model.Player();
+                        m_level = new JumpMania.Model.Level("4.txt");
+                        m_levelLoaded = 3;
+                        break;
+                    }
+                case 5:
+                    {
+                        m_player = new JumpMania.Model.Player();
+                        m_level = new JumpMania.Model.Level("5.txt");
                         m_levelLoaded = 3;
                         break;
                     }

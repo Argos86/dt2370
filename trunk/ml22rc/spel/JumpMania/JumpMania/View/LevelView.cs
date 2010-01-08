@@ -34,7 +34,7 @@ namespace JumpMania.View
         {
           /*  int scale = a_core.m_graphics.GraphicsDevice.Viewport.Width / Model.Level.WIDTH;
             int camY = 256;*/
-
+            a_core.Draw(a_core.m_assets.m_backgroundtexture, new Vector2(a_camera.m_scale, (-100 - a_camera.camY)), new Vector2(a_camera.m_scale * 18, a_camera.m_scale * 90), new Rectangle(0, 0, 900, 4500), Color.White);
 
             for (int x = 0; x < Model.Level.WIDTH; x++)
             {
@@ -52,6 +52,7 @@ namespace JumpMania.View
                     {
                         a_core.DrawRectangle(a_core.m_assets.m_giantstartexture, new Vector2(x * a_camera.m_scale, y * a_camera.m_scale - a_camera.camY), new Rectangle(0, 0, 1, 1), a_camera.m_scale, Color.White);
                     } 
+                    
                 }
             }
 
