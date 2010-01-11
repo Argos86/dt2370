@@ -83,7 +83,7 @@ namespace Tower_Defense.View
             }
             Vector2 pos = a_character.m_pos;//time * a_character.m_pos + (1.0f - time) * a_character.m_oldPos;
             pos = pos * a_scale - new Vector2(a_scale , a_scale );
-            Rectangle dest = new Rectangle((int)pos.X, (int)pos.Y, a_scale * 2, a_scale * 2);
+            Rectangle dest = new Rectangle((int)pos.X, (int)pos.Y - a_scale / 2, a_scale * 2, a_scale * 2);
 
             if (a_character.IsAlive())
             {

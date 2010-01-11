@@ -122,7 +122,7 @@ namespace Tower_Defense.View
                 //int civiliansAlive = 0;
                 int enemiesAlive = 0;
                 int currentWave = 0;
-                string enemyType = "Waiting For Next Wave";
+                string enemyType = "Waiting";
 
 
 
@@ -147,10 +147,10 @@ namespace Tower_Defense.View
                     }
                 }
                 m_effects.Update(a_elapsedTime, m_core, scale);
-                m_core.DrawText("Hitpoints: " + a_game.hitpoints.ToString(), m_core.m_fonts.m_baseFont, new Vector2(200, 15), Color.Red);
-                m_core.DrawText("Enemies Alive: " + enemiesAlive.ToString(), m_core.m_fonts.m_baseFont, new Vector2(200, 40), Color.Red);
-                m_core.DrawText("Enemy Type: " + enemyType, m_core.m_fonts.m_baseFont, new Vector2(200, 65), Color.Red);
-                m_core.DrawText("Current Wave: " + currentWave, m_core.m_fonts.m_baseFont, new Vector2(400, 15), Color.Red);
+                m_core.DrawText("Hitpoints: " + a_game.hitpoints.ToString(), m_core.m_fonts.m_baseFont, new Vector2(30, 760), Color.Red);
+                m_core.DrawText("Enemies Alive: " + enemiesAlive.ToString(), m_core.m_fonts.m_baseFont, new Vector2(180, 760), Color.Red);
+                m_core.DrawText("Enemy Type: " + enemyType, m_core.m_fonts.m_baseFont, new Vector2(600, 760), Color.Red);
+                m_core.DrawText("Current Wave: " + currentWave, m_core.m_fonts.m_baseFont, new Vector2(390, 760), Color.Red);
                 //m_core.DrawParticle();
             }
 
