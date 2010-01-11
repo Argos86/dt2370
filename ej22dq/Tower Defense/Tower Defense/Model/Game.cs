@@ -112,23 +112,46 @@ namespace Tower_Defense.Model
 
         public void ActivateWave(ref Wave a_wave)
         {
+            int m_startpos = 9;
             m_cash += 50 * (a_wave.m_index);
             a_wave.m_isActive = false;
             Random r = new Random();
             int type = r.Next() % ((int)Enemy.Type.Max);
             for (int i = 0; i < a_wave.m_amount; i++)
             {
-                AddEnemy(new Vector2(-2 * i, 9), a_wave.m_index, (Model.Enemy.Type)type);
+
+                int numPaths = Enemy.GetWayPoints(m_difficulty).GetLength(0);
+                int m_path = i % numPaths;
+                switch (m_difficulty)
+                {
+                    case Game.Difficulty.EASY: m_startpos = 9; break;
+                    case Game.Difficulty.MEDIUM:
+                        switch (m_path)
+                        {
+                            case 0: m_startpos = 3; break;
+                            case 1: m_startpos = 16; break;
+                        } break;
+                    case Game.Difficulty.HARD:
+                        switch (m_path)
+                        {
+                            case 0: m_startpos = 1; break;
+                            case 1: m_startpos = 6; break; 
+                            case 2: m_startpos = 13; break;
+                            case 3: m_startpos = 18; break;
+                        } break;
+                }
+
+                AddEnemy(new Vector2(-2 * i, m_startpos), a_wave.m_index, (Model.Enemy.Type)type, m_path);
             }
         }
 
-        private int AddEnemy(Vector2 a_pos, int a_wave, Model.Enemy.Type a_type)
+        private int AddEnemy(Vector2 a_pos, int a_wave, Model.Enemy.Type a_type, int a_pathIndex)
         {
             
             int enemy = GetDeadest(MAX_ENEMIES, m_enemies);
             if (enemy != -1)
             {
-                m_enemies[enemy] = new Enemy(a_pos, a_wave, a_type);
+                m_enemies[enemy] = new Enemy(a_pos, a_wave, a_type, a_pathIndex);
             }
             return enemy;
         }
@@ -206,17 +229,17 @@ namespace Tower_Defense.Model
                 }
 
 
-                Vector2 dir = c.GetWayPoints(m_difficulty)[c.m_targetCoord] - c.m_pos;
+                Vector2 dir = Enemy.GetWayPoints(m_difficulty)[c.m_pathIndex, c.m_targetCoord] - c.m_pos;
 
                 float len = dir.Length();
 
 
                 if (len <= c.GetSpeed() * a_gameTime)
                 {
-                    c.m_pos = c.GetWayPoints(m_difficulty)[c.m_targetCoord];
+                    c.m_pos = Enemy.GetWayPoints(m_difficulty)[c.m_pathIndex, c.m_targetCoord];
                     c.m_targetCoord++;
 
-                    if (c.m_targetCoord == c.GetWayPoints(m_difficulty).Count())
+                    if (c.m_targetCoord == Enemy.GetWayPoints(m_difficulty).GetLength(1))
                     {
                         c.m_hitPoints = 0;
                         hitpoints -= 1;
