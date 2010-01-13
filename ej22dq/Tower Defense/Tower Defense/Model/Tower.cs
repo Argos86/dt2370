@@ -8,15 +8,6 @@ using Microsoft.Xna.Framework.Graphics;
 namespace Tower_Defense.Model
 {
 
-    /*public class Product : IComparable<Product>
-{
-    [...]
-
-    public int CompareTo(Product other)
-    {
-        return ProductName.CompareTo(other.ProductName);
-    }
-}*/
     class Tower : IComparable<Tower>
     {
         public Vector2 m_pos = new Vector2();

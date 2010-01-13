@@ -66,18 +66,20 @@ namespace Tower_Defense.View
 
         public void DrawLost()
         {
-            m_core.DrawText("You utterly utterly failed, you suck!", m_core.m_fonts.m_baseFont, new Vector2(300, 300), Color.Red);
+            m_core.DrawText("You utterly utterly failed, you suck!", m_core.m_fonts.m_baseFont, new Vector2(400, 300), Color.Red);
         }
 
         public void DrawWon()
         {
-            m_core.DrawText("You have completed the game at this difficulty, congratulations!", m_core.m_fonts.m_baseFont, new Vector2(300, 300), Color.Red);
+            m_core.DrawText("You have completed the game at this difficulty, congratulations!", m_core.m_fonts.m_baseFont, new Vector2(240, 300), Color.Red);
         }
 
         public void DrawWelcome()
         {
-            m_core.DrawText("Welcome to the Tower Defend of DOOOOM!", m_core.m_fonts.m_baseFont, new Vector2(300, 250), Color.Red);
-            m_core.DrawText("Choose your difficulty:", m_core.m_fonts.m_baseFont, new Vector2(350, 300), Color.Red);
+            m_core.DrawText("Welcome to the Tower Defend of DOOOOM!", m_core.m_fonts.m_baseFont, new Vector2(330, 250), Color.Red);
+            m_core.DrawText("Choose your difficulty:", m_core.m_fonts.m_baseFont, new Vector2(450, 300), Color.Red);
+            m_core.DrawText("Info about elements damage to eachother:", m_core.m_fonts.m_baseFont, new Vector2(350, 450), Color.Red);
+            m_core.DrawText("Fire > undead > wind > earth > water > fire, basic is neutral to all", m_core.m_fonts.m_baseFont, new Vector2(230, 500), Color.Red);
         }
         public void Draw(Tower_Defense.Model.Game a_game, float a_elapsedTime, int a_scale, Model.Tower a_selectedTower, Model.Tower.Type a_type)
         {
@@ -134,7 +136,6 @@ namespace Tower_Defense.View
                         enemyType = c.CurrentType.ToString();
                         enemiesAlive++;
 
-                        //m_core.DrawText("HP : " + c.m_hitPoints.ToString(), m_core.m_fonts.m_baseFont, new Vector2(300, 100 + num * 20), Color.White);
                         num++;
                     }
                 }
@@ -151,7 +152,6 @@ namespace Tower_Defense.View
                 m_core.DrawText("Enemies Alive: " + enemiesAlive.ToString(), m_core.m_fonts.m_baseFont, new Vector2(180, 760), Color.Red);
                 m_core.DrawText("Enemy Type: " + enemyType, m_core.m_fonts.m_baseFont, new Vector2(600, 760), Color.Red);
                 m_core.DrawText("Current Wave: " + currentWave, m_core.m_fonts.m_baseFont, new Vector2(390, 760), Color.Red);
-                //m_core.DrawParticle();
             }
 
 
@@ -196,7 +196,6 @@ namespace Tower_Defense.View
 
                 Model.Tower t = new Tower_Defense.Model.Tower(pos, a_type);
                 towerList.Add(t);
-                //m_characterView.DrawTower(m_core, pos, a_type, scale);
 
             }
 
@@ -219,8 +218,6 @@ namespace Tower_Defense.View
                     enemyList.Add(a_game.m_enemies[i]);
                 }
             }
-
-
 
             enemyList.Sort();
 

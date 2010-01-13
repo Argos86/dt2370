@@ -101,15 +101,6 @@
       <Time>2009-12-14T15:04:31.8562294+01:00</Time>
     </Item>
     <Item>
-      <Source>Kootenay.spritefont</Source>
-      <Name>Kootenay</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>P:\Skolarbete\Grundläggande spelprogrammering\ej22dq\Tower Defense\Tower Defense\bin\x86\Release\Content\Kootenay.xnb</Output>
-      <Time>2009-11-12T14:50:02+01:00</Time>
-    </Item>
-    <Item>
       <Source>Images\normalknight128.tga</Source>
       <Name>Images\normalknight128</Name>
       <Importer>TextureImporter</Importer>
@@ -172,6 +163,15 @@
       <Output>P:\Skolarbete\Grundläggande spelprogrammering\ej22dq\Tower Defense\Tower Defense\bin\x86\Release\Content\Images\magicattackyellow.xnb</Output>
       <Time>2010-01-08T13:31:38.303399+01:00</Time>
     </Item>
+    <Item>
+      <Source>Kootenay.spritefont</Source>
+      <Name>Kootenay</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>P:\Skolarbete\Grundläggande spelprogrammering\ej22dq\Tower Defense\Tower Defense\bin\x86\Release\Content\Kootenay.xnb</Output>
+      <Time>2009-11-12T14:50:02+01:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
@@ -209,7 +209,7 @@
       </Assembly>
       <Assembly>
         <Key>C:\Windows\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\3.1.0.0__6d5c3888ef60e27d\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2009-10-23T10:10:05.100052+02:00</Value>
+        <Value>2009-10-23T10:31:02.1001257+02:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

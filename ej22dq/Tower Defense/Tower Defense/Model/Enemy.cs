@@ -175,7 +175,6 @@ namespace Tower_Defense.Model
         {
             get { return m_type; }
         }
-        //private AStar m_searcher;
 
         public int GetMaxHP()
         {
@@ -206,13 +205,10 @@ namespace Tower_Defense.Model
             m_value = a_value;
             m_hitPoints = GetMaxHP();
             m_pathIndex = a_pathIndex;
-       //     m_searcher = null;
         }
 
         public bool Update(float a_elapsedTime)
         {
-            
-            //m_pos.X += GetSpeed() * a_elapsedTime;
             m_slowTimer -= a_elapsedTime;
             m_timer -= a_elapsedTime;
             if (IsAlive() == false)
@@ -267,20 +263,6 @@ namespace Tower_Defense.Model
         {
             return m_value + 1;
         }
-       /* public void FollowPath()
-        {
 
-            if (m_path.Count > 0)
-            {
-                m_oldPos = m_pos;
-                m_pos = m_path.First();
-                m_path.RemoveAt(0);
-                m_timer = 0.5f;
-            }
-            else
-            {
-                m_oldPos = m_pos;
-            }
-        }*/
     }
 }

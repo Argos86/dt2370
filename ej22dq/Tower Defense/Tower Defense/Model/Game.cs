@@ -18,10 +18,10 @@ namespace Tower_Defense.Model
         public bool m_IsOver = false;
         public const int MAX_ENEMIES = 50;
         public const int MAX_TOWERS = 20000;
-        public const int MAX_WAVES = 20;
+        public const int MAX_WAVES = 50;
 
         public int m_cash = 0;
-
+        public int m_addedcash = 0;
 
         public Difficulty m_difficulty = Difficulty.EASY;
 
@@ -98,7 +98,7 @@ namespace Tower_Defense.Model
             m_enemies = new Enemy[MAX_ENEMIES];
             for (int i = 0; i < MAX_ENEMIES; i++)
             {
-                m_enemies[i] = new Enemy();//new Vector2(-1*i, 35), m_waves[i].m_index, Enemy.Type.Normal);
+                m_enemies[i] = new Enemy();
             }
 
             for (int i = 0; i < MAX_WAVES; i++)
@@ -107,13 +107,19 @@ namespace Tower_Defense.Model
                 AddWave(MAX_ENEMIES, 1.0f, i);
             }
 
-            m_cash = 100;
+            m_cash = 150;
         }
 
         public void ActivateWave(ref Wave a_wave)
         {
             int m_startpos = 9;
-            m_cash += 50 * (a_wave.m_index);
+            int m_addedcash = 50 * (a_wave.m_index);
+            if (m_addedcash > 500)
+            {
+                m_addedcash = 500;
+            }
+
+            m_cash += m_addedcash;
             a_wave.m_isActive = false;
             Random r = new Random();
             int type = r.Next() % ((int)Enemy.Type.Max);
@@ -478,10 +484,6 @@ namespace Tower_Defense.Model
                 return;
             }
 
-           // float range = (float)Math.Sqrt(2.0f);
-
-            //follow path;
-            //m_enemies[a_enemy].FollowPath();
         }
 
         public void UpdateTower(int a_tower, float a_gameTime)

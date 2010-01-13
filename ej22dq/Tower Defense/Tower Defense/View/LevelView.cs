@@ -27,7 +27,7 @@ namespace Tower_Defense.View
                     }
                     else
                     {
-                        // a_core.Draw(a_core.m_assets.m_texture, new Rectangle(x * a_scale, y * a_scale, a_scale, a_scale), src, Color.DarkGray);
+                       
                     }
                 }
             }
