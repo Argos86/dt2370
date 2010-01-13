@@ -45,21 +45,21 @@ namespace Tower_Defense.Controller
                 a_game.m_IsOver = false;
                 
                 m_view.DrawWelcome();
-                View.IMGui.ButtonState state = m_gui.DoButton(m_core, "Easy", new Vector2(350, 350), true, false);
+                View.IMGui.ButtonState state = m_gui.DoButton(m_core, "Easy", new Vector2(455, 350), true, false);
                 if (state == View.IMGui.ButtonState.MouseOverLBClicked)
                 {
                     gameState = GameState.PLAYING;
                     a_game.Init(Model.Game.Difficulty.EASY);
                 }
 
-                state = m_gui.DoButton(m_core, "Medium", new Vector2(450, 350), true, false);
+                state = m_gui.DoButton(m_core, "Medium", new Vector2(540, 350), true, false);
                 if (state == View.IMGui.ButtonState.MouseOverLBClicked)
                 {
                     gameState = GameState.PLAYING;
                     a_game.Init(Model.Game.Difficulty.MEDIUM);
                 }
 
-                state = m_gui.DoButton(m_core, "Hard", new Vector2(550, 350), true, false);
+                state = m_gui.DoButton(m_core, "Hard", new Vector2(655, 350), true, false);
                 if (state == View.IMGui.ButtonState.MouseOverLBClicked)
                 {
                     gameState = GameState.PLAYING;
@@ -106,10 +106,9 @@ namespace Tower_Defense.Controller
 
         public void MenuButton(Model.Game a_game)
         {
-            View.IMGui.ButtonState state = m_gui.DoButton(m_core, "Go to the Menu", new Vector2(300, 350), true, false);
+            View.IMGui.ButtonState state = m_gui.DoButton(m_core, "Go to the Menu", new Vector2(510, 350), true, false);
             if (state == View.IMGui.ButtonState.MouseOverLBClicked)
             {
-                //a_game.Init();
                 gameState = GameState.MENU;
                 a_game.m_IsOver = false;
             }
@@ -117,7 +116,7 @@ namespace Tower_Defense.Controller
 
         public void RestartButton(Model.Game a_game)
         {
-            View.IMGui.ButtonState state = m_gui.DoButton(m_core, "Restart this difficulty", new Vector2(300, 400), true, false);
+            View.IMGui.ButtonState state = m_gui.DoButton(m_core, "Restart this difficulty", new Vector2(485, 400), true, false);
             if (state == View.IMGui.ButtonState.MouseOverLBClicked)
             {
                 gameState = GameState.PLAYING;

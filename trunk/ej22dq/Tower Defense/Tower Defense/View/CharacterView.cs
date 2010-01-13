@@ -87,7 +87,7 @@ namespace Tower_Defense.View
 
             if (a_character.IsAlive())
             {
-                //float time = 2.0f * (0.5f - a_character.m_timer);
+
 
                 
                 Color color = Color.White;

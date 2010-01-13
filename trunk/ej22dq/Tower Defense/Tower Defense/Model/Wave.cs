@@ -12,9 +12,7 @@ namespace Tower_Defense.Model
         public int m_amount;
         public Map.Direction m_direction;
         public int m_index;
-        //float m_delay;
-        //int[] m_enemyTypes
-        //Direction m_entranceDirection
+ 
 
         public Wave()
         {
