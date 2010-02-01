@@ -16,12 +16,8 @@ namespace JumpMania.Model
 {
     class Player 
     {
-
-        /*public Vector2 m_veli = new Vector2(0, 0);
-        float m_acceleration = 0.7f;*/
         public float m_movement = 0.0f;
         public float m_speed = 30.0f;
-        //bool m_isjumping = false;
         bool m_ismoving = false;
         public bool m_onground = true;
         const float MAX_SPEED = 10.0f;
@@ -56,12 +52,6 @@ namespace JumpMania.Model
         }
 
 
-        /*public void UpdateJump(GameTime theGameTime)
-        {
-           m_isjumping = true;
-        }*/
-
-
         public void UpdateWalkRight(GameTime theGameTime)
         {
             m_ismoving = true;
@@ -75,36 +65,14 @@ namespace JumpMania.Model
 
         public void Update(GameTime theGameTime)
         {
-
-           /* m_position.Y += m_veli * (float)theGameTime.ElapsedGameTime.TotalSeconds;
-
-            m_veli = 25; 
-
-            if (m_isjumping == true)
-            {
-                m_veli = m_veli - m_acceleration;
-                m_position.Y = m_position.Y - m_veli;
-
-                if (m_onground == true)
-                {
-                    m_isjumping = false;
-                    m_veli = 0;
-                }
-            }*/
-
-            /*Vector2 gravity = new Vector2(0, 9.82f);
-            m_veli += theGameTime * gravity;
-            Vector2 newPos = m_position + m_veli * theGameTime;*/
-
-
-            if (m_ismoving == true)
+          if (m_ismoving == true)
             {
                 float elapsed = (float)theGameTime.ElapsedGameTime.TotalSeconds;
                 m_velocity.X += m_speed * elapsed * m_movement;
                 if (m_velocity.X >= MAX_SPEED)
                 {
                     m_velocity.X = MAX_SPEED;
-                }                                       // <-- Ta en fucking titt på detta. ADAFSRGERYN ¤/W /&W¤/& /SRTUYSZRTHFTH XTH
+                }                                       
                 if (m_velocity.X <= -MAX_SPEED)
                 {
                     m_velocity.X = -MAX_SPEED;

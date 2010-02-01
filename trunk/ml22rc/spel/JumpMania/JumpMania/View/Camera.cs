@@ -21,9 +21,6 @@ namespace JumpMania.View
 
         public Camera()
         {
-           //m_scale = a_core.m_graphics.GraphicsDevice.Viewport.Width / Model.Level.WIDTH
-           //m_scale = 900/18
-
            m_scale = 50;
            camY = 256;
         }

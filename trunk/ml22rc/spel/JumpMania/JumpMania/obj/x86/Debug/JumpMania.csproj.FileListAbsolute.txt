@@ -24,3 +24,13 @@ P:\spelprojekt\ml22rc\spel\JumpMania\JumpMania\bin\x86\Debug\Content\Levels\3.tx
 P:\spelprojekt\ml22rc\spel\JumpMania\JumpMania\bin\x86\Debug\Content\Levels\4.txt
 P:\spelprojekt\ml22rc\spel\JumpMania\JumpMania\bin\x86\Debug\Content\Levels\5.txt
 P:\spelprojekt\ml22rc\spel\JumpMania\JumpMania\bin\x86\Debug\Content\images\background1.xnb
+P:\spelprojekt\ml22rc\spel\JumpMania\JumpMania\bin\x86\Debug\Content\images\mainch1.xnb
+P:\spelprojekt\ml22rc\spel\JumpMania\JumpMania\bin\x86\Debug\Content\images\mainch2.xnb
+P:\spelprojekt\ml22rc\spel\JumpMania\JumpMania\bin\x86\Debug\Content\images\background2.xnb
+P:\spelprojekt\ml22rc\spel\JumpMania\JumpMania\bin\x86\Debug\Content\images\background3.xnb
+P:\spelprojekt\ml22rc\spel\JumpMania\JumpMania\bin\x86\Debug\Content\images\background4.xnb
+P:\spelprojekt\ml22rc\spel\JumpMania\JumpMania\bin\x86\Debug\Content\images\background5.xnb
+P:\spelprojekt\ml22rc\spel\JumpMania\JumpMania\bin\x86\Debug\Content\images\tilez.xnb
+P:\spelprojekt\ml22rc\spel\JumpMania\JumpMania\bin\x86\Debug\Content\images\tilez2.xnb
+P:\spelprojekt\ml22rc\spel\JumpMania\JumpMania\bin\x86\Debug\Content\images\ztar.xnb
+P:\spelprojekt\ml22rc\spel\JumpMania\JumpMania\bin\x86\Debug\Content\images\ztar1.xnb

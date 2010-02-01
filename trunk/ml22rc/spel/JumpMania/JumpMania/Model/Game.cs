@@ -16,14 +16,14 @@ namespace JumpMania.Model
 {
     class Game
     {
-                                            // <-- välja två vägar, ha tiles som höjer golvet
+                                            
         public Player m_player;
         public Level m_level;
         public bool m_over = false;
         public bool m_won = false;
         public int m_levelLoaded = 0;
 
-         // skickar med int beroende på bana
+        
         public void LoadLevel(int a_levelnumber)
         {
             switch(a_levelnumber)
@@ -31,40 +31,40 @@ namespace JumpMania.Model
                 case 1:
                     {
                         m_player = new JumpMania.Model.Player();
-                        m_level = new JumpMania.Model.Level("2.txt");
+                        m_level = new JumpMania.Model.Level("2.txt", 1); 
                         m_levelLoaded = 1;
                         break;
                     }
                 case 2:
                     {
                         m_player = new JumpMania.Model.Player();
-                        m_level = new JumpMania.Model.Level("3.txt");
+                        m_level = new JumpMania.Model.Level("3.txt", 3);
                         m_levelLoaded = 2;
                         break;
                     }
                 case 3:
                     {
                         m_player = new JumpMania.Model.Player();
-                        m_level = new JumpMania.Model.Level("1.txt");
+                        m_level = new JumpMania.Model.Level("1.txt", 2);
                         m_levelLoaded = 3;
                         break;
                     }
                 case 4:
                     {
                         m_player = new JumpMania.Model.Player();
-                        m_level = new JumpMania.Model.Level("4.txt");
-                        m_levelLoaded = 3;
+                        m_level = new JumpMania.Model.Level("4.txt", 4);
+                        m_levelLoaded = 4;
                         break;
                     }
                 case 5:
                     {
                         m_player = new JumpMania.Model.Player();
-                        m_level = new JumpMania.Model.Level("5.txt");
-                        m_levelLoaded = 3;
+                        m_level = new JumpMania.Model.Level("5.txt", 5);
+                        m_levelLoaded = 5;
                         break;
                     }
                 default:
-                    Console.WriteLine("Default case"); // Bild: Du vann! Tjiho!
+                    Console.WriteLine("Bild: Du vann! Tjiho!"); 
                     break;
             }
         }
@@ -75,7 +75,7 @@ namespace JumpMania.Model
                     m_player.Update(theGameTime);
                     
 
-                    m_level.UpdateFloor(theGameTime); // <-- Uppdaterar golvet
+                    m_level.UpdateFloor(theGameTime); 
 
                     IsGameOver();
                     HasWon();
