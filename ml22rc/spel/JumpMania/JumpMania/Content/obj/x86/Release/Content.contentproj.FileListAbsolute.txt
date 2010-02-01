@@ -1,1 +1,2 @@
 P:\spelprojekt\ml22rc\JumpMania\JumpMania\Content\obj\x86\Release\ResolveAssemblyReference.cache
+P:\spelprojekt\ml22rc\spel\JumpMania\JumpMania\Content\obj\x86\Release\ResolveAssemblyReference.cache

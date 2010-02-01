@@ -51,7 +51,7 @@ namespace JumpMania.View
             {
                 return false;
             }
-
+                
             return true;
         }
     }

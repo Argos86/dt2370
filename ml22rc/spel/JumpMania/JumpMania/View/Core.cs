@@ -30,11 +30,6 @@ namespace JumpMania.View
             m_assets = new View.TextureAssets();
             m_graphics.PreferredBackBufferHeight = 900;
             m_graphics.PreferredBackBufferWidth = 900;
-
-
-            //Möjliggör fullskärm
-            //m_graphics.ToggleFullScreen();
-            //m_graphics.IsFullScreen = true;
         }
 
         public void Initiate(GraphicsDevice a_device, ContentManager a_content)
@@ -73,7 +68,6 @@ namespace JumpMania.View
                 m_flip = SpriteEffects.None;
             }
 
-            //int scale = m_graphics.GraphicsDevice.Viewport.Width / Model.Level.WIDTH;
             a_pos *= a_camera.m_scale;
             a_pos.Y -= a_camera.camY;
             Draw(m_assets.m_texture, a_pos, new Vector2(a_camera.m_scale * 1, a_camera.m_scale * 2), new Rectangle(0, 0, 50, 100), Color.White, 0, Vector2.Zero, m_flip, 0);

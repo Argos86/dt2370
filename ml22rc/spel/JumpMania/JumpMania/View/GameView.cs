@@ -16,18 +16,14 @@ namespace JumpMania.View
     
     class GameView
     {
-        // : Microsoft.Xna.Framework.Game
         View.Core m_chview;
         View.LevelView m_leview;
         View.Camera m_cam;
 
         public GameView(Game a_game)
         {
-            
-            
             m_chview = new View.Core(new GraphicsDeviceManager(a_game));
             m_leview = new View.LevelView(Model.Level.HEIGHT);
-            //m_floview = new JumpMania.View.FloorView();
             m_cam = new View.Camera();
         }
        
@@ -46,16 +42,9 @@ namespace JumpMania.View
             m_leview.Level1(m_chview, a_game.m_level, m_cam);
             m_chview.DrawPlaya(gameTime, a_game.m_player.m_position, m_cam, a_game.m_player);
 
-
-
             m_leview.Update(elapsed, a_game.m_level.m_floorHeight);
-           // m_leview.DrawParticle(m_chview);
-
-
-
+           
             m_chview.End();
         }
-
-
     }
 }

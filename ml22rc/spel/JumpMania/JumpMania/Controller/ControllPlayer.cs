@@ -17,7 +17,6 @@ namespace JumpMania.Controller
     class ControllPlayer
     {
         public View.Input a_input;
-        public float bs; // <-- BreakSpeed
 
         public ControllPlayer()
         {
@@ -36,22 +35,17 @@ namespace JumpMania.Controller
             }
             else
             {
-
-
                 UpdateGameRunning(theGameTime, a_game);
             }
         }
 
         private void UpdateGameRunning(GameTime theGameTime, JumpMania.Model.Game a_game)
         {
-            bs = 10.0f * (float)theGameTime.ElapsedGameTime.TotalSeconds;
-
             a_input.Update();
 
             if (a_input.IsJumping(theGameTime, a_game.m_player.m_collideGround) == true)
             {
-                a_game.m_player.m_velocity.Y = -16.0f; // <-- Bör möjligtvis justeras till -7.0f
-                //a_game.m_player.UpdateJump(theGameTime);
+                a_game.m_player.m_velocity.Y = -16.0f; 
             }
 
             if (a_input.IsWalkingRight(theGameTime) == true)
@@ -62,21 +56,7 @@ namespace JumpMania.Controller
             }
             else
             {
-                a_game.m_player.m_velocity.X *= 0.95f;                              // bör vara beroende på tid
-
-                /*if (a_game.m_player.m_velocity.X > bs)
-                {
-                    a_game.m_player.m_velocity.X -= bs;
-                }
-                else if (a_game.m_player.m_velocity.X < -bs)
-                {
-                    a_game.m_player.m_velocity.X += bs;
-                }
-                else
-                {
-                    a_game.m_player.m_velocity.X = 0;
-                }*/
-
+                a_game.m_player.m_velocity.X *= 0.95f;
             }
 
             if (a_input.IsWalkingLeft(theGameTime) == true)
@@ -87,20 +67,8 @@ namespace JumpMania.Controller
             else
             {
                 a_game.m_player.m_velocity.X *= 0.95f;
-                /*if (a_game.m_player.m_velocity.X > bs)
-                {
-                    a_game.m_player.m_velocity.X -= bs;
-                }
-                else if (a_game.m_player.m_velocity.X < -bs)
-                {
-                    a_game.m_player.m_velocity.X += bs;
-                }
-                else
-                {
-                    a_game.m_player.m_velocity.X = 0;
-                }*/
             }
-            if (a_input.IsRestarting() == true) // <-- Funkar ej om man har förlorat SDFJKLÅPOISDFGHJKLÖQWERTYUIOPFGHJKCVB  DFGHJK
+            if (a_input.IsRestarting() == true) 
             {
                 a_game.LoadLevel(1);
                 a_game.m_over = false;
